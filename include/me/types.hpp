@@ -19,9 +19,16 @@ struct Trade {
     Side aggressor;
 };
 
-enum class RejectReason : std::uint8_t { None, InvalidQuantity, InvalidPrice, DuplicateId };
+enum class RejectReason : std::uint8_t {
+    None,
+    InvalidQuantity,
+    InvalidPrice,
+    DuplicateId,
+    UnknownOrder,
+};
 
-// filled + resting + cancelled == original quantity.
+// filled + resting + cancelled == the quantity sent with the request
+// (qty for add_limit / add_market, new_qty for modify).
 struct ExecutionReport {
     OrderId id;
     Quantity filled = 0;

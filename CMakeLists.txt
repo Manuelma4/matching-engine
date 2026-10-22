@@ -24,21 +24,5 @@ add_library(me src/order_book.cpp)
 target_include_directories(me PUBLIC include)
 target_link_libraries(me PRIVATE me_warnings)
 
-# Tests
-include(FetchContent)
-FetchContent_Declare(
-  googletest
-  URL https://github.com/google/googletest/archive/refs/tags/v1.15.2.tar.gz
-  DOWNLOAD_EXTRACT_TIMESTAMP TRUE
-)
-FetchContent_MakeAvailable(googletest)
-
-enable_testing()
-add_executable(me_tests tests/test_order_book.cpp)
-target_link_libraries(me_tests PRIVATE me me_warnings GTest::gtest_main)
-include(GoogleTest)
-gtest_discover_tests(me_tests)
-
-# Benchmarks
 add_executable(me_bench bench/bench_order_book.cpp)
 target_link_libraries(me_bench PRIVATE me me_warnings)

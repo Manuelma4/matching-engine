@@ -26,6 +26,13 @@ public:
 
     bool cancel(OrderId id);
 
+    // `new_qty` is the new open quantity. A decrease at the same price keeps queue
+    // priority; an increase moves the order to the back of its level; a price change
+    // re-enters the order through matching and may trade. Rejects leave the book unchanged.
+    // The report's filled + resting + cancelled equals new_qty.
+    ExecutionReport modify(OrderId id, Price new_price, Quantity new_qty,
+                           std::vector<Trade>& trades);
+
     [[nodiscard]] std::optional<Price> best_bid() const;
     [[nodiscard]] std::optional<Price> best_ask() const;
     [[nodiscard]] Quantity volume_at(Side side, Price price) const;
@@ -48,13 +55,23 @@ private:
         Price price;
         Level::iterator it;
     };
-    std::unordered_map<OrderId, Locator> index_;  // O(1) cancel
+    using OrderIndex = std::unordered_map<OrderId, Locator>;
+    OrderIndex index_;  // O(1) cancel and modify
+
+    template <class F>
+    decltype(auto) with_levels(Side side, F&& f) {
+        return side == Side::Buy ? f(bids_) : f(asks_);
+    }
 
     template <class Levels, class Crosses>
     Quantity match(Levels& levels, Side aggressor, OrderId id, Quantity qty, Crosses crosses,
                    std::vector<Trade>& trades);
 
+    // Matches a validated limit order and rests the remainder.
+    ExecutionReport execute_limit(OrderId id, Side side, Price price, Quantity qty,
+                                  std::vector<Trade>& trades);
     void rest(OrderId id, Side side, Price price, Quantity qty);
+    void remove(OrderIndex::iterator found);
 };
 
 }  // namespace me

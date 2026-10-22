@@ -79,7 +79,12 @@ ExecutionReport OrderBook::add_limit(OrderId id, Side side, Price price, Quantit
         report.reject = RejectReason::DuplicateId;
         return report;
     }
+    return execute_limit(id, side, price, qty, trades);
+}
 
+ExecutionReport OrderBook::execute_limit(OrderId id, Side side, Price price, Quantity qty,
+                                         std::vector<Trade>& trades) {
+    ExecutionReport report{id};
     if (side == Side::Buy) {
         report.filled = match(asks_, side, id, qty, [price](Price p) { return p <= price; }, trades);
     } else {
@@ -112,27 +117,66 @@ ExecutionReport OrderBook::add_market(OrderId id, Side side, Quantity qty,
     return report;
 }
 
-bool OrderBook::cancel(OrderId id) {
-    auto found = index_.find(id);
-    if (found == index_.end()) {
-        return false;
-    }
+void OrderBook::remove(OrderIndex::iterator found) {
     const Locator loc = found->second;
     index_.erase(found);
-
-    const auto erase_from = [&loc](auto& levels) {
+    with_levels(loc.side, [&loc](auto& levels) {
         auto level_it = levels.find(loc.price);
         level_it->second.erase(loc.it);
         if (level_it->second.empty()) {
             levels.erase(level_it);
         }
-    };
-    if (loc.side == Side::Buy) {
-        erase_from(bids_);
-    } else {
-        erase_from(asks_);
+    });
+}
+
+bool OrderBook::cancel(OrderId id) {
+    auto found = index_.find(id);
+    if (found == index_.end()) {
+        return false;
     }
+    remove(found);
     return true;
+}
+
+ExecutionReport OrderBook::modify(OrderId id, Price new_price, Quantity new_qty,
+                                  std::vector<Trade>& trades) {
+    ExecutionReport report{id};
+    if (new_qty == 0) {
+        report.reject = RejectReason::InvalidQuantity;
+        return report;
+    }
+    if (new_price <= 0) {
+        report.reject = RejectReason::InvalidPrice;
+        return report;
+    }
+    auto found = index_.find(id);
+    if (found == index_.end()) {
+        report.reject = RejectReason::UnknownOrder;
+        return report;
+    }
+
+    // All validation happens above, so nothing below can leave a half-applied modify.
+    const Locator& loc = found->second;
+    if (new_price == loc.price) {
+        RestingOrder& order = *loc.it;
+        if (new_qty > order.remaining) {
+            // Increasing size forfeits time priority. splice relinks the node at the back
+            // of the same list: no allocation, and loc.it stays valid.
+            with_levels(loc.side, [&loc](auto& levels) {
+                Level& level = levels.find(loc.price)->second;
+                level.splice(level.end(), level, loc.it);
+            });
+        }
+        order.remaining = new_qty;
+        report.resting = new_qty;
+        return report;
+    }
+
+    // A new price is a new commitment: leave the queue and re-enter through matching,
+    // because the order may now cross the spread.
+    const Side side = loc.side;
+    remove(found);
+    return execute_limit(id, side, new_price, new_qty, trades);
 }
 
 std::optional<Price> OrderBook::best_bid() const {
