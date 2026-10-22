@@ -36,8 +36,8 @@ add_limit / add_market / modify / cancel
                    |
              Book<Store>            matching rules, same interface for every variant
                    |
-      Store<Levels, Index>          resting orders only; never matches, so a market-data
-      OrderPool | Levels | Index    replica reuses it
+      Store<Levels, Index>          resting orders only; never matches
+      OrderPool | Levels | Index    primitives shared with the market-data replica
 ```
 
 | Variant | Levels | Order index |

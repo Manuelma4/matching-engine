@@ -17,8 +17,10 @@
           +---------------------------------------+
 ```
 
-`Store` owns the resting orders and knows nothing about matching, so a market-data replica
-(the planned ITCH feed handler) can maintain a book with it without ever crossing orders.
+`Store` owns the resting orders and knows nothing about matching. The ITCH feed handler
+shares the slab, level FIFO and open-addressing index primitives, rather than the entire
+store: it needs one global reference index across instruments. Its replica applies feed
+events without crossing orders.
 `Book` adds the matching rules on top and has the same interface as the original `BookV1`,
 which is kept as the behavioural reference. `BookV1` only received the validation rules
 shared by every variant and an exception-safety fix; its containers and matching are those
