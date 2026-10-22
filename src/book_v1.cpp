@@ -1,4 +1,4 @@
-#include "me/order_book.hpp"
+#include "me/book_v1.hpp"
 
 #include <algorithm>
 #include <iterator>
@@ -31,8 +31,8 @@ Quantity level_volume(const Levels& levels, Price price) {
 }  // namespace
 
 template <class Levels, class Crosses>
-Quantity OrderBook::match(Levels& levels, Side aggressor, OrderId id, Quantity qty,
-                          Crosses crosses, std::vector<Trade>& trades) {
+Quantity BookV1::match(Levels& levels, Side aggressor, OrderId id, Quantity qty,
+                       Crosses crosses, std::vector<Trade>& trades) {
     Quantity filled = 0;
     while (filled < qty && !levels.empty()) {
         auto level_it = levels.begin();
@@ -58,14 +58,14 @@ Quantity OrderBook::match(Levels& levels, Side aggressor, OrderId id, Quantity q
     return filled;
 }
 
-void OrderBook::rest(OrderId id, Side side, Price price, Quantity qty) {
+void BookV1::rest(OrderId id, Side side, Price price, Quantity qty) {
     Level& level = side == Side::Buy ? bids_[price] : asks_[price];
     level.push_back(RestingOrder{id, qty});
     index_.emplace(id, Locator{side, price, std::prev(level.end())});
 }
 
-ExecutionReport OrderBook::add_limit(OrderId id, Side side, Price price, Quantity qty,
-                                     std::vector<Trade>& trades) {
+ExecutionReport BookV1::add_limit(OrderId id, Side side, Price price, Quantity qty,
+                                  std::vector<Trade>& trades) {
     ExecutionReport report{id};
     if (qty == 0) {
         report.reject = RejectReason::InvalidQuantity;
@@ -75,15 +75,27 @@ ExecutionReport OrderBook::add_limit(OrderId id, Side side, Price price, Quantit
         report.reject = RejectReason::InvalidPrice;
         return report;
     }
+    if (!cfg_.in_band(price)) {
+        report.reject = RejectReason::PriceOutOfBand;
+        return report;
+    }
+    if (id == 0) {
+        report.reject = RejectReason::InvalidId;
+        return report;
+    }
     if (index_.contains(id)) {
         report.reject = RejectReason::DuplicateId;
+        return report;
+    }
+    if (index_.size() >= cfg_.max_orders) {
+        report.reject = RejectReason::CapacityExceeded;
         return report;
     }
     return execute_limit(id, side, price, qty, trades);
 }
 
-ExecutionReport OrderBook::execute_limit(OrderId id, Side side, Price price, Quantity qty,
-                                         std::vector<Trade>& trades) {
+ExecutionReport BookV1::execute_limit(OrderId id, Side side, Price price, Quantity qty,
+                                      std::vector<Trade>& trades) {
     ExecutionReport report{id};
     if (side == Side::Buy) {
         report.filled = match(asks_, side, id, qty, [price](Price p) { return p <= price; }, trades);
@@ -98,11 +110,15 @@ ExecutionReport OrderBook::execute_limit(OrderId id, Side side, Price price, Qua
     return report;
 }
 
-ExecutionReport OrderBook::add_market(OrderId id, Side side, Quantity qty,
-                                      std::vector<Trade>& trades) {
+ExecutionReport BookV1::add_market(OrderId id, Side side, Quantity qty,
+                                   std::vector<Trade>& trades) {
     ExecutionReport report{id};
     if (qty == 0) {
         report.reject = RejectReason::InvalidQuantity;
+        return report;
+    }
+    if (id == 0) {
+        report.reject = RejectReason::InvalidId;
         return report;
     }
     if (index_.contains(id)) {
@@ -117,7 +133,7 @@ ExecutionReport OrderBook::add_market(OrderId id, Side side, Quantity qty,
     return report;
 }
 
-void OrderBook::remove(OrderIndex::iterator found) {
+void BookV1::remove(OrderIndex::iterator found) {
     const Locator loc = found->second;
     index_.erase(found);
     with_levels(loc.side, [&loc](auto& levels) {
@@ -129,7 +145,7 @@ void OrderBook::remove(OrderIndex::iterator found) {
     });
 }
 
-bool OrderBook::cancel(OrderId id) {
+bool BookV1::cancel(OrderId id) {
     auto found = index_.find(id);
     if (found == index_.end()) {
         return false;
@@ -138,8 +154,8 @@ bool OrderBook::cancel(OrderId id) {
     return true;
 }
 
-ExecutionReport OrderBook::modify(OrderId id, Price new_price, Quantity new_qty,
-                                  std::vector<Trade>& trades) {
+ExecutionReport BookV1::modify(OrderId id, Price new_price, Quantity new_qty,
+                               std::vector<Trade>& trades) {
     ExecutionReport report{id};
     if (new_qty == 0) {
         report.reject = RejectReason::InvalidQuantity;
@@ -147,6 +163,10 @@ ExecutionReport OrderBook::modify(OrderId id, Price new_price, Quantity new_qty,
     }
     if (new_price <= 0) {
         report.reject = RejectReason::InvalidPrice;
+        return report;
+    }
+    if (!cfg_.in_band(new_price)) {
+        report.reject = RejectReason::PriceOutOfBand;
         return report;
     }
     auto found = index_.find(id);
@@ -179,25 +199,25 @@ ExecutionReport OrderBook::modify(OrderId id, Price new_price, Quantity new_qty,
     return execute_limit(id, side, new_price, new_qty, trades);
 }
 
-std::optional<Price> OrderBook::best_bid() const {
+std::optional<Price> BookV1::best_bid() const {
     if (bids_.empty()) {
         return std::nullopt;
     }
     return bids_.begin()->first;
 }
 
-std::optional<Price> OrderBook::best_ask() const {
+std::optional<Price> BookV1::best_ask() const {
     if (asks_.empty()) {
         return std::nullopt;
     }
     return asks_.begin()->first;
 }
 
-Quantity OrderBook::volume_at(Side side, Price price) const {
+Quantity BookV1::volume_at(Side side, Price price) const {
     return side == Side::Buy ? level_volume(bids_, price) : level_volume(asks_, price);
 }
 
-std::size_t OrderBook::level_count(Side side) const {
+std::size_t BookV1::level_count(Side side) const {
     return side == Side::Buy ? bids_.size() : asks_.size();
 }
 

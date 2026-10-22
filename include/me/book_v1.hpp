@@ -12,10 +12,13 @@
 
 namespace me {
 
-// v1: correct and readable, not fast. Price-time priority (FIFO within a level).
-// See README.md "Roadmap" for the optimisations that replace each container.
-class OrderBook {
+// The first version, kept unchanged as the behavioural reference: std::map price levels,
+// std::list FIFO queues and std::unordered_map lookup. Every optimised variant must
+// produce exactly the same event stream (see docs/BENCHMARKS.md, output hashes).
+class BookV1 {
 public:
+    explicit BookV1(const BookConfig& cfg = {}) : cfg_(cfg) {}
+
     // Trades are appended to `trades`; the caller owns and reuses the buffer so the
     // hot path does not allocate once the vector has grown.
     ExecutionReport add_limit(OrderId id, Side side, Price price, Quantity qty,
@@ -39,12 +42,29 @@ public:
     [[nodiscard]] std::size_t level_count(Side side) const;
     [[nodiscard]] std::size_t order_count() const { return index_.size(); }
 
+    // Visits the orders resting at one price in priority order: f(OrderId, Quantity).
+    template <class F>
+    void for_each_order(Side side, Price price, F&& f) const {
+        const auto visit = [&](const auto& levels) {
+            auto it = levels.find(price);
+            if (it == levels.end()) {
+                return;
+            }
+            for (const auto& order : it->second) {
+                f(order.id, order.remaining);
+            }
+        };
+        side == Side::Buy ? visit(bids_) : visit(asks_);
+    }
+
 private:
     struct RestingOrder {
         OrderId id;
         Quantity remaining;
     };
     using Level = std::list<RestingOrder>;
+
+    BookConfig cfg_;
 
     // Both maps iterate best price first.
     std::map<Price, Level, std::greater<>> bids_;

@@ -20,9 +20,9 @@ if(ME_SANITIZE)
   add_link_options(-fsanitize=address,undefined)
 endif()
 
-add_library(me src/order_book.cpp)
+add_library(me src/book_v1.cpp)
 target_include_directories(me PUBLIC include)
 target_link_libraries(me PRIVATE me_warnings)
 
-add_executable(me_bench bench/bench_order_book.cpp)
+add_executable(me_bench bench/main.cpp bench/workloads.cpp)
 target_link_libraries(me_bench PRIVATE me me_warnings)
