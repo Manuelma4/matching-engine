@@ -1,6 +1,7 @@
 // me_bench: replays deterministic workloads through each book variant.
 //
-//   me_bench [--book NAME|all] [--regime NAME|all] [--seed N] [--ops N] [--csv]
+//   me_bench [--book NAME|all] [--regime NAME|all] [--seed N] [--ops N]
+//            [--max-orders N] [--csv]
 //
 // Each (book, regime) pair runs three passes, each on a fresh book:
 //   1. verification: hashes the full event stream (reports, trades, cancel results),
@@ -187,13 +188,14 @@ struct Options {
     std::string regime = "all";
     std::uint64_t seed = 42;
     std::size_t ops = 1'000'000;
+    std::uint32_t max_orders = me::BookConfig{}.max_orders;
     bool csv = false;
 };
 
 [[noreturn]] void usage() {
     std::fprintf(stderr,
                  "usage: me_bench [--book NAME|all] [--regime NAME|all] [--seed N] [--ops N] "
-                 "[--csv]\n  books:");
+                 "[--max-orders N] [--csv]\n  books:");
     for (const Variant& v : kVariants) {
         std::fprintf(stderr, " %s", v.name);
     }
@@ -223,6 +225,8 @@ Options parse(int argc, char** argv) {
             o.seed = std::strtoull(value(), nullptr, 10);
         } else if (arg == "--ops") {
             o.ops = std::strtoull(value(), nullptr, 10);
+        } else if (arg == "--max-orders") {
+            o.max_orders = static_cast<std::uint32_t>(std::strtoul(value(), nullptr, 10));
         } else if (arg == "--csv") {
             o.csv = true;
         } else {
@@ -256,7 +260,8 @@ int main(int argc, char** argv) {
     pthread_set_qos_class_self_np(QOS_CLASS_USER_INTERACTIVE, 0);
 #endif
     const Options o = parse(argc, argv);
-    const me::BookConfig cfg{};
+    me::BookConfig cfg{};
+    cfg.max_orders = o.max_orders;
 
     std::vector<const Variant*> variants;
     for (const Variant& v : kVariants) {
