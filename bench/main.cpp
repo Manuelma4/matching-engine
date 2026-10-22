@@ -42,6 +42,7 @@ struct Percentiles {
 struct Result {
     std::uint64_t hash = 0;
     std::size_t peak_orders = 0;
+    std::size_t final_orders = 0;
     double mops = 0;
     std::array<Percentiles, kOpTypes + 1> latency{};  // index kOpTypes = all operations
 };
@@ -123,6 +124,7 @@ Result measure(const std::vector<Op>& ops, const me::BookConfig& cfg) {
             result.peak_orders = std::max(result.peak_orders, book->order_count());
         }
         result.hash = hash.value();
+        result.final_orders = book->order_count();
     }
 
     {
@@ -302,8 +304,8 @@ int main(int argc, char** argv) {
                 print_csv_row(o, v->name, regime_name(regime), r, "all", r.latency[kOpTypes]);
                 continue;
             }
-            std::printf("\n[%s] %s: %.2f M ops/s, peak %zu orders, hash %016llx\n",
-                        regime_name(regime), v->name, r.mops, r.peak_orders,
+            std::printf("\n[%s] %s: %.2f M ops/s, orders peak %zu / final %zu, hash %016llx\n",
+                        regime_name(regime), v->name, r.mops, r.peak_orders, r.final_orders,
                         static_cast<unsigned long long>(r.hash));
             std::printf("  %-7s %8s %6s %6s %6s %7s %9s\n", "op", "count", "p50", "p90", "p99",
                         "p99.9", "max");

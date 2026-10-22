@@ -139,7 +139,8 @@ void deep_book(Flow& flow, std::size_t n) {
     }
 
     // Steady phase: passive adds and re-prices anywhere in the depth, cancels, and market
-    // orders large enough to take out a level or more.
+    // orders that take out a few levels at the touch. The flow is balanced (about 21 lots
+    // added and removed per operation) so the book stays deep for the whole run.
     const auto passive = [&](Side side) {
         const Price k = rng.between(1, depth);
         return side == Side::Buy ? mid - k : mid + k;
@@ -147,10 +148,10 @@ void deep_book(Flow& flow, std::size_t n) {
     while (flow.size() < n) {
         const std::uint64_t k = rng.below(100);
         const Side side = random_side(rng);
-        if (k < 40 || !flow.has_limits()) {
+        if (k < 43 || !flow.has_limits()) {
             flow.limit(side, passive(side), random_qty(rng, 1, 100));
         } else if (k < 45) {
-            flow.market(side, random_qty(rng, 200, 5'000));
+            flow.market(side, random_qty(rng, 100, 1'000));
         } else if (k < 60) {
             auto& target = flow.pick();
             const Price price = rng.percent(50) ? target.price : passive(target.side);
