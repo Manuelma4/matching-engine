@@ -136,3 +136,7 @@ This book is the core of two follow-up projects:
 - Anthony Williams, *C++ Concurrency in Action*
 - Larry Harris, *Trading and Exchanges*
 - Carl Cook, "When a Microsecond Is an Eternity", CppCon 2017
+
+## Licence
+
+MIT. See [LICENSE](LICENSE).
