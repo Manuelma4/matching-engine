@@ -6,5 +6,6 @@ namespace me {
 // every variant (the header declares them extern).
 template class Book<Store<MapLevels, StdIndex>>;
 template class Book<Store<MapLevels, OpenAddrIndex>>;
+template class Book<Store<VecLevels, OpenAddrIndex>>;
 
 }  // namespace me

@@ -189,8 +189,10 @@ ExecutionReport Book<S>::modify(OrderId id, Price new_price, Quantity new_qty,
 // Variants, each adding one change to the previous one (see docs/journal.md).
 using BookMap = Book<Store<MapLevels, StdIndex>>;         // order pool + intrusive FIFO
 using BookMapOA = Book<Store<MapLevels, OpenAddrIndex>>;  // + open-addressing index
+using BookVec = Book<Store<VecLevels, OpenAddrIndex>>;    // + sorted level vector
 
 extern template class Book<Store<MapLevels, StdIndex>>;
 extern template class Book<Store<MapLevels, OpenAddrIndex>>;
+extern template class Book<Store<VecLevels, OpenAddrIndex>>;
 
 }  // namespace me

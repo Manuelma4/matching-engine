@@ -3,6 +3,7 @@
 #include <cstddef>
 #include <functional>
 #include <map>
+#include <vector>
 
 #include "me/core.hpp"
 
@@ -12,6 +13,8 @@ namespace me {
 // level per side; they differ only in how a price is found.
 //
 //   MapLevels  std::map from price to level slot, O(log n): the textbook baseline.
+//   VecLevels  per-side vector of level slots sorted with the best price at the back,
+//              searched linearly from the touch, where nearly all activity happens.
 
 class MapLevels {
 public:
@@ -79,6 +82,92 @@ private:
     std::map<Price, Slot, std::less<>> asks_;
     LevelPool bid_pool_;
     LevelPool ask_pool_;
+};
+
+// Bids ascending and asks descending, so the best price is always back(). Finding,
+// inserting or erasing a level costs O(distance from the touch): cheap near the top of
+// the book, linear deep in it. Capacity is reserved for every price in the band, so the
+// vectors never reallocate.
+class VecLevels {
+public:
+    explicit VecLevels(const BookConfig& cfg)
+        : sides_{SideLevels(cfg.band_log2), SideLevels(cfg.band_log2)} {}
+
+    [[nodiscard]] Slot find(Side side, Price price) const {
+        const SideLevels& sl = sides_[index(side)];
+        for (auto it = sl.order.rbegin(); it != sl.order.rend(); ++it) {
+            const Price p = sl.pool[*it].price;
+            if (p == price) {
+                return *it;
+            }
+            if (better(side, price, p)) {
+                break;  // walked past where `price` would be
+            }
+        }
+        return kNil;
+    }
+
+    Slot find_or_create(Side side, Price price) {
+        SideLevels& sl = sides_[index(side)];
+        // pos ends at the first element that is not better than `price`, scanning from the
+        // touch; everything at or after pos is better and stays behind the new level.
+        std::size_t pos = sl.order.size();
+        while (pos > 0) {
+            const Slot l = sl.order[pos - 1];
+            const Price p = sl.pool[l].price;
+            if (p == price) {
+                return l;
+            }
+            if (better(side, price, p)) {
+                break;
+            }
+            --pos;
+        }
+        const Slot l = sl.pool.acquire();
+        sl.pool[l] = Level{price, 0, kNil, kNil, 0};
+        sl.order.insert(sl.order.begin() + static_cast<std::ptrdiff_t>(pos), l);
+        return l;
+    }
+
+    void release(Side side, Slot l) {
+        SideLevels& sl = sides_[index(side)];
+        for (std::size_t i = sl.order.size(); i-- > 0;) {
+            if (sl.order[i] == l) {
+                sl.order.erase(sl.order.begin() + static_cast<std::ptrdiff_t>(i));
+                break;
+            }
+        }
+        sl.pool.release(l);
+    }
+
+    [[nodiscard]] Slot best(Side side) const {
+        const SideLevels& sl = sides_[index(side)];
+        return sl.order.empty() ? kNil : sl.order.back();
+    }
+
+    Level& level(Side side, Slot l) { return sides_[index(side)].pool[l]; }
+    [[nodiscard]] const Level& level(Side side, Slot l) const {
+        return sides_[index(side)].pool[l];
+    }
+
+    [[nodiscard]] std::size_t count(Side side) const { return sides_[index(side)].order.size(); }
+
+private:
+    struct SideLevels {
+        explicit SideLevels(std::uint8_t band_log2) : pool(std::uint32_t{1} << band_log2) {
+            order.reserve(std::size_t{1} << band_log2);
+        }
+        std::vector<Slot> order;  // best at the back
+        LevelPool pool;
+    };
+
+    static constexpr std::size_t index(Side side) { return side == Side::Buy ? 0 : 1; }
+    // True if `a` is a better price than `b` for orders on `side`.
+    static constexpr bool better(Side side, Price a, Price b) {
+        return side == Side::Buy ? a > b : a < b;
+    }
+
+    SideLevels sides_[2];
 };
 
 }  // namespace me
