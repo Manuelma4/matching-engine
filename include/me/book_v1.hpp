@@ -17,7 +17,7 @@ namespace me {
 // produce exactly the same event stream (see docs/BENCHMARKS.md, output hashes).
 class BookV1 {
 public:
-    explicit BookV1(const BookConfig& cfg = {}) : cfg_(cfg) {}
+    explicit BookV1(const BookConfig& cfg = {}) : cfg_(validate(cfg)) {}
 
     // Trades are appended to `trades`; the caller owns and reuses the buffer so the
     // hot path does not allocate once the vector has grown.

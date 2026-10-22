@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <stdexcept>
 
 namespace me {
 
@@ -54,9 +55,25 @@ struct BookConfig {
     Price band_low = 1;
     std::uint8_t band_log2 = 16;
 
+    // The distance is computed unsigned: exact once price >= band_low, and free of the
+    // signed overflow a negative band_low would otherwise cause.
     [[nodiscard]] constexpr bool in_band(Price price) const {
-        return price >= band_low && price - band_low < (Price{1} << band_log2);
+        return price >= band_low &&
+               static_cast<std::uint64_t>(price) - static_cast<std::uint64_t>(band_low) <
+                   (std::uint64_t{1} << band_log2);
     }
 };
+
+// Throws std::invalid_argument unless 1 <= max_orders <= 2^32 - 2 (slot 2^32 - 1 is the
+// null slot) and band_log2 <= 62.
+inline const BookConfig& validate(const BookConfig& cfg) {
+    if (cfg.max_orders == 0 || cfg.max_orders == 0xFFFF'FFFFu) {
+        throw std::invalid_argument("BookConfig: max_orders must be in [1, 2^32 - 2]");
+    }
+    if (cfg.band_log2 > 62) {
+        throw std::invalid_argument("BookConfig: band_log2 must be at most 62");
+    }
+    return cfg;
+}
 
 }  // namespace me

@@ -12,6 +12,14 @@
 
 namespace me {
 
+// Live levels per side never exceed live orders (a level is released as soon as its last
+// order leaves, and a re-priced order leaves its old level before joining a new one), so
+// the pools need no more than min(prices in the band, max_orders) entries.
+inline std::uint32_t max_levels_per_side(const BookConfig& cfg) {
+    return static_cast<std::uint32_t>(
+        std::min<std::uint64_t>(std::uint64_t{1} << cfg.band_log2, cfg.max_orders));
+}
+
 // Price-level containers. Each maps (side, price) to a Level slot and tracks the best
 // level per side; they differ only in how a price is found.
 //
@@ -24,7 +32,7 @@ namespace me {
 class MapLevels {
 public:
     explicit MapLevels(const BookConfig& cfg)
-        : bid_pool_(levels_per_side(cfg)), ask_pool_(levels_per_side(cfg)) {}
+        : bid_pool_(max_levels_per_side(cfg)), ask_pool_(max_levels_per_side(cfg)) {}
 
     [[nodiscard]] Slot find(Side side, Price price) const {
         return side == Side::Buy ? lookup(bids_, price) : lookup(asks_, price);
@@ -62,11 +70,6 @@ public:
     }
 
 private:
-    // At most one level per price in the band.
-    static std::uint32_t levels_per_side(const BookConfig& cfg) {
-        return std::uint32_t{1} << cfg.band_log2;
-    }
-
     template <class Map>
     static Slot lookup(const Map& map, Price price) {
         auto it = map.find(price);
@@ -89,23 +92,23 @@ private:
     LevelPool ask_pool_;
 };
 
-// Bids ascending and asks descending, so the best price is always back(). Finding,
-// inserting or erasing a level costs O(distance from the touch): cheap near the top of
-// the book, linear deep in it. Capacity is reserved for every price in the band, so the
-// vectors never reallocate.
+// Bids ascending and asks descending, so the best price is always back(). Each entry
+// carries its price, so the search from the touch reads contiguous memory instead of
+// following a slot per step. Finding, inserting or erasing a level costs O(distance from
+// the touch): cheap near the top of the book, linear deep in it. Capacity is reserved up
+// front, so the vectors never reallocate.
 class VecLevels {
 public:
     explicit VecLevels(const BookConfig& cfg)
-        : sides_{SideLevels(cfg.band_log2), SideLevels(cfg.band_log2)} {}
+        : sides_{SideLevels(max_levels_per_side(cfg)), SideLevels(max_levels_per_side(cfg))} {}
 
     [[nodiscard]] Slot find(Side side, Price price) const {
-        const SideLevels& sl = sides_[index(side)];
-        for (auto it = sl.order.rbegin(); it != sl.order.rend(); ++it) {
-            const Price p = sl.pool[*it].price;
-            if (p == price) {
-                return *it;
+        const auto& order = sides_[index(side)].order;
+        for (auto it = order.rbegin(); it != order.rend(); ++it) {
+            if (it->price == price) {
+                return it->level;
             }
-            if (better(side, price, p)) {
+            if (better(side, price, it->price)) {
                 break;  // walked past where `price` would be
             }
         }
@@ -114,30 +117,29 @@ public:
 
     Slot find_or_create(Side side, Price price) {
         SideLevels& sl = sides_[index(side)];
-        // pos ends at the first element that is not better than `price`, scanning from the
+        // pos ends at the first entry that is not better than `price`, scanning from the
         // touch; everything at or after pos is better and stays behind the new level.
         std::size_t pos = sl.order.size();
         while (pos > 0) {
-            const Slot l = sl.order[pos - 1];
-            const Price p = sl.pool[l].price;
-            if (p == price) {
-                return l;
+            const Entry& e = sl.order[pos - 1];
+            if (e.price == price) {
+                return e.level;
             }
-            if (better(side, price, p)) {
+            if (better(side, price, e.price)) {
                 break;
             }
             --pos;
         }
         const Slot l = sl.pool.acquire();
         sl.pool[l] = Level{price, 0, kNil, kNil, 0};
-        sl.order.insert(sl.order.begin() + static_cast<std::ptrdiff_t>(pos), l);
+        sl.order.insert(sl.order.begin() + static_cast<std::ptrdiff_t>(pos), Entry{price, l});
         return l;
     }
 
     void release(Side side, Slot l) {
         SideLevels& sl = sides_[index(side)];
         for (std::size_t i = sl.order.size(); i-- > 0;) {
-            if (sl.order[i] == l) {
+            if (sl.order[i].level == l) {
                 sl.order.erase(sl.order.begin() + static_cast<std::ptrdiff_t>(i));
                 break;
             }
@@ -146,8 +148,8 @@ public:
     }
 
     [[nodiscard]] Slot best(Side side) const {
-        const SideLevels& sl = sides_[index(side)];
-        return sl.order.empty() ? kNil : sl.order.back();
+        const auto& order = sides_[index(side)].order;
+        return order.empty() ? kNil : order.back().level;
     }
 
     Level& level(Side side, Slot l) { return sides_[index(side)].pool[l]; }
@@ -158,11 +160,13 @@ public:
     [[nodiscard]] std::size_t count(Side side) const { return sides_[index(side)].order.size(); }
 
 private:
+    struct Entry {
+        Price price;
+        Slot level;
+    };
     struct SideLevels {
-        explicit SideLevels(std::uint8_t band_log2) : pool(std::uint32_t{1} << band_log2) {
-            order.reserve(std::size_t{1} << band_log2);
-        }
-        std::vector<Slot> order;  // best at the back
+        explicit SideLevels(std::uint32_t capacity) : pool(capacity) { order.reserve(capacity); }
+        std::vector<Entry> order;  // best at the back
         LevelPool pool;
     };
 
@@ -297,8 +301,11 @@ private:
         return band_log2;
     }
     static constexpr std::size_t index(Side side) { return side == Side::Buy ? 0 : 1; }
-    // The Store only passes prices inside the band.
-    [[nodiscard]] Slot offset(Price price) const { return static_cast<Slot>(price - base_); }
+    // The Store only passes prices inside the band; the unsigned distance cannot overflow.
+    [[nodiscard]] Slot offset(Price price) const {
+        return static_cast<Slot>(static_cast<std::uint64_t>(price) -
+                                 static_cast<std::uint64_t>(base_));
+    }
 
     Price base_;
     SideLadder sides_[2];

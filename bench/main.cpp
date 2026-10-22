@@ -226,7 +226,13 @@ Options parse(int argc, char** argv) {
         } else if (arg == "--ops") {
             o.ops = std::strtoull(value(), nullptr, 10);
         } else if (arg == "--max-orders") {
-            o.max_orders = static_cast<std::uint32_t>(std::strtoul(value(), nullptr, 10));
+            const char* text = value();
+            char* end = nullptr;
+            const unsigned long long n = std::strtoull(text, &end, 10);
+            if (end == text || *end != '\0' || n == 0 || n > 0xFFFF'FFFEull) {
+                usage();
+            }
+            o.max_orders = static_cast<std::uint32_t>(n);
         } else if (arg == "--csv") {
             o.csv = true;
         } else {
@@ -245,12 +251,12 @@ void print_row(const char* name, const Percentiles& p) {
 
 void print_csv_row(const Options& o, const char* book, const char* regime, const Result& r,
                    const char* op, const Percentiles& p) {
-    std::printf("%s,%s,%llu,%zu,%016llx,%zu,%.3f,%s,%zu,%lld,%lld,%lld,%lld,%lld\n", book, regime,
-                static_cast<unsigned long long>(o.seed), o.ops,
+    std::printf("%s,%s,%llu,%zu,%016llx,%zu,%.3f,%s,%zu,%lld,%lld,%lld,%lld,%lld,%u\n", book,
+                regime, static_cast<unsigned long long>(o.seed), o.ops,
                 static_cast<unsigned long long>(r.hash), r.peak_orders, r.mops, op, p.count,
                 static_cast<long long>(p.p50), static_cast<long long>(p.p90),
                 static_cast<long long>(p.p99), static_cast<long long>(p.p999),
-                static_cast<long long>(p.max));
+                static_cast<long long>(p.max), o.max_orders);
 }
 
 }  // namespace

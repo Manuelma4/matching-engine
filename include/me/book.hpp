@@ -172,17 +172,24 @@ ExecutionReport Book<S>::modify(OrderId id, Price new_price, Quantity new_qty,
     }
 
     // A new price re-enters through matching. The order keeps its slot and index entry
-    // while it is out of the queue, so nothing is freed or allocated on this path.
+    // while it is out of the queue, so nothing is freed or allocated on this path. If the
+    // caller's trade buffer fails to grow mid-match, the order is dropped as a cancel
+    // (as BookV1 does) rather than left indexed but outside every queue.
     const Side side = store_.order(s).side;
     store_.unlink(s);
-    report.filled = match<true>(side, id, new_qty, new_price, trades);
-    report.resting = new_qty - report.filled;
-    if (report.resting > 0) {
-        store_.order(s).qty = report.resting;
-        store_.link(s, new_price);
-    } else {
+    try {
+        report.filled = match<true>(side, id, new_qty, new_price, trades);
+        report.resting = new_qty - report.filled;
+        if (report.resting > 0) {
+            store_.order(s).qty = report.resting;
+            store_.link(s, new_price);
+            return report;
+        }
+    } catch (...) {
         store_.discard(s);
+        throw;
     }
+    store_.discard(s);
     return report;
 }
 

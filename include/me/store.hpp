@@ -18,7 +18,7 @@ template <class Levels, class Index>
 class Store {
 public:
     explicit Store(const BookConfig& cfg)
-        : cfg_(cfg), orders_(cfg.max_orders), levels_(cfg), index_(cfg.max_orders) {}
+        : cfg_(validate(cfg)), orders_(cfg.max_orders), levels_(cfg), index_(cfg.max_orders) {}
 
     [[nodiscard]] const BookConfig& config() const { return cfg_; }
     [[nodiscard]] bool full() const { return orders_.full(); }
@@ -66,22 +66,33 @@ public:
     }
 
     // Adds a new order at the back of its level. The caller has checked capacity, the
-    // price band and that the id is not already resting.
+    // price band and that the id is not already resting. Only the std::map and
+    // std::unordered_map containers can throw; the level is created before a slot is
+    // taken and the order is rolled back if indexing fails, so a throw changes nothing.
     Slot insert(OrderId id, Side side, Price price, Quantity qty) {
+        const Slot l = levels_.find_or_create(side, price);
         const Slot s = orders_.acquire();
         Order& o = orders_[s];
         o.id = id;
         o.qty = qty;
         o.side = side;
-        link(s, price);
-        index_.insert(id, s);
+        attach(s, l);
+        try {
+            index_.insert(id, s);
+        } catch (...) {
+            unlink(s);
+            orders_.release(s);
+            throw;
+        }
         return s;
     }
 
     // Appends an unlinked order at the back of the level for `price`.
-    void link(Slot s, Price price) {
+    void link(Slot s, Price price) { attach(s, levels_.find_or_create(orders_[s].side, price)); }
+
+    // Appends an unlinked order at the back of level `l`.
+    void attach(Slot s, Slot l) {
         Order& o = orders_[s];
-        const Slot l = levels_.find_or_create(o.side, price);
         Level& level = levels_.level(o.side, l);
         o.level = l;
         o.prev = level.tail;

@@ -147,7 +147,7 @@ void deep_book(Flow& flow, std::size_t n) {
     while (flow.size() < n) {
         const std::uint64_t k = rng.below(100);
         const Side side = random_side(rng);
-        if (k < 40) {
+        if (k < 40 || !flow.has_limits()) {
             flow.limit(side, passive(side), random_qty(rng, 1, 100));
         } else if (k < 45) {
             flow.market(side, random_qty(rng, 200, 5'000));

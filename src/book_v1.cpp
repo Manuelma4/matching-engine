@@ -58,10 +58,27 @@ Quantity BookV1::match(Levels& levels, Side aggressor, OrderId id, Quantity qty,
     return filled;
 }
 
+// Three allocations (map node, list node, hash node); each later failure undoes the
+// earlier steps, so a throw leaves neither an empty level nor an unindexed order.
 void BookV1::rest(OrderId id, Side side, Price price, Quantity qty) {
-    Level& level = side == Side::Buy ? bids_[price] : asks_[price];
-    level.push_back(RestingOrder{id, qty});
-    index_.emplace(id, Locator{side, price, std::prev(level.end())});
+    with_levels(side, [&](auto& levels) {
+        auto level_it = levels.try_emplace(price).first;
+        Level& level = level_it->second;
+        try {
+            level.push_back(RestingOrder{id, qty});
+            try {
+                index_.emplace(id, Locator{side, price, std::prev(level.end())});
+            } catch (...) {
+                level.pop_back();
+                throw;
+            }
+        } catch (...) {
+            if (level.empty()) {
+                levels.erase(level_it);
+            }
+            throw;
+        }
+    });
 }
 
 ExecutionReport BookV1::add_limit(OrderId id, Side side, Price price, Quantity qty,
