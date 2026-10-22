@@ -190,9 +190,14 @@ ExecutionReport Book<S>::modify(OrderId id, Price new_price, Quantity new_qty,
 using BookMap = Book<Store<MapLevels, StdIndex>>;         // order pool + intrusive FIFO
 using BookMapOA = Book<Store<MapLevels, OpenAddrIndex>>;  // + open-addressing index
 using BookVec = Book<Store<VecLevels, OpenAddrIndex>>;    // + sorted level vector
+using BookLadder = Book<Store<LadderLevels, OpenAddrIndex>>;  // + price ladder and bitmap
+
+// The default book: the variant that holds up across every benchmark regime.
+using OrderBook = BookLadder;
 
 extern template class Book<Store<MapLevels, StdIndex>>;
 extern template class Book<Store<MapLevels, OpenAddrIndex>>;
 extern template class Book<Store<VecLevels, OpenAddrIndex>>;
+extern template class Book<Store<LadderLevels, OpenAddrIndex>>;
 
 }  // namespace me

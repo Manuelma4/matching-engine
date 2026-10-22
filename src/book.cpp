@@ -7,5 +7,6 @@ namespace me {
 template class Book<Store<MapLevels, StdIndex>>;
 template class Book<Store<MapLevels, OpenAddrIndex>>;
 template class Book<Store<VecLevels, OpenAddrIndex>>;
+template class Book<Store<LadderLevels, OpenAddrIndex>>;
 
 }  // namespace me

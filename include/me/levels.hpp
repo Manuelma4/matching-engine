@@ -1,8 +1,11 @@
 #pragma once
 
+#include <algorithm>
+#include <bit>
 #include <cstddef>
 #include <functional>
 #include <map>
+#include <stdexcept>
 #include <vector>
 
 #include "me/core.hpp"
@@ -15,6 +18,8 @@ namespace me {
 //   MapLevels  std::map from price to level slot, O(log n): the textbook baseline.
 //   VecLevels  per-side vector of level slots sorted with the best price at the back,
 //              searched linearly from the touch, where nearly all activity happens.
+//   LadderLevels  direct index into the price band, plus a three-level bitmap that finds
+//              the next best price in O(1) when the best level empties.
 
 class MapLevels {
 public:
@@ -168,6 +173,135 @@ private:
     }
 
     SideLevels sides_[2];
+};
+
+// One bit per price, summarised twice with a fan-out of 64: a set bit in l1 means "this l0
+// word is non-zero", a set bit in l2 means "this l1 word is non-zero". The lowest or
+// highest set bit is three count-zeros away (rbit/clz on arm64), however many empty ticks
+// separate the levels. Supports up to 2^18 prices.
+class LevelBitmap {
+public:
+    static constexpr std::uint8_t kMaxLog2 = 18;
+
+    explicit LevelBitmap(std::uint8_t log2)
+        : l0_(std::max<std::size_t>(1, (std::size_t{1} << log2) >> 6)),
+          l1_(std::max<std::size_t>(1, (std::size_t{1} << log2) >> 12)) {}
+
+    [[nodiscard]] bool test(Slot i) const { return (l0_[i >> 6] & bit(i)) != 0; }
+
+    void set(Slot i) {
+        l0_[i >> 6] |= bit(i);
+        l1_[i >> 12] |= bit(i >> 6);
+        l2_ |= bit(i >> 12);
+    }
+
+    void clear(Slot i) {
+        if ((l0_[i >> 6] &= ~bit(i)) != 0) {
+            return;
+        }
+        if ((l1_[i >> 12] &= ~bit(i >> 6)) != 0) {
+            return;
+        }
+        l2_ &= ~bit(i >> 12);
+    }
+
+    [[nodiscard]] Slot lowest() const {
+        if (l2_ == 0) {
+            return kNil;
+        }
+        const Slot a = static_cast<Slot>(std::countr_zero(l2_));
+        const Slot b = (a << 6) | static_cast<Slot>(std::countr_zero(l1_[a]));
+        return (b << 6) | static_cast<Slot>(std::countr_zero(l0_[b]));
+    }
+
+    [[nodiscard]] Slot highest() const {
+        if (l2_ == 0) {
+            return kNil;
+        }
+        const Slot a = static_cast<Slot>(63 - std::countl_zero(l2_));
+        const Slot b = (a << 6) | static_cast<Slot>(63 - std::countl_zero(l1_[a]));
+        return (b << 6) | static_cast<Slot>(63 - std::countl_zero(l0_[b]));
+    }
+
+private:
+    static constexpr std::uint64_t bit(Slot i) { return std::uint64_t{1} << (i & 63); }
+
+    std::vector<std::uint64_t> l0_;
+    std::vector<std::uint64_t> l1_;
+    std::uint64_t l2_ = 0;
+};
+
+// A Level for every price in the band, indexed by (price - band_low), so finding or
+// creating a level is a single array access. The best level per side is cached; when it
+// empties, the bitmap gives the next one in O(1), which avoids the walk over empty ticks
+// that sinks a plain array book in a fast market. 2^16 prices cost 2 MB per side.
+class LadderLevels {
+public:
+    explicit LadderLevels(const BookConfig& cfg)
+        : base_(cfg.band_low),
+          sides_{SideLadder(checked(cfg.band_log2)), SideLadder(cfg.band_log2)} {}
+
+    [[nodiscard]] Slot find(Side side, Price price) const {
+        const Slot i = offset(price);
+        return sides_[index(side)].bits.test(i) ? i : kNil;
+    }
+
+    Slot find_or_create(Side side, Price price) {
+        SideLadder& sl = sides_[index(side)];
+        const Slot i = offset(price);
+        if (!sl.bits.test(i)) {
+            sl.bits.set(i);
+            sl.levels[i] = Level{price, 0, kNil, kNil, 0};
+            ++sl.count;
+            if (sl.best == kNil || (side == Side::Buy ? i > sl.best : i < sl.best)) {
+                sl.best = i;
+            }
+        }
+        return i;
+    }
+
+    void release(Side side, Slot i) {
+        SideLadder& sl = sides_[index(side)];
+        sl.bits.clear(i);
+        --sl.count;
+        if (i == sl.best) {
+            // The emptied level was the extreme one, so the new best is the bitmap's
+            // highest bid or lowest ask.
+            sl.best = side == Side::Buy ? sl.bits.highest() : sl.bits.lowest();
+        }
+    }
+
+    [[nodiscard]] Slot best(Side side) const { return sides_[index(side)].best; }
+
+    Level& level(Side side, Slot i) { return sides_[index(side)].levels[i]; }
+    [[nodiscard]] const Level& level(Side side, Slot i) const {
+        return sides_[index(side)].levels[i];
+    }
+
+    [[nodiscard]] std::size_t count(Side side) const { return sides_[index(side)].count; }
+
+private:
+    struct SideLadder {
+        explicit SideLadder(std::uint8_t band_log2)
+            : levels(std::size_t{1} << band_log2), bits(band_log2) {}
+        std::vector<Level> levels;
+        LevelBitmap bits;
+        Slot best = kNil;
+        std::size_t count = 0;
+    };
+
+    static std::uint8_t checked(std::uint8_t band_log2) {
+        if (band_log2 > LevelBitmap::kMaxLog2) {
+            throw std::invalid_argument("LadderLevels: band_log2 must be at most 18");
+        }
+        return band_log2;
+    }
+    static constexpr std::size_t index(Side side) { return side == Side::Buy ? 0 : 1; }
+    // The Store only passes prices inside the band.
+    [[nodiscard]] Slot offset(Price price) const { return static_cast<Slot>(price - base_); }
+
+    Price base_;
+    SideLadder sides_[2];
 };
 
 }  // namespace me
