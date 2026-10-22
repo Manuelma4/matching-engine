@@ -20,7 +20,7 @@ if(ME_SANITIZE)
   add_link_options(-fsanitize=address,undefined)
 endif()
 
-add_library(me src/book_v1.cpp)
+add_library(me src/book_v1.cpp src/book.cpp)
 target_include_directories(me PUBLIC include)
 target_link_libraries(me PRIVATE me_warnings)
 

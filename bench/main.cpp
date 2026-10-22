@@ -24,6 +24,7 @@
 #include <pthread/qos.h>
 #endif
 
+#include "me/book.hpp"
 #include "me/book_v1.hpp"
 #include "workloads.hpp"
 
@@ -175,6 +176,7 @@ struct Variant {
 
 constexpr std::array kVariants{
     Variant{"v1", &measure<me::BookV1>},
+    Variant{"map", &measure<me::BookMap>},
 };
 
 struct Options {
