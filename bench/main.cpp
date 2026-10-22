@@ -177,6 +177,7 @@ struct Variant {
 constexpr std::array kVariants{
     Variant{"v1", &measure<me::BookV1>},
     Variant{"map", &measure<me::BookMap>},
+    Variant{"map-oa", &measure<me::BookMapOA>},
 };
 
 struct Options {
