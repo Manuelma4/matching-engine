@@ -14,6 +14,20 @@ for the data flow, evidence, measured trade-offs and remaining gaps.
 
 ## Run the queue example without market data
 
+For a direct C++ API example, run from the **parent matching-engine repository root**:
+
+```sh
+cmake -S . -B build-combined -DCMAKE_BUILD_TYPE=Release -DME_BUILD_FEED_HANDLER=ON
+cmake --build build-combined --target itch_queue_demo --parallel 2
+./build-combined/feed-handler/itch_queue_demo
+```
+
+Four compiled-in synthetic events demonstrate two cancellation assumptions, separate
+exchange/local accounts and a pending fill response. Read the
+[hand calculation and C++ API guide](docs/QUEUE_DEMO.md) alongside its source.
+
+### Supplementary identified-order prototype
+
 Use Python 3 from this checkout; no build or data download is required:
 
 ```bash

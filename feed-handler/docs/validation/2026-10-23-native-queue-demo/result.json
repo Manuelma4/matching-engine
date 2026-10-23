@@ -1,0 +1,99 @@
+{
+  "model": "native_queue_demo_evidence_v1",
+  "passed": true,
+  "source_base_commit": "605e3154efc8e5275f865ebb98c8f6178d54da0c",
+  "sources": {
+    "feed-handler/tools/queue_demo.cpp": {
+      "bytes": 4233,
+      "sha256": "affee36796bc9bf590f8194f773a9913fdecf8da24a5c98fa0ea50df8e2e8afb"
+    },
+    "feed-handler/CMakeLists.txt": {
+      "bytes": 4266,
+      "sha256": "6940d80f413589bb7725346e8db330f3e12737cd1e513648b884b5040e8e11b4"
+    },
+    "feed-handler/include/itch/queue_sim.hpp": {
+      "bytes": 3322,
+      "sha256": "5031e65b70a18749fcc9e274d9a6a84d29cd1ff3c44d653b444dfe5c7f50ee6b"
+    },
+    "feed-handler/src/queue_sim.cpp": {
+      "bytes": 14138,
+      "sha256": "2da5625b9ede5a68c84ad219e91b8c9f43a6c5885f358e9172ca132527dc437d"
+    }
+  },
+  "frozen_hand_oracle": {
+    "bytes": 37449,
+    "sha256": "d48cdddcd6737a01b522b7bed58a66056dae22498ad9f7315fe9bcf356c491fe"
+  },
+  "compiler_version": "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+  "builds": {
+    "release": {
+      "binary": {
+        "bytes": 58768,
+        "sha256": "789ccdf1507db808c783ab7d9455edac9e45366d3c853d1a3c6ec1394c237951"
+      },
+      "compile_and_link_flags_verified": true,
+      "queue_kernel_and_demo_instrumented": false,
+      "linked_only_to_existing_queue_library": true,
+      "leak_detection_enabled": null
+    },
+    "sanitised": {
+      "binary": {
+        "bytes": 342288,
+        "sha256": "b1383655df62a05bf3a8f213c1f1c57548b6a3331cd5254c2373e7e85f4c5f4b"
+      },
+      "compile_and_link_flags_verified": true,
+      "queue_kernel_and_demo_instrumented": true,
+      "linked_only_to_existing_queue_library": true,
+      "leak_detection_enabled": false
+    }
+  },
+  "raw_data_accessed": false,
+  "native_queue_rules_changed": false,
+  "distinct_historical_states": 41,
+  "new_historical_states": 0,
+  "limitations": [
+    "Three configurations share one four-event fictional path.",
+    "Only the twelve printed trace fields and printed final accounts/marks are compared; unprinted native fields are not.",
+    "Address/undefined sanitiser diagnostics are absent in these runs; macOS leak detection is disabled.",
+    "No historical fill, status admission, empirical latency or performance result."
+  ],
+  "comparison": {
+    "distinct_configs": 3,
+    "market_input_paths": 1,
+    "printed_trace_rows_per_run": 34,
+    "printed_trace_row_instances_all_runs": 136,
+    "compared_trace_fields_per_row": 12,
+    "compared_final_accounts_and_marks": true,
+    "altered_output_controls_rejected": [
+      "early_local_fill",
+      "external_shadow_double_depletion",
+      "zero_mark_misreported_missing"
+    ],
+    "full_native_trace_fields_compared": false,
+    "native_runs": 4,
+    "all_four_stdout_files_byte_identical": true,
+    "stdout_identity": {
+      "bytes": 3494,
+      "sha256": "071b2b2279829bb5606fa3feb9a0829720558ffbb99b629c863542c28a379a05"
+    },
+    "trace_rows_per_scenario": [
+      12,
+      11,
+      11
+    ],
+    "pending_events_per_scenario": [
+      0,
+      0,
+      1
+    ],
+    "marks_twice4_per_scenario": [
+      100,
+      0,
+      0
+    ]
+  },
+  "private_evidence_record": {
+    "bytes": 4317,
+    "sha256": "d483692a02567d083e1426723fd5657355b2def32e70db041c6a553d08df4050"
+  }
+}

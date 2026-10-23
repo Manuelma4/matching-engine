@@ -5,6 +5,9 @@ a synthetic, normalised external-liquidity trace. It is an executable teaching m
 with explicit event ordering, information delays, cancellation assumptions and accounts.
 A successful run validates those rules; it does not establish empirical fill accuracy.
 
+Start with the [self-contained C++ API example](QUEUE_DEMO.md) to see four literal
+events, two cancellation assumptions and a pending response without preparing a CSV.
+
 The simulator is separate from the validated ITCH reconstruction and observed-wire
 journal. Its input is the CSV described below, not raw ITCH. The separate
 [bounded historical projector](HISTORICAL_WINDOW.md) can export that schema while

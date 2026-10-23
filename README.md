@@ -115,8 +115,11 @@ cmake -S . -B build-combined -DCMAKE_BUILD_TYPE=Release \
   -DME_BUILD_FEED_HANDLER=ON
 cmake --build build-combined -j 4
 ./build-combined/feed-handler/itch_loopback --ops 10000 --seed 42
-python3 feed-handler/bench/identified_queue_demo.py
+./build-combined/feed-handler/itch_queue_demo
 ```
+
+The [native C++ queue example](feed-handler/docs/QUEUE_DEMO.md) needs no input files.
+It shows two cancellation assumptions and a fill response pending at the horizon.
 
 The feed handler also supports a [standalone component build](feed-handler/README.md#build).
 For an integrated ASan/UBSan build enable both `ME_SANITIZE` and `ITCH_SANITIZE`.

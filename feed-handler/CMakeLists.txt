@@ -78,6 +78,9 @@ target_link_libraries(itch_queue PRIVATE itch_warnings)
 add_executable(itch_queue_sim tools/queue_sim.cpp)
 target_link_libraries(itch_queue_sim PRIVATE itch_queue itch_warnings)
 
+add_executable(itch_queue_demo tools/queue_demo.cpp)
+target_link_libraries(itch_queue_demo PRIVATE itch_queue itch_warnings)
+
 add_library(itch_window src/queue_window.cpp)
 target_include_directories(itch_window PUBLIC include)
 target_link_libraries(itch_window PUBLIC itch itch_queue PRIVATE itch_warnings)
