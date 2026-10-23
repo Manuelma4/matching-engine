@@ -1,0 +1,182 @@
+{
+  "comparison": {
+    "all_four_order_csvs_byte_identical": true,
+    "checks": {
+      "artefacts_unchanged": true,
+      "complete_declared_state_manifests": true,
+      "exact_source_boundaries": true,
+      "explicit_empty_states_checked": true,
+      "populated_depth_and_fifo_coverage": true,
+      "side_totals_reconcile": true,
+      "strict_price_fifo_traversal": true,
+      "zero_validation_counters": true
+    },
+    "compared_order_rows": 55105,
+    "coverage_per_export": {
+      "both_sided_states": 4,
+      "deep_multiorder_states": 4,
+      "empty_books": 0,
+      "empty_sides": 0,
+      "levels": 11837,
+      "order_rows": 55105,
+      "shares": 6384246,
+      "states": 4
+    },
+    "differing_order_rows": 0,
+    "differing_order_state_count": 0,
+    "mismatches": {
+      "extra_local_rows": 0,
+      "fifo_rank": 0,
+      "missing_local_rows": 0,
+      "prefix_identity": 0,
+      "price4": 0,
+      "reference": 0,
+      "shares": 0,
+      "side": 0,
+      "state_id": 0,
+      "state_manifest": 0
+    },
+    "order_csv_identity": {
+      "bytes": 1427892,
+      "sha256": "e68d93d82e8042263ec79a4627ed27cfcbdd7ed850abb8b02ce2bbd5e2a6893c"
+    },
+    "order_rows_across_all_four_export_files": 220420,
+    "own_summary_repeats_byte_identical": true,
+    "passed": true,
+    "validation_scopes": {
+      "local": "full_prefix_all_symbols",
+      "reference": "selected_symbols_only"
+    }
+  },
+  "coverage": {
+    "combined_distinct_states": 41,
+    "every_event_verified": false,
+    "fills_claimed": false,
+    "independent_vendor": false,
+    "new_distinct_states": 4,
+    "new_msft_states": 2,
+    "new_qqq_states": 2,
+    "previous_distinct_states": 37,
+    "queue_or_status_admitted": false
+  },
+  "execution_counts": {
+    "comparators": 1,
+    "exported_state_instances": 16,
+    "hashes": 2,
+    "helpers": 4,
+    "selectors": 2
+  },
+  "independent_reference": {
+    "executed": true,
+    "licence": "MIT",
+    "project": "itchbook",
+    "revision": "3c646f9da182136125059243b475f7b8baa53773",
+    "runs": 2
+  },
+  "input": {
+    "bytes": 8251407909,
+    "date": "2019-12-30",
+    "format": "BinaryFILE ITCH 5.0",
+    "fresh_full_before_after_match": true,
+    "prefixes": [
+      {
+        "bytes": 4122194560,
+        "sha256": "fb008c20a0cbe83d369bc3bd6704d022a9f34aefbed8f877bfa9cb1abe720e9d"
+      },
+      {
+        "bytes": 4122194597,
+        "sha256": "232893dd6130745b873c9672b0f9ade337b99308e547d603ba340a74875a850c"
+      },
+      {
+        "bytes": 7196832336,
+        "sha256": "9603037aa4b466f931b4692b6427f2dda2d7d5d85e4ecb0233920e7a8346113a"
+      },
+      {
+        "bytes": 7196832374,
+        "sha256": "b5730034f4aeec4ee9fe427dbde23c46e58ff4c7c32b4a2ce98b23643621ec30"
+      }
+    ],
+    "sha256": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f",
+    "venue": "Nasdaq"
+  },
+  "limitations": [
+    "Four sampled selected-symbol inventories, not every intermediate or unselected state.",
+    "Orders and levels are instances across snapshots; persistent orders may recur.",
+    "The independent implementation shares the wire specification and is not an exchange/vendor oracle.",
+    "RSS/output enforcement is sampled, with possible between-sample overshoot.",
+    "The first sampling refusal remains unexplained; this success does not establish provider reliability.",
+    "No C++ implementation change, new performance benchmark, actual exchange priority, empirical fill or session-status admission."
+  ],
+  "model": "later_session_complete_l3_aggregate_v1",
+  "original_failed_phase": {
+    "bytes": 208745,
+    "cause_identified": false,
+    "preserved": true,
+    "sha256": "a5544dfaff35a470503589b5f2c9899d7d4bc9ca070a24580b9de90aa408cadb"
+  },
+  "passed": true,
+  "private_phase_record": {
+    "bytes": 309027,
+    "sha256": "ee6d66151ac303755847ea57a8b4c66be541a3a2c41b9a7ac7586bf8face17aa"
+  },
+  "sampling": {
+    "maximum_allowed_sample_gap_seconds": 0.25,
+    "maximum_observed_rss_bytes": 5794676736,
+    "maximum_sample_gap_seconds": 0.19349625008180737,
+    "native_provider_reliability_established": false,
+    "native_query_timeout_seconds": 0.1,
+    "query_runner_injected": false,
+    "recorded_query_failures": 0,
+    "rss_samples": 1514,
+    "rss_stop_bytes": 12884901888
+  },
+  "schema_version": 1,
+  "selection": {
+    "actual_cut_timestamps_ns": [
+      43199999541726,
+      55799999654927
+    ],
+    "consumed_prefix_bytes": 7196832374,
+    "exact_agreement": true,
+    "exact_full_selection_matches_original_attempt": true,
+    "parsed_global_frames": 235718762,
+    "requested_states": 4,
+    "selector_implementations": 2,
+    "symbols": [
+      "MSFT",
+      "QQQ"
+    ],
+    "targets_ns": [
+      43200000000000,
+      55800000000000
+    ]
+  },
+  "source_commit": "0deb57020bc6d3b448805dbe2385d54e0928be32",
+  "source_identities": {
+    "comparator": {
+      "bytes": 20217,
+      "sha256": "abf11fca148a5d9fac5c232cd72bf9bf6ff63b2db0d72bffc411da1b17f21bfb"
+    },
+    "coordinator": {
+      "bytes": 50542,
+      "sha256": "3382c90366213723bbcf129520407511ef3d9a57d725b7a7994558d2147fab3c"
+    },
+    "hash_child": {
+      "bytes": 5825,
+      "sha256": "49966c343d79693581e740d36dcae09ce112870cbacbb0320b640ce2c47b190a"
+    },
+    "local_helper_binary": {
+      "bytes": 100648,
+      "sha256": "a2ffdaf633505638b74250726b1e3b54ef940dc4e4b5421777b4ef1cced2075f"
+    },
+    "reference_helper_binary": {
+      "bytes": 77240,
+      "sha256": "89e654ae0e91d96b0abe6cb319697c20827a9d6b22a0cb87ea33e5b37102ff3b"
+    },
+    "supervisor": {
+      "bytes": 19409,
+      "sha256": "4a2a362f6fda0c5c6537c5da0a7e5aa423273fdb3e0180da6f8b2e02ea7abaf4"
+    }
+  },
+  "source_unchanged": true
+}

@@ -337,13 +337,15 @@ now passes fourteen repeated positive calls, sixteen intended input refusals and
 altered actual-output controls. Across 184 scheduled events it preserves complete
 captured information and named D/E reductions; the hypothetical marker ends behind
 594 shares with zero fills under its explicit convention. Six reused inventories add
-no independent samples; coverage remains 37 distinct states. The technical walkthrough
-joins those results to the BBO, L3, journal and storage evidence. The first
-[later-session attempt](docs/validation/2026-10-23-later-session-attempt/README.md)
-now has exact agreement between two C++ source selectors, but its first local replay
-was stopped on an unavailable RSS measurement. No book comparison ran and no states
-were added. Diagnose the provider on synthetic inputs before a further admission;
-preserve the failed attempt and existing resource policies.
+no independent samples. The technical walkthrough joins those results to the BBO,
+L3, journal and storage evidence. The subsequent
+[later-session comparison](docs/validation/2026-10-23-later-session-l3/README.md)
+adds four independently matched MSFT/QQQ inventories at noon and 15:30: 55,105 ordered
+row instances and 11,837 level instances, bringing sampled coverage to 41 distinct
+states. Both C++ exporters repeat byte-for-byte under the original resource policies.
+The [first attempt](docs/validation/2026-10-23-later-session-attempt/README.md) remains
+preserved; its unavailable RSS measurement is still unexplained. The later success
+establishes neither provider reliability nor session-status or fill admission.
 
 
 - The [self-contained synthetic example](docs/validation/2026-10-23-identified-queue-example/README.md)
@@ -396,7 +398,7 @@ preserve the failed attempt and existing resource policies.
   and reverse-linear default; another policy needs a concrete measured question.
 - Extend reference-index measurements to other flows and consider price-level
   containers separately if a concrete cost justifies their allocation complexity.
-- Extend independent full-depth/order comparison beyond the 37 selected states.
+- Extend independent full-depth/order comparison beyond the 41 selected states.
 - Extend independently checked identified history beyond the current bounded profiles
   before expanding queue/fill assumptions.
   Normalisation directly from the observed-wire journal remains future work.

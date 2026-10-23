@@ -8,9 +8,10 @@ on the canonical day at one second (306,140 rows), plus MSFT and QQQ at 100 ms
 (1,224,560 rows). All sampled prices and aggregate quantities agree exactly. The
 two implementations consume independently hashed identical raw bytes. The later
 [L3 comparison](L3_VALIDATION.md) also checks complete displayed depth and reconstructed
-FIFO at 37 distinct identified states, including the
-[X/U extension](validation/2026-10-23-l3-transitions/README.md) and
-[same-price replacement pair](validation/2026-10-23-same-price-l3/README.md).
+FIFO at 41 distinct identified states, including the
+[X/U extension](validation/2026-10-23-l3-transitions/README.md),
+[same-price replacement pair](validation/2026-10-23-same-price-l3/README.md) and
+[four later-session states](validation/2026-10-23-later-session-l3/README.md).
 Every-event quotes/depth, actual exchange priority and a separate vendor oracle remain unverified.
 
 The [technical walkthrough](TECHNICAL_WALKTHROUGH.md) maps the existing evidence to
@@ -1014,11 +1015,33 @@ repeat or comparator completes. New independent states are zero; the total stays
 
 The provider's underlying failure category was not retained. A command timeout is
 plausible but unproven; no memory-threshold exceedance was observed. Synthetic
-diagnostics must distinguish provider refusals while preserving the existing missing-
-measurement and resource policies before another canonical admission. This outcome
-establishes no local/reference discrepancy, successful book comparison or performance
-result. C++20 remains the system implementation; Python supplies supporting private
-orchestration and reporting.
+diagnostics were subsequently verified before a separate instrumented source/launch
+admission. The original outcome establishes no local/reference discrepancy, successful
+book comparison or performance result and remains unchanged.
+
+## Later-session complete-state comparison
+
+The [instrumented phase](validation/2026-10-23-later-session-l3/README.md) now passes
+under all original limits, with the exact same four requests. Two C++ selectors agree
+on the global cuts; local and pinned itchbook exporters each run twice. All four full
+order files are byte-identical: 55,105 ordered row instances and 11,837 level instances
+across four new distinct states. The strict comparator reports zero in all ten mismatch
+counters. Together with the previous 37 states, independent coverage is now 41.
+
+Fresh full input hashes before and after agree, with separate cut/witness prefix hashes.
+Each exporter validates its declared domain: full-prefix/all-symbols locally and
+selected-symbols-only in the reference. Their own summaries repeat, while the two
+validation scopes remain different. Four files contain 220,420 row instances across
+sixteen exported state instances; neither repetition nor persistent orders create
+additional distinct historical states.
+
+All 1,514 RSS samples succeed without injection; the maximum observed RSS is
+5,794,676,736 bytes and the largest sample interval is about 193.5 ms. These are sampled
+supervision observations, not instantaneous peak bounds or a performance benchmark.
+The original provider failure remains unexplained; a later success does not establish
+reliability. This comparison grants no every-event, vendor-oracle, session-status,
+actual-priority or empirical-fill claim. No C++ implementation changed; C++20 performs
+selection/reconstruction and Python supplies supporting private orchestration.
 
 ## What remains unverified
 
@@ -1039,7 +1062,7 @@ orchestration and reporting.
 - Empirical fills and historical identified queue priority. The bounded handoff checks
   its declared model on two windows; hidden liquidity, market impact, routing, auctions,
   risk/funding constraints and an exit/liquidation model remain open. Reconstructed
-  FIFO agrees at 37 distinct points; the identified observer contract passes hand-frozen
+  FIFO agrees at 41 distinct points; the identified observer contract passes hand-frozen
   cases, its legacy canonical connection passes two admitted windows, and the separate
   exact-source adapter passes four more using the twenty retained X/U states.
   Broader identified flow and richer queue assumptions remain separate acceptance gates.

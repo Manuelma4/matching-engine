@@ -215,7 +215,7 @@ and the new 284,563,784-byte prefix identity pass. The independent final review 
 176 small identities without another raw replay. These finite observations do not
 expand the restricted identified-history or causal/transport admission contracts.
 
-## Current combined coverage: 37 distinct states
+## Same-price extension: 37 distinct states
 
 The [same-price replacement comparison](validation/2026-10-23-same-price-l3/README.md)
 adds two disjoint QQQ states to the fifteen baseline and twenty X/U states above.
@@ -224,9 +224,25 @@ reference exactly. The old best-bid order at rank two is replaced at the level's
 thirteen-order tail; BBO prices, sizes and counts remain equal. This supplies the
 same-price case absent from the earlier twenty-state extension.
 
-Current independent displayed L3/FIFO coverage is therefore 15+20+2 = 37 distinct
+Independent displayed L3/FIFO coverage at that milestone is 15+20+2 = 37 distinct
 boundaries. Repeated comparisons and later causal models reuse states; they do not
 increase that count. No actual exchange priority, every-event correctness, hidden
 liquidity, empirical fill or broader session-coverage claim follows. The
 [technical walkthrough](TECHNICAL_WALKTHROUGH.md) connects these checks to the other
 layers and the next coverage question.
+
+## Current combined coverage: 41 distinct states
+
+The [later-session comparison](validation/2026-10-23-later-session-l3/README.md)
+adds four disjoint complete MSFT/QQQ states at the fixed noon and 15:30 inclusive
+feed-clock targets. They contribute 55,105 ordered row instances and 11,837 level
+instances. Both independently written C++ selectors agree on the actual global cuts;
+the first-greater witness closes each cut without entering the exported state.
+
+Each C++ exporter runs twice; all four full order files are byte-identical and all
+ten strict mismatch counters are zero. Full input and separate cut/witness prefix
+hashes pass. The earlier measurement refusal remains preserved and unexplained.
+Coverage is now 15+20+2+4 = 41 distinct states. The 220,420 rows across repeated files
+are row instances, not unique orders or additional historical states. Earlier BBO
+counts stay unchanged. This remains sampled reconstruction agreement, with no actual
+exchange priority, every-event, vendor-oracle, session-status or fill admission.

@@ -11,6 +11,9 @@ storage primitives. The engine decides trades; the replica reconstructs publishe
 exchange events. Start with the [pipeline walkthrough](feed-handler/docs/TECHNICAL_WALKTHROUGH.md)
 and [validation record](feed-handler/docs/VALIDATION.md) for independent BBO/depth
 comparisons, deterministic journalling, measured storage and bounded causal examples.
+The [later-session inventory comparison](feed-handler/docs/validation/2026-10-23-later-session-l3/README.md)
+now brings sampled independent displayed L3/FIFO coverage to 41 distinct states,
+including four noon/15:30 states with 55,105 ordered row instances and zero differences.
 
 The matching engine, decoder, L3 reconstruction, journal/replay and native queue
 simulator are C++20. Python supports experiment orchestration, identity checks,
