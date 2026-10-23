@@ -337,9 +337,13 @@ now passes fourteen repeated positive calls, sixteen intended input refusals and
 altered actual-output controls. Across 184 scheduled events it preserves complete
 captured information and named D/E reductions; the hypothetical marker ends behind
 594 shares with zero fills under its explicit convention. Six reused inventories add
-no independent samples; coverage remains 37 distinct states. The technical walkthrough now joins those results to the BBO, L3, journal and storage
-evidence. Next define deterministic later-session inventory checkpoints and resource
-limits before expanding independent comparison coverage.
+no independent samples; coverage remains 37 distinct states. The technical walkthrough
+joins those results to the BBO, L3, journal and storage evidence. The first
+[later-session attempt](docs/validation/2026-10-23-later-session-attempt/README.md)
+now has exact agreement between two C++ source selectors, but its first local replay
+was stopped on an unavailable RSS measurement. No book comparison ran and no states
+were added. Diagnose the provider on synthetic inputs before a further admission;
+preserve the failed attempt and existing resource policies.
 
 
 - The [self-contained synthetic example](docs/validation/2026-10-23-identified-queue-example/README.md)

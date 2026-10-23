@@ -12,6 +12,11 @@ exchange events. Start with the [pipeline walkthrough](feed-handler/docs/TECHNIC
 and [validation record](feed-handler/docs/VALIDATION.md) for independent BBO/depth
 comparisons, deterministic journalling, measured storage and bounded causal examples.
 
+The matching engine, decoder, L3 reconstruction, journal/replay and native queue
+simulator are C++20. Python supports experiment orchestration, identity checks,
+comparisons and reports; some supplementary observer/queue examples are Python
+model prototypes. Their checks are separate from C++ runtime and performance evidence.
+
 ## Results at a glance
 
 Single thread, Apple M4 Pro, macOS 26.6, Apple clang 21 `-O3`, no core pinning. Medians of

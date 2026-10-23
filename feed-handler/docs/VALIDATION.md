@@ -1002,6 +1002,24 @@ no files or status. Six previously checked inventories add no independent sample
 coverage remains 37. No raw operation, reference/book replay, C++/sanitiser run,
 performance measurement or empirical fill claim occurs in this gate.
 
+## Later-session source agreement and measurement refusal
+
+The [first bounded attempt](validation/2026-10-23-later-session-attempt/README.md)
+and [aggregate](validation/2026-10-23-later-session-attempt/result.json) retain an
+operational refusal. Both independent C++ selectors agree on four fixed noon/15:30
+MSFT/QQQ requests after 235,718,762 frames. Fresh whole-input hashes before and after
+match, with separate cut/witness prefix identities. The first local replay then stops
+on an unavailable RSS measurement and is reaped; no order export, reference book,
+repeat or comparator completes. New independent states are zero; the total stays 37.
+
+The provider's underlying failure category was not retained. A command timeout is
+plausible but unproven; no memory-threshold exceedance was observed. Synthetic
+diagnostics must distinguish provider refusals while preserving the existing missing-
+measurement and resource policies before another canonical admission. This outcome
+establishes no local/reference discrepancy, successful book comparison or performance
+result. C++20 remains the system implementation; Python supplies supporting private
+orchestration and reporting.
+
 ## What remains unverified
 
 - BBO/depth outside the tested states and a separate exchange/vendor oracle.

@@ -1,0 +1,129 @@
+{
+  "coverage": {
+    "book_mismatch_counts": null,
+    "combined_distinct_states": 37,
+    "fills_claimed": false,
+    "independent_book_comparison_ran": false,
+    "new_distinct_states": 0,
+    "previous_distinct_states": 37,
+    "queue_or_status_admitted": false
+  },
+  "execution_counts": {
+    "comparators": 0,
+    "exported_state_instances": 0,
+    "hashes": 2,
+    "helpers": 1,
+    "selectors": 2
+  },
+  "independent_reference": {
+    "executed_in_this_attempt": false,
+    "licence": "MIT",
+    "project": "itchbook",
+    "revision": "3c646f9da182136125059243b475f7b8baa53773"
+  },
+  "input": {
+    "bytes": 8251407909,
+    "date": "2019-12-30",
+    "format": "BinaryFILE ITCH 5.0",
+    "fresh_full_before_after_match": true,
+    "prefixes": [
+      {
+        "bytes": 4122194560,
+        "sha256": "fb008c20a0cbe83d369bc3bd6704d022a9f34aefbed8f877bfa9cb1abe720e9d"
+      },
+      {
+        "bytes": 4122194597,
+        "sha256": "232893dd6130745b873c9672b0f9ade337b99308e547d603ba340a74875a850c"
+      },
+      {
+        "bytes": 7196832336,
+        "sha256": "9603037aa4b466f931b4692b6427f2dda2d7d5d85e4ecb0233920e7a8346113a"
+      },
+      {
+        "bytes": 7196832374,
+        "sha256": "b5730034f4aeec4ee9fe427dbde23c46e58ff4c7c32b4a2ce98b23643621ec30"
+      }
+    ],
+    "sha256": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f",
+    "venue": "Nasdaq"
+  },
+  "limitations": [
+    "Failed operational measurement admission; no new independent inventory evidence.",
+    "RSS/output policies are sampled and do not bound instantaneous peaks.",
+    "No exact provider-failure subtype was retained.",
+    "Shared selector specification can contain common mistakes.",
+    "No benchmark, every-event correctness, actual exchange priority or empirical fill result."
+  ],
+  "model": "later_session_attempt_aggregate_v1",
+  "outcome": "refused",
+  "private_phase_record": {
+    "bytes": 208745,
+    "passed": false,
+    "sha256": "a5544dfaff35a470503589b5f2c9899d7d4bc9ca070a24580b9de90aa408cadb"
+  },
+  "private_prerequisites": {
+    "hash_checks": 8,
+    "hash_intended_refusals": 6,
+    "hash_positive": 2,
+    "metadata_checks": 13,
+    "metadata_intended_refusals": 9,
+    "metadata_positive": 4
+  },
+  "refusal": {
+    "child_returncode": -15,
+    "maximum_allowed_sample_gap_seconds": 0.25,
+    "maximum_observed_rss_bytes": 4010147840,
+    "maximum_sample_gap_seconds": 0.2131574999075383,
+    "phase": "local-1",
+    "provider_failure_category": "not retained; exact cause unknown",
+    "reason": "metric_unavailable",
+    "retained_export_files": 0,
+    "rss_samples": 558,
+    "rss_stop_bytes": 12884901888,
+    "stop_to_reap_seconds": 0.02270066598430276
+  },
+  "schema_version": 1,
+  "selection": {
+    "actual_cut_timestamps_ns": [
+      43199999541726,
+      55799999654927
+    ],
+    "consumed_prefix_bytes": 7196832374,
+    "exact_agreement": true,
+    "independent_cpp_implementations": 2,
+    "parsed_global_frames": 235718762,
+    "requested_states": 4,
+    "symbols": [
+      "MSFT",
+      "QQQ"
+    ],
+    "targets_ns": [
+      43200000000000,
+      55800000000000
+    ]
+  },
+  "source_commit": "b4b70954e339bca8612c95c59338f4574f678ffb",
+  "source_identities": {
+    "coordinator": {
+      "bytes": 42376,
+      "sha256": "c39378d2b98b3401ee19697fe09aea38be898df89815444ad36c042a7f7f9da4"
+    },
+    "hash_child": {
+      "bytes": 5825,
+      "sha256": "49966c343d79693581e740d36dcae09ce112870cbacbb0320b640ce2c47b190a"
+    },
+    "local_helper_binary": {
+      "bytes": 100648,
+      "sha256": "a2ffdaf633505638b74250726b1e3b54ef940dc4e4b5421777b4ef1cced2075f"
+    },
+    "reference_helper_binary": {
+      "bytes": 77240,
+      "sha256": "89e654ae0e91d96b0abe6cb319697c20827a9d6b22a0cb87ea33e5b37102ff3b"
+    },
+    "supervisor": {
+      "bytes": 17053,
+      "sha256": "24ec32e4f9ae9cdc484545296ce36ffa3920e98f37e15e69586f99f44b659251"
+    }
+  },
+  "source_unchanged": true
+}
