@@ -1,0 +1,283 @@
+{
+  "accepted_commits": {
+    "gate20": "4217319052b354b2e9ad68bfd83ccc56c9a801a1",
+    "gate21": "957ed8c04d49edd297ae6ba40debd1268e17bb2d",
+    "gate23": "a3c6aa15f6966e9a4e9caeedfc17e5f77e0acad9"
+  },
+  "accepted_evidence": {
+    "gate20_classification": {
+      "bytes": 93414,
+      "path": "workspace/itch-feed-handler/out/same-price-classification-v1/verification.json",
+      "sha256": "10cfb567ca8e1fbbcba81ebbb813065ff8313f80d975fa6b07bea7ab93c07536"
+    },
+    "gate20_public": {
+      "bytes": 19719,
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-23-same-price-classification/verification.json",
+      "sha256": "2e4b822b5a3f534f20cc4bc385da5ffb4d00b255d669a9a4467ffc1de6f0d04e"
+    },
+    "gate21_public": {
+      "bytes": 35461,
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-23-same-price-l3/verification.json",
+      "sha256": "698f849714ce62b2927e926df14e062b0751be72624b31820c6982271c481bfe"
+    },
+    "gate23_postcommit": {
+      "bytes": 50893,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-postcommit-v1/verification.json",
+      "sha256": "b06b9f996b7675bfde862c4547716de983b1743e05dec1dc935a9c2f68c0c90d"
+    },
+    "gate23_public": {
+      "bytes": 44109,
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-23-same-price-observer-runtime/verification.json",
+      "sha256": "5366ae3e5240af0fae34dccd89ab1dcfb7339f4b574ecb673605f0aec82113ca"
+    }
+  },
+  "activity": {
+    "new_book_or_reference_reconstructions": 0,
+    "new_cpp_builds_tests_or_sanitisers": 0,
+    "new_observer_or_queue_runs": 0,
+    "new_performance_runs": 0,
+    "new_raw_hash_passes": 0,
+    "new_source_scans": 0,
+    "source_reviews": 2
+  },
+  "conditional_queue_scenarios": [
+    "pre_U_acceptance",
+    "arrival_at_closed_t1",
+    "undelivered_seed_skip",
+    "arrival_pending",
+    "acceptance_response_pending",
+    "own_only_cancellation"
+  ],
+  "contract": {
+    "bytes": 12101,
+    "path": "workspace/itch-feed-handler/docs/IDENTIFIED_QUEUE_PREREQUISITES.md",
+    "sha256": "3d15a6e3cea9cc834fbfbb7baaa8406197076f7d4baed6e0081281ce19774d52"
+  },
+  "errors": [],
+  "existing_interfaces": {
+    "docs/HANDOFF.md": {
+      "bytes": 12716,
+      "path": "workspace/itch-feed-handler/docs/HANDOFF.md",
+      "sha256": "82d9792b943d0fdaf40a4aeae1233ca6cf5260ffd4f21ac4c27991e397a8d9f9"
+    },
+    "docs/HISTORICAL_WINDOW.md": {
+      "bytes": 9892,
+      "path": "workspace/itch-feed-handler/docs/HISTORICAL_WINDOW.md",
+      "sha256": "5566e9338fb23a050742ee8dc41881d7460e9480a70596d96d08cb516eeb4e06"
+    },
+    "docs/QUEUE_SIMULATOR.md": {
+      "bytes": 12799,
+      "path": "workspace/itch-feed-handler/docs/QUEUE_SIMULATOR.md",
+      "sha256": "b6621d34d7fc0a85c16bad41a32171abd78bdd2d0ded00b0ac894c8e3f616239"
+    },
+    "docs/SAME_PRICE_OBSERVER.md": {
+      "bytes": 13120,
+      "path": "workspace/itch-feed-handler/docs/SAME_PRICE_OBSERVER.md",
+      "sha256": "6a2dfe90476d1ca3304027bbe26ccbca63bc8e7766f02d16fa0df6307718926a"
+    },
+    "include/itch/queue_sim.hpp": {
+      "bytes": 3322,
+      "path": "workspace/itch-feed-handler/include/itch/queue_sim.hpp",
+      "sha256": "5031e65b70a18749fcc9e274d9a6a84d29cd1ff3c44d653b444dfe5c7f50ee6b"
+    },
+    "include/itch/queue_window.hpp": {
+      "bytes": 3352,
+      "path": "workspace/itch-feed-handler/include/itch/queue_window.hpp",
+      "sha256": "85e96de848c5572591b17b587901d52d0dc39e6d23e144da23588756e17945eb"
+    },
+    "src/queue_sim.cpp": {
+      "bytes": 14138,
+      "path": "workspace/itch-feed-handler/src/queue_sim.cpp",
+      "sha256": "2da5625b9ede5a68c84ad219e91b8c9f43a6c5885f358e9172ca132527dc437d"
+    },
+    "src/queue_window.cpp": {
+      "bytes": 19686,
+      "path": "workspace/itch-feed-handler/src/queue_window.cpp",
+      "sha256": "98cfbc84d9bd2c5ffea0ed1108fb6396e9f19e2777d5c3ff2a8da24fb9e7f772"
+    }
+  },
+  "findings": [
+    {
+      "decision": "Preserve legacy refusal; a later small identified shadow overlay is conditional on separate status/coverage admission.",
+      "id": "fixed_level_API_cannot_represent_atomic_U",
+      "source": "include/itch/queue_sim.hpp and src/queue_window.cpp target replacement guard"
+    },
+    {
+      "decision": "The adjacent later U proves t0 group complete; first global timestamp greater than t1 is required to close t1 before whole-timestamp phase scheduling.",
+      "id": "PRE_timestamp_closed_POST_timestamp_not_yet_closed"
+    },
+    {
+      "decision": "Retained directory/OSQ and earlier whole-day clues are not new fixed-pair latest-status admission; unknown h/N stays explicit.",
+      "id": "latest_status_not_admitted_for_this_pair"
+    },
+    {
+      "decision": "Freshly verify bounded nested and larger prefixes in the next audit; semantic status freezes before witness and authentication-only tail.",
+      "id": "known_longer_prefix_can_authenticate_the_witness"
+    }
+  ],
+  "limitations": [
+    "Review approval does not establish actual status/closure results or queue/session admission.",
+    "Earlier exploratory status clues and their preliminary audit suggestion are retained history; the final reviewed contract supersedes that proposal.",
+    "The proposed later overlay keeps historical book, own marker and local knowledge separate and makes no actual matching-priority or empirical-fill claim.",
+    "Unknown seed attribution/birth clocks remain unknown. Status restrictions are model admission, not complete venue order-entry or regulatory eligibility.",
+    "No raw, market frame, per-event output or real quote is copied into this publication."
+  ],
+  "model": "identified_queue_prerequisites_review_v1",
+  "next_audit": {
+    "canonical_raw_bytes_inherited": 8251407909,
+    "fresh_full_raw_checksum_required": false,
+    "full_raw_sha256_inherited": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f",
+    "gate": 25,
+    "independently_structured_scanners": 2,
+    "max_decoded_frames": 16000000,
+    "max_physical_bytes_read_per_scanner": 524152398,
+    "nested_prefix_bytes": 509933991,
+    "nested_prefix_sha256": "47d19f447eaa60aaabc1f041c6cce28b83261358cbc0c0436052a3afb8fb9a10",
+    "old_byte_ceiling": 536870912,
+    "prefix_bytes": 524152398,
+    "prefix_sha256": "c8e4fff1b993f8ebc5eae8c43d94e110935fa5e3d883853c3812d43e0b8f1b96",
+    "scope": "Fixed original pair, first later global timestamp witness, latest status and closed-group selected census; no books or queue."
+  },
+  "passed": true,
+  "primary_reading": {
+    "fresh_PDF_digest_claimed": false,
+    "latest_revision_shown": "2023-04-28",
+    "read_on": "2026-10-23",
+    "sections": [
+      "1.1",
+      "1.2.1",
+      "1.2.2",
+      "1.2.5",
+      "1.2.8",
+      "1.5.2",
+      "1.7"
+    ],
+    "url": "https://www.nasdaqtrader.com/content/technicalsupport/specifications/dataproducts/NQTVITCHspecification.pdf"
+  },
+  "resolved_source_review_details": [
+    "Require accepted full raw size, as well as stability, without claiming fresh full-file SHA.",
+    "Apply latest eligibility at PRE and throughout the interval, rather than refusing ordinary superseded premarket states.",
+    "Allow a valid witness exactly on an inclusive bound; the required final authentication boundary is not itself a refusal.",
+    "Local submission immediately records Pending; exchange outcomes arrive through responses and historical feed is not an own acknowledgement."
+  ],
+  "reviews": {
+    "final_api_and_causality": {
+      "bytes": 5600,
+      "path": "workspace/itch-feed-handler/out/identified-queue-api-review-v1/review.json",
+      "sha256": "f57d3654a36e05e2de724f2e3ad6ead2e2c25072c5c19c4c007297ba3d8b8d09"
+    },
+    "final_status_and_prefix": {
+      "bytes": 2090,
+      "path": "workspace/itch-feed-handler/out/identified-queue-status-contract-review-v2/review.json",
+      "sha256": "96347d73b7c464866125375eed5b6f4cafcc749a5a8b92e2ad46c1d0cf1ac55e"
+    },
+    "initial_contract_draft": {
+      "bytes": 11293,
+      "path": "workspace/itch-feed-handler/out/identified-queue-contract-draft-v1/contract.md",
+      "sha256": "b832714ddd8259fcfeeefa5f53022a1c331175eeaef5ad513ed51e984439d4ca"
+    },
+    "prior_status_contract_approval": {
+      "bytes": 6587,
+      "path": "workspace/itch-feed-handler/out/identified-queue-status-contract-review-v1/review.json",
+      "sha256": "33b6c120d90180524c8ee86dedd8671211020f43f467be2e38cb88c7d1c7cdcc"
+    },
+    "retained_status_gap_review_preliminary": {
+      "bytes": 10593,
+      "path": "workspace/itch-feed-handler/out/same-price-queue-status-review-v1/review.json",
+      "sha256": "ea986865edd3ed0c423a865e636d057ce7e2dba20f88781fd66ecf7998de821f"
+    }
+  },
+  "schema_version": 1,
+  "scope": {
+    "fresh_full_raw_verified_in_this_gate": false,
+    "fresh_prefix_verified_in_this_gate": false,
+    "new_independent_historical_states": 0,
+    "public_implementation_files_unchanged": 59,
+    "queue_admitted": false,
+    "raw_opened": false,
+    "retained_distinct_historical_states": 37,
+    "review_only": true,
+    "scanner_executed": false
+  },
+  "source_at_review": {
+    "engine": {
+      "branch": "main",
+      "commit": "dbd280185a0d45f0839881caeff8d535bcd56779",
+      "file_sha256": {
+        "CMakeLists.txt": "9886fbc8523f033ca2a2ce93f1cf8fb63961d9ef9e40c089ad5aa2e06a541823",
+        "bench/main.cpp": "2e128198eb4489a8234c6c4035466ed405cac794f622ce77e713364a50a389d1",
+        "bench/rng.hpp": "ecce719bb32149fbe06b46f57d074b1a89481cc141c7f1fd00ae0b5bc84609ae",
+        "bench/summarize.py": "6fa2e3a6ea129ec4f991c8a4608e76c46b4daab2d4fc8f5686f316fce9a85531",
+        "bench/workloads.cpp": "c08cb0a3f4e07c4835ec6a0b071a85063694435ac4d24fa28e3d8133c9582310",
+        "bench/workloads.hpp": "707d788d0a64caa74ae6a9a26ebda4c289ea74736d2c82a9f5da8aee459562e9",
+        "include/me/book.hpp": "3d108b220052193961042001cc6b41838052990a55c6f4524187b29aaefcd445",
+        "include/me/book_v1.hpp": "e89934e838faf4dc314f9d5a1c535ad3e839e3fa1e8de9d48f466dcdd53412fb",
+        "include/me/core.hpp": "1e8b9c371c9efdfeb2db95a4a51c0c916ecb426fd36ed8908fc1f7b523709569",
+        "include/me/index.hpp": "928ce72653d1b955a3b2017dbd5b36e24b83485b5aa06ac7ac8fd64db6f50d47",
+        "include/me/levels.hpp": "fa40d4a70053ff3a1d14cee7cf0e2a3bd527cfe48cb6e903a7e187a860d7d872",
+        "include/me/store.hpp": "c0ce83d7da8cd4bd9b2b61850d7dea4ad4cb9298e9f493c68599083a7657af42",
+        "include/me/types.hpp": "50ef826d9a2155695b1b5169af52fc878735ca563d5a1b9ef9f687da69002552",
+        "src/book.cpp": "abc53bdce8129d52727295112e92cfae2114ea1da9e6f8eb67f21a0bff80a2ae",
+        "src/book_v1.cpp": "ef84b5f8ad61b6249b779710ef96bbbf0666a03cdb298fde3f93ce71c2e3f716"
+      },
+      "path": "workspace/matching-engine"
+    },
+    "itch": {
+      "branch": "main",
+      "commit": "a3c6aa15f6966e9a4e9caeedfc17e5f77e0acad9",
+      "file_sha256": {
+        "CMakeLists.txt": "e52c483dca2d3d770ed0003c6240659e8246046edc12dcaa0dfeda184fddadc4",
+        "bench/audit_handoff.py": "a14fac8bcc7a57677ab58c9fc2a504a46b848626df9b150e571a7a3ee7d67630",
+        "bench/compare_bbo.py": "83caa1216e4d3c2e3eec184dd87755ac08008747ab6c3a8848d765d4623868b8",
+        "bench/compare_l3.py": "abf11fca148a5d9fac5c232cd72bf9bf6ff63b2db0d72bffc411da1b17f21bfb",
+        "bench/compare_level_search.py": "8b1b31d4a811d23595a000ab10846e1c7a028d004b0fa32a38925087d77ffb56",
+        "bench/compare_reference.py": "63643ac2e5c8397d9fe2a950437bb147fafb14bf8564a305bacc062093f512fd",
+        "bench/compare_storage.py": "91d7ada64c24ee916ab1399dae3c70c1c74260aa74d04fdc52d445e2a5acdc46",
+        "bench/identified_events.py": "10bc0a310e441a4dd91653e5c66bbefa0dddd171844ef5f3d6197f3ec66cb918",
+        "bench/identified_history.py": "4f3e14a8c56e75de8c274f10a62f97b9c0f38845bd422fc5fcd1c9d8b3b29fbc",
+        "bench/identified_transitions.py": "7955aa818f77ec4a20d8223ca421e0b913ab5cbf39f134c62bf464e949563f9d",
+        "bench/journal.py": "e4307dbf4932f0535efab512205bd8be3b86ff83da54cc6365d13a691bfe661b",
+        "bench/repacketise_history.py": "28abf9d2efacdd4ddd133450b84142b3c9e4c76e03b76057e4c007b1a2e9675f",
+        "bench/validate.py": "07eae050e280b196b64be49db2bd1777d8f1475085b09483261a457ae8cd7df5",
+        "bench/validate_journal.py": "df8bebe2892861708566f4ea7cb7f51967a16be69498046b0cd2b93b23671433",
+        "include/itch/book.hpp": "539553d740a7cd3f1f25bfddb89b8bea1ddb3745d1f56e4ab0ea02c451ed37df",
+        "include/itch/encode.hpp": "3976ae407926e57f060b18485cdaff7a2def42f65886c9c065840ae0f9979b61",
+        "include/itch/endian.hpp": "e461783ae5a73df12ef028b66696bf466cf78cb1bbefb48b44eb07c8991bab7f",
+        "include/itch/framing.hpp": "502138feb5250b51e92fa37ec11f1536aebe2c9a62c4f5195ca63fb50ae88417",
+        "include/itch/journal.hpp": "1cd9e31221d1603845181f5dfe4c9fc3a56da3b5a9a874123ee1675203340975",
+        "include/itch/messages.hpp": "48c7d0ec5bfb531201f3fa9f247ed7f3cf2f4e00b46ad463559e9e4a1afcb409",
+        "include/itch/mold.hpp": "60c5cf5764fd01b92b6de541a5ad8a9afe90de1b6bd1ca9bd9c5d49a8e44b35c",
+        "include/itch/mold_itch.hpp": "66e3719f75af0cba5e15e3acf086327d2a7a11cf140683b07f94386dff470252",
+        "include/itch/queue_sim.hpp": "5031e65b70a18749fcc9e274d9a6a84d29cd1ff3c44d653b444dfe5c7f50ee6b",
+        "include/itch/queue_window.hpp": "85e96de848c5572591b17b587901d52d0dc39e6d23e144da23588756e17945eb",
+        "include/itch/replay.hpp": "9e91ab2cc04d89d59884c6bf28d046390b89a0f09036d79e05acab8d4bd8741c",
+        "include/itch/snapshots.hpp": "7a431eedd50ba1e554986ccf7a5efea1702c2c23e14391c58e051d653a8ad446",
+        "src/book.cpp": "a679b2c681bebd8b3c7f5b99af4b393a5bd1b94e2077a1e0ffd951ed4e2b40e7",
+        "src/framing.cpp": "ab03285ee9dd4ff7d155f81bea74edab76f8b9065bc81084d10a27bd39b06dd3",
+        "src/journal.cpp": "33a41a1aa5e2003268f06da3dfd61eac6a980e06f8cb83929a0bd5c6b9644c9c",
+        "src/mold.cpp": "4b4b0de896d56b37147c20f2e32e74ace740cc056ce7286bfdb56736ae3bf3dc",
+        "src/queue_sim.cpp": "2da5625b9ede5a68c84ad219e91b8c9f43a6c5885f358e9172ca132527dc437d",
+        "src/queue_window.cpp": "98cfbc84d9bd2c5ffea0ed1108fb6396e9f19e2777d5c3ff2a8da24fb9e7f772",
+        "src/replay.cpp": "bcecd0fe0fdad39c11c497966e1a5840541f3e0d10626e9933e4a126b3618991",
+        "tools/bench.cpp": "33f24effb42d6c93835f543b8d9df0dd607a5c600ff678f5d317f6f2704f2030",
+        "tools/census.cpp": "466b9e9c86e1836c5b1b1c2d214e3325efa07e06728c4a2ca873495106c8cbc3",
+        "tools/cli.hpp": "ff2d6e114a6844c9cc4b12ca90c3c45e93a3eb18683d99e973b5cd67387731c3",
+        "tools/journal_replay.cpp": "2cb83b19b6f500580e22d9d8028a4c33d812f9d1062453e3134d47cc1769b045",
+        "tools/loopback.cpp": "a740ca708a0220c22344ba1cb40ee48919c92e7a4f7550faad85254bbfd958f8",
+        "tools/queue_sim.cpp": "9a5a389c4f9dd2c81f641e6d2bca119dcbf9fa98f649750930d3bf2089f0c118",
+        "tools/queue_window.cpp": "9796ff4b1b67bbdfb310644b1fe5ab4d6eb74a1e8a2bb5d04edc741ae3feea5e",
+        "tools/replay.cpp": "eb2d3cc2d77e7737d9b9f7a1132a6bb1607976e0ee4287c87dc80d4557e1950f",
+        "tools/snapshots.cpp": "72992f0b87e8ee5716d0475db7eb60ccd43c3074899cc9c119d8350f7ca7dd54",
+        "tools/source.hpp": "ce7e405434d9583c49c0e9c8b751cda1a4b70fec07f17e10ef6fd7f86d0f8c6c",
+        "tools/storage_bench.cpp": "e803c30477adb554967ac9676679d94054a37c13afa4d471cd18b6dbbdd09f68"
+      },
+      "path": "workspace/itch-feed-handler"
+    }
+  },
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 16038,
+    "original_report_sha256": "8ad623c885c5d77231ad094161629905d2049dc669728c0337758a287193938d",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}

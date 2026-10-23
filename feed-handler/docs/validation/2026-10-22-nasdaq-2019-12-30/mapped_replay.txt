@@ -1,0 +1,24 @@
+messages        268744780 in 31.452 s (8.5 M msg/s, 117.0 ns/msg)
+adds            118631456
+executions      5822741 (707468704 printable shares, 3754970 non-printable)
+other volume    149355684 shares non-displayed (P), 114191631 crossed (Q), 0 broken
+peak orders     1924078
+live at end     0 orders
+end of messages seen
+anomalies       0 unknown ref, 0 duplicate ref, 0 share underflow, 0 capacity, 0 unknown type, 0 wrong length, 0 invalid side, 0 locate mismatch
+trailing        0 bytes outside complete frames
+after end       0 records after session end
+book hash       cbf29ce484222325
+
+locate   symbol             volume
+5537     NIO              38291738
+5863     ONTX             24553474
+7603     SVRA              9963810
+344      AMD               7891651
+3277     GDX               7877363
+2764     FCEL              7674871
+7451     SPY               7392032
+13       AAPL              7330969
+2326     EEM               6847522
+5291     MSFT              6154797
+validation      passed (complete day required)

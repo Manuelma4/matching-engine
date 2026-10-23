@@ -1,0 +1,399 @@
+{
+  "admission_matrix": [
+    {
+      "decision": "inherited evidence supports candidate review",
+      "use": "named external reductions and full structural inventories"
+    },
+    {
+      "decision": "fixed next design candidate",
+      "use": "original whole-group QQQ seed plus first five facts"
+    },
+    {
+      "decision": "supported by retained complete selected enumeration",
+      "use": "selected E timestamp closure"
+    },
+    {
+      "decision": "requires explicit shared-identity/origin/census admission",
+      "use": "limited inherited QQQ status"
+    },
+    {
+      "decision": "not established; fabricated identity refused",
+      "use": "global adjacency or exact E global witness"
+    },
+    {
+      "decision": "unsupported profile refused",
+      "use": "E in unchanged one-U API"
+    },
+    {
+      "decision": "not established",
+      "use": "anonymous demand, own fill or empirical calibration"
+    },
+    {
+      "decision": "refused",
+      "use": "MSFT non-head redistribution or QQQ status transfer"
+    },
+    {
+      "decision": "refused",
+      "use": "unknown h/N replaced by normal values"
+    },
+    {
+      "decision": "refused",
+      "use": "changed identities, missing selected changes or horizon extension"
+    },
+    {
+      "decision": "design and expected-behaviour freeze pending",
+      "use": "new own-order runtime"
+    }
+  ],
+  "catalogue": [
+    {
+      "after_shares": 494,
+      "before_shares": 500,
+      "best_level_shares_after": 594,
+      "best_level_shares_before": 600,
+      "better_same_side_orders": 0,
+      "displayed_shares_before_reference": 0,
+      "event_index": 5,
+      "executed_shares": 6,
+      "frame_sha256": "37791d49e73f5ba7a2c8c0d3f9c9f441b23a5d03032e3dfc0604d3d470aab861",
+      "locate": 6556,
+      "only_named_quantity_changed": true,
+      "rank": 1,
+      "resolved_price4": 2135400,
+      "side": "B",
+      "source": {
+        "body_bytes": 31,
+        "frame_end_offset": 251021648,
+        "frame_offset": 251021615,
+        "sequence": 7349884,
+        "timestamp_ns": 34201718415103,
+        "type": "E"
+      },
+      "symbol": "QQQ"
+    },
+    {
+      "after_shares": 69,
+      "before_shares": 265,
+      "best_level_shares_after": 738,
+      "best_level_shares_before": 934,
+      "better_same_side_orders": 0,
+      "displayed_shares_before_reference": 221,
+      "event_index": 6,
+      "executed_shares": 196,
+      "frame_sha256": "8b8b948aad85dd6d7aa0c112e45349782944ba25db8e6314b2748799a9868a56",
+      "locate": 5291,
+      "only_named_quantity_changed": true,
+      "rank": 6,
+      "resolved_price4": 1589000,
+      "side": "B",
+      "source": {
+        "body_bytes": 31,
+        "frame_end_offset": 273665559,
+        "frame_offset": 273665526,
+        "sequence": 7993582,
+        "timestamp_ns": 34214938994341,
+        "type": "E"
+      },
+      "symbol": "MSFT"
+    }
+  ],
+  "errors": [],
+  "hypothetical_fills_calculated": false,
+  "inputs": {
+    "catalogue": {
+      "bytes": 17984,
+      "path": "workspace/itch-feed-handler/out/identified-execution-retained-review-v1/review.json",
+      "sha256": "e8e9238988447f9bc2652c72e599829767c1c3c6268d343a096ed0005d7f2e22"
+    },
+    "prefix_review": {
+      "bytes": 9654,
+      "path": "workspace/itch-feed-handler/out/identified-execution-retained-review-v1/prefix-review.json",
+      "sha256": "0681bfe06b8439533d151a0e82161e1e9d1640021465711dfdbd91b55054c9bb"
+    },
+    "prior_history": {
+      "bytes": 21214,
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-22-identified-history/canonical.json",
+      "sha256": "b7e29cf063fba8aff5d0494e872fa17363ea4fde7c2d28bf210fb17100533d25"
+    },
+    "prior_status": {
+      "bytes": 33200,
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-23-identified-queue-status/verification.json",
+      "sha256": "5285713c15177d9e414f3ab8e7d73f08022417f2a493c2b2cb7ecf1f81bb9541"
+    },
+    "source_review": {
+      "bytes": 4237,
+      "path": "workspace/itch-feed-handler/out/identified-execution-prerequisites-source-review-v1/review.json",
+      "sha256": "ee139996669fa0c72d5085d1b3a8a2149b65d57f4ff48512dc63c6b66a2e875d"
+    },
+    "source_review_identities": {
+      "bytes": 6510,
+      "path": "workspace/itch-feed-handler/out/identified-execution-prerequisites-source-review-v1/identities.json",
+      "sha256": "927ce6a3c34fb6c9382a76b328f24143075162cf496001ffb598170c4cb05806"
+    },
+    "status_review": {
+      "bytes": 11656,
+      "path": "workspace/itch-feed-handler/out/retained-e-prerequisites-review-v1/review.json",
+      "sha256": "aa37eb7fc95db5d30511979eba1a63c5649cdee6a8063c51b664696046f2a9ab"
+    }
+  },
+  "limitations": [
+    "The full raw identity and original independent reconstruction are inherited; only retained small files were freshly checked.",
+    "Complete structural CSV inventories expose no independent MPID attribution or actual venue priority.",
+    "E names an external reference reduction; its wire contains no explicit price, printable flag or incoming-parent demand.",
+    "Selected-book closure does not materialise an exact global endpoint/witness. A new causal profile and scoped admission must be frozen before implementation.",
+    "No hypothetical own fill, strategy profit, market reaction or empirical calibration is established."
+  ],
+  "model": "retained_identified_execution_prerequisites_v1",
+  "original_seed_prefix": {
+    "all_six_states_uncrossed": true,
+    "complete_structural_order_row_instances": 2784,
+    "end": {
+      "body_bytes": 31,
+      "frame_end_offset": 251021648,
+      "frame_offset": 251021615,
+      "sequence": 7349884,
+      "timestamp_ns": 34201718415103,
+      "type": "E"
+    },
+    "fact_types": [
+      "A",
+      "D",
+      "A",
+      "A",
+      "E"
+    ],
+    "fixed_best_ask_price4": 2135500,
+    "fixed_best_bid_price4": 2135400,
+    "global_frames_between_previous_selected_A_and_E": 377,
+    "no_better_bid_introduced": true,
+    "rebased_to_previous_selected_A": false,
+    "retained_independent_states": 6,
+    "seed": {
+      "body_bytes": 19,
+      "frame_end_offset": 250772235,
+      "frame_offset": 250772214,
+      "sequence": 7343112,
+      "timestamp_ns": 34201694396241,
+      "type": "D"
+    },
+    "seed_effective_ns": 34201694396241
+  },
+  "passed": true,
+  "queue_admitted": false,
+  "reference": {
+    "official_ITCH_URL": "https://www.nasdaqtrader.com/content/technicalsupport/specifications/dataproducts/NQTVITCHspecification.pdf",
+    "retrieval": "Web text reader; no local PDF identity asserted",
+    "retrieved_UTC_date": "2026-10-23",
+    "section": "1.4.1"
+  },
+  "review_input_set": [
+    {
+      "bytes": 18869,
+      "path": "workspace/itch-feed-handler/docs/IDENTIFIED_EVENTS.md",
+      "sha256": "46d0e49d07d6b69b79939f093338c8e05f7fbbab1ebfaf73a366b44ee423c863"
+    },
+    {
+      "bytes": 8151,
+      "path": "workspace/itch-feed-handler/docs/IDENTIFIED_EXECUTION_PREREQUISITES.md",
+      "sha256": "6ed147a426aa3bed46d59b3519f18a502ba8c095924b430aff77ebdf1be4c0a8"
+    },
+    {
+      "bytes": 17557,
+      "path": "workspace/itch-feed-handler/docs/IDENTIFIED_HISTORY.md",
+      "sha256": "a98f0fc593291caa4f1fde9cac7f90609615f2282cb3f31a8c7d0e51fc84a498"
+    },
+    {
+      "bytes": 12101,
+      "path": "workspace/itch-feed-handler/docs/IDENTIFIED_QUEUE_PREREQUISITES.md",
+      "sha256": "3d15a6e3cea9cc834fbfbb7baaa8406197076f7d4baed6e0081281ce19774d52"
+    },
+    {
+      "bytes": 21214,
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-22-identified-history/canonical.json",
+      "sha256": "b7e29cf063fba8aff5d0494e872fa17363ea4fde7c2d28bf210fb17100533d25"
+    },
+    {
+      "bytes": 10644,
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-22-identified-history/verification.json",
+      "sha256": "2139f83c58f8ff4515fc062b4e814da650c08a6baf925f34bc9d72537cc4358b"
+    },
+    {
+      "bytes": 16414,
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-22-window/canonical.json",
+      "sha256": "1fea28b743676140a4c48d1f774554554fbca4c3211db9ef892d9d1d8d0d1ad7"
+    },
+    {
+      "bytes": 14077,
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-23-identified-queue-example/verification.json",
+      "sha256": "5cf44e3e7d53ee18a077cfbaa09ab70d7f646c5fc5f65df447bb3c68210ae634"
+    },
+    {
+      "bytes": 33200,
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-23-identified-queue-status/verification.json",
+      "sha256": "5285713c15177d9e414f3ab8e7d73f08022417f2a493c2b2cb7ecf1f81bb9541"
+    },
+    {
+      "bytes": 9368,
+      "path": "workspace/itch-feed-handler/out/identified-history-canonical-v1/coverage.json",
+      "sha256": "f0a83cabf1a5711a2c455bd6d0ad2879094f12d837a90653bf333e6aff58e6cc"
+    },
+    {
+      "bytes": 42575,
+      "path": "workspace/itch-feed-handler/out/identified-history-canonical-v1/producer.json",
+      "sha256": "12734d2522555d8036b78bb999b19087c33aed3c5c28cc402ef8ed95bf63dc08"
+    },
+    {
+      "bytes": 926,
+      "path": "workspace/itch-feed-handler/out/identified-history-canonical-v1/producer/window-001/expected_sources.json",
+      "sha256": "40abef133cc8239aec9b83d63b67689e221d911f994c89bcdae419c39f8814a1"
+    },
+    {
+      "bytes": 1674,
+      "path": "workspace/itch-feed-handler/out/identified-history-canonical-v1/producer/window-001/joins.json",
+      "sha256": "b59efeaca593178a1a28ef4989152d15c941f2eae26599e0db06875d3c50f6db"
+    },
+    {
+      "bytes": 56275,
+      "path": "workspace/itch-feed-handler/out/identified-history-canonical-v1/producer/window-001/ledger.json",
+      "sha256": "298b37421421f845211e800e390a80da7081078fd4370f87e72f9f6b315369e9"
+    },
+    {
+      "bytes": 400266,
+      "path": "workspace/itch-feed-handler/out/identified-history-canonical-v1/producer/window-001/validation.json",
+      "sha256": "10e847348df00167782d2fefb959e2e41a9f642d685f5e533ed081fdb1ce26c2"
+    },
+    {
+      "bytes": 794,
+      "path": "workspace/itch-feed-handler/out/identified-history-canonical-v1/producer/window-002/expected_sources.json",
+      "sha256": "5a5a06a69ae7dfef8e3b7a956f4038ff4cc834ac6322b0f903ad6176e6bc9b31"
+    },
+    {
+      "bytes": 1478,
+      "path": "workspace/itch-feed-handler/out/identified-history-canonical-v1/producer/window-002/joins.json",
+      "sha256": "c36bab3ae13736fd218fce815465fc51b7cca31260d7d1a18e0c7aaeb5020bd0"
+    },
+    {
+      "bytes": 206299,
+      "path": "workspace/itch-feed-handler/out/identified-history-canonical-v1/producer/window-002/ledger.json",
+      "sha256": "38a34c2585436409cafaede5cb2d71af804ecca3d6a613cea18f7a13712ed03e"
+    },
+    {
+      "bytes": 1406176,
+      "path": "workspace/itch-feed-handler/out/identified-history-canonical-v1/producer/window-002/validation.json",
+      "sha256": "d0e334b6a5a2e8615cecb84c1773fe70e648121869d71df284a127f9eb252afb"
+    },
+    {
+      "bytes": 989,
+      "path": "workspace/itch-feed-handler/out/l3-canonical-v2/checkpoints.csv",
+      "sha256": "c6a39174b63c1f8a276f86be9d775017742ff4d08bb619af088f1d0b358caf61"
+    },
+    {
+      "bytes": 434409,
+      "path": "workspace/itch-feed-handler/out/l3-canonical-v2/reference.orders.csv",
+      "sha256": "775f99545d84f47d7031bb8f245176ab81ccdaf8aa44d5f16f80499229c74e2b"
+    },
+    {
+      "bytes": 5878,
+      "path": "workspace/itch-feed-handler/out/l3-canonical-v2/reference.summary.json",
+      "sha256": "32bd1c10bfedaff5628537f24b42771a2daae1710f48c2e93f051e066c1373ee"
+    },
+    {
+      "bytes": 933,
+      "path": "workspace/itch-feed-handler/out/window-canonical-v1/MSFT/provenance.csv",
+      "sha256": "8889a6df792738e3f22274653092dfa5e8259d6f5ab1497af1d3082fce5e714e"
+    },
+    {
+      "bytes": 1058,
+      "path": "workspace/itch-feed-handler/out/window-canonical-v1/QQQ/provenance.csv",
+      "sha256": "a6c44aadec2ffb52928725915fd7d54c562d57a51d38e896e76d48799f314891"
+    }
+  ],
+  "schema_version": 1,
+  "scope": {
+    "implementation_files_unchanged": 61,
+    "new_historical_states": 0,
+    "performance_measured": false,
+    "project_imported_or_executed": false,
+    "raw_opened_statted_or_hashed": false,
+    "reference_or_book_replayed": false,
+    "retained_E_facts": 2,
+    "retained_distinct_historical_states": 37,
+    "retained_facts_catalogued": 13,
+    "review_only": true,
+    "tests_or_builds_executed": false
+  },
+  "selected_candidate": {
+    "event_index": 5,
+    "post_state_id": 6,
+    "pre_state_id": 5,
+    "source": {
+      "body_bytes": 31,
+      "frame_end_offset": 251021648,
+      "frame_offset": 251021615,
+      "sequence": 7349884,
+      "timestamp_ns": 34201718415103,
+      "type": "E"
+    },
+    "symbol": "QQQ",
+    "window_id": 1
+  },
+  "selection_rule": "Earliest global source.sequence among every retained canonical E in these two windows; no head, side, price, quantity or agreement filter.",
+  "source_at_review": {
+    "engine": {
+      "branch": "main",
+      "commit": "dbd280185a0d45f0839881caeff8d535bcd56779"
+    },
+    "itch": {
+      "branch": "main",
+      "commit": "e1fbf99cc27d408ad69d62902efe6ca30fc5f6f2"
+    }
+  },
+  "source_baseline": {
+    "bytes": 53455,
+    "path": "workspace/itch-feed-handler/out/one-u-demo-postcommit-v1/verification.json",
+    "sha256": "a1d26440d00a5ed43873e548204cf3017b5d920617f1faeea241a36fb93b8b73"
+  },
+  "source_boundary": {
+    "exact_global_E_group_end_or_first_greater_materialised": false,
+    "later_full_window_witness_relabelled": false,
+    "original_suffix_selected_D_A_excluded": true,
+    "selected_E_timestamp_closed_by_retained_complete_enumeration": true
+  },
+  "status": {
+    "absent_h_N_remain_unknown": true,
+    "explicit_new_contract_required": true,
+    "not_transferred": [
+      "Later one-U selected_interval census",
+      "Global adjacency of later PRE/U",
+      "Its 211ns closure witness",
+      "Any actual venue/regulatory/order-entry eligibility or earlier automatic queue admission",
+      "QQQ-specific H/cross/IPO claims for MSFT"
+    ],
+    "raw_identity_join": {
+      "Gate25_retained_identity": {
+        "fresh_full_raw_sha256_verified": false,
+        "raw_bytes": 8251407909,
+        "raw_sha256_inherited": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f",
+        "recorded_path": "workspace/itch-feed-handler/data/12302019.NASDAQ_ITCH50.itch"
+      },
+      "Gate9_before_after": "Same bytes and digest in accepted canonical record and both logical ledger source identities",
+      "application": "Bind retained historical source identity across accepted records; do not upgrade logical observer raw_input_identity_verified or claim fresh raw authentication.",
+      "fresh_raw_authentication_in_this_review": false,
+      "input_bytes": 8251407909,
+      "input_sha256": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f"
+    },
+    "transferable_QQQ_facts": [
+      "Gate25 complete selected census R=1,H=1,Q=1,K=0, with all three origins before original QQQ seed",
+      "Latest retained H=T at21992 and cross=O at7203970 therefore remain unchanged over old QQQ subwindow",
+      "Global S=3 with original O/S/Q, W=0,h=0,N=0 through the later endpoint support the earlier bounded global restrictions",
+      "Production QQQ directory6556 origin6571 matches Gate9 independent coverage",
+      "Absent h/N remain null/unknown, rather than inferred normal announcements"
+    ]
+  },
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 16431,
+    "original_report_sha256": "92734ee6a962535fc988ba56da2920f5beae0db76aa03c22f4f569e62c9b9be6",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}

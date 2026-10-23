@@ -1,0 +1,990 @@
+{
+  "actual_activity": {
+    "actual_output_controls_per_verifier": 2,
+    "focused_python_variants": 26,
+    "generic_ledger_constructions": 4,
+    "independent_verifier_invocations": 2,
+    "new_book_reconstructions": 0,
+    "new_cpp_builds": 0,
+    "new_cpp_tests": 0,
+    "new_external_reference_replays": 0,
+    "new_performance_measurements": 0,
+    "new_raw_scans_or_hash_passes": 0,
+    "new_sanitiser_runs": 0,
+    "producer_invocations": 2
+  },
+  "actual_controls_per_verifier": [
+    {
+      "error": "observation-one_ms_complete.probes[4].delivery_ns: future delivery cannot be observed",
+      "intended_path": "observation-one_ms_complete.probes[4].delivery_ns",
+      "name": "coherent_future_POST_at_delayed_seed_probe",
+      "rejected": true
+    },
+    {
+      "error": "validation.snapshots[1].orders[1].reference: value differs",
+      "intended_path": "validation.snapshots[1].orders[1].reference",
+      "name": "stale_new_order_FIFO_with_unchanged_BBO",
+      "rejected": true
+    }
+  ],
+  "actual_execution_failures_observed": 0,
+  "child_commands": [
+    {
+      "argv": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "workspace/itch-feed-handler-tests/same_price_observer.py",
+        "--output",
+        "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-1"
+      ],
+      "cwd": "workspace/itch-feed-handler",
+      "exit_code": 0,
+      "label": "producer-1",
+      "stderr": {
+        "bytes": 0,
+        "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1/producer-1.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 85,
+        "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1/producer-1.stdout.txt",
+        "sha256": "e0ef8bceac4c8204dd974a373c4b47d1a5c3345525b50ffcb1dc4348d99f8ef9"
+      },
+      "timed_out": false,
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "workspace/itch-feed-handler-tests/verify_same_price_observer.py",
+        "--actual",
+        "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-1",
+        "--output",
+        "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-verifier-1"
+      ],
+      "cwd": "workspace/itch-feed-handler",
+      "exit_code": 0,
+      "label": "verifier-1",
+      "stderr": {
+        "bytes": 0,
+        "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1/verifier-1.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 632,
+        "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1/verifier-1.stdout.txt",
+        "sha256": "a56b65eea0a7c0ea099192bbc3265a5e1476f37177acea8224f347a17b1ac0af"
+      },
+      "timed_out": false,
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "workspace/itch-feed-handler-tests/same_price_observer.py",
+        "--output",
+        "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-2"
+      ],
+      "cwd": "workspace/itch-feed-handler",
+      "exit_code": 0,
+      "label": "producer-2",
+      "stderr": {
+        "bytes": 0,
+        "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1/producer-2.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 85,
+        "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1/producer-2.stdout.txt",
+        "sha256": "e0ef8bceac4c8204dd974a373c4b47d1a5c3345525b50ffcb1dc4348d99f8ef9"
+      },
+      "timed_out": false,
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "workspace/itch-feed-handler-tests/verify_same_price_observer.py",
+        "--actual",
+        "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-2",
+        "--output",
+        "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-verifier-2"
+      ],
+      "cwd": "workspace/itch-feed-handler",
+      "exit_code": 0,
+      "label": "verifier-2",
+      "stderr": {
+        "bytes": 0,
+        "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1/verifier-2.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 632,
+        "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1/verifier-2.stdout.txt",
+        "sha256": "a56b65eea0a7c0ea099192bbc3265a5e1476f37177acea8224f347a17b1ac0af"
+      },
+      "timed_out": false,
+      "timeout_seconds": 120
+    }
+  ],
+  "contract": {
+    "bytes": 13120,
+    "path": "workspace/itch-feed-handler/docs/SAME_PRICE_OBSERVER.md",
+    "sha256": "6a2dfe90476d1ca3304027bbe26ccbca63bc8e7766f02d16fa0df6307718926a"
+  },
+  "errors": [],
+  "focused": {
+    "expected_refusals": 25,
+    "families": [
+      {
+        "id": "complete_fixed_binding",
+        "passed": true,
+        "variants": [
+          {
+            "expected": "success",
+            "id": "original_two_states",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "id": "authority_and_lineage",
+        "passed": true,
+        "variants": [
+          {
+            "actual_category": "authority",
+            "expected": "authority",
+            "id": "changed_after_raw_identity",
+            "passed": true
+          },
+          {
+            "actual_category": "authority",
+            "expected": "authority",
+            "id": "changed_execution_lineage",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "id": "original_frame_integrity",
+        "passed": true,
+        "variants": [
+          {
+            "actual_category": "source",
+            "expected": "source",
+            "id": "wrong_original_frame_hash",
+            "passed": true
+          },
+          {
+            "actual_category": "source",
+            "expected": "source",
+            "id": "wrong_declared_U_span",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "id": "source_locate_and_clock",
+        "passed": true,
+        "variants": [
+          {
+            "actual_category": "source",
+            "expected": "source",
+            "id": "wrong_wire_locate",
+            "passed": true
+          },
+          {
+            "actual_category": "source",
+            "expected": "source",
+            "id": "regressed_source_clock",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "id": "exact_global_adjacency",
+        "passed": true,
+        "variants": [
+          {
+            "actual_category": "coverage",
+            "expected": "coverage",
+            "id": "nonadjacent_global_ordinal",
+            "passed": true
+          },
+          {
+            "actual_category": "coverage",
+            "expected": "coverage",
+            "id": "unexplained_byte_gap",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "id": "complete_two_state_manifest",
+        "passed": true,
+        "variants": [
+          {
+            "actual_category": "inventory",
+            "expected": "inventory",
+            "id": "missing_post_manifest",
+            "passed": true
+          },
+          {
+            "actual_category": "inventory",
+            "expected": "inventory",
+            "id": "duplicate_state_id",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "id": "complete_clean_exports",
+        "passed": true,
+        "variants": [
+          {
+            "actual_category": "inventory",
+            "expected": "inventory",
+            "id": "incomplete_post_export",
+            "passed": true
+          },
+          {
+            "actual_category": "inventory",
+            "expected": "inventory",
+            "id": "nonzero_reference_anomaly",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "id": "exact_numeric_order_domains",
+        "passed": true,
+        "variants": [
+          {
+            "actual_category": "domain",
+            "expected": "domain",
+            "id": "zero_resting_reference",
+            "passed": true
+          },
+          {
+            "actual_category": "domain",
+            "expected": "domain",
+            "id": "boolean_spelling_for_quantity",
+            "passed": true
+          },
+          {
+            "actual_category": "domain",
+            "expected": "domain",
+            "id": "negative_price",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "id": "global_inventory_reference_uniqueness",
+        "passed": true,
+        "variants": [
+          {
+            "actual_category": "inventory",
+            "expected": "inventory",
+            "id": "duplicate_reference_in_pre",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "id": "canonical_price_and_fifo_order",
+        "passed": true,
+        "variants": [
+          {
+            "actual_category": "inventory",
+            "expected": "inventory",
+            "id": "gap_in_target_fifo_ranks",
+            "passed": true
+          },
+          {
+            "actual_category": "inventory",
+            "expected": "inventory",
+            "id": "reordered_price_levels",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "id": "replacement_new_reference_absence",
+        "passed": true,
+        "variants": [
+          {
+            "actual_category": "transition",
+            "expected": "transition",
+            "id": "new_reference_already_live_in_pre",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "id": "minimum_later_peer_copy",
+        "passed": true,
+        "variants": [
+          {
+            "actual_category": "transition",
+            "expected": "transition",
+            "id": "more_distant_peer",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "id": "copied_old_quantity",
+        "passed": true,
+        "variants": [
+          {
+            "actual_category": "transition",
+            "expected": "transition",
+            "id": "changed_old_remaining_copy",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "id": "wire_new_total_against_complete_post",
+        "passed": true,
+        "variants": [
+          {
+            "actual_category": "transition",
+            "expected": "transition",
+            "id": "coherent_new_total_wrong_for_post",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "id": "selected_directory_and_OSQ_origins",
+        "passed": true,
+        "variants": [
+          {
+            "actual_category": "source",
+            "expected": "source",
+            "id": "contradictory_selected_directory",
+            "passed": true
+          },
+          {
+            "actual_category": "source",
+            "expected": "source",
+            "id": "wrong_market_open_origin",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "id": "unaffected_complete_inventory",
+        "passed": true,
+        "variants": [
+          {
+            "actual_category": "transition",
+            "expected": "transition",
+            "id": "changed_unrelated_post_quantity",
+            "passed": true
+          }
+        ]
+      }
+    ],
+    "families_tested": 16,
+    "frozen_plan": {
+      "bytes": 7146,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-focused-design-v1/refusals.json",
+      "sha256": "bf6a6ad40d78401ee569be35c1ae9dbb34ea79a203ee653e0c332b6fdc0b3470"
+    },
+    "generic_build_window_executed": false,
+    "observer_executed": false,
+    "positive_bindings": 1,
+    "pure_boundary_opens_files": false,
+    "pure_boundary_starts_subprocesses": false,
+    "receipt": {
+      "bytes": 9216,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-focused-v1/verification.json",
+      "sha256": "7b1707f430e51b9ca1f95af8c7150a98c24f0ff609d5f754911610b7a25625a6"
+    },
+    "variants_tested": 26
+  },
+  "inherited_provenance": {
+    "accepted_public_evidence": {
+      "bytes": 35461,
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-23-same-price-l3/verification.json",
+      "sha256": "698f849714ce62b2927e926df14e062b0751be72624b31820c6982271c481bfe"
+    },
+    "canonical_raw_bytes": 8251407909,
+    "canonical_raw_recorded_path": "workspace/itch-feed-handler/data/12302019.NASDAQ_ITCH50.itch",
+    "canonical_raw_sha256": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f",
+    "canonical_receipt": {
+      "bytes": 84288,
+      "path": "workspace/itch-feed-handler/out/same-price-comparison-v1/verification.json",
+      "sha256": "da98ad6c5edb8fa63a7558e54bdc0d52470a6c9be5f3244b1ac29161f816d19f"
+    },
+    "external_reference_executed_in_this_gate": false,
+    "from_gate": 21,
+    "hash_timing": "Separate coordinator passes before/after unchanged helpers; no in-parser digest.",
+    "independent_reference": {
+      "licence": "MIT",
+      "project": "itchbook",
+      "revision": "3c646f9da182136125059243b475f7b8baa53773"
+    },
+    "raw_input_identity_verified_by_logical_module": false,
+    "raw_opened_in_this_gate": false,
+    "retained_prefix_bytes": 509933991,
+    "retained_prefix_sha256": "47d19f447eaa60aaabc1f041c6cce28b83261358cbc0c0436052a3afb8fb9a10"
+  },
+  "inputs": {
+    "classification": {
+      "bytes": 93414,
+      "path": "workspace/itch-feed-handler/out/same-price-classification-v1/verification.json",
+      "sha256": "10cfb567ca8e1fbbcba81ebbb813065ff8313f80d975fa6b07bea7ab93c07536"
+    },
+    "gate21_canonical": {
+      "bytes": 84288,
+      "path": "workspace/itch-feed-handler/out/same-price-comparison-v1/verification.json",
+      "sha256": "da98ad6c5edb8fa63a7558e54bdc0d52470a6c9be5f3244b1ac29161f816d19f"
+    },
+    "gate21_postcommit": {
+      "bytes": 133806,
+      "path": "workspace/itch-feed-handler/out/same-price-l3-postcommit-v1/verification.json",
+      "sha256": "80c124e0ae198402940d67c09c11c5bb37896351a6e3b9fcc1ad026d7555892e"
+    },
+    "gate21_public": {
+      "bytes": 35461,
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-23-same-price-l3/verification.json",
+      "sha256": "698f849714ce62b2927e926df14e062b0751be72624b31820c6982271c481bfe"
+    },
+    "gate22_audit": {
+      "bytes": 28160,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-oracle-audit-v2/audit.json",
+      "sha256": "4596c220073a9136e7a2c64c520af01b0b7db7a79dd26ac7fc810677d7a764b6"
+    },
+    "gate22_design": {
+      "bytes": 21660,
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-23-same-price-observer-design/design.json",
+      "sha256": "5da00ecbb01e4e7177649723ca13e0d9d1659bf9f4fb0319d85bdefb565c3a1c"
+    },
+    "gate22_manifest": {
+      "bytes": 24893,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-oracle-v2/freeze_manifest.json",
+      "sha256": "eaf7d2e40d24d5fe81c0c83ed35fc43df93d3f1d80a9726f0e845492143ace79"
+    },
+    "gate22_oracle": {
+      "bytes": 16935,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-oracle-v2/oracle.json",
+      "sha256": "1128c4beded4c28c4e70cc543809c861628db1a044fd30dbe785d6c33fdfb928"
+    },
+    "gate22_postcommit": {
+      "bytes": 31617,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-design-postcommit-v1/verification.json",
+      "sha256": "e8860db0772e258b1236b66c297a7dac5cf5a0c92c89f1029058a993f48566de"
+    },
+    "observer_contract": {
+      "bytes": 18869,
+      "path": "workspace/itch-feed-handler/docs/IDENTIFIED_EVENTS.md",
+      "sha256": "46d0e49d07d6b69b79939f093338c8e05f7fbbab1ebfaf73a366b44ee423c863"
+    },
+    "observer_source": {
+      "bytes": 29644,
+      "path": "workspace/itch-feed-handler/bench/identified_events.py",
+      "sha256": "10bc0a310e441a4dd91653e5c66bbefa0dddd171844ef5f3d6197f3ec66cb918"
+    },
+    "reference_orders": {
+      "bytes": 383758,
+      "path": "workspace/itch-feed-handler/out/same-price-comparison-v1/reference-1.orders.csv",
+      "sha256": "91afe6398bc6240f7f8989913b127d7c157de6b4cbfe757a62714787848fa1cb"
+    },
+    "reference_summary": {
+      "bytes": 1119,
+      "path": "workspace/itch-feed-handler/out/same-price-comparison-v1/reference-1.summary.json",
+      "sha256": "84e43701b9e847316ff43318137150a7af4573e514c1e60c070569743dda800b"
+    },
+    "transitions_contract": {
+      "bytes": 8186,
+      "path": "workspace/itch-feed-handler/docs/IDENTIFIED_TRANSITIONS.md",
+      "sha256": "cbf474a42f925805161821d4ce0d1d8aa8306174cca8366b9d64056cd67fc15c"
+    },
+    "transitions_source": {
+      "bytes": 49694,
+      "path": "workspace/itch-feed-handler/bench/identified_transitions.py",
+      "sha256": "7955aa818f77ec4a20d8223ca421e0b913ab5cbf39f134c62bf464e949563f9d"
+    }
+  },
+  "limitations": [
+    "Retained inputs inherit earlier raw/reference authentication; the logical and retained-input layers keep raw verification false.",
+    "Two executions and repeated rows reuse the same two independent inventories, without increasing historical coverage.",
+    "The independent verifier derives complete expected details from the frozen oracle and independent inventories without importing producer or observer; it is not a new vendor oracle.",
+    "An extended observation horizon schedules delivery only of admitted facts; it authenticates no events after the exact POST boundary, including further events with its timestamp.",
+    "Original source/session provenance does not establish continuous-trading eligibility or actual exchange priority.",
+    "Unknown seed MPIDs/birth clocks remain unknown; no hidden-liquidity, market reaction, empirical fill or performance claim follows.",
+    "Private scripts, full rows, named-order details, frames and per-event output are excluded from public Git; recorded commands require the private environment and original admission context."
+  ],
+  "model": "same_price_observer_runtime_publication_v1",
+  "pairs": [
+    {
+      "actual": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-1",
+      "actual_artifacts": {
+        "expected_sources.json": {
+          "bytes": 135,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-1/expected_sources.json",
+          "sha256": "4e7352a4834cc0a29e26ea63e802336092c82cf8cf425c203227c71a508b66e7"
+        },
+        "joins.json": {
+          "bytes": 424,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-1/joins.json",
+          "sha256": "cc34a32ceb588c2d7b5dfad615f42b4cabb8de60993a8c47e58eafa95cc151b7"
+        },
+        "ledger.json": {
+          "bytes": 808252,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-1/ledger.json",
+          "sha256": "f8e0ffabac6729e911c7429552a919c18a303611c53d79b45782a1916f08f59e"
+        },
+        "observation-one_ms_clipped.json": {
+          "bytes": 1614484,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-1/observation-one_ms_clipped.json",
+          "sha256": "eb6427ac658318a56af3a8b8dc26cc394435b660beccbf0b5354636989e012c1"
+        },
+        "observation-one_ms_complete.json": {
+          "bytes": 4035794,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-1/observation-one_ms_complete.json",
+          "sha256": "0698f9d0b9fb6fdd15487b4ee2501a9156b027b3407023cbc1bb0a53c1c97254"
+        },
+        "observation-undelivered_seed.json": {
+          "bytes": 1614480,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-1/observation-undelivered_seed.json",
+          "sha256": "e867f52a5fcdbcaa191170e7066dc1ce94ab28e99c7ee7937b61c6aa67cfab9c"
+        },
+        "observation-zero.json": {
+          "bytes": 4035404,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-1/observation-zero.json",
+          "sha256": "384ace5c82dedf1280ba6d5cbd31e2bd1087971e8c41b96dd9c7548dd0a6ba1e"
+        },
+        "runtime.json": {
+          "bytes": 30675,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-1/runtime.json",
+          "sha256": "9a0f4b29ce8bcf8f077e4cca66e06fcbf75226e5620bf96c8ad6ad3672fddf31"
+        },
+        "source_snapshot.py": {
+          "bytes": 35889,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-1/source_snapshot.py",
+          "sha256": "bf1949d049efbc3a100a1f5d73d49d0b271d2aa702ad7987410cb815655f0624"
+        },
+        "validation.json": {
+          "bytes": 1613910,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-1/validation.json",
+          "sha256": "87b110ea57d072f90224b77a65e7c595a5e43b390858bbc93b5fc6b62e248c23"
+        }
+      },
+      "controls": [
+        {
+          "error": "observation-one_ms_complete.probes[4].delivery_ns: future delivery cannot be observed",
+          "intended_path": "observation-one_ms_complete.probes[4].delivery_ns",
+          "name": "coherent_future_POST_at_delayed_seed_probe",
+          "rejected": true
+        },
+        {
+          "error": "validation.snapshots[1].orders[1].reference: value differs",
+          "intended_path": "validation.snapshots[1].orders[1].reference",
+          "name": "stale_new_order_FIFO_with_unchanged_BBO",
+          "rejected": true
+        }
+      ],
+      "index": 1,
+      "verification": {
+        "bytes": 42471,
+        "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-verifier-1/verification.json",
+        "sha256": "c60f086fa9234e8a544455be9a494317be2768d9764cdd121907e245c5c81b7d"
+      }
+    },
+    {
+      "actual": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-2",
+      "actual_artifacts": {
+        "expected_sources.json": {
+          "bytes": 135,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-2/expected_sources.json",
+          "sha256": "4e7352a4834cc0a29e26ea63e802336092c82cf8cf425c203227c71a508b66e7"
+        },
+        "joins.json": {
+          "bytes": 424,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-2/joins.json",
+          "sha256": "cc34a32ceb588c2d7b5dfad615f42b4cabb8de60993a8c47e58eafa95cc151b7"
+        },
+        "ledger.json": {
+          "bytes": 808252,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-2/ledger.json",
+          "sha256": "f8e0ffabac6729e911c7429552a919c18a303611c53d79b45782a1916f08f59e"
+        },
+        "observation-one_ms_clipped.json": {
+          "bytes": 1614484,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-2/observation-one_ms_clipped.json",
+          "sha256": "eb6427ac658318a56af3a8b8dc26cc394435b660beccbf0b5354636989e012c1"
+        },
+        "observation-one_ms_complete.json": {
+          "bytes": 4035794,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-2/observation-one_ms_complete.json",
+          "sha256": "0698f9d0b9fb6fdd15487b4ee2501a9156b027b3407023cbc1bb0a53c1c97254"
+        },
+        "observation-undelivered_seed.json": {
+          "bytes": 1614480,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-2/observation-undelivered_seed.json",
+          "sha256": "e867f52a5fcdbcaa191170e7066dc1ce94ab28e99c7ee7937b61c6aa67cfab9c"
+        },
+        "observation-zero.json": {
+          "bytes": 4035404,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-2/observation-zero.json",
+          "sha256": "384ace5c82dedf1280ba6d5cbd31e2bd1087971e8c41b96dd9c7548dd0a6ba1e"
+        },
+        "runtime.json": {
+          "bytes": 30675,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-2/runtime.json",
+          "sha256": "9a0f4b29ce8bcf8f077e4cca66e06fcbf75226e5620bf96c8ad6ad3672fddf31"
+        },
+        "source_snapshot.py": {
+          "bytes": 35889,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-2/source_snapshot.py",
+          "sha256": "bf1949d049efbc3a100a1f5d73d49d0b271d2aa702ad7987410cb815655f0624"
+        },
+        "validation.json": {
+          "bytes": 1613910,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-2/validation.json",
+          "sha256": "87b110ea57d072f90224b77a65e7c595a5e43b390858bbc93b5fc6b62e248c23"
+        }
+      },
+      "controls": [
+        {
+          "error": "observation-one_ms_complete.probes[4].delivery_ns: future delivery cannot be observed",
+          "intended_path": "observation-one_ms_complete.probes[4].delivery_ns",
+          "name": "coherent_future_POST_at_delayed_seed_probe",
+          "rejected": true
+        },
+        {
+          "error": "validation.snapshots[1].orders[1].reference: value differs",
+          "intended_path": "validation.snapshots[1].orders[1].reference",
+          "name": "stale_new_order_FIFO_with_unchanged_BBO",
+          "rejected": true
+        }
+      ],
+      "index": 2,
+      "verification": {
+        "bytes": 42471,
+        "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-verifier-2/verification.json",
+        "sha256": "d15afc46f661bd2d0b98fbb1e9031f3b765a57d9e24710f79155fc1e9acbdc72"
+      }
+    }
+  ],
+  "passed": true,
+  "pre_execution_source_corrections": [
+    "Producer refusal labels aligned to the independently frozen focused plan; acceptance predicates unchanged.",
+    "Verifier compares manifest list length with the public integer count; adds fixed-path/source-ancestry admission before following declarations.",
+    "Focused mutator updates projected source-point copies as well as full objects, preventing stale secondary metadata from masking the intended semantic guard.",
+    "Recorder retains launch failures/logs and guards snapshots, output bytes and owned inodes through final publication."
+  ],
+  "private_sources": {
+    "focused_tests": {
+      "bytes": 19787,
+      "path": "workspace/itch-feed-handler-tests/test_same_price_observer.py",
+      "sha256": "54e8499cc8c440a0a990b74f7f081c218666304804aa2266491fa75c5b251679"
+    },
+    "producer": {
+      "bytes": 35889,
+      "path": "workspace/itch-feed-handler-tests/same_price_observer.py",
+      "sha256": "bf1949d049efbc3a100a1f5d73d49d0b271d2aa702ad7987410cb815655f0624"
+    },
+    "recorder": {
+      "bytes": 13537,
+      "path": "workspace/itch-feed-handler-tests/record_same_price_observer.py",
+      "sha256": "4ef58a9e2d3b40d225992b0b2ea605f4f6aabaaed82e2b150a6d67ad66945546"
+    },
+    "verifier": {
+      "bytes": 40061,
+      "path": "workspace/itch-feed-handler-tests/verify_same_price_observer.py",
+      "sha256": "07f9c31821352fcee35a1d0a9914632b5ffe68a6ab9ff0b5cbfd7de35c3aa52a"
+    }
+  },
+  "producer_reports": [
+    {
+      "bytes": 30675,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-1/runtime.json",
+      "sha256": "9a0f4b29ce8bcf8f077e4cca66e06fcbf75226e5620bf96c8ad6ad3672fddf31"
+    },
+    {
+      "bytes": 30675,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-producer-2/runtime.json",
+      "sha256": "9a0f4b29ce8bcf8f077e4cca66e06fcbf75226e5620bf96c8ad6ad3672fddf31"
+    }
+  ],
+  "profiles_per_producer": [
+    {
+      "available_probes": 3,
+      "captured_row_instances": 37680,
+      "delivered_snapshots": 2,
+      "pending": 0,
+      "probes": 4,
+      "profile": "zero"
+    },
+    {
+      "available_probes": 0,
+      "captured_row_instances": 15072,
+      "delivered_snapshots": 0,
+      "pending": 2,
+      "probes": 3,
+      "profile": "one_ms_clipped"
+    },
+    {
+      "available_probes": 3,
+      "captured_row_instances": 37680,
+      "delivered_snapshots": 2,
+      "pending": 0,
+      "probes": 7,
+      "profile": "one_ms_complete"
+    },
+    {
+      "available_probes": 0,
+      "captured_row_instances": 15072,
+      "delivered_snapshots": 0,
+      "pending": 2,
+      "probes": 3,
+      "profile": "undelivered_seed"
+    }
+  ],
+  "protected_identities_per_verifier": 95,
+  "protected_originals_per_producer": 74,
+  "protected_originals_recorder": 7,
+  "recorded_commands": {
+    "focused": {
+      "receipt": {
+        "bytes": 868,
+        "path": "workspace/itch-feed-handler/out/same-price-observer-focused-execution-v1/command.json",
+        "sha256": "bab8f3f931f0079e26a46d325e37d5651cb0a78e4091609b1a5b552df40cf758"
+      },
+      "recorded_command": {
+        "argv": [
+          "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+          "workspace/itch-feed-handler-tests/test_same_price_observer.py",
+          "--output",
+          "out/same-price-observer-focused-v1"
+        ],
+        "cwd": "workspace/itch-feed-handler",
+        "exit_code": 0,
+        "stderr.txt": {
+          "bytes": 0,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-focused-execution-v1/stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.txt": {
+          "bytes": 247,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-focused-execution-v1/stdout.txt",
+          "sha256": "abaaf18679ae6d639f3dbf1d5b546bd59df01a756c58c9ddbb540262054ecb34"
+        },
+        "timed_out": false
+      }
+    },
+    "runtime": {
+      "receipt": {
+        "bytes": 1257,
+        "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-execution-v1/command.json",
+        "sha256": "03be31d0ad7c27a74c646f9b3e030350085749585fd7129b6376378c0aa27d5d"
+      },
+      "recorded_command": {
+        "argv": [
+          "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+          "workspace/itch-feed-handler-tests/record_same_price_observer.py",
+          "--output",
+          "workspace/itch-feed-handler/out/same-price-observer-runtime-v1",
+          "--focused",
+          "workspace/itch-feed-handler/out/same-price-observer-focused-v1/verification.json",
+          "--producer-sha",
+          "bf1949d049efbc3a100a1f5d73d49d0b271d2aa702ad7987410cb815655f0624",
+          "--verifier-sha",
+          "07f9c31821352fcee35a1d0a9914632b5ffe68a6ab9ff0b5cbfd7de35c3aa52a"
+        ],
+        "cwd": "workspace/itch-feed-handler",
+        "exit_code": 0,
+        "stderr.txt": {
+          "bytes": 0,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-execution-v1/stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.txt": {
+          "bytes": 220,
+          "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-execution-v1/stdout.txt",
+          "sha256": "8075a0b248d80bb03fceda7569bbfb454bd0b4bc6544998ad0456cc3d2c0c3f5"
+        },
+        "timed_out": false
+      }
+    }
+  },
+  "recorder": {
+    "bytes": 28068,
+    "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1/verification.json",
+    "sha256": "d9efe846674eb4dd2e8f52abdf3d562363eb1fd7334dac3389d2894b72d7a52d"
+  },
+  "repeat": {
+    "all_ten_files_identical": true,
+    "bytes_per_ten_file_set": 13789447,
+    "extent_is_a_performance_measurement": false,
+    "files_per_producer": 10,
+    "producer_pairs": 2
+  },
+  "reviews": {
+    "comparator_source": {
+      "bytes": 2898,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-comparator-source-review-v1/review.json",
+      "sha256": "1980bfbcb65508b5b747c6da6a5eb241c2aa7ae5f903ceaf2d4e0379f05dab12"
+    },
+    "producer_source": {
+      "bytes": 2394,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-producer-exporter-review-v1/review.json",
+      "sha256": "b555486b9d05ee945f8ab0ba089509920f8de8b0900dbb60e3f2e6667c90581f"
+    },
+    "retained_result_identities": {
+      "bytes": 28293,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-retained-review-v1/identities.json",
+      "sha256": "ad7e74beb50377a0a2556505f4aa1d097dc78d60dec840a2898ed4c95b36b5a0"
+    },
+    "retained_results": {
+      "bytes": 4225,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-retained-review-v1/review.json",
+      "sha256": "c2e74f183edf929e8df8c022e190b887283ece48f587ffb0a93b4f72c01b0dd0"
+    }
+  },
+  "row_accounting_per_pair": {
+    "additional_ledger_seed": 7536,
+    "additional_standalone_validation": 15072,
+    "eight_detail_payload_inventory_instances": 128112,
+    "four_profile_source_and_returned": 105504,
+    "named_order_diagnostics_counted_in_inventory_instances": false
+  },
+  "schema_version": 1,
+  "scope": {
+    "new_independent_historical_states": 0,
+    "public_implementation_files_unchanged": 59,
+    "queue_or_fill_model_executed": false,
+    "retained_distinct_historical_states": 37,
+    "reused_independent_source_states": 2,
+    "session_or_strategy_eligibility_established": false
+  },
+  "source_at_execution": {
+    "engine": {
+      "branch": "main",
+      "commit": "dbd280185a0d45f0839881caeff8d535bcd56779",
+      "file_sha256": {
+        "CMakeLists.txt": "9886fbc8523f033ca2a2ce93f1cf8fb63961d9ef9e40c089ad5aa2e06a541823",
+        "bench/main.cpp": "2e128198eb4489a8234c6c4035466ed405cac794f622ce77e713364a50a389d1",
+        "bench/rng.hpp": "ecce719bb32149fbe06b46f57d074b1a89481cc141c7f1fd00ae0b5bc84609ae",
+        "bench/summarize.py": "6fa2e3a6ea129ec4f991c8a4608e76c46b4daab2d4fc8f5686f316fce9a85531",
+        "bench/workloads.cpp": "c08cb0a3f4e07c4835ec6a0b071a85063694435ac4d24fa28e3d8133c9582310",
+        "bench/workloads.hpp": "707d788d0a64caa74ae6a9a26ebda4c289ea74736d2c82a9f5da8aee459562e9",
+        "include/me/book.hpp": "3d108b220052193961042001cc6b41838052990a55c6f4524187b29aaefcd445",
+        "include/me/book_v1.hpp": "e89934e838faf4dc314f9d5a1c535ad3e839e3fa1e8de9d48f466dcdd53412fb",
+        "include/me/core.hpp": "1e8b9c371c9efdfeb2db95a4a51c0c916ecb426fd36ed8908fc1f7b523709569",
+        "include/me/index.hpp": "928ce72653d1b955a3b2017dbd5b36e24b83485b5aa06ac7ac8fd64db6f50d47",
+        "include/me/levels.hpp": "fa40d4a70053ff3a1d14cee7cf0e2a3bd527cfe48cb6e903a7e187a860d7d872",
+        "include/me/store.hpp": "c0ce83d7da8cd4bd9b2b61850d7dea4ad4cb9298e9f493c68599083a7657af42",
+        "include/me/types.hpp": "50ef826d9a2155695b1b5169af52fc878735ca563d5a1b9ef9f687da69002552",
+        "src/book.cpp": "abc53bdce8129d52727295112e92cfae2114ea1da9e6f8eb67f21a0bff80a2ae",
+        "src/book_v1.cpp": "ef84b5f8ad61b6249b779710ef96bbbf0666a03cdb298fde3f93ce71c2e3f716"
+      },
+      "path": "workspace/matching-engine"
+    },
+    "itch": {
+      "branch": "main",
+      "commit": "8096f41b297163acf2fe2bbce903dc30dcd138e1",
+      "file_sha256": {
+        "CMakeLists.txt": "e52c483dca2d3d770ed0003c6240659e8246046edc12dcaa0dfeda184fddadc4",
+        "bench/audit_handoff.py": "a14fac8bcc7a57677ab58c9fc2a504a46b848626df9b150e571a7a3ee7d67630",
+        "bench/compare_bbo.py": "83caa1216e4d3c2e3eec184dd87755ac08008747ab6c3a8848d765d4623868b8",
+        "bench/compare_l3.py": "abf11fca148a5d9fac5c232cd72bf9bf6ff63b2db0d72bffc411da1b17f21bfb",
+        "bench/compare_level_search.py": "8b1b31d4a811d23595a000ab10846e1c7a028d004b0fa32a38925087d77ffb56",
+        "bench/compare_reference.py": "63643ac2e5c8397d9fe2a950437bb147fafb14bf8564a305bacc062093f512fd",
+        "bench/compare_storage.py": "91d7ada64c24ee916ab1399dae3c70c1c74260aa74d04fdc52d445e2a5acdc46",
+        "bench/identified_events.py": "10bc0a310e441a4dd91653e5c66bbefa0dddd171844ef5f3d6197f3ec66cb918",
+        "bench/identified_history.py": "4f3e14a8c56e75de8c274f10a62f97b9c0f38845bd422fc5fcd1c9d8b3b29fbc",
+        "bench/identified_transitions.py": "7955aa818f77ec4a20d8223ca421e0b913ab5cbf39f134c62bf464e949563f9d",
+        "bench/journal.py": "e4307dbf4932f0535efab512205bd8be3b86ff83da54cc6365d13a691bfe661b",
+        "bench/repacketise_history.py": "28abf9d2efacdd4ddd133450b84142b3c9e4c76e03b76057e4c007b1a2e9675f",
+        "bench/validate.py": "07eae050e280b196b64be49db2bd1777d8f1475085b09483261a457ae8cd7df5",
+        "bench/validate_journal.py": "df8bebe2892861708566f4ea7cb7f51967a16be69498046b0cd2b93b23671433",
+        "include/itch/book.hpp": "539553d740a7cd3f1f25bfddb89b8bea1ddb3745d1f56e4ab0ea02c451ed37df",
+        "include/itch/encode.hpp": "3976ae407926e57f060b18485cdaff7a2def42f65886c9c065840ae0f9979b61",
+        "include/itch/endian.hpp": "e461783ae5a73df12ef028b66696bf466cf78cb1bbefb48b44eb07c8991bab7f",
+        "include/itch/framing.hpp": "502138feb5250b51e92fa37ec11f1536aebe2c9a62c4f5195ca63fb50ae88417",
+        "include/itch/journal.hpp": "1cd9e31221d1603845181f5dfe4c9fc3a56da3b5a9a874123ee1675203340975",
+        "include/itch/messages.hpp": "48c7d0ec5bfb531201f3fa9f247ed7f3cf2f4e00b46ad463559e9e4a1afcb409",
+        "include/itch/mold.hpp": "60c5cf5764fd01b92b6de541a5ad8a9afe90de1b6bd1ca9bd9c5d49a8e44b35c",
+        "include/itch/mold_itch.hpp": "66e3719f75af0cba5e15e3acf086327d2a7a11cf140683b07f94386dff470252",
+        "include/itch/queue_sim.hpp": "5031e65b70a18749fcc9e274d9a6a84d29cd1ff3c44d653b444dfe5c7f50ee6b",
+        "include/itch/queue_window.hpp": "85e96de848c5572591b17b587901d52d0dc39e6d23e144da23588756e17945eb",
+        "include/itch/replay.hpp": "9e91ab2cc04d89d59884c6bf28d046390b89a0f09036d79e05acab8d4bd8741c",
+        "include/itch/snapshots.hpp": "7a431eedd50ba1e554986ccf7a5efea1702c2c23e14391c58e051d653a8ad446",
+        "src/book.cpp": "a679b2c681bebd8b3c7f5b99af4b393a5bd1b94e2077a1e0ffd951ed4e2b40e7",
+        "src/framing.cpp": "ab03285ee9dd4ff7d155f81bea74edab76f8b9065bc81084d10a27bd39b06dd3",
+        "src/journal.cpp": "33a41a1aa5e2003268f06da3dfd61eac6a980e06f8cb83929a0bd5c6b9644c9c",
+        "src/mold.cpp": "4b4b0de896d56b37147c20f2e32e74ace740cc056ce7286bfdb56736ae3bf3dc",
+        "src/queue_sim.cpp": "2da5625b9ede5a68c84ad219e91b8c9f43a6c5885f358e9172ca132527dc437d",
+        "src/queue_window.cpp": "98cfbc84d9bd2c5ffea0ed1108fb6396e9f19e2777d5c3ff2a8da24fb9e7f772",
+        "src/replay.cpp": "bcecd0fe0fdad39c11c497966e1a5840541f3e0d10626e9933e4a126b3618991",
+        "tools/bench.cpp": "33f24effb42d6c93835f543b8d9df0dd607a5c600ff678f5d317f6f2704f2030",
+        "tools/census.cpp": "466b9e9c86e1836c5b1b1c2d214e3325efa07e06728c4a2ca873495106c8cbc3",
+        "tools/cli.hpp": "ff2d6e114a6844c9cc4b12ca90c3c45e93a3eb18683d99e973b5cd67387731c3",
+        "tools/journal_replay.cpp": "2cb83b19b6f500580e22d9d8028a4c33d812f9d1062453e3134d47cc1769b045",
+        "tools/loopback.cpp": "a740ca708a0220c22344ba1cb40ee48919c92e7a4f7550faad85254bbfd958f8",
+        "tools/queue_sim.cpp": "9a5a389c4f9dd2c81f641e6d2bca119dcbf9fa98f649750930d3bf2089f0c118",
+        "tools/queue_window.cpp": "9796ff4b1b67bbdfb310644b1fe5ab4d6eb74a1e8a2bb5d04edc741ae3feea5e",
+        "tools/replay.cpp": "eb2d3cc2d77e7737d9b9f7a1132a6bb1607976e0ee4287c87dc80d4557e1950f",
+        "tools/snapshots.cpp": "72992f0b87e8ee5716d0475db7eb60ccd43c3074899cc9c119d8350f7ca7dd54",
+        "tools/source.hpp": "ce7e405434d9583c49c0e9c8b751cda1a4b70fec07f17e10ef6fd7f86d0f8c6c",
+        "tools/storage_bench.cpp": "e803c30477adb554967ac9676679d94054a37c13afa4d471cd18b6dbbdd09f68"
+      },
+      "path": "workspace/itch-feed-handler"
+    }
+  },
+  "summary_per_producer": {
+    "compared_order_rows": 15072,
+    "compared_states": 2,
+    "deterministic_ledger_sha256": "f8e0ffabac6729e911c7429552a919c18a303611c53d79b45782a1916f08f59e",
+    "effective_ns": 34645316895296,
+    "end_ns": 34645316896167,
+    "facts": 1,
+    "ledger_constructions": 2,
+    "locate": 6556,
+    "seed_orders": 7536,
+    "symbol": "QQQ",
+    "validation_summary": {
+      "context_events": 0,
+      "fact_count": 1,
+      "final_orders": 7536,
+      "non_head_executions": 0,
+      "replacements": 1,
+      "seed_orders": 7536,
+      "snapshot_rows": 15072
+    },
+    "window_id": 1
+  },
+  "verified_totals_per_pair": {
+    "available_probes": 6,
+    "captured_row_instances": 105504,
+    "facts": 1,
+    "probes": 17,
+    "profiles": 4,
+    "source_states": 2,
+    "windows": 1
+  },
+  "verifier_reports": [
+    {
+      "bytes": 42471,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-verifier-1/verification.json",
+      "sha256": "c60f086fa9234e8a544455be9a494317be2768d9764cdd121907e245c5c81b7d"
+    },
+    {
+      "bytes": 42471,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-runtime-v1-verifier-2/verification.json",
+      "sha256": "d15afc46f661bd2d0b98fbb1e9031f3b765a57d9e24710f79155fc1e9acbdc72"
+    }
+  ],
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 44109,
+    "original_report_sha256": "5366ae3e5240af0fae34dccd89ab1dcfb7339f4b574ecb673605f0aec82113ca",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}

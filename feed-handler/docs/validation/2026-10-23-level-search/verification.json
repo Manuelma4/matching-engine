@@ -1,0 +1,576 @@
+{
+  "schema_version": 1,
+  "model": "level_search_execution_verification_v1",
+  "passed": true,
+  "errors": [],
+  "implementation_commit": "4a1e294e0388a824b9ec4d8a8e41bc45afc78dda",
+  "measured_source": {
+    "itch": {
+      "path": "workspace/itch-feed-handler",
+      "git_commit": "ac4c22867795e47b708e7bf0af00ea63c5e767f5",
+      "git_dirty": false,
+      "file_sha256": {
+        "CMakeLists.txt": "e52c483dca2d3d770ed0003c6240659e8246046edc12dcaa0dfeda184fddadc4",
+        "bench/audit_handoff.py": "a14fac8bcc7a57677ab58c9fc2a504a46b848626df9b150e571a7a3ee7d67630",
+        "bench/compare_bbo.py": "83caa1216e4d3c2e3eec184dd87755ac08008747ab6c3a8848d765d4623868b8",
+        "bench/compare_l3.py": "abf11fca148a5d9fac5c232cd72bf9bf6ff63b2db0d72bffc411da1b17f21bfb",
+        "bench/compare_level_search.py": "8b1b31d4a811d23595a000ab10846e1c7a028d004b0fa32a38925087d77ffb56",
+        "bench/compare_reference.py": "63643ac2e5c8397d9fe2a950437bb147fafb14bf8564a305bacc062093f512fd",
+        "bench/compare_storage.py": "91d7ada64c24ee916ab1399dae3c70c1c74260aa74d04fdc52d445e2a5acdc46",
+        "bench/identified_events.py": "10bc0a310e441a4dd91653e5c66bbefa0dddd171844ef5f3d6197f3ec66cb918",
+        "bench/identified_history.py": "4f3e14a8c56e75de8c274f10a62f97b9c0f38845bd422fc5fcd1c9d8b3b29fbc",
+        "bench/identified_transitions.py": "7955aa818f77ec4a20d8223ca421e0b913ab5cbf39f134c62bf464e949563f9d",
+        "bench/journal.py": "e4307dbf4932f0535efab512205bd8be3b86ff83da54cc6365d13a691bfe661b",
+        "bench/repacketise_history.py": "28abf9d2efacdd4ddd133450b84142b3c9e4c76e03b76057e4c007b1a2e9675f",
+        "bench/validate.py": "07eae050e280b196b64be49db2bd1777d8f1475085b09483261a457ae8cd7df5",
+        "bench/validate_journal.py": "df8bebe2892861708566f4ea7cb7f51967a16be69498046b0cd2b93b23671433",
+        "include/itch/book.hpp": "539553d740a7cd3f1f25bfddb89b8bea1ddb3745d1f56e4ab0ea02c451ed37df",
+        "include/itch/encode.hpp": "3976ae407926e57f060b18485cdaff7a2def42f65886c9c065840ae0f9979b61",
+        "include/itch/endian.hpp": "e461783ae5a73df12ef028b66696bf466cf78cb1bbefb48b44eb07c8991bab7f",
+        "include/itch/framing.hpp": "502138feb5250b51e92fa37ec11f1536aebe2c9a62c4f5195ca63fb50ae88417",
+        "include/itch/journal.hpp": "1cd9e31221d1603845181f5dfe4c9fc3a56da3b5a9a874123ee1675203340975",
+        "include/itch/messages.hpp": "48c7d0ec5bfb531201f3fa9f247ed7f3cf2f4e00b46ad463559e9e4a1afcb409",
+        "include/itch/mold.hpp": "60c5cf5764fd01b92b6de541a5ad8a9afe90de1b6bd1ca9bd9c5d49a8e44b35c",
+        "include/itch/mold_itch.hpp": "66e3719f75af0cba5e15e3acf086327d2a7a11cf140683b07f94386dff470252",
+        "include/itch/queue_sim.hpp": "5031e65b70a18749fcc9e274d9a6a84d29cd1ff3c44d653b444dfe5c7f50ee6b",
+        "include/itch/queue_window.hpp": "85e96de848c5572591b17b587901d52d0dc39e6d23e144da23588756e17945eb",
+        "include/itch/replay.hpp": "9e91ab2cc04d89d59884c6bf28d046390b89a0f09036d79e05acab8d4bd8741c",
+        "include/itch/snapshots.hpp": "7a431eedd50ba1e554986ccf7a5efea1702c2c23e14391c58e051d653a8ad446",
+        "src/book.cpp": "a679b2c681bebd8b3c7f5b99af4b393a5bd1b94e2077a1e0ffd951ed4e2b40e7",
+        "src/framing.cpp": "ab03285ee9dd4ff7d155f81bea74edab76f8b9065bc81084d10a27bd39b06dd3",
+        "src/journal.cpp": "33a41a1aa5e2003268f06da3dfd61eac6a980e06f8cb83929a0bd5c6b9644c9c",
+        "src/mold.cpp": "4b4b0de896d56b37147c20f2e32e74ace740cc056ce7286bfdb56736ae3bf3dc",
+        "src/queue_sim.cpp": "2da5625b9ede5a68c84ad219e91b8c9f43a6c5885f358e9172ca132527dc437d",
+        "src/queue_window.cpp": "98cfbc84d9bd2c5ffea0ed1108fb6396e9f19e2777d5c3ff2a8da24fb9e7f772",
+        "src/replay.cpp": "bcecd0fe0fdad39c11c497966e1a5840541f3e0d10626e9933e4a126b3618991",
+        "tools/bench.cpp": "33f24effb42d6c93835f543b8d9df0dd607a5c600ff678f5d317f6f2704f2030",
+        "tools/census.cpp": "466b9e9c86e1836c5b1b1c2d214e3325efa07e06728c4a2ca873495106c8cbc3",
+        "tools/cli.hpp": "ff2d6e114a6844c9cc4b12ca90c3c45e93a3eb18683d99e973b5cd67387731c3",
+        "tools/journal_replay.cpp": "2cb83b19b6f500580e22d9d8028a4c33d812f9d1062453e3134d47cc1769b045",
+        "tools/loopback.cpp": "a740ca708a0220c22344ba1cb40ee48919c92e7a4f7550faad85254bbfd958f8",
+        "tools/queue_sim.cpp": "9a5a389c4f9dd2c81f641e6d2bca119dcbf9fa98f649750930d3bf2089f0c118",
+        "tools/queue_window.cpp": "9796ff4b1b67bbdfb310644b1fe5ab4d6eb74a1e8a2bb5d04edc741ae3feea5e",
+        "tools/replay.cpp": "eb2d3cc2d77e7737d9b9f7a1132a6bb1607976e0ee4287c87dc80d4557e1950f",
+        "tools/snapshots.cpp": "72992f0b87e8ee5716d0475db7eb60ccd43c3074899cc9c119d8350f7ca7dd54",
+        "tools/source.hpp": "ce7e405434d9583c49c0e9c8b751cda1a4b70fec07f17e10ef6fd7f86d0f8c6c",
+        "tools/storage_bench.cpp": "e803c30477adb554967ac9676679d94054a37c13afa4d471cd18b6dbbdd09f68"
+      }
+    },
+    "engine": {
+      "path": "workspace/matching-engine",
+      "git_commit": "dbd280185a0d45f0839881caeff8d535bcd56779",
+      "git_dirty": false,
+      "file_sha256": {
+        "CMakeLists.txt": "9886fbc8523f033ca2a2ce93f1cf8fb63961d9ef9e40c089ad5aa2e06a541823",
+        "bench/main.cpp": "2e128198eb4489a8234c6c4035466ed405cac794f622ce77e713364a50a389d1",
+        "bench/rng.hpp": "ecce719bb32149fbe06b46f57d074b1a89481cc141c7f1fd00ae0b5bc84609ae",
+        "bench/summarize.py": "6fa2e3a6ea129ec4f991c8a4608e76c46b4daab2d4fc8f5686f316fce9a85531",
+        "bench/workloads.cpp": "c08cb0a3f4e07c4835ec6a0b071a85063694435ac4d24fa28e3d8133c9582310",
+        "bench/workloads.hpp": "707d788d0a64caa74ae6a9a26ebda4c289ea74736d2c82a9f5da8aee459562e9",
+        "include/me/book.hpp": "3d108b220052193961042001cc6b41838052990a55c6f4524187b29aaefcd445",
+        "include/me/book_v1.hpp": "e89934e838faf4dc314f9d5a1c535ad3e839e3fa1e8de9d48f466dcdd53412fb",
+        "include/me/core.hpp": "1e8b9c371c9efdfeb2db95a4a51c0c916ecb426fd36ed8908fc1f7b523709569",
+        "include/me/index.hpp": "928ce72653d1b955a3b2017dbd5b36e24b83485b5aa06ac7ac8fd64db6f50d47",
+        "include/me/levels.hpp": "fa40d4a70053ff3a1d14cee7cf0e2a3bd527cfe48cb6e903a7e187a860d7d872",
+        "include/me/store.hpp": "c0ce83d7da8cd4bd9b2b61850d7dea4ad4cb9298e9f493c68599083a7657af42",
+        "include/me/types.hpp": "50ef826d9a2155695b1b5169af52fc878735ca563d5a1b9ef9f687da69002552",
+        "src/book.cpp": "abc53bdce8129d52727295112e92cfae2114ea1da9e6f8eb67f21a0bff80a2ae",
+        "src/book_v1.cpp": "ef84b5f8ad61b6249b779710ef96bbbf0666a03cdb298fde3f93ce71c2e3f716"
+      }
+    }
+  },
+  "publication_scope": "Aggregation of retained executed evidence; no build, test, raw read or replay during publication.",
+  "evidence": {
+    "original_unit_matrix": {
+      "path": "workspace/itch-feed-handler/out/level-search-unit-v1/verification.json",
+      "bytes": 209675,
+      "sha256": "46dd5914e40c7ccb2dfa69ce10d83f1fb07e9c0fc1129b26f95ae500caf74cf8"
+    },
+    "python_followup": {
+      "path": "workspace/itch-feed-handler/out/level-search-python-followup-v1/verification.json",
+      "bytes": 15366,
+      "sha256": "ec69dfbee684fa849cc880f8960a08619f7be9cd8750e57eb4e6724124809f26"
+    },
+    "prerequisite_proof": {
+      "path": "workspace/itch-feed-handler/out/level-search-prerequisites-v1/proof.json",
+      "bytes": 14938,
+      "sha256": "ecd898b10429bdec36b77e44b56c5be3d01bd796cdd905ada24de3fa62a1501b"
+    },
+    "prerequisite_execution": {
+      "path": "workspace/itch-feed-handler/out/level-search-prerequisites-v1/execution.json",
+      "bytes": 46728,
+      "sha256": "e28d849c7842f3833124b2e2a1f5cb44a221ddf1942d2d4cadf47146f8b96e62"
+    },
+    "accepted_prerequisites": {
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-23-level-search/prerequisites.json",
+      "bytes": 9202,
+      "sha256": "e7924ec30f6187aca9812e028fbcc23a5e63b7b23efa18adaa140bcd14bb802e"
+    },
+    "comparison": {
+      "path": "workspace/itch-feed-handler/out/level-search-realflow-v1.json",
+      "bytes": 326882,
+      "sha256": "2c8961b3892d21db95ab41c29a4d1e83bea786b6efcf5a90ab45756d84967c1c"
+    },
+    "prefix_independent_review": {
+      "path": "workspace/itch-feed-handler/out/level-search-prerequisites-independent-v1/audit.json",
+      "bytes": 2462,
+      "sha256": "97b3746aabba4d5561a6af6bc635e8c17e7912d84b604aba3bbca53c35d1ad15"
+    },
+    "measurement_independent_review": {
+      "path": "workspace/itch-feed-handler/out/level-search-realflow-independent-v1/audit.json",
+      "bytes": 9786,
+      "sha256": "297a19def0804e5d9c192627ed62f952b291994d884e3d11b5119101cf512ff7"
+    },
+    "provenance_independent_review": {
+      "path": "workspace/itch-feed-handler/out/level-search-provenance-review-v1/review.json",
+      "bytes": 98959,
+      "sha256": "67b56e5294301a0d5d48b0c58b3b6477fcddcd3bdbb77843558f663421db1e04"
+    },
+    "literal_fixture_manifest": {
+      "path": "workspace/itch-feed-handler/out/level-search-fixture-v1/manifest.json",
+      "bytes": 2569,
+      "sha256": "1c93712f0e1253c9d4f27e538c1c12e35108b0e2564a6c72fb26596c9110e3e4"
+    }
+  },
+  "publisher": {
+    "path": "workspace/itch-feed-handler-tests/publish_level_search_evidence.py",
+    "bytes": 10090,
+    "sha256": "fe704ac9ba8a51a3067f5c0fb93ce617f9fec54c73be8c4e8baffcd229f1560b"
+  },
+  "accepted_design": {
+    "commit": "2b7e8b26e04314ce0e24b5d12887619ff84e118f",
+    "design": {
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-23-level-search-design/design.json",
+      "bytes": 22032,
+      "sha256": "eb68558aee6a5cb054541ca9eb262f89f9d95e17f1416248c9fb8ff8a0349d15"
+    },
+    "contract": {
+      "path": "workspace/itch-feed-handler/docs/LEVEL_SEARCH.md",
+      "bytes": 14506,
+      "sha256": "6551554e3b4c96b2802dfeed14932dfdb6d0e4f619ada61acdbbc41f25325a79"
+    }
+  },
+  "inputs": {
+    "nasdaq": {
+      "path": "workspace/itch-feed-handler/data/12302019.NASDAQ_ITCH50.itch",
+      "bytes": 8251407909,
+      "sha256": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f"
+    },
+    "bx": {
+      "path": "workspace/itch-feed-handler/data/20190730.BX_ITCH_50.itch",
+      "bytes": 837472908,
+      "sha256": "6741035beda0c237fc2d30e03756f30449791844f372de955a29da32a4b842e5"
+    }
+  },
+  "unit_matrix": {
+    "builds": 8,
+    "policies": [
+      "reverse_linear",
+      "binary"
+    ],
+    "reference_indices": [
+      "open_addressed",
+      "std_unordered"
+    ],
+    "profiles": [
+      "Release",
+      "ASan/UBSan"
+    ],
+    "methods_per_build": 49,
+    "method_instances": 392,
+    "passed_method_instances": 380,
+    "expected_skipped_instances": 12,
+    "skip_scope": "Three standard-index allocation cases in each of four flat-index builds.",
+    "selected_cli_group_instances_passed": 24,
+    "new_literal_cpp_methods": 6,
+    "literal_expectations_frozen_before_execution": true,
+    "normal_gtest_ctest_process_stderr_empty": true,
+    "build_warning": "GoogleTest 1.15.2 gtest-printers.h:524 character conversion; retained in all eight builds and copied-source mutant build.",
+    "negative_control": {
+      "passed": true,
+      "scope": "copied source only",
+      "test": "LevelSearch.DeepPriceLookupAgreesWithCompleteInventory",
+      "expected_exit_code": 1,
+      "source": {
+        "path": "workspace/itch-feed-handler/out/level-search-unit-v1/book-deep-lookup-mutant.cpp",
+        "bytes": 9105,
+        "sha256": "8beb3e7719eb56c78558221926b26c06d1d3faa4b2e1bfafe1ec7fb950c0e603"
+      },
+      "binary": {
+        "path": "workspace/itch-feed-handler/out/level-search-unit-v1/deep-lookup-mutant",
+        "bytes": 604080,
+        "sha256": "1dd93300073c5355be39e0df68a34c240d2b8ba8b5a8cadda00c454fdd47b0f9"
+      },
+      "xml": {
+        "path": "workspace/itch-feed-handler/out/level-search-unit-v1/deep-lookup-mutant.xml",
+        "bytes": 1131,
+        "sha256": "8ea6da23417dc89a02c87b39851b38bc4eceafd227061e1bb2185bd0a18bdacc"
+      },
+      "failure": "Expected deep-price lookup assertion rejected the copied-source mutation; complete private-test diagnostic retained privately."
+    },
+    "invalid_cmake_policy_expected_configure_exit": 1
+  },
+  "python_admission_followup": {
+    "original_controls_passed": 18,
+    "final_controls_passed": 22,
+    "unique_final_control_methods": 22,
+    "original_18_method_asts_and_setup_unchanged": true,
+    "allowed_public_source_changes": [
+      "bench/compare_level_search.py"
+    ],
+    "original_runner": {
+      "path": "workspace/itch-feed-handler/out/level-search-unit-v1/tested-compare_level_search.py",
+      "bytes": 44438,
+      "sha256": "fd4b07deb543dc854d6111081df9e1b58ccde19db79ed2b4308be672805b161e"
+    },
+    "final_runner": {
+      "path": "workspace/itch-feed-handler/bench/compare_level_search.py",
+      "bytes": 53418,
+      "sha256": "8b1b31d4a811d23595a000ab10846e1c7a028d004b0fa32a38925087d77ffb56"
+    },
+    "original_control_source": {
+      "path": "workspace/itch-feed-handler/out/level-search-fixture-v1/test_level_search_comparison.py",
+      "bytes": 8562,
+      "sha256": "d5c7bc494ecc3fccbd6ee048a1e80f85f75add45e3b4140859ec9ceaeae793fa"
+    },
+    "final_control_source": {
+      "path": "workspace/itch-feed-handler-tests/test_level_search_comparison.py",
+      "bytes": 11377,
+      "sha256": "25e79551f07a04ffb6d0630c4f5d6d6d37f13fd636a0d736de524b4c4303a5dd"
+    },
+    "original_unit_report_preserved": true,
+    "cxx_rebuilds": 0,
+    "cxx_test_reruns": 0,
+    "review_findings": [
+      "Successful empty stderr identity rejected by initial runner.",
+      "Require actual engine compile coverage and tested measured-tool identities.",
+      "Reject fresh export aliases of retained data and other exports.",
+      "Require the reviewed committed prerequisite authority and exact accepted evidence identities."
+    ],
+    "empty_log_defect_reproduced_on_private_empty_file": "invalid retained file identity",
+    "qualification": "Initial matrix records the original runner; separate passing Python-only follow-up admits the final runner without relabelling or repeating the unchanged C++ matrix."
+  },
+  "independent_prefix_comparison": {
+    "fresh_local_exports": 4,
+    "request_sets": [
+      15,
+      20
+    ],
+    "policies": [
+      "reverse_linear",
+      "binary"
+    ],
+    "state_comparisons": 70,
+    "ordered_row_instances": 77950,
+    "distinct_independent_states": 35,
+    "new_independent_states": 0,
+    "fresh_external_reference_executions": 0,
+    "exact_ordered_csv_and_typed_local_summaries": true,
+    "reference_revision": "3c646f9da182136125059243b475f7b8baa53773",
+    "reference_scope": "Retained related MIT itchbook reconstruction; not a vendor or venue oracle.",
+    "raw_hashes_before_after": true
+  },
+  "full_day_matrix": {
+    "correctness_children": 8,
+    "rss_children": 8,
+    "timing_children": 48,
+    "total_children": 64,
+    "prefix_children_separate": 4,
+    "all_child_exit_codes_zero": true,
+    "all_child_stderr_empty": true,
+    "first_execution_passed": true,
+    "discarded_runs": 0,
+    "timing_driven_retries": 0,
+    "nasdaq_checkpoint_rows_per_configuration": 269,
+    "bx_checkpoint_rows_per_configuration": 29,
+    "checkpoint_row_instances": 1192,
+    "populated_checkpoint_row_instances": 1184,
+    "checkpoint_bytes_equal_within_each_flow": true,
+    "semantic_summaries_match_accepted_prior_day_baselines": true,
+    "full_input_hashes_before_after": true,
+    "source_binary_cache_compile_and_protected_identities_stable": true,
+    "checks": {
+      "all_eight_small_builds_and_four_exact_independent_exports_passed": true,
+      "fixed_index_and_actual_build_commands_verified": true,
+      "all_eight_full_day_correctness_passed": true,
+      "all_64_children_complete_in_frozen_order": true,
+      "protected_files_sources_and_full_raw_hashes_unchanged": true
+    },
+    "protocol": {
+      "reference_index": "open_addressed",
+      "rounds": 6,
+      "checkpoint_every": 1000000,
+      "scheduled_full_day_children": 64,
+      "prerequisite_prefix_children": 4,
+      "historical_children_total": 68,
+      "pair_order": [
+        [
+          "reverse_linear",
+          "binary"
+        ],
+        [
+          "binary",
+          "reverse_linear"
+        ],
+        [
+          "binary",
+          "reverse_linear"
+        ],
+        [
+          "reverse_linear",
+          "binary"
+        ],
+        [
+          "reverse_linear",
+          "binary"
+        ],
+        [
+          "binary",
+          "reverse_linear"
+        ]
+      ],
+      "group_order": [
+        [
+          "nasdaq",
+          "default"
+        ],
+        [
+          "nasdaq",
+          "fit"
+        ],
+        [
+          "bx",
+          "default"
+        ],
+        [
+          "bx",
+          "fit"
+        ]
+      ],
+      "group_rotation": "round modulo four",
+      "timeout_seconds": 1800,
+      "concurrent_children": 1,
+      "fresh_process_per_child": true,
+      "rss_samples_per_configuration": 1,
+      "correctness_scope": "sampled ordered fingerprints plus 35 previously independent complete states",
+      "timing_scope": "separate constructor, prefaulted mapped-input replay and teardown; final state walks outside replay",
+      "rss_scope": "separate streaming whole-process high-water, never subtraction or isolated directory memory"
+    }
+  },
+  "outcome": {
+    "binary_slower_observed_pairs": 24,
+    "observed_pairs": 24,
+    "paired_time_ratios": [
+      {
+        "case": "nasdaq",
+        "profile": "default",
+        "interpretation": "binary/reverse_linear; less than one is faster",
+        "values": [
+          1.0650140172885862,
+          1.0701335418143518,
+          1.0701310560204016,
+          1.0830587297133536,
+          1.0696315738054483,
+          1.0758435908041353
+        ],
+        "pair_orders": [
+          [
+            "reverse_linear",
+            "binary"
+          ],
+          [
+            "binary",
+            "reverse_linear"
+          ],
+          [
+            "binary",
+            "reverse_linear"
+          ],
+          [
+            "reverse_linear",
+            "binary"
+          ],
+          [
+            "reverse_linear",
+            "binary"
+          ],
+          [
+            "binary",
+            "reverse_linear"
+          ]
+        ],
+        "count": 6,
+        "median": 1.0701322989173767,
+        "minimum": 1.0650140172885862,
+        "maximum": 1.0830587297133536
+      },
+      {
+        "case": "nasdaq",
+        "profile": "fit",
+        "interpretation": "binary/reverse_linear; less than one is faster",
+        "values": [
+          1.0531790215856578,
+          1.0654240773543382,
+          1.048090057596928,
+          1.0006797730071377,
+          1.0680045574091899,
+          1.066872026015956
+        ],
+        "pair_orders": [
+          [
+            "reverse_linear",
+            "binary"
+          ],
+          [
+            "binary",
+            "reverse_linear"
+          ],
+          [
+            "binary",
+            "reverse_linear"
+          ],
+          [
+            "reverse_linear",
+            "binary"
+          ],
+          [
+            "reverse_linear",
+            "binary"
+          ],
+          [
+            "binary",
+            "reverse_linear"
+          ]
+        ],
+        "count": 6,
+        "median": 1.059301549469998,
+        "minimum": 1.0006797730071377,
+        "maximum": 1.0680045574091899
+      },
+      {
+        "case": "bx",
+        "profile": "default",
+        "interpretation": "binary/reverse_linear; less than one is faster",
+        "values": [
+          1.1535138606230884,
+          1.220108381468242,
+          1.2316099588938663,
+          1.1577005528843884,
+          1.1524205728697579,
+          1.1835454326223052
+        ],
+        "pair_orders": [
+          [
+            "reverse_linear",
+            "binary"
+          ],
+          [
+            "binary",
+            "reverse_linear"
+          ],
+          [
+            "binary",
+            "reverse_linear"
+          ],
+          [
+            "reverse_linear",
+            "binary"
+          ],
+          [
+            "reverse_linear",
+            "binary"
+          ],
+          [
+            "binary",
+            "reverse_linear"
+          ]
+        ],
+        "count": 6,
+        "median": 1.170622992753347,
+        "minimum": 1.1524205728697579,
+        "maximum": 1.2316099588938663
+      },
+      {
+        "case": "bx",
+        "profile": "fit",
+        "interpretation": "binary/reverse_linear; less than one is faster",
+        "values": [
+          1.3058224707072992,
+          1.3234541034395275,
+          1.3255551991231016,
+          1.335435073014004,
+          1.330177866607579,
+          1.3225657817046177
+        ],
+        "pair_orders": [
+          [
+            "reverse_linear",
+            "binary"
+          ],
+          [
+            "binary",
+            "reverse_linear"
+          ],
+          [
+            "binary",
+            "reverse_linear"
+          ],
+          [
+            "reverse_linear",
+            "binary"
+          ],
+          [
+            "reverse_linear",
+            "binary"
+          ],
+          [
+            "binary",
+            "reverse_linear"
+          ]
+        ],
+        "count": 6,
+        "median": 1.3245046512813146,
+        "minimum": 1.3058224707072992,
+        "maximum": 1.335435073014004
+      }
+    ],
+    "default_policy": "reverse_linear",
+    "default_changed": false,
+    "nasdaq_fit_marginal_ranges_overlap": true,
+    "nasdaq_fit_fourth_pair_ratio": 1.0006797730071377,
+    "decision": "Retain the negative result and original default. Do not infer a search or representation improvement from asymptotic comparison counts."
+  },
+  "independent_retained_reviews": {
+    "measurement": {
+      "passed": true,
+      "verified_non_raw_identities": 259
+    },
+    "provenance": {
+      "passed": true,
+      "verified_non_raw_files": 347
+    },
+    "raw_reads": 0,
+    "project_imports": 0,
+    "build_test_or_replay_executions": 0
+  },
+  "limitations": [
+    "35 distinct retained independent states are reused; 70 local comparisons do not double external coverage.",
+    "1,192 internal checkpoint rows are repeated sampled fingerprints, not independent every-event verification.",
+    "Existing FNV walks omit some directory aggregates and ghost empty entries; explicit API fixtures and retained ordered exports supplement this scope.",
+    "Timing is prefaulted mapped-input replay, separate from construction/teardown and from single streaming whole-process RSS observations.",
+    "Six repeats per configuration, one RSS pass, one desktop host and two historical days establish no significance level or universal ranking.",
+    "No cache, branch, allocation, hardware-counter, controlled thermal/frequency, Linux, live latency or isolated directory-memory cause is measured.",
+    "No transport/queue eligibility, actual exchange priority, hypothetical fill or empirical calibration claim is added."
+  ],
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 23944,
+    "original_report_sha256": "f4bb3f9629eacd7f83b42602746d7512274bff1667ba5a89b45b7e06a4a80ff7",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md.",
+    "redacted_test_diagnostic": {
+      "bytes": 360,
+      "sha256": "9b85cb8785607c1f0bad75d0fca411e8f1b0ae61f93905931b3747fdd0133571",
+      "reason": "Private test diagnostic replaced by its outcome category."
+    }
+  }
+}

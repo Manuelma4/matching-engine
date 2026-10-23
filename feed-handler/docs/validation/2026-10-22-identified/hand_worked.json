@@ -1,0 +1,167 @@
+{
+  "all_cli_exit_zero": true,
+  "canonical_raw_read": false,
+  "cases": [
+    {
+      "complete_post_seed_selected_synthetic_coverage_verified_by_driver": true,
+      "context_events": 5,
+      "facts": 27,
+      "ledger": {
+        "bytes": 34061,
+        "path": "out/identified-evidence-v1/atomic_named/ledger-1.json",
+        "sha256": "47479cff1a0038f2e2274f227e4ecc48aa9f36ace5dfce8b8cca5f6e510fc059"
+      },
+      "name": "atomic_named",
+      "non_head_executions": 3,
+      "observations": [
+        {
+          "delivered": 28,
+          "name": "immediate",
+          "pending": 0,
+          "probes": 25
+        },
+        {
+          "delivered": 28,
+          "name": "delayed",
+          "pending": 0,
+          "probes": 28
+        },
+        {
+          "delivered": 23,
+          "name": "pending_final",
+          "pending": 5,
+          "probes": 4
+        },
+        {
+          "delivered": 0,
+          "name": "undelivered_seed",
+          "pending": 28,
+          "probes": 4
+        }
+      ],
+      "replacements": 5,
+      "snapshot_rows": 235,
+      "states": 28,
+      "synthetic_source": {
+        "bytes": 1286,
+        "path": "out/identified-fixture-v1/atomic_named.frames.bin",
+        "sha256": "98edb234beec29127db6e908f3ff7b251571d42f7d87f48c25bb0ae3951fabaa"
+      },
+      "synthetic_source_frame_positions_verified_by_driver": true
+    },
+    {
+      "complete_post_seed_selected_synthetic_coverage_verified_by_driver": true,
+      "context_events": 0,
+      "facts": 2,
+      "ledger": {
+        "bytes": 3478,
+        "path": "out/identified-evidence-v1/seed_gap/ledger-1.json",
+        "sha256": "73afd752fee6d99880429c18c97ee149fbc09996a18daa363411318d7a3f4bd4"
+      },
+      "name": "seed_gap",
+      "non_head_executions": 0,
+      "observations": [
+        {
+          "delivered": 3,
+          "name": "delivered",
+          "pending": 0,
+          "probes": 7
+        },
+        {
+          "delivered": 2,
+          "name": "pending_final",
+          "pending": 1,
+          "probes": 4
+        },
+        {
+          "delivered": 0,
+          "name": "undelivered_seed",
+          "pending": 3,
+          "probes": 5
+        }
+      ],
+      "replacements": 1,
+      "snapshot_rows": 5,
+      "states": 3,
+      "synthetic_source": {
+        "bytes": 168,
+        "path": "out/identified-fixture-v1/seed_gap.frames.bin",
+        "sha256": "0ee67b1925f1f530e0a8d3cfac37fbe68fd4d946fd89e3761b86f738de09a0eb"
+      },
+      "synthetic_source_frame_positions_verified_by_driver": true
+    }
+  ],
+  "cli_processes": 18,
+  "command": [
+    "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+    "workspace/itch-feed-handler-tests/identified_evidence.py",
+    "--fixtures",
+    "out/identified-fixture-v1/cases.json",
+    "--tool",
+    "bench/identified_events.py",
+    "--output",
+    "out/identified-evidence-v1",
+    "--test-log",
+    "out/identified-verification-v1/unittest.stderr.log",
+    "--test-methods",
+    "33"
+  ],
+  "completed_at_utc": "2026-10-22T18:48:13.012110+00:00",
+  "deterministic_ledger_pairs": 2,
+  "deterministic_report_pairs": 9,
+  "driver": {
+    "bytes": 14868,
+    "path": "workspace/itch-feed-handler-tests/identified_evidence.py",
+    "sha256": "177b585af18fabccb02417310dab511b166f5b7cb8965e2a2d5b4449642e4629"
+  },
+  "exact_all_intermediate_states": true,
+  "exact_deliveries_probes_pending": true,
+  "exact_full_ledger_comparison": true,
+  "fixture": {
+    "bytes": 403685,
+    "path": "workspace/itch-feed-handler/out/identified-fixture-v1/cases.json",
+    "sha256": "135ed4e8bc98c13ee5b4ab38e5e9687bfe7a94881f7533813c0038d0b710e2e7"
+  },
+  "limitations": [
+    "Synthetic framed observations, not a canonical raw adapter",
+    "Declared raw hashes and self-declared coverage are not authenticated by the module",
+    "Reconstructed FIFO does not establish actual exchange priority",
+    "No own orders, hypothetical fills, accounts, eligibility or performance claims"
+  ],
+  "new_cpp_sanitiser_run": false,
+  "passed": true,
+  "performance_measurement": false,
+  "private_manifest": {
+    "bytes": 29748,
+    "path": "out/identified-evidence-v1/private-manifest.json",
+    "sha256": "b7f17dd4a4eb706265491ffdf1f71bd23f312eac95ecd30821bd14e3e6ecc013"
+  },
+  "raw_input_identity_verified_by_module": false,
+  "schema_version": 1,
+  "scope": "hand_frozen_identified_observer_v1",
+  "source": {
+    "branch": "main",
+    "clean": true,
+    "commit": "a5c99b1ed624b0c25944c1cf24ea3751c0764d69",
+    "tool": {
+      "bytes": 29644,
+      "path": "workspace/itch-feed-handler/bench/identified_events.py",
+      "sha256": "10bc0a310e441a4dd91653e5c66bbefa0dddd171844ef5f3d6197f3ec66cb918"
+    }
+  },
+  "tests": {
+    "log": {
+      "bytes": 132,
+      "path": "workspace/itch-feed-handler/out/identified-verification-v1/unittest.stderr.log",
+      "sha256": "c84431bb018438e3e01f3fceb2587bbf6e3c2c973cf0d961a09979720d7a1ff2"
+    },
+    "methods": 33,
+    "passed": true
+  },
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 5132,
+    "original_report_sha256": "5a9518df178dde049825f2b6c89f52fe82cc565fd1b98ab84bf6b366ba15e892",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "comparison_executed": false,
+  "fixture_verification": {
+    "identity": {
+      "bytes": 976,
+      "path": "workspace/itch-feed-handler/out/l3-availability-source-review-v1/fixtures.json",
+      "sha256": "1ea1fde8023925181425b56e86c4a53e1908c4d1e777c2cac0e2b365e75ef303"
+    },
+    "methods_passed": 12
+  },
+  "fresh_prefix_rechecked_sha256": "c8e4fff1b993f8ebc5eae8c43d94e110935fa5e3d883853c3812d43e0b8f1b96",
+  "gate": "source_only_transition_availability_v1",
+  "independent_evidence_review": {
+    "fresh_raw_frame_bytes": 372,
+    "fresh_raw_frame_spotchecks": 13,
+    "identity": {
+      "bytes": 37444,
+      "path": "workspace/itch-feed-handler/out/l3-availability-final-review-v1/audit.json",
+      "sha256": "96c5d003fb416861edf5f63ccec8660315bfcdbc184bbc8c4be76ac7d6356930"
+    },
+    "independent_whole_prefix_recount": false,
+    "second_whole_raw_hash": false
+  },
+  "input": {
+    "bytes": 8251407909,
+    "full_identity_freshly_verified_after": false,
+    "full_identity_freshly_verified_before": true,
+    "path": "workspace/itch-feed-handler/data/12302019.NASDAQ_ITCH50.itch",
+    "sha256": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f",
+    "stat_after": {
+      "ctime_ns": 1792677034193507088,
+      "device": 16777234,
+      "inode": 70378397,
+      "mtime_ns": 1792677034176482800,
+      "size": 8251407909
+    },
+    "stat_before": {
+      "ctime_ns": 1792677034193507088,
+      "device": 16777234,
+      "inode": 70378397,
+      "mtime_ns": 1792677034176482800,
+      "size": 8251407909
+    }
+  },
+  "last_included_timestamp_ns": 34668771974812,
+  "limitations": [
+    "Local source-message census, not an independent reconstruction or separate vendor oracle.",
+    "Initial full raw SHA freshly checked; consumed-prefix SHA separately rechecked after; no second full raw hash.",
+    "Both rejected selections and all earlier validation retain their original scope."
+  ],
+  "market_open_sequence": 6696722,
+  "market_open_timestamp_ns": 34200000075566,
+  "mutation_counts": {
+    "post_q": {
+      "MSFT": {
+        "A": 34206,
+        "C": 54,
+        "D": 13727,
+        "E": 2762,
+        "F": 99,
+        "U": 2722,
+        "X": 65
+      },
+      "QQQ": {
+        "A": 65921,
+        "C": 44,
+        "D": 57876,
+        "E": 1369,
+        "F": 211,
+        "U": 7559,
+        "X": 2890
+      }
+    },
+    "pre_q": {
+      "MSFT": {
+        "A": 2623,
+        "C": 0,
+        "D": 1489,
+        "E": 231,
+        "F": 58,
+        "U": 2,
+        "X": 20
+      },
+      "QQQ": {
+        "A": 61188,
+        "C": 0,
+        "D": 60849,
+        "E": 330,
+        "F": 68,
+        "U": 1251,
+        "X": 361
+      }
+    }
+  },
+  "passed": true,
+  "post_open_horizon_ns": 468771899246,
+  "post_q_x_u": {
+    "MSFT": {
+      "U": {
+        "count": 2722,
+        "first_ns_after_q": 2964418,
+        "last_ns_after_q": 468328436258
+      },
+      "X": {
+        "count": 65,
+        "first_ns_after_q": 25002318269,
+        "last_ns_after_q": 454369046507
+      }
+    },
+    "QQQ": {
+      "U": {
+        "count": 7559,
+        "first_ns_after_q": 6097641,
+        "last_ns_after_q": 468740051680
+      },
+      "X": {
+        "count": 2890,
+        "first_ns_after_q": 205241382,
+        "last_ns_after_q": 468716002880
+      }
+    }
+  },
+  "prior_negative_results": [
+    {
+      "bytes": 30063,
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-23-l3-transitions/initial_selection_failure.json",
+      "sha256": "ad3ad2c8a58369e464f932f102552dbb0687ba37355417db380f19a280581512"
+    },
+    {
+      "bytes": 30954,
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-23-l3-transitions/ten_second_selection_failure.json",
+      "sha256": "26ded2966cbfcbc1a70953ffbd5603dadeaffd6428bd1adafd8f7303ad3cbeef"
+    }
+  ],
+  "private_result": {
+    "bytes": 9529,
+    "path": "workspace/itch-feed-handler/out/l3-transition-availability-v1/availability.json",
+    "sha256": "dc9e87ced77d2be27f36f5f1745ae062a24e137bd174a6bd640f0c65daf14d21"
+  },
+  "scan": {
+    "captured_selected_post_q_headers": 190214,
+    "first_timestamp_ns": 11072057543747,
+    "parsed_prefix_bytes": 524152398,
+    "post_q_global_frames": 9303278,
+    "pre_q_global_frames": 6696721,
+    "prefix_sha256": "c8e4fff1b993f8ebc5eae8c43d94e110935fa5e3d883853c3812d43e0b8f1b96",
+    "scanned_messages": 16000000,
+    "stop_reason": "global_frame_cap"
+  },
+  "schema_version": 1,
+  "source": {
+    "base_contract": {
+      "bytes": 11223,
+      "path": "workspace/itch-feed-handler/docs/L3_TRANSITIONS.md",
+      "sha256": "49792512e02954e1b7f48c7fddc6c07f40f034f6ab6d41421a074af6405cd572"
+    },
+    "contract": {
+      "bytes": 4024,
+      "path": "workspace/itch-feed-handler/docs/L3_AVAILABILITY.md",
+      "sha256": "78a3453d6bef6bda1209ba532fdf383b962ca0f98739d3d2c49236799da3de33"
+    },
+    "utility": {
+      "bytes": 13131,
+      "path": "workspace/itch-feed-handler-tests/study_l3_transition_availability.py",
+      "sha256": "cc107e00f8bd89981073b7b7b253c67632a4a2a4cc6a9fc86b425106b5951031"
+    }
+  },
+  "source_commit": "4a2b1ec8d3878b799d0ade7a6ec26ff6db08a6dc",
+  "validated_book_states": 0,
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 5452,
+    "original_report_sha256": "c82666896d28b5409ce47b6279d189d51fb027388815b166c4236f4e22490f5d",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}

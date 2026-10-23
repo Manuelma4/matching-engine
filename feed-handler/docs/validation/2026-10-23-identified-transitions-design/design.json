@@ -1,0 +1,459 @@
+{
+  "accepted_gate14": {
+    "commit": "3c5af0af73320bd9fd9f75476c8ca0b0627eeb7c",
+    "evidence": {
+      "bytes": 81814,
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-23-l3-transitions/verification.json",
+      "sha256": "a0eb34d2aea23821ed1e4823fe8e84f9ee9c015fad24d9f39ce663e28111b2bc"
+    },
+    "raw_and_prefix_authentication": "retained_gate14_only",
+    "reference_execution": "retained_gate14_only"
+  },
+  "branch": "main",
+  "contract_commit": "ce8cdfecce18ba57937f2fdd06a7306fac1c698f",
+  "contracts": {
+    "admission": {
+      "bytes": 8186,
+      "path": "workspace/itch-feed-handler/docs/IDENTIFIED_TRANSITIONS.md",
+      "sha256": "cbf474a42f925805161821d4ce0d1d8aa8306174cca8366b9d64056cd67fc15c"
+    },
+    "oracle_schema": {
+      "bytes": 11293,
+      "path": "workspace/itch-feed-handler/docs/IDENTIFIED_TRANSITIONS_ORACLE.md",
+      "sha256": "e4755b70abd1d775d1b3e2ae7097a2754ce8a632983b6859c98e47b0a8f2cd5e"
+    }
+  },
+  "executions": [
+    {
+      "argv": [
+        "python3",
+        "../itch-feed-handler-tests/freeze_identified_transitions.py",
+        "--output",
+        "out/identified-transition-oracle-v1"
+      ],
+      "exit_code": 0,
+      "stderr": {
+        "bytes": 0,
+        "path": "workspace/itch-feed-handler/out/identified-transition-design-review-v1/freeze-first.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 207,
+        "path": "workspace/itch-feed-handler/out/identified-transition-design-review-v1/freeze-first.stdout.json",
+        "sha256": "2aa1cee95b18713e4013565af71c350a54d09021b2d4bebeb7c84c03bab708d7"
+      },
+      "working_directory": "workspace/itch-feed-handler"
+    },
+    {
+      "argv": [
+        "python3",
+        "../itch-feed-handler-tests/freeze_identified_transitions.py",
+        "--output",
+        "out/identified-transition-oracle-repeat-v1"
+      ],
+      "exit_code": 0,
+      "stderr": {
+        "bytes": 0,
+        "path": "workspace/itch-feed-handler/out/identified-transition-design-review-v1/freeze-repeat.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 207,
+        "path": "workspace/itch-feed-handler/out/identified-transition-design-review-v1/freeze-repeat.stdout.json",
+        "sha256": "2aa1cee95b18713e4013565af71c350a54d09021b2d4bebeb7c84c03bab708d7"
+      },
+      "working_directory": "workspace/itch-feed-handler"
+    },
+    {
+      "argv": [
+        "python3",
+        "../itch-feed-handler-tests/audit_identified_transitions_oracle.py",
+        "--oracle",
+        "out/identified-transition-oracle-v1/oracle.json",
+        "--output",
+        "out/identified-transition-oracle-audit-v1"
+      ],
+      "exit_code": 0,
+      "stderr": {
+        "bytes": 0,
+        "path": "workspace/itch-feed-handler/out/identified-transition-design-review-v1/audit.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 248,
+        "path": "workspace/itch-feed-handler/out/identified-transition-design-review-v1/audit.stdout.json",
+        "sha256": "32b3d05e7b17daf6440ccfc29cde5e395baa199ca6a143e81c67d7e7715408f9"
+      },
+      "working_directory": "workspace/itch-feed-handler"
+    }
+  ],
+  "expectations": {
+    "clipped_latest_delivered_event_index_by_window": [
+      3,
+      0,
+      null,
+      0
+    ],
+    "clipped_pending_event_indices_by_window": [
+      [
+        4
+      ],
+      [
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        1,
+        2,
+        3,
+        4
+      ]
+    ],
+    "profile_totals": [
+      {
+        "expected_summary": {
+          "available_probes": 36,
+          "captured_rows": 61851,
+          "delivered_snapshots": 20,
+          "pending_deliveries": 0,
+          "probe_count": 40,
+          "returned_probe_rows": 39762,
+          "snapshot_rows": 22089
+        },
+        "name": "zero",
+        "windows": 4
+      },
+      {
+        "expected_summary": {
+          "available_probes": 18,
+          "captured_rows": 57358,
+          "delivered_snapshots": 6,
+          "pending_deliveries": 14,
+          "probe_count": 36,
+          "returned_probe_rows": 35269,
+          "snapshot_rows": 22089
+        },
+        "name": "one_ms_clipped",
+        "windows": 4
+      },
+      {
+        "expected_summary": {
+          "available_probes": 45,
+          "captured_rows": 77130,
+          "delivered_snapshots": 20,
+          "pending_deliveries": 0,
+          "probe_count": 64,
+          "returned_probe_rows": 55041,
+          "snapshot_rows": 22089
+        },
+        "name": "one_ms_complete",
+        "windows": 4
+      },
+      {
+        "expected_summary": {
+          "available_probes": 0,
+          "captured_rows": 22089,
+          "delivered_snapshots": 0,
+          "pending_deliveries": 20,
+          "probe_count": 24,
+          "returned_probe_rows": 0,
+          "snapshot_rows": 22089
+        },
+        "name": "undelivered_seed",
+        "windows": 4
+      }
+    ],
+    "row_count_meaning": "Expected repeated source and returned-probe inventory row instances; no observer execution count or new historical samples.",
+    "totals": {
+      "available_probes": 99,
+      "captured_row_instances": 218428,
+      "facts": 16,
+      "probes": 164,
+      "profiles": 16,
+      "source_states": 20,
+      "windows": 4
+    }
+  },
+  "freeze": {
+    "all_six_files_byte_identical": true,
+    "first": {
+      "contract_snapshot.md": {
+        "bytes": 8186,
+        "path": "workspace/itch-feed-handler/out/identified-transition-oracle-v1/contract_snapshot.md",
+        "sha256": "cbf474a42f925805161821d4ce0d1d8aa8306174cca8366b9d64056cd67fc15c"
+      },
+      "freeze_manifest.json": {
+        "bytes": 4973,
+        "path": "workspace/itch-feed-handler/out/identified-transition-oracle-v1/freeze_manifest.json",
+        "sha256": "a040e9a808f69057798f7028b40db988ee6c22a8f0daf976bf4c18c10b37f4d5"
+      },
+      "hand_expectations.json": {
+        "bytes": 125558,
+        "path": "workspace/itch-feed-handler/out/identified-transition-oracle-v1/hand_expectations.json",
+        "sha256": "4767359773be7a53423464f37be5e24134de92779069c8abedc7ff27f7e45bfb"
+      },
+      "oracle.json": {
+        "bytes": 123352,
+        "path": "workspace/itch-feed-handler/out/identified-transition-oracle-v1/oracle.json",
+        "sha256": "44b1f3cb3e0d4c7412c176a0afb52e867e43cee934979bb4d79e047c15729497"
+      },
+      "schema_snapshot.md": {
+        "bytes": 11293,
+        "path": "workspace/itch-feed-handler/out/identified-transition-oracle-v1/schema_snapshot.md",
+        "sha256": "e4755b70abd1d775d1b3e2ae7097a2754ce8a632983b6859c98e47b0a8f2cd5e"
+      },
+      "source_snapshot.py": {
+        "bytes": 10523,
+        "path": "workspace/itch-feed-handler/out/identified-transition-oracle-v1/source_snapshot.py",
+        "sha256": "fb6c53eabf65df0a75c456e59fa354e71b28a3219b45195f0eade17d49b6d158"
+      }
+    },
+    "protected_original_identities": 13,
+    "repeat": {
+      "contract_snapshot.md": {
+        "bytes": 8186,
+        "path": "workspace/itch-feed-handler/out/identified-transition-oracle-repeat-v1/contract_snapshot.md",
+        "sha256": "cbf474a42f925805161821d4ce0d1d8aa8306174cca8366b9d64056cd67fc15c"
+      },
+      "freeze_manifest.json": {
+        "bytes": 4973,
+        "path": "workspace/itch-feed-handler/out/identified-transition-oracle-repeat-v1/freeze_manifest.json",
+        "sha256": "a040e9a808f69057798f7028b40db988ee6c22a8f0daf976bf4c18c10b37f4d5"
+      },
+      "hand_expectations.json": {
+        "bytes": 125558,
+        "path": "workspace/itch-feed-handler/out/identified-transition-oracle-repeat-v1/hand_expectations.json",
+        "sha256": "4767359773be7a53423464f37be5e24134de92779069c8abedc7ff27f7e45bfb"
+      },
+      "oracle.json": {
+        "bytes": 123352,
+        "path": "workspace/itch-feed-handler/out/identified-transition-oracle-repeat-v1/oracle.json",
+        "sha256": "44b1f3cb3e0d4c7412c176a0afb52e867e43cee934979bb4d79e047c15729497"
+      },
+      "schema_snapshot.md": {
+        "bytes": 11293,
+        "path": "workspace/itch-feed-handler/out/identified-transition-oracle-repeat-v1/schema_snapshot.md",
+        "sha256": "e4755b70abd1d775d1b3e2ae7097a2754ce8a632983b6859c98e47b0a8f2cd5e"
+      },
+      "source_snapshot.py": {
+        "bytes": 10523,
+        "path": "workspace/itch-feed-handler/out/identified-transition-oracle-repeat-v1/source_snapshot.py",
+        "sha256": "fb6c53eabf65df0a75c456e59fa354e71b28a3219b45195f0eade17d49b6d158"
+      }
+    },
+    "repeat_comparison": {
+      "bytes": 1055,
+      "path": "workspace/itch-feed-handler/out/identified-transition-design-review-v1/freeze-repeat-comparison.json",
+      "sha256": "96602237095d75e1148664a5f413793b88f569210bb35dcb0bf263846bc61ed8"
+    },
+    "runs": 2,
+    "source_commit": "ce8cdfecce18ba57937f2fdd06a7306fac1c698f"
+  },
+  "gate": 15,
+  "hand_expectations": {
+    "bytes": 125558,
+    "path": "workspace/itch-feed-handler/out/gate15-probe-design-v3/literal-expectations.json",
+    "sha256": "4767359773be7a53423464f37be5e24134de92779069c8abedc7ff27f7e45bfb"
+  },
+  "implementation_preservation": {
+    "after": {
+      "bytes": 288,
+      "path": "workspace/itch-feed-handler/out/identified-transition-design-review-v1/identity-after.json",
+      "sha256": "6ebee96e1b4e1e90477aae107e62483619030aa4c01a4a372cc9bb086e19458a"
+    },
+    "all_bytes_unchanged": true,
+    "all_retained_identities_unchanged": true,
+    "auditor_snapshot": {
+      "bytes": 35390,
+      "path": "workspace/itch-feed-handler/out/identified-transition-design-review-v1/auditor_source_snapshot.py",
+      "sha256": "9048e481fdb0f7fcdb19c81ff0d006ad86d6dbd6fac3b15d8c4d587ac3e011a5"
+    },
+    "baseline": "88ff5d76daafb70726f7fb442b4954f2ff38cb98",
+    "before": {
+      "bytes": 41274,
+      "path": "workspace/itch-feed-handler/out/identified-transition-design-review-v1/identity-before.json",
+      "sha256": "6afab589a840ea4d497f1329bbec34919a170514792a7b317871d1201e87ebbc"
+    },
+    "public_implementation_files": 42,
+    "retained_gate14_identities": 119,
+    "unique_before_after_files": 153
+  },
+  "independent_expectation_audit": {
+    "all_expected_content_matched": true,
+    "altered_controls": [
+      {
+        "error": "oracle.windows[2].facts[0].derived_removed_shares: value differs",
+        "intended_path": "oracle.windows[2].facts[0].derived_removed_shares",
+        "name": "qqq_x_removed_replaced_with_remaining",
+        "rejected": true
+      },
+      {
+        "error": "oracle.windows[3].facts[1].after_attribution.kind: value differs",
+        "intended_path": "oracle.windows[3].facts[1].after_attribution.kind",
+        "name": "qqq_second_u_loses_inherited_unknown",
+        "rejected": true
+      },
+      {
+        "error": "oracle.windows[1].profiles[2].expected_probes[8].delivery_ns: future delivery information",
+        "intended_path": "oracle.windows[1].profiles[2].expected_probes[8].delivery_ns: future delivery information",
+        "name": "msft_u_probe_receives_future_post_u_state",
+        "rejected": true
+      },
+      {
+        "error": "oracle.windows[0].facts[0].event_index: exact type differs",
+        "intended_path": "oracle.windows[0].facts[0].event_index",
+        "name": "bool_alias_for_integer_event_index",
+        "rejected": true
+      }
+    ],
+    "consumed_identities_stable": 21,
+    "generator_imported": false,
+    "hand_expectation_outcomes_read": false,
+    "identity": {
+      "bytes": 10344,
+      "path": "workspace/itch-feed-handler/out/identified-transition-oracle-audit-v1/audit.json",
+      "sha256": "7b5dff99a689ee2ebcd5cccdb3597460feaf7557e975f756115482c0f90d0f02"
+    },
+    "original_disk_oracle_unchanged": true
+  },
+  "independent_reference": {
+    "complete_summary": {
+      "bytes": 7697,
+      "path": "workspace/itch-feed-handler/out/l3-transition-verification-v3/reference-1.summary.json",
+      "sha256": "2e417cc4935acec077ab3b9e2eb5e1e6511f7bf3a30b8bec420a34a55d6beade"
+    },
+    "inventory_source": {
+      "bytes": 570241,
+      "path": "workspace/itch-feed-handler/out/l3-transition-verification-v3/reference-1.orders.csv",
+      "sha256": "b19e9397d8a9e63cd9638b79c2e83f68aa29808dc81ba34ef4bd89eaa2bf22f8"
+    },
+    "licence": "MIT",
+    "new_execution": false,
+    "repository": "https://github.com/KareemJandali/itchbook",
+    "revision": "3c646f9da182136125059243b475f7b8baa53773"
+  },
+  "independent_retained_result_review": {
+    "identity": {
+      "bytes": 14875,
+      "path": "workspace/itch-feed-handler/out/identified-transition-design-independent-review-v1/audit.json",
+      "sha256": "8447b555baf2c53d1eb0a0f71c36cb94e058acff40230a119e5865fa486c6ea1"
+    },
+    "raw_opened": false,
+    "rehashed_small_identities": 35,
+    "under_test_executed": false
+  },
+  "input_identities": {
+    "delta_audit": {
+      "bytes": 9954,
+      "path": "workspace/itch-feed-handler/out/l3-transition-verification-v3/independent-deltas/review.json",
+      "sha256": "3d1cbb31061f3783e610d45345af9f639f04a36a820426dc560cff9dcbeef663"
+    },
+    "gate14_public_evidence": {
+      "bytes": 81814,
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-23-l3-transitions/verification.json",
+      "sha256": "a0eb34d2aea23821ed1e4823fe8e84f9ee9c015fad24d9f39ce663e28111b2bc"
+    },
+    "observer_contract": {
+      "bytes": 18869,
+      "path": "workspace/itch-feed-handler/docs/IDENTIFIED_EVENTS.md",
+      "sha256": "46d0e49d07d6b69b79939f093338c8e05f7fbbab1ebfaf73a366b44ee423c863"
+    },
+    "observer_source": {
+      "bytes": 29644,
+      "path": "workspace/itch-feed-handler/bench/identified_events.py",
+      "sha256": "10bc0a310e441a4dd91653e5c66bbefa0dddd171844ef5f3d6197f3ec66cb918"
+    },
+    "reference_orders": {
+      "bytes": 570241,
+      "path": "workspace/itch-feed-handler/out/l3-transition-verification-v3/reference-1.orders.csv",
+      "sha256": "b19e9397d8a9e63cd9638b79c2e83f68aa29808dc81ba34ef4bd89eaa2bf22f8"
+    },
+    "reference_summary": {
+      "bytes": 7697,
+      "path": "workspace/itch-feed-handler/out/l3-transition-verification-v3/reference-1.summary.json",
+      "sha256": "2e417cc4935acec077ab3b9e2eb5e1e6511f7bf3a30b8bec420a34a55d6beade"
+    },
+    "selection": {
+      "bytes": 32709,
+      "path": "workspace/itch-feed-handler/out/l3-transition-verification-v3/selection/selection.json",
+      "sha256": "87422cf40e3819f2dcd0bce5002bff8c7231d159e2dde9f3c526009b8490deb4"
+    }
+  },
+  "limitations": [
+    "This is an independently checked expected-data design milestone; adapter and observer runtime acceptance remains Gate 16.",
+    "Raw/prefix authentication and external reference execution are retained Gate 14 evidence; no raw market-data file bytes are reopened here.",
+    "All four real U destination levels were empty. No new real same-price U, full X depletion, populated-destination queue, tied-source or raw/effective seed-gap case is added.",
+    "Reconstructed FIFO and imported unknown attribution do not establish actual exchange priority or MPID knowledge.",
+    "No hidden-liquidity, empirical-fill, account, transport/recovery, latency or performance claim follows.",
+    "Private harness, market data, full inventories and per-event/probe expectations remain ignored."
+  ],
+  "next_gate": {
+    "gate": 16,
+    "objective": "Implement the frozen separate exact-source adapter and compare actual ledgers, full inventories, diagnostics and delayed probes with the independent oracle, with fresh before/after full raw and prefix authentication."
+  },
+  "passed": true,
+  "phase": "contract_and_independent_expectations_only",
+  "private_sources": {
+    "auditor": {
+      "bytes": 35390,
+      "path": "workspace/itch-feed-handler-tests/audit_identified_transitions_oracle.py",
+      "sha256": "9048e481fdb0f7fcdb19c81ff0d006ad86d6dbd6fac3b15d8c4d587ac3e011a5"
+    },
+    "freezer": {
+      "bytes": 10523,
+      "path": "workspace/itch-feed-handler-tests/freeze_identified_transitions.py",
+      "sha256": "fb6c53eabf65df0a75c456e59fa354e71b28a3219b45195f0eade17d49b6d158"
+    },
+    "independent_result_reviewer": {
+      "bytes": 8328,
+      "path": "workspace/itch-feed-handler-tests/review_identified_transition_design.py",
+      "sha256": "11ea90182779d8b8cb9bfc6c00a1a5359e2758a6aeaaa756bb46d1e497ae006f"
+    }
+  },
+  "retained_design_history": {
+    "auxiliary_identity_precheck_failure": {
+      "bytes": 1893,
+      "path": "workspace/itch-feed-handler/out/identified-transition-design-review-v1/identity-before-v1.failure.json",
+      "sha256": "b22b1737cad08bac2492332e6422855a127477f776cbad226533f9a4237e1c16"
+    },
+    "prior_three_profile_proposal": {
+      "bytes": 93299,
+      "path": "workspace/itch-feed-handler/out/gate15-probe-design-v1/design.json",
+      "sha256": "453f72801c3d75bc1ccff245fad5fe21aeb96142d4a69b556b763dd223acca49"
+    },
+    "qualification": "Prior notes and metadata/identity-recorder mistakes are preserved; neither incident executed or failed an adapter or observer. Accepted empty stderr files retain their original zero-byte identities.",
+    "superseded_scratch_metadata_writer_failure": {
+      "bytes": 547,
+      "path": "workspace/itch-feed-handler/out/gate15-probe-design-v2/writer-failure.json",
+      "sha256": "edad0b50a235e728e6d07e974a9e290459ed7bcfcac758cae742fea59f699a14"
+    }
+  },
+  "schema_version": 1,
+  "scope": {
+    "adapter_executed": false,
+    "adapter_implemented": false,
+    "combined_distinct_independent_states": 35,
+    "new_cpp_build_or_test_executed": false,
+    "new_historical_states": 0,
+    "new_sanitiser_run": false,
+    "observer_executed": false,
+    "raw_opened": false,
+    "reference_executed": false,
+    "retained_independent_states_reused": 20
+  },
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 19474,
+    "original_report_sha256": "68b096a586891c7e933ebf830b77069f307b9379b2adea8a561d6b17245ae560",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}

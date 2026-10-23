@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "source_commit": "670925437deaf00c0412bb4575604d4a6f201749",
+  "source_branch": "main",
+  "engine_branch": "main",
+  "synthetic_model": "synthetic_shadow_single_level_v1",
+  "passed": true,
+  "reference_identity": {
+    "kind": "independent hand calculations and private regression oracles",
+    "public_contract": {
+      "path": "workspace/itch-feed-handler/docs/QUEUE_SIMULATOR.md",
+      "bytes": 12676,
+      "sha256": "7a65a99de498252f3f0ae8bd15444c0db662e9a639166ecb52263eafc4c83d99"
+    },
+    "external_market_oracle": false
+  },
+  "source_files": [
+    {
+      "path": "workspace/itch-feed-handler/CMakeLists.txt",
+      "bytes": 2822,
+      "sha256": "e76babd6a7e1c61115087001e0604c7543decf6a26fc24583e973cf8b17d72a3"
+    },
+    {
+      "path": "workspace/itch-feed-handler/include/itch/queue_sim.hpp",
+      "bytes": 3322,
+      "sha256": "5031e65b70a18749fcc9e274d9a6a84d29cd1ff3c44d653b444dfe5c7f50ee6b"
+    },
+    {
+      "path": "workspace/itch-feed-handler/src/queue_sim.cpp",
+      "bytes": 14138,
+      "sha256": "2da5625b9ede5a68c84ad219e91b8c9f43a6c5885f358e9172ca132527dc437d"
+    },
+    {
+      "path": "workspace/itch-feed-handler/tools/queue_sim.cpp",
+      "bytes": 17130,
+      "sha256": "9a5a389c4f9dd2c81f641e6d2bca119dcbf9fa98f649750930d3bf2089f0c118"
+    },
+    {
+      "path": "workspace/itch-feed-handler/tools/cli.hpp",
+      "bytes": 1085,
+      "sha256": "ff2d6e114a6844c9cc4b12ca90c3c45e93a3eb18683d99e973b5cd67387731c3"
+    },
+    {
+      "path": "workspace/itch-feed-handler/docs/QUEUE_SIMULATOR.md",
+      "bytes": 12676,
+      "sha256": "7a65a99de498252f3f0ae8bd15444c0db662e9a639166ecb52263eafc4c83d99"
+    }
+  ],
+  "private_harness": [
+    {
+      "path": "workspace/itch-feed-handler-tests/CMakeLists.txt",
+      "bytes": 3626,
+      "sha256": "adca3f430bd5169fb0b2ccd03c191f7b034bf991a5f3f8c51b106c2a69ba594f"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/test_queue_sim.cpp",
+      "bytes": 25101,
+      "sha256": "a59def93d16f3cde2f0dbfaec06a6b3905301fdd71b793b14d8894fb07302c67"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/test_queue_sim_cli.py",
+      "bytes": 22227,
+      "sha256": "bcafd34485e553880d49cf56a5cd4d96edb67f9617fc7be4a960b0477df17c71"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/queue_foundation_evidence.py",
+      "bytes": 8866,
+      "sha256": "b6c698c3394887453d3e1843e7f69b629446bb7d535af8e5a869295e0b0f27dd"
+    }
+  ],
+  "binaries": [
+    {
+      "path": "workspace/itch-feed-handler/build/itch_queue_sim",
+      "bytes": 61264,
+      "sha256": "5d60644ea089d6d16eabd7d6b572ecc5715a0c9823e16141f7f233371fdde263"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/build/queue_sim_tests",
+      "bytes": 704144,
+      "sha256": "874b26023827d4ea791492da9be678b735e9a6a4699ff5a412fe7074c162ac0c"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/build-asan/itch/itch_queue_sim",
+      "bytes": 626640,
+      "sha256": "208a0077930b965df8b2f56ae59817a275062ca5a6eec8d5bee37fbdccc8901a"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/build-asan/queue_sim_tests",
+      "bytes": 5511888,
+      "sha256": "b0011a1cc7553d0d97a3ff22f1e8c54f7d78d567abc789a23fc284015fbcab9a"
+    }
+  ],
+  "checks": {
+    "release_selected_ctests": 23,
+    "release_cpp_cases": 22,
+    "release_cli_methods": 22,
+    "asan_ubsan_cpp_cases": 22,
+    "asan_ubsan_cli_methods": 22,
+    "release_registered_ctests": 75,
+    "repeatable_hand_worked_cases": 11,
+    "hand_worked_cli_processes": 22,
+    "future_aware_mutation_detected": true
+  },
+  "logs": [
+    {
+      "path": "workspace/itch-feed-handler-tests/build/ctest-queue.log",
+      "bytes": 4705,
+      "sha256": "2f828c3bd90b05ca374e40e0226380e2e3b9d70b31eb4a1c79ac356160d83e01"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/build/ctest-queue-missing-cli.log",
+      "bytes": 386592,
+      "sha256": "72738b6a9a26c17a82a02215f5f137271c6f97a54b3040d5670bf345ad416e04"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/build-asan/ctest-queue.log",
+      "bytes": 4560,
+      "sha256": "7fd289ad640d1deb1524f97a50384d51ee7302fe181f8a5026483e0d2550f451"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/build-asan/queue-cli-tests.log",
+      "bytes": 121,
+      "sha256": "ba47cafe280db7c2165f16c637d3d7ab6ecc7cf20baafbab68138ab99c655ce3"
+    }
+  ],
+  "initial_harness_failure": {
+    "log": "build/ctest-queue-missing-cli.log",
+    "cause": "Registered private CLI executable had not yet been built. Built itch_queue_sim in the private Release build; all 23 selected CTests then passed. Public CLI tests had already passed independently.",
+    "production_code_changed_to_fix": false
+  },
+  "negative_control": "lookahead_control.json",
+  "hand_worked_report": "hand_worked.json",
+  "scope": {
+    "new_component": "standard-library-only standalone target, no decoder/storage dependency",
+    "reconstruction_code_changed": false,
+    "matching_engine_code_changed": false,
+    "full_day_replayed_for_this_increment": false,
+    "performance_measured": false,
+    "adversarial_mid_run_input_mutation_tested": false
+  },
+  "limits": [
+    "All simulator inputs are synthetic fixed-level paths, without raw ITCH or journal adaptation.",
+    "Queue cancellation assumptions and no-impact shadow fills are model rules, not empirical fill or P&L guarantees.",
+    "The CLI checks inode/size/time metadata, not a cryptographic source digest; the evidence driver separately hashes fixtures and binaries.",
+    "ASan/UBSan coverage is the focused queue component and CLI, not a new full-day reconstruction run.",
+    "Private tests and detailed audit rows remain outside public source control."
+  ],
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 6375,
+    "original_report_sha256": "2a3ed0d9cdc79111bf5841af82448d9d4dece94ddcc1be7121e4da3627a2bb1d",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}

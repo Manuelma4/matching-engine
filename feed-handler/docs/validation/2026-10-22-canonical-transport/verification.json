@@ -1,0 +1,520 @@
+{
+  "anchors": {
+    "history": {
+      "accepted_evidence_commit": "456ad39f4e683309afd05661c0c6f1d6f058229b",
+      "bytes": 21214,
+      "matches_accepted_historical_blob": true,
+      "matches_head_blob": true,
+      "sha256": "b7e29cf063fba8aff5d0494e872fa17363ea4fde7c2d28bf210fb17100533d25",
+      "tracked_path": "docs/validation/2026-10-22-identified-history/canonical.json"
+    },
+    "l3": {
+      "accepted_evidence_commit": "0248264829dca038a936ded493e64e4942a739a2",
+      "bytes": 27500,
+      "matches_accepted_historical_blob": true,
+      "matches_head_blob": true,
+      "sha256": "a4ae84974f0ce09da32af8cd6dfc91c0be0cfd7ed775abf7c5816f5f3d291811",
+      "tracked_path": "docs/validation/2026-10-22-l3/canonical.json"
+    }
+  },
+  "checks": {
+    "actual_callback_metadata_and_bytes_checked": true,
+    "complete_inventory_and_bbo_after_every_returned_handler": true,
+    "current_and_historical_anchor_blobs": true,
+    "effective_sanitiser_compile_and_link_flags": true,
+    "exact_bundle_and_summary_repeats": true,
+    "fault_prefixes_counted_separately": true,
+    "independent_oracle_frozen_before_execution": true,
+    "input_source_runtime_and_binary_identities_stable": true,
+    "intended_cli_failure_guards_checked": true,
+    "no_public_per_event_output": true,
+    "packet_source_occurrences_explicit": true,
+    "reviewed_contract_before_implementation": true,
+    "small_retained_inputs_freshly_hashed": true,
+    "three_focused_ctest_groups_no_skips": true
+  },
+  "cpp_sha256_recomputed": false,
+  "errors": [],
+  "fixture_review": {
+    "deep_inventory_changed_bbo_unchanged": true,
+    "duplicate_body_distinct_source_points": true,
+    "frozen_files_verified": 34,
+    "no_production_imports_or_execution": true
+  },
+  "frozen_fixture_files": 34,
+  "gate": "authenticated_canonical_transport_v1",
+  "independent_csv_files_exact": 14,
+  "independent_reference": {
+    "checkpoints": {
+      "bytes": 989,
+      "sha256": "c6a39174b63c1f8a276f86be9d775017742ff4d08bb619af088f1d0b358caf61"
+    },
+    "commit": "3c646f9da182136125059243b475f7b8baa53773",
+    "execution_reused": true,
+    "licence": "MIT",
+    "orders": {
+      "bytes": 434409,
+      "sha256": "775f99545d84f47d7031bb8f245176ab81ccdaf8aa44d5f16f80499229c74e2b"
+    },
+    "summary": {
+      "bytes": 5878,
+      "sha256": "32bd1c10bfedaff5628537f24b42771a2daae1710f48c2e93f051e066c1373ee"
+    }
+  },
+  "independent_reference_replayed": false,
+  "initial_recorder_failure": {
+    "correction": "Raise passed/failed retained test-output bounds to 1 MiB and run fresh v2 verification without weakening the guards",
+    "failure_report": {
+      "bytes": 62592,
+      "sha256": "9d867ccbeeafd1aa9b1c687d6bbf1ca3e4b65b6d119506c378001d49e8bda198"
+    },
+    "implementation_test_groups_failed": 0,
+    "passed": false,
+    "reason": "CTest truncated successful JUnit output at 1024 bytes; the recorder refused incomplete Python method-name/completion evidence after all three Release groups passed"
+  },
+  "limitations": [
+    "Synthetic packets carry only the two accepted selected-locate A/D/E projections, not original Nasdaq packet/session/arrival history.",
+    "The same fifteen independently exported states are reused; repeated layouts and fault-prefix comparisons are not new historical samples.",
+    "Fresh verification covers retained small inputs and new packet/replay outputs; the raw day and external reference implementation are not reread or rerun.",
+    "Identical-body/equal-time D/A/D is a local synthetic L3 control, not evidence that reference reuse is valid Nasdaq history.",
+    "C++ compares exact bytes and declared hash strings; Python recomputes SHA-256.",
+    "Seed attribution is unknown and reconstructed FIFO does not prove hidden exchange priority or parent aggressor identity.",
+    "No live sockets, recovery, empirical timing, throughput, own orders, eligibility, fills or strategy performance is added.",
+    "Diagnostic checks are not a literal C++ assertion-operation count or a benchmark. Leak checking is not claimed.",
+    "Sanitiser flags instrument the C++ worker/receiver/book; they do not instrument the Python interpreter.",
+    "Only the three new focused CTest groups run here; earlier full-day, storage, queue and transport baselines are retained."
+  ],
+  "matching_engine": {
+    "branch": "main",
+    "clean": true,
+    "commit": "dbd280185a0d45f0839881caeff8d535bcd56779"
+  },
+  "occurrence_negative_control": {
+    "canonical_predicate_unchanged": true,
+    "details": {
+      "bytes": 47294,
+      "sha256": "2e3d8d805c3f596327f54631bb1c952fd8e60e675d1c125f2c2ff5c1522f65ea"
+    },
+    "expected_result": "Frozen occurrence-alias disposition must fail although body bytes and resulting full inventory are identical",
+    "method": "In a private worker copy only, weaken immutable join equality to body-hash equality for the wholly synthetic TEST symbol",
+    "passed": true
+  },
+  "old_fixed_level_exclusions_retained": 5,
+  "original_independent_order_row_instances": 16886,
+  "original_type_counts": {
+    "A": 7,
+    "D": 4,
+    "E": 2
+  },
+  "passed": true,
+  "private_input_identities_unchanged": 244,
+  "production_coverage": {
+    "complete_layout_order_row_instances": 33772,
+    "complete_layout_states": 30,
+    "facts": 13,
+    "imported_seed_orders": 2344,
+    "layouts": 4,
+    "original_states": 15,
+    "packets": 35,
+    "transmitted_occurrences": 26,
+    "windows": 2
+  },
+  "profiles": [
+    {
+      "binary": {
+        "bytes": 163664,
+        "sha256": "7fa62b59c7eea460d689e214ee6b12d97c4b8cb1078e47282fb0832e68f51329"
+      },
+      "compile_database": {
+        "bytes": 28658,
+        "sha256": "3c98475cedf7d821bd696645ac69f6fd094681d4728884dbd42fa09b38970587"
+      },
+      "ctest_groups": 3,
+      "ctest_report": {
+        "bytes": 6011,
+        "sha256": "e7e43ca66d057a7d3cdb6d39c23225e562520e25241994209d52ab48d126e8cb"
+      },
+      "name": "release",
+      "python_methods": [
+        24,
+        9
+      ],
+      "repeated_stdout_byte_identical": true,
+      "sanitisers": false,
+      "worker_summary": {
+        "canonical_complete": {
+          "arrivals": 35,
+          "cases": 4,
+          "messages": 26,
+          "order_row_instances": 33772,
+          "states": 30
+        },
+        "canonical_fault": {
+          "arrivals": 66,
+          "cases": 19,
+          "messages": 8,
+          "order_row_instances": 12509,
+          "states": 27
+        },
+        "checks": 119211,
+        "cpp_sha256_recomputed": false,
+        "discrepancies": 0,
+        "independent_reference_replayed": false,
+        "passed": true,
+        "raw_full_identity_freshly_verified": false,
+        "schema_version": 1,
+        "scope": "retained_canonical_selected_locate_mold_v1",
+        "synthetic": {
+          "arrivals": 16,
+          "cases": 3,
+          "messages": 6,
+          "order_row_instances": 5,
+          "states": 9
+        },
+        "total": {
+          "arrivals": 117,
+          "cases": 26,
+          "messages": 40,
+          "order_row_instances": 46286,
+          "states": 66
+        }
+      }
+    },
+    {
+      "binary": {
+        "bytes": 2393408,
+        "sha256": "e6900fb08f5e52a99bd3130cf815bff2496913d7311a011b920d82a2e015fe8b"
+      },
+      "compile_database": {
+        "bytes": 30314,
+        "sha256": "943ab99eb4d1a0d50d67bfea304444f2e606c502ca172e0ec4868bae53af6865"
+      },
+      "ctest_groups": 3,
+      "ctest_report": {
+        "bytes": 6011,
+        "sha256": "d749f2f95abcdbb1cbeec9c0ffdf6a0e37fc2de2fc426d35b2bc050b5705bd89"
+      },
+      "name": "asan-ubsan",
+      "python_methods": [
+        24,
+        9
+      ],
+      "repeated_stdout_byte_identical": true,
+      "sanitisers": true,
+      "worker_summary": {
+        "canonical_complete": {
+          "arrivals": 35,
+          "cases": 4,
+          "messages": 26,
+          "order_row_instances": 33772,
+          "states": 30
+        },
+        "canonical_fault": {
+          "arrivals": 66,
+          "cases": 19,
+          "messages": 8,
+          "order_row_instances": 12509,
+          "states": 27
+        },
+        "checks": 119211,
+        "cpp_sha256_recomputed": false,
+        "discrepancies": 0,
+        "independent_reference_replayed": false,
+        "passed": true,
+        "raw_full_identity_freshly_verified": false,
+        "schema_version": 1,
+        "scope": "retained_canonical_selected_locate_mold_v1",
+        "synthetic": {
+          "arrivals": 16,
+          "cases": 3,
+          "messages": 6,
+          "order_row_instances": 5,
+          "states": 9
+        },
+        "total": {
+          "arrivals": 117,
+          "cases": 26,
+          "messages": 40,
+          "order_row_instances": 46286,
+          "states": 66
+        }
+      }
+    }
+  ],
+  "raw_full_identity_freshly_verified": false,
+  "receipts": {
+    "out/canonical-transport-contract-v1/cli-guard-expectations-v2.json": {
+      "bytes": 569,
+      "sha256": "3ed6c39abf3645cdd2d17c980076e5845157faaa180e59c9eaa47fb22a462f2f"
+    },
+    "out/canonical-transport-contract-v1/producer-tests-freeze.json": {
+      "bytes": 3161,
+      "sha256": "2a792cda8054efbacc84997b41d0ce871a9c97451fafeac75dd6cbe5fbb0a3b6"
+    },
+    "out/canonical-transport-contract-v1/review.json": {
+      "bytes": 1245,
+      "sha256": "bd49a0610560e06413def3a1d016480e469f97b2f0de65ff7d8c0465954e262e"
+    },
+    "out/canonical-transport-contract-v1/source-review.json": {
+      "bytes": 1601,
+      "sha256": "3567168f21d5429462219ad08b5389ac2297adc714dbc9fd0af14149b5cccede"
+    },
+    "out/canonical-transport-fixture-v1/freeze-manifest.json": {
+      "bytes": 6169,
+      "sha256": "cf6da1ee6558fac63b109101c8f71e5612c687f74c1f1d746e713c52b8bd867b"
+    },
+    "out/canonical-transport-occurrence-mutant-v1/verification.json": {
+      "bytes": 47294,
+      "sha256": "2e3d8d805c3f596327f54631bb1c952fd8e60e675d1c125f2c2ff5c1522f65ea"
+    },
+    "out/canonical-transport-producer-verification-v1/verification.json": {
+      "bytes": 5796,
+      "sha256": "72cfce3dee779c7bb379ba0edc115504c9743446a8d81158a653099eb6a44f07"
+    },
+    "out/canonical-transport-review-v1/fixture-review.json": {
+      "bytes": 11896,
+      "sha256": "f81b3cba72428a664112599af66eb68a2dff5c9dbb9d131f5f23aefa89e30d79"
+    },
+    "out/canonical-transport-verification-v1/failure.json": {
+      "bytes": 62592,
+      "sha256": "9d867ccbeeafd1aa9b1c687d6bbf1ca3e4b65b6d119506c378001d49e8bda198"
+    },
+    "out/canonical-transport-verification-v2/verification-private.json": {
+      "bytes": 90132,
+      "sha256": "59080e7c7d7e3cd60d18aae84de8ae5e74adefc7b4b615b3df1747dec1be5504"
+    }
+  },
+  "recorded_at_utc": "2026-10-22T20:56:44.885517+00:00",
+  "recorder": {
+    "bytes": 11990,
+    "sha256": "d5f283a9347ecd3f91bd52449ddf25f65a18cefff17c135417ec2dee56123df2"
+  },
+  "repeated_complete_files_exact": 15,
+  "replay_coverage": {
+    "canonical_complete": {
+      "arrivals": 35,
+      "cases": 4,
+      "messages": 26,
+      "order_row_instances": 33772,
+      "states": 30
+    },
+    "canonical_fault": {
+      "arrivals": 66,
+      "cases": 19,
+      "messages": 8,
+      "order_row_instances": 12509,
+      "states": 27
+    },
+    "synthetic": {
+      "arrivals": 16,
+      "cases": 3,
+      "messages": 6,
+      "order_row_instances": 5,
+      "states": 9
+    },
+    "total": {
+      "arrivals": 117,
+      "cases": 26,
+      "messages": 40,
+      "order_row_instances": 46286,
+      "states": 66
+    }
+  },
+  "retained_producer": {
+    "bytes": 42575,
+    "commit": "464e4a7b9f190187d931181a2f49abbf100689b9",
+    "evidence_commit": "456ad39f4e683309afd05661c0c6f1d6f058229b",
+    "raw_identity_verified_in_prior_evidence": true,
+    "sha256": "12734d2522555d8036b78bb999b19087c33aed3c5c28cc402ef8ed95bf63dc08"
+  },
+  "retained_source_identity": {
+    "history_evidence_sha256": "b7e29cf063fba8aff5d0494e872fa17363ea4fde7c2d28bf210fb17100533d25",
+    "history_producer_sha256": "12734d2522555d8036b78bb999b19087c33aed3c5c28cc402ef8ed95bf63dc08",
+    "input_bytes": 8251407909,
+    "input_sha256": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f",
+    "l3_evidence_sha256": "a4ae84974f0ce09da32af8cd6dfc91c0be0cfd7ed775abf7c5816f5f3d291811",
+    "retained_prefix_bytes": 273665559,
+    "retained_prefix_sha256": "51d56137b4bd2b6597051e8e01c152854758928897045af4e787a59fa8210dc1"
+  },
+  "sanitiser_environment": {
+    "ASAN_OPTIONS": "halt_on_error=1:abort_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+  },
+  "schema_version": 1,
+  "scope": "retained_selected_locate_projection_and_separate_synthetic_control_v1",
+  "source": {
+    "branch": "main",
+    "clean_before_after": true,
+    "commit": "88ff5d76daafb70726f7fb442b4954f2ff38cb98",
+    "files": {
+      "CMakeLists.txt": {
+        "bytes": 3442,
+        "sha256": "b4c947d7fe1a3b4c7e8e71b7e00cba3239d0061e9969b7d5c529c3fb41510e3b"
+      },
+      "bench/audit_handoff.py": {
+        "bytes": 48571,
+        "sha256": "a14fac8bcc7a57677ab58c9fc2a504a46b848626df9b150e571a7a3ee7d67630"
+      },
+      "bench/compare_bbo.py": {
+        "bytes": 23823,
+        "sha256": "83caa1216e4d3c2e3eec184dd87755ac08008747ab6c3a8848d765d4623868b8"
+      },
+      "bench/compare_l3.py": {
+        "bytes": 20217,
+        "sha256": "abf11fca148a5d9fac5c232cd72bf9bf6ff63b2db0d72bffc411da1b17f21bfb"
+      },
+      "bench/compare_reference.py": {
+        "bytes": 13512,
+        "sha256": "63643ac2e5c8397d9fe2a950437bb147fafb14bf8564a305bacc062093f512fd"
+      },
+      "bench/compare_storage.py": {
+        "bytes": 28760,
+        "sha256": "91d7ada64c24ee916ab1399dae3c70c1c74260aa74d04fdc52d445e2a5acdc46"
+      },
+      "bench/identified_events.py": {
+        "bytes": 29644,
+        "sha256": "10bc0a310e441a4dd91653e5c66bbefa0dddd171844ef5f3d6197f3ec66cb918"
+      },
+      "bench/identified_history.py": {
+        "bytes": 62228,
+        "sha256": "4f3e14a8c56e75de8c274f10a62f97b9c0f38845bd422fc5fcd1c9d8b3b29fbc"
+      },
+      "bench/journal.py": {
+        "bytes": 11587,
+        "sha256": "e4307dbf4932f0535efab512205bd8be3b86ff83da54cc6365d13a691bfe661b"
+      },
+      "bench/repacketise_history.py": {
+        "bytes": 42543,
+        "sha256": "28abf9d2efacdd4ddd133450b84142b3c9e4c76e03b76057e4c007b1a2e9675f"
+      },
+      "bench/validate.py": {
+        "bytes": 7126,
+        "sha256": "07eae050e280b196b64be49db2bd1777d8f1475085b09483261a457ae8cd7df5"
+      },
+      "bench/validate_journal.py": {
+        "bytes": 13616,
+        "sha256": "df8bebe2892861708566f4ea7cb7f51967a16be69498046b0cd2b93b23671433"
+      },
+      "include/itch/book.hpp": {
+        "bytes": 6396,
+        "sha256": "18aa04a2525e7acede4f5f7a5aa1671e2aaed81b1acc57c7f41b01602fa1fb3e"
+      },
+      "include/itch/encode.hpp": {
+        "bytes": 3972,
+        "sha256": "3976ae407926e57f060b18485cdaff7a2def42f65886c9c065840ae0f9979b61"
+      },
+      "include/itch/endian.hpp": {
+        "bytes": 2298,
+        "sha256": "e461783ae5a73df12ef028b66696bf466cf78cb1bbefb48b44eb07c8991bab7f"
+      },
+      "include/itch/framing.hpp": {
+        "bytes": 3392,
+        "sha256": "502138feb5250b51e92fa37ec11f1536aebe2c9a62c4f5195ca63fb50ae88417"
+      },
+      "include/itch/journal.hpp": {
+        "bytes": 2191,
+        "sha256": "1cd9e31221d1603845181f5dfe4c9fc3a56da3b5a9a874123ee1675203340975"
+      },
+      "include/itch/messages.hpp": {
+        "bytes": 11808,
+        "sha256": "48c7d0ec5bfb531201f3fa9f247ed7f3cf2f4e00b46ad463559e9e4a1afcb409"
+      },
+      "include/itch/mold.hpp": {
+        "bytes": 4855,
+        "sha256": "60c5cf5764fd01b92b6de541a5ad8a9afe90de1b6bd1ca9bd9c5d49a8e44b35c"
+      },
+      "include/itch/mold_itch.hpp": {
+        "bytes": 732,
+        "sha256": "66e3719f75af0cba5e15e3acf086327d2a7a11cf140683b07f94386dff470252"
+      },
+      "include/itch/queue_sim.hpp": {
+        "bytes": 3322,
+        "sha256": "5031e65b70a18749fcc9e274d9a6a84d29cd1ff3c44d653b444dfe5c7f50ee6b"
+      },
+      "include/itch/queue_window.hpp": {
+        "bytes": 3352,
+        "sha256": "85e96de848c5572591b17b587901d52d0dc39e6d23e144da23588756e17945eb"
+      },
+      "include/itch/replay.hpp": {
+        "bytes": 2815,
+        "sha256": "9e91ab2cc04d89d59884c6bf28d046390b89a0f09036d79e05acab8d4bd8741c"
+      },
+      "include/itch/snapshots.hpp": {
+        "bytes": 4950,
+        "sha256": "7a431eedd50ba1e554986ccf7a5efea1702c2c23e14391c58e051d653a8ad446"
+      },
+      "src/book.cpp": {
+        "bytes": 7720,
+        "sha256": "c08152d9bb0debe5e7842556ecb93ffd4d2de595bea3012880157e3d75e069c6"
+      },
+      "src/framing.cpp": {
+        "bytes": 1460,
+        "sha256": "ab03285ee9dd4ff7d155f81bea74edab76f8b9065bc81084d10a27bd39b06dd3"
+      },
+      "src/journal.cpp": {
+        "bytes": 4045,
+        "sha256": "33a41a1aa5e2003268f06da3dfd61eac6a980e06f8cb83929a0bd5c6b9644c9c"
+      },
+      "src/mold.cpp": {
+        "bytes": 8817,
+        "sha256": "4b4b0de896d56b37147c20f2e32e74ace740cc056ce7286bfdb56736ae3bf3dc"
+      },
+      "src/queue_sim.cpp": {
+        "bytes": 14138,
+        "sha256": "2da5625b9ede5a68c84ad219e91b8c9f43a6c5885f358e9172ca132527dc437d"
+      },
+      "src/queue_window.cpp": {
+        "bytes": 19686,
+        "sha256": "98cfbc84d9bd2c5ffea0ed1108fb6396e9f19e2777d5c3ff2a8da24fb9e7f772"
+      },
+      "src/replay.cpp": {
+        "bytes": 4767,
+        "sha256": "bcecd0fe0fdad39c11c497966e1a5840541f3e0d10626e9933e4a126b3618991"
+      },
+      "tools/bench.cpp": {
+        "bytes": 6779,
+        "sha256": "33f24effb42d6c93835f543b8d9df0dd607a5c600ff678f5d317f6f2704f2030"
+      },
+      "tools/census.cpp": {
+        "bytes": 4810,
+        "sha256": "466b9e9c86e1836c5b1b1c2d214e3325efa07e06728c4a2ca873495106c8cbc3"
+      },
+      "tools/cli.hpp": {
+        "bytes": 1085,
+        "sha256": "ff2d6e114a6844c9cc4b12ca90c3c45e93a3eb18683d99e973b5cd67387731c3"
+      },
+      "tools/journal_replay.cpp": {
+        "bytes": 9419,
+        "sha256": "b7d146d82a0b4e477c435ae884a5674135b6d4b356fe9a0f35426abd36712ba1"
+      },
+      "tools/loopback.cpp": {
+        "bytes": 12585,
+        "sha256": "a740ca708a0220c22344ba1cb40ee48919c92e7a4f7550faad85254bbfd958f8"
+      },
+      "tools/queue_sim.cpp": {
+        "bytes": 17130,
+        "sha256": "9a5a389c4f9dd2c81f641e6d2bca119dcbf9fa98f649750930d3bf2089f0c118"
+      },
+      "tools/queue_window.cpp": {
+        "bytes": 15749,
+        "sha256": "9796ff4b1b67bbdfb310644b1fe5ab4d6eb74a1e8a2bb5d04edc741ae3feea5e"
+      },
+      "tools/replay.cpp": {
+        "bytes": 7776,
+        "sha256": "eb2d3cc2d77e7737d9b9f7a1132a6bb1607976e0ee4287c87dc80d4557e1950f"
+      },
+      "tools/snapshots.cpp": {
+        "bytes": 9829,
+        "sha256": "72992f0b87e8ee5716d0475db7eb60ccd43c3074899cc9c119d8350f7ca7dd54"
+      },
+      "tools/source.hpp": {
+        "bytes": 1012,
+        "sha256": "ce7e405434d9583c49c0e9c8b751cda1a4b70fec07f17e10ef6fd7f86d0f8c6c"
+      },
+      "tools/storage_bench.cpp": {
+        "bytes": 12562,
+        "sha256": "babd8c708d565c005f5840ed6fb7905678b56f50703004e7c7600b04c34e4538"
+      }
+    }
+  }
+}

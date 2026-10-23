@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-22T13:52:39.044435+00:00",
+  "scope": "Independent aggregate census comparison only; this does not independently validate prices, BBO, full depth of book, queue priority, or execution semantics.",
+  "checks": {
+    "validation_schema_valid": true,
+    "reference_schema_valid": true,
+    "full_day_validation_passed": true,
+    "all_validation_checks_passed": true,
+    "local_tools_succeeded": true,
+    "local_raw_input_consistent": true,
+    "local_book_empty_at_end": true,
+    "archive_name_matches": true,
+    "raw_bytes_matches": true,
+    "messages_matches": true,
+    "compressed_bytes_matches": true,
+    "live_orders_peak_matches": true,
+    "live_orders_final_matches": true,
+    "local_message_total_consistent": true,
+    "reference_message_total_consistent": true,
+    "no_unexpected_message_types": true,
+    "message_type_counts_match": true
+  },
+  "errors": [],
+  "passed": true,
+  "identity_verified": false,
+  "identity_basis": [],
+  "comparison_strength": "filename_counts_bytes_only",
+  "validation": {
+    "path": "workspace/itch-feed-handler/docs/validation/2026-10-22-nasdaq-2019-12-30/validation.json",
+    "sha256": "0aa99307cdf131b73fb0d6104ddbeb12bb836078bc99ab3db856932751214cd0"
+  },
+  "reference": {
+    "path": "workspace/itch-feed-handler/docs/reference/nasdaq-2019-12-30-itchbook.json",
+    "sha256": "3453d16ed1f3068fbb1fafcc8614785ecc6e012f1fe22faafe94058e2f5a7e12",
+    "source": {
+      "repository": "KareemJandali/itchbook",
+      "commit": "3c646f9da182136125059243b475f7b8baa53773",
+      "commit_date": "2026-09-02T16:28:24Z",
+      "path": "validation/census-2019-12-30.json",
+      "url": "https://github.com/KareemJandali/itchbook/blob/3c646f9da182136125059243b475f7b8baa53773/validation/census-2019-12-30.json",
+      "download_url": "https://raw.githubusercontent.com/KareemJandali/itchbook/3c646f9da182136125059243b475f7b8baa53773/validation/census-2019-12-30.json",
+      "blob_sha1": "c2479cee518d6ea517051e1da8c8c1b539dbf6b1",
+      "artifact_sha256": "a24b5236f6d285ff2ccf34d41a45c618cb0519984a8eb2c2b2f5770b57c4d183",
+      "artifact_bytes": 4062290,
+      "retrieved_on": "2026-10-22",
+      "repository_created_at": "2026-08-19T21:05:13Z",
+      "first_census_commit": "71dd8e3d2866cc2293d032da87b474c4e34af46d",
+      "first_census_commit_date": "2026-08-21T14:36:44Z",
+      "type_histogram_commit": "0ce18e1f08eb698626756e27164d40bdb08f52b4",
+      "type_histogram_commit_date": "2026-08-21T20:25:04Z",
+      "artifact_last_changed_commit": "f463a7aa440911c6da02ef35330db88fa0902a93",
+      "artifact_last_changed_commit_date": "2026-08-24T14:30:54Z",
+      "deterministic_fields_rerun_on": "2026-08-24",
+      "producer": "tools/itch_census.cpp",
+      "producer_url": "https://github.com/KareemJandali/itchbook/blob/3c646f9da182136125059243b475f7b8baa53773/tools/itch_census.cpp",
+      "documentation_url": "https://github.com/KareemJandali/itchbook/blob/3c646f9da182136125059243b475f7b8baa53773/validation/README.md",
+      "license": "MIT",
+      "input_archive_sha256": null,
+      "input_raw_sha256": null,
+      "provenance_limitations": [
+        "A third-party implementation analysed the same Nasdaq sample; this is independent implementation evidence, not an exchange-certified census or a separate market-data feed.",
+        "The published census contains archive and decompressed byte lengths but no input archive or decompressed SHA-256. Matching counts and lengths does not establish cryptographic identity of the two input files.",
+        "The source artifact SHA-256 and Git blob SHA-1 identify the downloaded aggregate reference, not the market-data archive.",
+        "Whole-file message counts and byte lengths check coverage and framing; they do not prove decoded prices, queue order, per-message depth, timestamps, or trading-strategy fills.",
+        "Absent type keys denote zero occurrences on this sample and do not exercise those protocol paths.",
+        "Commit dates are Git metadata; repository creation is GitHub metadata. They precede this validation run but are not independent archival publication timestamps.",
+        "Performance timings are deliberately excluded: source timing_provenance carries an older elapsed_seconds value while deterministic fields were rerun."
+      ]
+    }
+  },
+  "validation_checks": {
+    "tools_succeeded": true,
+    "same_raw_input": true,
+    "same_message_count": true,
+    "census_byte_identity": true,
+    "no_trailing_bytes": true,
+    "system_C_seen": true,
+    "book_empty_at_end": true,
+    "no_replay_anomalies": true
+  },
+  "comparisons": {
+    "archive_name": {
+      "local": "12302019.NASDAQ_ITCH50.gz",
+      "reference": "12302019.NASDAQ_ITCH50.gz",
+      "matched": true
+    },
+    "raw_bytes": {
+      "local": 8251407909,
+      "reference": 8251407909,
+      "matched": true
+    },
+    "messages": {
+      "local": 268744780,
+      "reference": 268744780,
+      "matched": true
+    },
+    "compressed_bytes": {
+      "local": 3524013057,
+      "reference": 3524013057,
+      "matched": true
+    },
+    "live_orders_peak": {
+      "local": 1924078,
+      "reference": 1924078,
+      "matched": true
+    },
+    "live_orders_final": {
+      "local": 0,
+      "reference": 0,
+      "matched": true
+    }
+  },
+  "unexpected_message_types": [],
+  "message_counts": {
+    "A": {
+      "local": 117145568,
+      "reference": 117145568,
+      "difference": 0,
+      "matched": true
+    },
+    "B": {
+      "local": 0,
+      "reference": 0,
+      "difference": 0,
+      "matched": true
+    },
+    "C": {
+      "local": 99917,
+      "reference": 99917,
+      "difference": 0,
+      "matched": true
+    },
+    "D": {
+      "local": 114360997,
+      "reference": 114360997,
+      "difference": 0,
+      "matched": true
+    },
+    "E": {
+      "local": 5722824,
+      "reference": 5722824,
+      "difference": 0,
+      "matched": true
+    },
+    "F": {
+      "local": 1485888,
+      "reference": 1485888,
+      "difference": 0,
+      "matched": true
+    },
+    "H": {
+      "local": 8966,
+      "reference": 8966,
+      "difference": 0,
+      "matched": true
+    },
+    "I": {
+      "local": 4024315,
+      "reference": 4024315,
+      "difference": 0,
+      "matched": true
+    },
+    "J": {
+      "local": 34,
+      "reference": 34,
+      "difference": 0,
+      "matched": true
+    },
+    "K": {
+      "local": 3,
+      "reference": 3,
+      "difference": 0,
+      "matched": true
+    },
+    "L": {
+      "local": 215161,
+      "reference": 215161,
+      "difference": 0,
+      "matched": true
+    },
+    "N": {
+      "local": 0,
+      "reference": 0,
+      "difference": 0,
+      "matched": true
+    },
+    "O": {
+      "local": 0,
+      "reference": 0,
+      "difference": 0,
+      "matched": true
+    },
+    "P": {
+      "local": 1218602,
+      "reference": 1218602,
+      "difference": 0,
+      "matched": true
+    },
+    "Q": {
+      "local": 17836,
+      "reference": 17836,
+      "difference": 0,
+      "matched": true
+    },
+    "R": {
+      "local": 8906,
+      "reference": 8906,
+      "difference": 0,
+      "matched": true
+    },
+    "S": {
+      "local": 6,
+      "reference": 6,
+      "difference": 0,
+      "matched": true
+    },
+    "U": {
+      "local": 21639067,
+      "reference": 21639067,
+      "difference": 0,
+      "matched": true
+    },
+    "V": {
+      "local": 1,
+      "reference": 1,
+      "difference": 0,
+      "matched": true
+    },
+    "W": {
+      "local": 0,
+      "reference": 0,
+      "difference": 0,
+      "matched": true
+    },
+    "X": {
+      "local": 2787676,
+      "reference": 2787676,
+      "difference": 0,
+      "matched": true
+    },
+    "Y": {
+      "local": 9013,
+      "reference": 9013,
+      "difference": 0,
+      "matched": true
+    },
+    "h": {
+      "local": 0,
+      "reference": 0,
+      "difference": 0,
+      "matched": true
+    }
+  },
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 7957,
+    "original_report_sha256": "11147ae3ecae897461370e2ae011d7c387659bdfb1725d426728bf3ef9b39245",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}

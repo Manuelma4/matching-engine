@@ -1,0 +1,3406 @@
+{
+  "checks": {
+    "every_origin_delivery_and_action_has_source_lineage": true,
+    "exact_causal_audits_passed": true,
+    "frozen_matrix_complete": true,
+    "pending_horizon_and_live_exposure_retained": true,
+    "raw_identity_carried_without_rereading": true,
+    "source_inputs_tool_and_outputs_unchanged": true,
+    "zero_fill_results_retained": true
+  },
+  "errors": [],
+  "limitations": [
+    "Raw source SHA-256 is retained from committed prior full-source evidence, not recomputed here",
+    "Two retrospectively selected positive fixed-level windows; no statistical strategy sample",
+    "Displayed execution volume is not parent aggressor demand or empirical hypothetical fills",
+    "Single shadow order, explicit cancellation assumptions, no counterfactual market response",
+    "No monotonic relationship between latency and P&L is asserted"
+  ],
+  "model": "frozen_displayed_window_causal_handoff_v1",
+  "passed": true,
+  "private_output": "workspace/itch-feed-handler/out/handoff-canonical-v1",
+  "projection_producer_commit": "40f22c6a945b7512c8c6dd8866e3e60cdbed05b5",
+  "raw_source_reopened": false,
+  "retained_raw_input_identity": {
+    "bytes": 8251407909,
+    "name": "12302019.NASDAQ_ITCH50.itch",
+    "sha256_after": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f",
+    "sha256_before": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f"
+  },
+  "runs": [
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 2281,
+          "sha256": "954f5c0d917291b6ddd1eadd843d7c835da1e856224480c98e7a1209f4fc5346"
+        },
+        "configuration.json": {
+          "bytes": 262,
+          "sha256": "cdc717deaf6faeff743619ecff01fdbff65e0e4614b8bf7d31d86eff06b5d839"
+        },
+        "joined.csv": {
+          "bytes": 4632,
+          "sha256": "355191cf6ff4cfd6c999331e4094f199025d3b28b7213f41298c2f0e27943f88"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 804,
+          "sha256": "c34cfcbf7c76be0d8806727f82467ee59ede509c8c0abdf67d6bda4262082186"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 100,
+        "exchange_unfilled_quantity": 100,
+        "in_flight_order_quantity": 0,
+        "normalised_source_rows": 6,
+        "pending_by_kind": {
+          "arrival": 0,
+          "feed": 0,
+          "response": 0
+        },
+        "trace_rows": 15,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "1589000",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34214907518545",
+        "--horizon-ns",
+        "34214938994341",
+        "--feed-delay-ns",
+        "0",
+        "--order-delay-ns",
+        "0",
+        "--response-delay-ns",
+        "0",
+        "--cancel-model",
+        "optimistic",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/MSFT-optimistic-immediate/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/MSFT/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "optimistic",
+        "cancel_ns": null,
+        "decision_ns": 34214907518545,
+        "fee4": 1,
+        "feed_delay_ns": 0,
+        "horizon_ns": 34214938994341,
+        "order_delay_ns": 0,
+        "price4": 1589000,
+        "quantity": 100,
+        "response_delay_ns": 0,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "immediate",
+      "summary": {
+        "ahead": 538,
+        "audit_rows": 15,
+        "cancel_model": "optimistic",
+        "cancel_ns": null,
+        "cancel_requested": false,
+        "decision_ns": 34214907518545,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "live",
+        "fee4": 1,
+        "feed_delay_ns": 0,
+        "horizon_ns": 34214938994341,
+        "input_bytes": 207,
+        "known_remaining": 100,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": 0,
+        "local_state": "live",
+        "market_events": 6,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 0,
+        "passed": true,
+        "pending_events": 0,
+        "price4": 1589000,
+        "quantity": 100,
+        "remaining": 100,
+        "response_delay_ns": 0,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": true
+      },
+      "symbol": "MSFT"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 2150,
+          "sha256": "de64442436f4434890a5d6c4b8fe198c734ce189da4761121eeab6862cd83c4f"
+        },
+        "configuration.json": {
+          "bytes": 271,
+          "sha256": "f56ed477e1ac71410cca7e04b1439f99b1538927f38a6346f810009ba1aea36d"
+        },
+        "joined.csv": {
+          "bytes": 4402,
+          "sha256": "8eeb66065d7ec63d67c850a2cbf9bbc45a15089f63688a9846c649e4ab16d255"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 813,
+          "sha256": "074646889e9cbc7ad7b46037274bddbb866520c3af5c051f0683ad4fd6b9bef1"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 100,
+        "exchange_unfilled_quantity": 100,
+        "in_flight_order_quantity": 0,
+        "normalised_source_rows": 6,
+        "pending_by_kind": {
+          "arrival": 0,
+          "feed": 1,
+          "response": 0
+        },
+        "trace_rows": 14,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "1589000",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34214907519545",
+        "--horizon-ns",
+        "34214938994341",
+        "--feed-delay-ns",
+        "1000",
+        "--order-delay-ns",
+        "2000",
+        "--response-delay-ns",
+        "5000",
+        "--cancel-model",
+        "optimistic",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/MSFT-optimistic-delayed/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/MSFT/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "optimistic",
+        "cancel_ns": null,
+        "decision_ns": 34214907519545,
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34214938994341,
+        "order_delay_ns": 2000,
+        "price4": 1589000,
+        "quantity": 100,
+        "response_delay_ns": 5000,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "delayed",
+      "summary": {
+        "ahead": 538,
+        "audit_rows": 14,
+        "cancel_model": "optimistic",
+        "cancel_ns": null,
+        "cancel_requested": false,
+        "decision_ns": 34214907519545,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "live",
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34214938994341,
+        "input_bytes": 207,
+        "known_remaining": 100,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": 0,
+        "local_state": "live",
+        "market_events": 6,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 2000,
+        "passed": true,
+        "pending_events": 1,
+        "price4": 1589000,
+        "quantity": 100,
+        "remaining": 100,
+        "response_delay_ns": 5000,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": true
+      },
+      "symbol": "MSFT"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 1080,
+          "sha256": "661c69f2d171df0c7102ca3c4b1f649f32ac0ef973d773ef50a39b11a22c17b1"
+        },
+        "configuration.json": {
+          "bytes": 269,
+          "sha256": "d6c1970ade037d900c03c3fb15ece8b565b264bbaaf459a1f60cab5fb76d1dc9"
+        },
+        "joined.csv": {
+          "bytes": 2200,
+          "sha256": "e3f7ca354f7e46d435d5eaf42041fbb807f59eb2cbfcfed64c8afb846258d080"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 808,
+          "sha256": "8fe203ef2a88f6ee43a13218a0024f6940b80e213736a5398bd74ae33f3c1eb5"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 0,
+        "exchange_unfilled_quantity": 0,
+        "in_flight_order_quantity": 0,
+        "normalised_source_rows": 6,
+        "pending_by_kind": {
+          "arrival": 0,
+          "feed": 6,
+          "response": 0
+        },
+        "trace_rows": 7,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "1589000",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34214907518545",
+        "--horizon-ns",
+        "34214938994341",
+        "--feed-delay-ns",
+        "31475797",
+        "--order-delay-ns",
+        "0",
+        "--response-delay-ns",
+        "0",
+        "--cancel-model",
+        "optimistic",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/MSFT-optimistic-undelivered_seed/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/MSFT/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "optimistic",
+        "cancel_ns": null,
+        "decision_ns": 34214907518545,
+        "fee4": 1,
+        "feed_delay_ns": 31475797,
+        "horizon_ns": 34214938994341,
+        "order_delay_ns": 0,
+        "price4": 1589000,
+        "quantity": 100,
+        "response_delay_ns": 0,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "undelivered_seed",
+      "summary": {
+        "ahead": 0,
+        "audit_rows": 7,
+        "cancel_model": "optimistic",
+        "cancel_ns": null,
+        "cancel_requested": false,
+        "decision_ns": 34214907518545,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "idle",
+        "fee4": 1,
+        "feed_delay_ns": 31475797,
+        "horizon_ns": 34214938994341,
+        "input_bytes": 207,
+        "known_remaining": 0,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": null,
+        "local_state": "idle",
+        "market_events": 6,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 0,
+        "passed": true,
+        "pending_events": 6,
+        "price4": 1589000,
+        "quantity": 100,
+        "remaining": 0,
+        "response_delay_ns": 0,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": false
+      },
+      "symbol": "MSFT"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 1998,
+          "sha256": "d340ff6e147508b6e0789464d0fbc7bf068b77ce78bbe05be552fdbe15cc1fc4"
+        },
+        "configuration.json": {
+          "bytes": 269,
+          "sha256": "095a95a272b944100a0f7f9103271a7f1d9c6754a655092c4e0cb8b91ad21eb2"
+        },
+        "joined.csv": {
+          "bytes": 3915,
+          "sha256": "400f382de0dfafd627707ecad4739de5d3abe72468df16943ff884a0ad178fa2"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 810,
+          "sha256": "b02f4ea965f8451167639467b979de1f14b83d839d3e94dfde6bdfe9d66d0850"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 0,
+        "exchange_unfilled_quantity": 100,
+        "in_flight_order_quantity": 100,
+        "normalised_source_rows": 6,
+        "pending_by_kind": {
+          "arrival": 1,
+          "feed": 0,
+          "response": 0
+        },
+        "trace_rows": 13,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "1589000",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34214907518545",
+        "--horizon-ns",
+        "34214938994341",
+        "--feed-delay-ns",
+        "0",
+        "--order-delay-ns",
+        "31475797",
+        "--response-delay-ns",
+        "0",
+        "--cancel-model",
+        "optimistic",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/MSFT-optimistic-arrival_pending/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/MSFT/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "optimistic",
+        "cancel_ns": null,
+        "decision_ns": 34214907518545,
+        "fee4": 1,
+        "feed_delay_ns": 0,
+        "horizon_ns": 34214938994341,
+        "order_delay_ns": 31475797,
+        "price4": 1589000,
+        "quantity": 100,
+        "response_delay_ns": 0,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "arrival_pending",
+      "summary": {
+        "ahead": 0,
+        "audit_rows": 13,
+        "cancel_model": "optimistic",
+        "cancel_ns": null,
+        "cancel_requested": false,
+        "decision_ns": 34214907518545,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "idle",
+        "fee4": 1,
+        "feed_delay_ns": 0,
+        "horizon_ns": 34214938994341,
+        "input_bytes": 207,
+        "known_remaining": 100,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": 0,
+        "local_state": "pending",
+        "market_events": 6,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 31475797,
+        "passed": true,
+        "pending_events": 1,
+        "price4": 1589000,
+        "quantity": 100,
+        "remaining": 0,
+        "response_delay_ns": 0,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": true
+      },
+      "symbol": "MSFT"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 2561,
+          "sha256": "b6ec5de637df7ff079e407431e92217fd79e2756192f17fe5fed0e6d1252faf9"
+        },
+        "configuration.json": {
+          "bytes": 281,
+          "sha256": "1f7cd62bb6d0c73da714c5ce6a93901d0ce3bbc49a4afc3d5526f96cc2f3fc6f"
+        },
+        "joined.csv": {
+          "bytes": 5107,
+          "sha256": "a5e9e1bf5644864d0b59d471c4510fc5ca1eb2465e4afc67414ab541281bf3b9"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 826,
+          "sha256": "b5228b4fef65d8d4007c263690b005508be0034d671fae36422a93a35cd13e4e"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 0,
+        "exchange_unfilled_quantity": 100,
+        "in_flight_order_quantity": 0,
+        "normalised_source_rows": 6,
+        "pending_by_kind": {
+          "arrival": 0,
+          "feed": 1,
+          "response": 0
+        },
+        "trace_rows": 17,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "1589000",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34214907519545",
+        "--horizon-ns",
+        "34214938994341",
+        "--feed-delay-ns",
+        "1000",
+        "--order-delay-ns",
+        "2000",
+        "--response-delay-ns",
+        "5000",
+        "--cancel-model",
+        "optimistic",
+        "--cancel-ns",
+        "34214938984341",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/MSFT-optimistic-cancel_confirmed/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/MSFT/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "optimistic",
+        "cancel_ns": 34214938984341,
+        "decision_ns": 34214907519545,
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34214938994341,
+        "order_delay_ns": 2000,
+        "price4": 1589000,
+        "quantity": 100,
+        "response_delay_ns": 5000,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "cancel_confirmed",
+      "summary": {
+        "ahead": 0,
+        "audit_rows": 17,
+        "cancel_model": "optimistic",
+        "cancel_ns": 34214938984341,
+        "cancel_requested": true,
+        "decision_ns": 34214907519545,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "cancelled",
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34214938994341,
+        "input_bytes": 207,
+        "known_remaining": 0,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": 0,
+        "local_state": "cancelled",
+        "market_events": 6,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 2000,
+        "passed": true,
+        "pending_events": 1,
+        "price4": 1589000,
+        "quantity": 100,
+        "remaining": 0,
+        "response_delay_ns": 5000,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": true
+      },
+      "symbol": "MSFT"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 2418,
+          "sha256": "6676d8fd49d2f4361ed86a12a3a8efd2d1a00b1fc5f8404225f3f44f02df909c"
+        },
+        "configuration.json": {
+          "bytes": 281,
+          "sha256": "ff526c0a1b57bb9d836e0c8ae9bbc738e14065f18b45b67331377bd6a4cf7e86"
+        },
+        "joined.csv": {
+          "bytes": 4852,
+          "sha256": "a79c92be10568a85c4d00725c0b0d02c47bcb2236e2b64d8d1d17fa40e3e7bc0"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 823,
+          "sha256": "ba1719d6090562c06ce76bf3ffa7bbcff2248e29c7822c748767a37786cb5129"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 0,
+        "exchange_unfilled_quantity": 100,
+        "in_flight_order_quantity": 0,
+        "normalised_source_rows": 6,
+        "pending_by_kind": {
+          "arrival": 0,
+          "feed": 1,
+          "response": 1
+        },
+        "trace_rows": 16,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "1589000",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34214907519545",
+        "--horizon-ns",
+        "34214938994341",
+        "--feed-delay-ns",
+        "1000",
+        "--order-delay-ns",
+        "2000",
+        "--response-delay-ns",
+        "5000",
+        "--cancel-model",
+        "optimistic",
+        "--cancel-ns",
+        "34214938990341",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/MSFT-optimistic-cancel_response_pending/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/MSFT/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "optimistic",
+        "cancel_ns": 34214938990341,
+        "decision_ns": 34214907519545,
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34214938994341,
+        "order_delay_ns": 2000,
+        "price4": 1589000,
+        "quantity": 100,
+        "response_delay_ns": 5000,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "cancel_response_pending",
+      "summary": {
+        "ahead": 0,
+        "audit_rows": 16,
+        "cancel_model": "optimistic",
+        "cancel_ns": 34214938990341,
+        "cancel_requested": true,
+        "decision_ns": 34214907519545,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "cancelled",
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34214938994341,
+        "input_bytes": 207,
+        "known_remaining": 100,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": 0,
+        "local_state": "live",
+        "market_events": 6,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 2000,
+        "passed": true,
+        "pending_events": 2,
+        "price4": 1589000,
+        "quantity": 100,
+        "remaining": 0,
+        "response_delay_ns": 5000,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": true
+      },
+      "symbol": "MSFT"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 2281,
+          "sha256": "88cb3e81c1815974075907ae8f117519b5585bed55771273270b2b43e9815cd3"
+        },
+        "configuration.json": {
+          "bytes": 264,
+          "sha256": "3d3092140ac02c38150b44216f35e569e3a7f1c612ac1106fc92e277e9200e73"
+        },
+        "joined.csv": {
+          "bytes": 4632,
+          "sha256": "9e9d49b4164ed948f3a68ec657c388ce8e5a72425e61a571abafef39c12d149e"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 806,
+          "sha256": "f13d85ea0a8c2a2ae71541ece3427afd540f800e582180b211ed71217256fafe"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 100,
+        "exchange_unfilled_quantity": 100,
+        "in_flight_order_quantity": 0,
+        "normalised_source_rows": 6,
+        "pending_by_kind": {
+          "arrival": 0,
+          "feed": 0,
+          "response": 0
+        },
+        "trace_rows": 15,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "1589000",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34214907518545",
+        "--horizon-ns",
+        "34214938994341",
+        "--feed-delay-ns",
+        "0",
+        "--order-delay-ns",
+        "0",
+        "--response-delay-ns",
+        "0",
+        "--cancel-model",
+        "conservative",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/MSFT-conservative-immediate/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/MSFT/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "conservative",
+        "cancel_ns": null,
+        "decision_ns": 34214907518545,
+        "fee4": 1,
+        "feed_delay_ns": 0,
+        "horizon_ns": 34214938994341,
+        "order_delay_ns": 0,
+        "price4": 1589000,
+        "quantity": 100,
+        "response_delay_ns": 0,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "immediate",
+      "summary": {
+        "ahead": 648,
+        "audit_rows": 15,
+        "cancel_model": "conservative",
+        "cancel_ns": null,
+        "cancel_requested": false,
+        "decision_ns": 34214907518545,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "live",
+        "fee4": 1,
+        "feed_delay_ns": 0,
+        "horizon_ns": 34214938994341,
+        "input_bytes": 207,
+        "known_remaining": 100,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": 0,
+        "local_state": "live",
+        "market_events": 6,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 0,
+        "passed": true,
+        "pending_events": 0,
+        "price4": 1589000,
+        "quantity": 100,
+        "remaining": 100,
+        "response_delay_ns": 0,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": true
+      },
+      "symbol": "MSFT"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 2150,
+          "sha256": "c5c27c21ee1eb7664a3188b814a115f783da134ff6afb39296f52caf2baa518f"
+        },
+        "configuration.json": {
+          "bytes": 273,
+          "sha256": "25682b77b8ebd3cf2ffca2751505e686079ebf1f2a588a962a862e7c8db29792"
+        },
+        "joined.csv": {
+          "bytes": 4402,
+          "sha256": "7ba89ab6b2fd1d69f45cc713b47df9a68d707eb3f7033e597f2bd370f4f12c69"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 815,
+          "sha256": "611739c2aa5881da2f01cc6c12a05f7722dca4b5ea534667c192a7ba9fcdd82b"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 100,
+        "exchange_unfilled_quantity": 100,
+        "in_flight_order_quantity": 0,
+        "normalised_source_rows": 6,
+        "pending_by_kind": {
+          "arrival": 0,
+          "feed": 1,
+          "response": 0
+        },
+        "trace_rows": 14,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "1589000",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34214907519545",
+        "--horizon-ns",
+        "34214938994341",
+        "--feed-delay-ns",
+        "1000",
+        "--order-delay-ns",
+        "2000",
+        "--response-delay-ns",
+        "5000",
+        "--cancel-model",
+        "conservative",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/MSFT-conservative-delayed/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/MSFT/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "conservative",
+        "cancel_ns": null,
+        "decision_ns": 34214907519545,
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34214938994341,
+        "order_delay_ns": 2000,
+        "price4": 1589000,
+        "quantity": 100,
+        "response_delay_ns": 5000,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "delayed",
+      "summary": {
+        "ahead": 648,
+        "audit_rows": 14,
+        "cancel_model": "conservative",
+        "cancel_ns": null,
+        "cancel_requested": false,
+        "decision_ns": 34214907519545,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "live",
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34214938994341,
+        "input_bytes": 207,
+        "known_remaining": 100,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": 0,
+        "local_state": "live",
+        "market_events": 6,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 2000,
+        "passed": true,
+        "pending_events": 1,
+        "price4": 1589000,
+        "quantity": 100,
+        "remaining": 100,
+        "response_delay_ns": 5000,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": true
+      },
+      "symbol": "MSFT"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 1080,
+          "sha256": "661c69f2d171df0c7102ca3c4b1f649f32ac0ef973d773ef50a39b11a22c17b1"
+        },
+        "configuration.json": {
+          "bytes": 271,
+          "sha256": "429a8b7cb946ebc00d8420806dc114226fb0f91907e1481c3e355db9ac2c3b0d"
+        },
+        "joined.csv": {
+          "bytes": 2200,
+          "sha256": "e3f7ca354f7e46d435d5eaf42041fbb807f59eb2cbfcfed64c8afb846258d080"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 810,
+          "sha256": "62ef80853134a006507011810ed0f0ff475a118ff08b4f000a09bdc7170aa1b1"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 0,
+        "exchange_unfilled_quantity": 0,
+        "in_flight_order_quantity": 0,
+        "normalised_source_rows": 6,
+        "pending_by_kind": {
+          "arrival": 0,
+          "feed": 6,
+          "response": 0
+        },
+        "trace_rows": 7,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "1589000",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34214907518545",
+        "--horizon-ns",
+        "34214938994341",
+        "--feed-delay-ns",
+        "31475797",
+        "--order-delay-ns",
+        "0",
+        "--response-delay-ns",
+        "0",
+        "--cancel-model",
+        "conservative",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/MSFT-conservative-undelivered_seed/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/MSFT/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "conservative",
+        "cancel_ns": null,
+        "decision_ns": 34214907518545,
+        "fee4": 1,
+        "feed_delay_ns": 31475797,
+        "horizon_ns": 34214938994341,
+        "order_delay_ns": 0,
+        "price4": 1589000,
+        "quantity": 100,
+        "response_delay_ns": 0,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "undelivered_seed",
+      "summary": {
+        "ahead": 0,
+        "audit_rows": 7,
+        "cancel_model": "conservative",
+        "cancel_ns": null,
+        "cancel_requested": false,
+        "decision_ns": 34214907518545,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "idle",
+        "fee4": 1,
+        "feed_delay_ns": 31475797,
+        "horizon_ns": 34214938994341,
+        "input_bytes": 207,
+        "known_remaining": 0,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": null,
+        "local_state": "idle",
+        "market_events": 6,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 0,
+        "passed": true,
+        "pending_events": 6,
+        "price4": 1589000,
+        "quantity": 100,
+        "remaining": 0,
+        "response_delay_ns": 0,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": false
+      },
+      "symbol": "MSFT"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 1998,
+          "sha256": "d340ff6e147508b6e0789464d0fbc7bf068b77ce78bbe05be552fdbe15cc1fc4"
+        },
+        "configuration.json": {
+          "bytes": 271,
+          "sha256": "107eaabbce47f53d0fd8e48ca68d5062ce408cf06472ae11e583a39919b6c543"
+        },
+        "joined.csv": {
+          "bytes": 3915,
+          "sha256": "400f382de0dfafd627707ecad4739de5d3abe72468df16943ff884a0ad178fa2"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 812,
+          "sha256": "0fd92e30e13c81c41593c6872f0ca6985f0a6326a160f97852b1675d9ce4ce48"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 0,
+        "exchange_unfilled_quantity": 100,
+        "in_flight_order_quantity": 100,
+        "normalised_source_rows": 6,
+        "pending_by_kind": {
+          "arrival": 1,
+          "feed": 0,
+          "response": 0
+        },
+        "trace_rows": 13,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "1589000",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34214907518545",
+        "--horizon-ns",
+        "34214938994341",
+        "--feed-delay-ns",
+        "0",
+        "--order-delay-ns",
+        "31475797",
+        "--response-delay-ns",
+        "0",
+        "--cancel-model",
+        "conservative",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/MSFT-conservative-arrival_pending/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/MSFT/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "conservative",
+        "cancel_ns": null,
+        "decision_ns": 34214907518545,
+        "fee4": 1,
+        "feed_delay_ns": 0,
+        "horizon_ns": 34214938994341,
+        "order_delay_ns": 31475797,
+        "price4": 1589000,
+        "quantity": 100,
+        "response_delay_ns": 0,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "arrival_pending",
+      "summary": {
+        "ahead": 0,
+        "audit_rows": 13,
+        "cancel_model": "conservative",
+        "cancel_ns": null,
+        "cancel_requested": false,
+        "decision_ns": 34214907518545,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "idle",
+        "fee4": 1,
+        "feed_delay_ns": 0,
+        "horizon_ns": 34214938994341,
+        "input_bytes": 207,
+        "known_remaining": 100,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": 0,
+        "local_state": "pending",
+        "market_events": 6,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 31475797,
+        "passed": true,
+        "pending_events": 1,
+        "price4": 1589000,
+        "quantity": 100,
+        "remaining": 0,
+        "response_delay_ns": 0,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": true
+      },
+      "symbol": "MSFT"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 2561,
+          "sha256": "6dfa31c907a780159b46acd5907a1e6be8041d648aeba3405e46c1112e7bd185"
+        },
+        "configuration.json": {
+          "bytes": 283,
+          "sha256": "904f0a2fb13ec84cbdc1feddddfd33cd60afe305d16cfcc35fb8034b5b785227"
+        },
+        "joined.csv": {
+          "bytes": 5107,
+          "sha256": "31ab1a19a6771a00a3f0154a7fa5115f6b8dc48719d4a30929f3df155df2da93"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 828,
+          "sha256": "f558c06911883716eff6241d48574955b91d82c1d00d9d133e339d57c1432696"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 0,
+        "exchange_unfilled_quantity": 100,
+        "in_flight_order_quantity": 0,
+        "normalised_source_rows": 6,
+        "pending_by_kind": {
+          "arrival": 0,
+          "feed": 1,
+          "response": 0
+        },
+        "trace_rows": 17,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "1589000",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34214907519545",
+        "--horizon-ns",
+        "34214938994341",
+        "--feed-delay-ns",
+        "1000",
+        "--order-delay-ns",
+        "2000",
+        "--response-delay-ns",
+        "5000",
+        "--cancel-model",
+        "conservative",
+        "--cancel-ns",
+        "34214938984341",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/MSFT-conservative-cancel_confirmed/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/MSFT/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "conservative",
+        "cancel_ns": 34214938984341,
+        "decision_ns": 34214907519545,
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34214938994341,
+        "order_delay_ns": 2000,
+        "price4": 1589000,
+        "quantity": 100,
+        "response_delay_ns": 5000,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "cancel_confirmed",
+      "summary": {
+        "ahead": 0,
+        "audit_rows": 17,
+        "cancel_model": "conservative",
+        "cancel_ns": 34214938984341,
+        "cancel_requested": true,
+        "decision_ns": 34214907519545,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "cancelled",
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34214938994341,
+        "input_bytes": 207,
+        "known_remaining": 0,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": 0,
+        "local_state": "cancelled",
+        "market_events": 6,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 2000,
+        "passed": true,
+        "pending_events": 1,
+        "price4": 1589000,
+        "quantity": 100,
+        "remaining": 0,
+        "response_delay_ns": 5000,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": true
+      },
+      "symbol": "MSFT"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 2418,
+          "sha256": "d6daa84bf4a11666ab198f830d474d6a6688ba9e0809dda57789615ac23c1a27"
+        },
+        "configuration.json": {
+          "bytes": 283,
+          "sha256": "f06f91502c0ec20d8d1298341a440cb5c5324fdd83b7b800148e09f2c521fdf4"
+        },
+        "joined.csv": {
+          "bytes": 4852,
+          "sha256": "a361ce96c39b512dde202729a7c508c15adedc67c2418710fd8f2131b9d142a0"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 825,
+          "sha256": "03f25e713e5b8e42dbc88edfd089621809e7084297550d171a1ade856479795d"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 0,
+        "exchange_unfilled_quantity": 100,
+        "in_flight_order_quantity": 0,
+        "normalised_source_rows": 6,
+        "pending_by_kind": {
+          "arrival": 0,
+          "feed": 1,
+          "response": 1
+        },
+        "trace_rows": 16,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "1589000",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34214907519545",
+        "--horizon-ns",
+        "34214938994341",
+        "--feed-delay-ns",
+        "1000",
+        "--order-delay-ns",
+        "2000",
+        "--response-delay-ns",
+        "5000",
+        "--cancel-model",
+        "conservative",
+        "--cancel-ns",
+        "34214938990341",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/MSFT-conservative-cancel_response_pending/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/MSFT/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "conservative",
+        "cancel_ns": 34214938990341,
+        "decision_ns": 34214907519545,
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34214938994341,
+        "order_delay_ns": 2000,
+        "price4": 1589000,
+        "quantity": 100,
+        "response_delay_ns": 5000,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "cancel_response_pending",
+      "summary": {
+        "ahead": 0,
+        "audit_rows": 16,
+        "cancel_model": "conservative",
+        "cancel_ns": 34214938990341,
+        "cancel_requested": true,
+        "decision_ns": 34214907519545,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "cancelled",
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34214938994341,
+        "input_bytes": 207,
+        "known_remaining": 100,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": 0,
+        "local_state": "live",
+        "market_events": 6,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 2000,
+        "passed": true,
+        "pending_events": 2,
+        "price4": 1589000,
+        "quantity": 100,
+        "remaining": 0,
+        "response_delay_ns": 5000,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": true
+      },
+      "symbol": "MSFT"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 1770,
+          "sha256": "4f88620adc48f4cf57d6c6b581005a60f7ccda8b38ab2de7d3637ee9534551ab"
+        },
+        "configuration.json": {
+          "bytes": 262,
+          "sha256": "a2737767696591969f015a2899227023f351c337c34013e69697cb3c56f95eb9"
+        },
+        "joined.csv": {
+          "bytes": 3641,
+          "sha256": "da709992a4d70990cb0a8c922490f7d1edd61a1cea7ebb57cd4e39236b6651aa"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 804,
+          "sha256": "f492cb7717cb6332dc50965231fe32b04aae695c813c272c3b161d2791f6debe"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 100,
+        "exchange_unfilled_quantity": 100,
+        "in_flight_order_quantity": 0,
+        "normalised_source_rows": 4,
+        "pending_by_kind": {
+          "arrival": 0,
+          "feed": 0,
+          "response": 0
+        },
+        "trace_rows": 11,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "2135400",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34201694396241",
+        "--horizon-ns",
+        "34201723909063",
+        "--feed-delay-ns",
+        "0",
+        "--order-delay-ns",
+        "0",
+        "--response-delay-ns",
+        "0",
+        "--cancel-model",
+        "optimistic",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/QQQ-optimistic-immediate/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/QQQ/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "optimistic",
+        "cancel_ns": null,
+        "decision_ns": 34201694396241,
+        "fee4": 1,
+        "feed_delay_ns": 0,
+        "horizon_ns": 34201723909063,
+        "order_delay_ns": 0,
+        "price4": 2135400,
+        "quantity": 100,
+        "response_delay_ns": 0,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "immediate",
+      "summary": {
+        "ahead": 594,
+        "audit_rows": 11,
+        "cancel_model": "optimistic",
+        "cancel_ns": null,
+        "cancel_requested": false,
+        "decision_ns": 34201694396241,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "live",
+        "fee4": 1,
+        "feed_delay_ns": 0,
+        "horizon_ns": 34201723909063,
+        "input_bytes": 154,
+        "known_remaining": 100,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": 0,
+        "local_state": "live",
+        "market_events": 4,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 0,
+        "passed": true,
+        "pending_events": 0,
+        "price4": 2135400,
+        "quantity": 100,
+        "remaining": 100,
+        "response_delay_ns": 0,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": true
+      },
+      "symbol": "QQQ"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 1639,
+          "sha256": "082956d0ea370c0d962e9f1688ac36caff1c38875bb9024f26b479e1aac0e38b"
+        },
+        "configuration.json": {
+          "bytes": 271,
+          "sha256": "f2352bf97a5e01b9eccadb188c9e514b145de48e48c9ff42d0e8375273698121"
+        },
+        "joined.csv": {
+          "bytes": 3411,
+          "sha256": "2d5a5d3c7da3ffa8e079a4d5419aa89688ed5670d7c14dde4d6e76c16dcb4b56"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 813,
+          "sha256": "2849f56a75b259783003f239de7aa2ba5bde755afe5949c6393e3fd4c6e1df86"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 100,
+        "exchange_unfilled_quantity": 100,
+        "in_flight_order_quantity": 0,
+        "normalised_source_rows": 4,
+        "pending_by_kind": {
+          "arrival": 0,
+          "feed": 1,
+          "response": 0
+        },
+        "trace_rows": 10,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "2135400",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34201694397241",
+        "--horizon-ns",
+        "34201723909063",
+        "--feed-delay-ns",
+        "1000",
+        "--order-delay-ns",
+        "2000",
+        "--response-delay-ns",
+        "5000",
+        "--cancel-model",
+        "optimistic",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/QQQ-optimistic-delayed/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/QQQ/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "optimistic",
+        "cancel_ns": null,
+        "decision_ns": 34201694397241,
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34201723909063,
+        "order_delay_ns": 2000,
+        "price4": 2135400,
+        "quantity": 100,
+        "response_delay_ns": 5000,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "delayed",
+      "summary": {
+        "ahead": 594,
+        "audit_rows": 10,
+        "cancel_model": "optimistic",
+        "cancel_ns": null,
+        "cancel_requested": false,
+        "decision_ns": 34201694397241,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "live",
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34201723909063,
+        "input_bytes": 154,
+        "known_remaining": 100,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": 0,
+        "local_state": "live",
+        "market_events": 4,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 2000,
+        "passed": true,
+        "pending_events": 1,
+        "price4": 2135400,
+        "quantity": 100,
+        "remaining": 100,
+        "response_delay_ns": 5000,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": true
+      },
+      "symbol": "QQQ"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 874,
+          "sha256": "d3563f3137d36d587a3783a8dbfe85624e6ed7d661d52110d2b48c226abd619b"
+        },
+        "configuration.json": {
+          "bytes": 269,
+          "sha256": "86e7f53e6c9bfafdef80007f308dddf8c35d629eb35cb7ab72eee525722b0a96"
+        },
+        "joined.csv": {
+          "bytes": 1854,
+          "sha256": "d75c465427506159384ea272bd1fe81c9ba0b8728a6dc6b3c42794abde504ea8"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 808,
+          "sha256": "c8a91018ff8eb118a5b73923c4aaa8e4061bff62d89b8f5fea23c5c22e39214d"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 0,
+        "exchange_unfilled_quantity": 0,
+        "in_flight_order_quantity": 0,
+        "normalised_source_rows": 4,
+        "pending_by_kind": {
+          "arrival": 0,
+          "feed": 4,
+          "response": 0
+        },
+        "trace_rows": 5,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "2135400",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34201694396241",
+        "--horizon-ns",
+        "34201723909063",
+        "--feed-delay-ns",
+        "29512823",
+        "--order-delay-ns",
+        "0",
+        "--response-delay-ns",
+        "0",
+        "--cancel-model",
+        "optimistic",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/QQQ-optimistic-undelivered_seed/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/QQQ/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "optimistic",
+        "cancel_ns": null,
+        "decision_ns": 34201694396241,
+        "fee4": 1,
+        "feed_delay_ns": 29512823,
+        "horizon_ns": 34201723909063,
+        "order_delay_ns": 0,
+        "price4": 2135400,
+        "quantity": 100,
+        "response_delay_ns": 0,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "undelivered_seed",
+      "summary": {
+        "ahead": 0,
+        "audit_rows": 5,
+        "cancel_model": "optimistic",
+        "cancel_ns": null,
+        "cancel_requested": false,
+        "decision_ns": 34201694396241,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "idle",
+        "fee4": 1,
+        "feed_delay_ns": 29512823,
+        "horizon_ns": 34201723909063,
+        "input_bytes": 154,
+        "known_remaining": 0,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": null,
+        "local_state": "idle",
+        "market_events": 4,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 0,
+        "passed": true,
+        "pending_events": 4,
+        "price4": 2135400,
+        "quantity": 100,
+        "remaining": 0,
+        "response_delay_ns": 0,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": false
+      },
+      "symbol": "QQQ"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 1485,
+          "sha256": "5c4a50257e75d7a655890955d21da36788c99a405d9b44fcd53047ad9f3221e6"
+        },
+        "configuration.json": {
+          "bytes": 269,
+          "sha256": "d0a349eb907f907540e2bea9ae01a907c694042520baddbfb434da018a2da17f"
+        },
+        "joined.csv": {
+          "bytes": 3006,
+          "sha256": "9dae24deb65ad6f24cfd004516f5811c7299fe88434394c2b514c62c9e2b610b"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 809,
+          "sha256": "62edcb0922dfc5d2ef8acdecaf5965e742807d66b171fc765ffa2a268ae7d2f8"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 0,
+        "exchange_unfilled_quantity": 100,
+        "in_flight_order_quantity": 100,
+        "normalised_source_rows": 4,
+        "pending_by_kind": {
+          "arrival": 1,
+          "feed": 0,
+          "response": 0
+        },
+        "trace_rows": 9,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "2135400",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34201694396241",
+        "--horizon-ns",
+        "34201723909063",
+        "--feed-delay-ns",
+        "0",
+        "--order-delay-ns",
+        "29512823",
+        "--response-delay-ns",
+        "0",
+        "--cancel-model",
+        "optimistic",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/QQQ-optimistic-arrival_pending/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/QQQ/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "optimistic",
+        "cancel_ns": null,
+        "decision_ns": 34201694396241,
+        "fee4": 1,
+        "feed_delay_ns": 0,
+        "horizon_ns": 34201723909063,
+        "order_delay_ns": 29512823,
+        "price4": 2135400,
+        "quantity": 100,
+        "response_delay_ns": 0,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "arrival_pending",
+      "summary": {
+        "ahead": 0,
+        "audit_rows": 9,
+        "cancel_model": "optimistic",
+        "cancel_ns": null,
+        "cancel_requested": false,
+        "decision_ns": 34201694396241,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "idle",
+        "fee4": 1,
+        "feed_delay_ns": 0,
+        "horizon_ns": 34201723909063,
+        "input_bytes": 154,
+        "known_remaining": 100,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": 0,
+        "local_state": "pending",
+        "market_events": 4,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 29512823,
+        "passed": true,
+        "pending_events": 1,
+        "price4": 2135400,
+        "quantity": 100,
+        "remaining": 0,
+        "response_delay_ns": 0,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": true
+      },
+      "symbol": "QQQ"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 2050,
+          "sha256": "ac666a082440471b70d4d57974bf35753b2d9b5a0a9c68631c7d30c3121342d8"
+        },
+        "configuration.json": {
+          "bytes": 281,
+          "sha256": "c6f25c70a26bc56a62cdeb3c79529d73a40987dd6889c0df333c9fd20753989e"
+        },
+        "joined.csv": {
+          "bytes": 4116,
+          "sha256": "16285e81593cb098a4f4f50076fc1768d6a0076342635eac0f8b2136d1733166"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 826,
+          "sha256": "a2fa76036223bae495c63412c30951951e75f3c6e4d5afc80da304535a3acf36"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 0,
+        "exchange_unfilled_quantity": 100,
+        "in_flight_order_quantity": 0,
+        "normalised_source_rows": 4,
+        "pending_by_kind": {
+          "arrival": 0,
+          "feed": 1,
+          "response": 0
+        },
+        "trace_rows": 13,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "2135400",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34201694397241",
+        "--horizon-ns",
+        "34201723909063",
+        "--feed-delay-ns",
+        "1000",
+        "--order-delay-ns",
+        "2000",
+        "--response-delay-ns",
+        "5000",
+        "--cancel-model",
+        "optimistic",
+        "--cancel-ns",
+        "34201723899063",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/QQQ-optimistic-cancel_confirmed/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/QQQ/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "optimistic",
+        "cancel_ns": 34201723899063,
+        "decision_ns": 34201694397241,
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34201723909063,
+        "order_delay_ns": 2000,
+        "price4": 2135400,
+        "quantity": 100,
+        "response_delay_ns": 5000,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "cancel_confirmed",
+      "summary": {
+        "ahead": 0,
+        "audit_rows": 13,
+        "cancel_model": "optimistic",
+        "cancel_ns": 34201723899063,
+        "cancel_requested": true,
+        "decision_ns": 34201694397241,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "cancelled",
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34201723909063,
+        "input_bytes": 154,
+        "known_remaining": 0,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": 0,
+        "local_state": "cancelled",
+        "market_events": 4,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 2000,
+        "passed": true,
+        "pending_events": 1,
+        "price4": 2135400,
+        "quantity": 100,
+        "remaining": 0,
+        "response_delay_ns": 5000,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": true
+      },
+      "symbol": "QQQ"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 1907,
+          "sha256": "2f039f63a8562211bbf6fdf720ff06b66ec09f97d7b46a15da942c22d915a44d"
+        },
+        "configuration.json": {
+          "bytes": 281,
+          "sha256": "1fbf0f02df6fcb270770eca71d583b180ff42467edd81168da940dbd8fc0e81f"
+        },
+        "joined.csv": {
+          "bytes": 3861,
+          "sha256": "d6f686242aa4fb277c303be63c10bf23447ed76220ddf9df4efb950e4a2eed8e"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 823,
+          "sha256": "6051214def31314d48fc71e8e0a6064d1882394682e723c90ad19e35cc0fa3ad"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 0,
+        "exchange_unfilled_quantity": 100,
+        "in_flight_order_quantity": 0,
+        "normalised_source_rows": 4,
+        "pending_by_kind": {
+          "arrival": 0,
+          "feed": 1,
+          "response": 1
+        },
+        "trace_rows": 12,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "2135400",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34201694397241",
+        "--horizon-ns",
+        "34201723909063",
+        "--feed-delay-ns",
+        "1000",
+        "--order-delay-ns",
+        "2000",
+        "--response-delay-ns",
+        "5000",
+        "--cancel-model",
+        "optimistic",
+        "--cancel-ns",
+        "34201723905063",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/QQQ-optimistic-cancel_response_pending/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/QQQ/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "optimistic",
+        "cancel_ns": 34201723905063,
+        "decision_ns": 34201694397241,
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34201723909063,
+        "order_delay_ns": 2000,
+        "price4": 2135400,
+        "quantity": 100,
+        "response_delay_ns": 5000,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "cancel_response_pending",
+      "summary": {
+        "ahead": 0,
+        "audit_rows": 12,
+        "cancel_model": "optimistic",
+        "cancel_ns": 34201723905063,
+        "cancel_requested": true,
+        "decision_ns": 34201694397241,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "cancelled",
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34201723909063,
+        "input_bytes": 154,
+        "known_remaining": 100,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": 0,
+        "local_state": "live",
+        "market_events": 4,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 2000,
+        "passed": true,
+        "pending_events": 2,
+        "price4": 2135400,
+        "quantity": 100,
+        "remaining": 0,
+        "response_delay_ns": 5000,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": true
+      },
+      "symbol": "QQQ"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 1770,
+          "sha256": "4f88620adc48f4cf57d6c6b581005a60f7ccda8b38ab2de7d3637ee9534551ab"
+        },
+        "configuration.json": {
+          "bytes": 264,
+          "sha256": "b4ab01f3f345fba5c3bc741e754568a70bcc27d9416cac94d99d32a3a5c60167"
+        },
+        "joined.csv": {
+          "bytes": 3641,
+          "sha256": "da709992a4d70990cb0a8c922490f7d1edd61a1cea7ebb57cd4e39236b6651aa"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 806,
+          "sha256": "2c8ac12017571f17908503bcc92e2dab6bc99125997eb7fa24fc95f393aca8f3"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 100,
+        "exchange_unfilled_quantity": 100,
+        "in_flight_order_quantity": 0,
+        "normalised_source_rows": 4,
+        "pending_by_kind": {
+          "arrival": 0,
+          "feed": 0,
+          "response": 0
+        },
+        "trace_rows": 11,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "2135400",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34201694396241",
+        "--horizon-ns",
+        "34201723909063",
+        "--feed-delay-ns",
+        "0",
+        "--order-delay-ns",
+        "0",
+        "--response-delay-ns",
+        "0",
+        "--cancel-model",
+        "conservative",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/QQQ-conservative-immediate/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/QQQ/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "conservative",
+        "cancel_ns": null,
+        "decision_ns": 34201694396241,
+        "fee4": 1,
+        "feed_delay_ns": 0,
+        "horizon_ns": 34201723909063,
+        "order_delay_ns": 0,
+        "price4": 2135400,
+        "quantity": 100,
+        "response_delay_ns": 0,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "immediate",
+      "summary": {
+        "ahead": 594,
+        "audit_rows": 11,
+        "cancel_model": "conservative",
+        "cancel_ns": null,
+        "cancel_requested": false,
+        "decision_ns": 34201694396241,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "live",
+        "fee4": 1,
+        "feed_delay_ns": 0,
+        "horizon_ns": 34201723909063,
+        "input_bytes": 154,
+        "known_remaining": 100,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": 0,
+        "local_state": "live",
+        "market_events": 4,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 0,
+        "passed": true,
+        "pending_events": 0,
+        "price4": 2135400,
+        "quantity": 100,
+        "remaining": 100,
+        "response_delay_ns": 0,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": true
+      },
+      "symbol": "QQQ"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 1639,
+          "sha256": "082956d0ea370c0d962e9f1688ac36caff1c38875bb9024f26b479e1aac0e38b"
+        },
+        "configuration.json": {
+          "bytes": 273,
+          "sha256": "b1d1cf431b47761fa02532b53f1cb40dd9b57bc634a0e79d6bed6f49eb4f60a8"
+        },
+        "joined.csv": {
+          "bytes": 3411,
+          "sha256": "2d5a5d3c7da3ffa8e079a4d5419aa89688ed5670d7c14dde4d6e76c16dcb4b56"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 815,
+          "sha256": "1a149c06df35432717580c98971908393574f5417bbd87a650606d2e8663e545"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 100,
+        "exchange_unfilled_quantity": 100,
+        "in_flight_order_quantity": 0,
+        "normalised_source_rows": 4,
+        "pending_by_kind": {
+          "arrival": 0,
+          "feed": 1,
+          "response": 0
+        },
+        "trace_rows": 10,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "2135400",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34201694397241",
+        "--horizon-ns",
+        "34201723909063",
+        "--feed-delay-ns",
+        "1000",
+        "--order-delay-ns",
+        "2000",
+        "--response-delay-ns",
+        "5000",
+        "--cancel-model",
+        "conservative",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/QQQ-conservative-delayed/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/QQQ/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "conservative",
+        "cancel_ns": null,
+        "decision_ns": 34201694397241,
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34201723909063,
+        "order_delay_ns": 2000,
+        "price4": 2135400,
+        "quantity": 100,
+        "response_delay_ns": 5000,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "delayed",
+      "summary": {
+        "ahead": 594,
+        "audit_rows": 10,
+        "cancel_model": "conservative",
+        "cancel_ns": null,
+        "cancel_requested": false,
+        "decision_ns": 34201694397241,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "live",
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34201723909063,
+        "input_bytes": 154,
+        "known_remaining": 100,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": 0,
+        "local_state": "live",
+        "market_events": 4,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 2000,
+        "passed": true,
+        "pending_events": 1,
+        "price4": 2135400,
+        "quantity": 100,
+        "remaining": 100,
+        "response_delay_ns": 5000,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": true
+      },
+      "symbol": "QQQ"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 874,
+          "sha256": "d3563f3137d36d587a3783a8dbfe85624e6ed7d661d52110d2b48c226abd619b"
+        },
+        "configuration.json": {
+          "bytes": 271,
+          "sha256": "c07d5902183caa8a9c6861bd5e39fc983c644ba5c0357c2c8d736e6b76e01fa0"
+        },
+        "joined.csv": {
+          "bytes": 1854,
+          "sha256": "d75c465427506159384ea272bd1fe81c9ba0b8728a6dc6b3c42794abde504ea8"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 810,
+          "sha256": "ad515352947e607249c2999be6d2f190bb5d1969e86e157b9f276993fee95c24"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 0,
+        "exchange_unfilled_quantity": 0,
+        "in_flight_order_quantity": 0,
+        "normalised_source_rows": 4,
+        "pending_by_kind": {
+          "arrival": 0,
+          "feed": 4,
+          "response": 0
+        },
+        "trace_rows": 5,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "2135400",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34201694396241",
+        "--horizon-ns",
+        "34201723909063",
+        "--feed-delay-ns",
+        "29512823",
+        "--order-delay-ns",
+        "0",
+        "--response-delay-ns",
+        "0",
+        "--cancel-model",
+        "conservative",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/QQQ-conservative-undelivered_seed/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/QQQ/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "conservative",
+        "cancel_ns": null,
+        "decision_ns": 34201694396241,
+        "fee4": 1,
+        "feed_delay_ns": 29512823,
+        "horizon_ns": 34201723909063,
+        "order_delay_ns": 0,
+        "price4": 2135400,
+        "quantity": 100,
+        "response_delay_ns": 0,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "undelivered_seed",
+      "summary": {
+        "ahead": 0,
+        "audit_rows": 5,
+        "cancel_model": "conservative",
+        "cancel_ns": null,
+        "cancel_requested": false,
+        "decision_ns": 34201694396241,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "idle",
+        "fee4": 1,
+        "feed_delay_ns": 29512823,
+        "horizon_ns": 34201723909063,
+        "input_bytes": 154,
+        "known_remaining": 0,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": null,
+        "local_state": "idle",
+        "market_events": 4,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 0,
+        "passed": true,
+        "pending_events": 4,
+        "price4": 2135400,
+        "quantity": 100,
+        "remaining": 0,
+        "response_delay_ns": 0,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": false
+      },
+      "symbol": "QQQ"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 1485,
+          "sha256": "5c4a50257e75d7a655890955d21da36788c99a405d9b44fcd53047ad9f3221e6"
+        },
+        "configuration.json": {
+          "bytes": 271,
+          "sha256": "f990c01db36333c55228bee22863edef71ee2a0f4c3eff2b67cc964539ce9397"
+        },
+        "joined.csv": {
+          "bytes": 3006,
+          "sha256": "9dae24deb65ad6f24cfd004516f5811c7299fe88434394c2b514c62c9e2b610b"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 811,
+          "sha256": "713a3803a603cd94062c0c0db8a9bfef5e3ae70c948d89e600ec65bbebbd8404"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 0,
+        "exchange_unfilled_quantity": 100,
+        "in_flight_order_quantity": 100,
+        "normalised_source_rows": 4,
+        "pending_by_kind": {
+          "arrival": 1,
+          "feed": 0,
+          "response": 0
+        },
+        "trace_rows": 9,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "2135400",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34201694396241",
+        "--horizon-ns",
+        "34201723909063",
+        "--feed-delay-ns",
+        "0",
+        "--order-delay-ns",
+        "29512823",
+        "--response-delay-ns",
+        "0",
+        "--cancel-model",
+        "conservative",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/QQQ-conservative-arrival_pending/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/QQQ/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "conservative",
+        "cancel_ns": null,
+        "decision_ns": 34201694396241,
+        "fee4": 1,
+        "feed_delay_ns": 0,
+        "horizon_ns": 34201723909063,
+        "order_delay_ns": 29512823,
+        "price4": 2135400,
+        "quantity": 100,
+        "response_delay_ns": 0,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "arrival_pending",
+      "summary": {
+        "ahead": 0,
+        "audit_rows": 9,
+        "cancel_model": "conservative",
+        "cancel_ns": null,
+        "cancel_requested": false,
+        "decision_ns": 34201694396241,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "idle",
+        "fee4": 1,
+        "feed_delay_ns": 0,
+        "horizon_ns": 34201723909063,
+        "input_bytes": 154,
+        "known_remaining": 100,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": 0,
+        "local_state": "pending",
+        "market_events": 4,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 29512823,
+        "passed": true,
+        "pending_events": 1,
+        "price4": 2135400,
+        "quantity": 100,
+        "remaining": 0,
+        "response_delay_ns": 0,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": true
+      },
+      "symbol": "QQQ"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 2050,
+          "sha256": "ac666a082440471b70d4d57974bf35753b2d9b5a0a9c68631c7d30c3121342d8"
+        },
+        "configuration.json": {
+          "bytes": 283,
+          "sha256": "fc646576c0768bcc9d57cc1b8b1e708a79ec8fc95b6037f4a2fd3cc371112386"
+        },
+        "joined.csv": {
+          "bytes": 4116,
+          "sha256": "16285e81593cb098a4f4f50076fc1768d6a0076342635eac0f8b2136d1733166"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 828,
+          "sha256": "9ce600e49ff0185508257c41ee7d0f94b400ffe9a66ccf2ba407c922ce811262"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 0,
+        "exchange_unfilled_quantity": 100,
+        "in_flight_order_quantity": 0,
+        "normalised_source_rows": 4,
+        "pending_by_kind": {
+          "arrival": 0,
+          "feed": 1,
+          "response": 0
+        },
+        "trace_rows": 13,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "2135400",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34201694397241",
+        "--horizon-ns",
+        "34201723909063",
+        "--feed-delay-ns",
+        "1000",
+        "--order-delay-ns",
+        "2000",
+        "--response-delay-ns",
+        "5000",
+        "--cancel-model",
+        "conservative",
+        "--cancel-ns",
+        "34201723899063",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/QQQ-conservative-cancel_confirmed/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/QQQ/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "conservative",
+        "cancel_ns": 34201723899063,
+        "decision_ns": 34201694397241,
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34201723909063,
+        "order_delay_ns": 2000,
+        "price4": 2135400,
+        "quantity": 100,
+        "response_delay_ns": 5000,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "cancel_confirmed",
+      "summary": {
+        "ahead": 0,
+        "audit_rows": 13,
+        "cancel_model": "conservative",
+        "cancel_ns": 34201723899063,
+        "cancel_requested": true,
+        "decision_ns": 34201694397241,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "cancelled",
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34201723909063,
+        "input_bytes": 154,
+        "known_remaining": 0,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": 0,
+        "local_state": "cancelled",
+        "market_events": 4,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 2000,
+        "passed": true,
+        "pending_events": 1,
+        "price4": 2135400,
+        "quantity": 100,
+        "remaining": 0,
+        "response_delay_ns": 5000,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": true
+      },
+      "symbol": "QQQ"
+    },
+    {
+      "artefacts": {
+        "audit.csv": {
+          "bytes": 1907,
+          "sha256": "2f039f63a8562211bbf6fdf720ff06b66ec09f97d7b46a15da942c22d915a44d"
+        },
+        "configuration.json": {
+          "bytes": 283,
+          "sha256": "87cf2ef5a67050ff2a9aef9bb927d9ca1f03476f2fec6666f744db3b21941b66"
+        },
+        "joined.csv": {
+          "bytes": 3861,
+          "sha256": "d6f686242aa4fb277c303be63c10bf23447ed76220ddf9df4efb950e4a2eed8e"
+        },
+        "process.json": {
+          "bytes": 64,
+          "sha256": "3f41b1d100718ab6bdf81225cda4bbb552c98a4481204771e9b4246c7c31125d"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "summary.json": {
+          "bytes": 825,
+          "sha256": "54746107c877dc8e39061e8c04b3bc60810483af474ed856b5ee781b12494540"
+        }
+      },
+      "causal_audit": {
+        "checks": {
+          "all_origin_and_decision_source_joins": true,
+          "complete_audit_and_final_summary": true,
+          "decisions_use_delivered_information": true,
+          "exact_clock_phase_serial_schedule": true,
+          "horizon_pending_events_reconciled": true,
+          "immutable_delayed_snapshots": true,
+          "queue_and_account_conservation": true
+        },
+        "exchange_live_quantity": 0,
+        "exchange_unfilled_quantity": 100,
+        "in_flight_order_quantity": 0,
+        "normalised_source_rows": 4,
+        "pending_by_kind": {
+          "arrival": 0,
+          "feed": 1,
+          "response": 1
+        },
+        "trace_rows": 12,
+        "unobserved_filled_quantity": 0
+      },
+      "command": [
+        "workspace/itch-feed-handler/build/itch_queue_sim",
+        "--side",
+        "buy",
+        "--price4",
+        "2135400",
+        "--quantity",
+        "100",
+        "--fee4",
+        "1",
+        "--decision-ns",
+        "34201694397241",
+        "--horizon-ns",
+        "34201723909063",
+        "--feed-delay-ns",
+        "1000",
+        "--order-delay-ns",
+        "2000",
+        "--response-delay-ns",
+        "5000",
+        "--cancel-model",
+        "conservative",
+        "--cancel-ns",
+        "34201723905063",
+        "--audit",
+        "workspace/itch-feed-handler/out/handoff-canonical-v1/QQQ-conservative-cancel_response_pending/audit.csv",
+        "workspace/itch-feed-handler/out/window-canonical-v1/QQQ/normalised.csv"
+      ],
+      "configuration": {
+        "cancel_model": "conservative",
+        "cancel_ns": 34201723905063,
+        "decision_ns": 34201694397241,
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34201723909063,
+        "order_delay_ns": 2000,
+        "price4": 2135400,
+        "quantity": 100,
+        "response_delay_ns": 5000,
+        "side": "buy"
+      },
+      "passed": true,
+      "profile": "cancel_response_pending",
+      "summary": {
+        "ahead": 0,
+        "audit_rows": 12,
+        "cancel_model": "conservative",
+        "cancel_ns": 34201723905063,
+        "cancel_requested": true,
+        "decision_ns": 34201694397241,
+        "exchange": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "exchange_state": "cancelled",
+        "fee4": 1,
+        "feed_delay_ns": 1000,
+        "horizon_ns": 34201723909063,
+        "input_bytes": 154,
+        "known_remaining": 100,
+        "local": {
+          "cash4": 0,
+          "fees4": 0,
+          "filled": 0,
+          "position": 0
+        },
+        "local_marked_equity_twice4": 0,
+        "local_state": "live",
+        "market_events": 4,
+        "model": "synthetic_shadow_single_level_v1",
+        "order_delay_ns": 2000,
+        "passed": true,
+        "pending_events": 2,
+        "price4": 2135400,
+        "quantity": 100,
+        "remaining": 0,
+        "response_delay_ns": 5000,
+        "schema_version": 1,
+        "side": "buy",
+        "source_identity_stable": true,
+        "submitted": true
+      },
+      "symbol": "QQQ"
+    }
+  ],
+  "schema_version": 1,
+  "scope": "Retrospective bounded model audit; no calibrated fill or strategy P&L claim",
+  "simulator": {
+    "bytes": 61264,
+    "path": "workspace/itch-feed-handler/build/itch_queue_sim",
+    "sha256": "5d60644ea089d6d16eabd7d6b572ecc5715a0c9823e16141f7f233371fdde263"
+  },
+  "source": {
+    "branch": "main",
+    "clean": true,
+    "commit": "83973d9a5a350810bcf0f373d5fceb534f4605ac",
+    "files": {
+      "CMakeLists.txt": {
+        "bytes": 3137,
+        "sha256": "02e487837850a23afe78479ef45a54ec67395d03848fbc6edf61904fe5ba0a1f"
+      },
+      "bench/audit_handoff.py": {
+        "bytes": 48571,
+        "sha256": "a14fac8bcc7a57677ab58c9fc2a504a46b848626df9b150e571a7a3ee7d67630"
+      },
+      "bench/compare_bbo.py": {
+        "bytes": 23823,
+        "sha256": "83caa1216e4d3c2e3eec184dd87755ac08008747ab6c3a8848d765d4623868b8"
+      },
+      "bench/compare_reference.py": {
+        "bytes": 13512,
+        "sha256": "63643ac2e5c8397d9fe2a950437bb147fafb14bf8564a305bacc062093f512fd"
+      },
+      "bench/compare_storage.py": {
+        "bytes": 28760,
+        "sha256": "91d7ada64c24ee916ab1399dae3c70c1c74260aa74d04fdc52d445e2a5acdc46"
+      },
+      "bench/journal.py": {
+        "bytes": 11587,
+        "sha256": "e4307dbf4932f0535efab512205bd8be3b86ff83da54cc6365d13a691bfe661b"
+      },
+      "bench/validate.py": {
+        "bytes": 7126,
+        "sha256": "07eae050e280b196b64be49db2bd1777d8f1475085b09483261a457ae8cd7df5"
+      },
+      "bench/validate_journal.py": {
+        "bytes": 13616,
+        "sha256": "df8bebe2892861708566f4ea7cb7f51967a16be69498046b0cd2b93b23671433"
+      },
+      "include/itch/book.hpp": {
+        "bytes": 6396,
+        "sha256": "18aa04a2525e7acede4f5f7a5aa1671e2aaed81b1acc57c7f41b01602fa1fb3e"
+      },
+      "include/itch/encode.hpp": {
+        "bytes": 3972,
+        "sha256": "3976ae407926e57f060b18485cdaff7a2def42f65886c9c065840ae0f9979b61"
+      },
+      "include/itch/endian.hpp": {
+        "bytes": 2298,
+        "sha256": "e461783ae5a73df12ef028b66696bf466cf78cb1bbefb48b44eb07c8991bab7f"
+      },
+      "include/itch/framing.hpp": {
+        "bytes": 3392,
+        "sha256": "502138feb5250b51e92fa37ec11f1536aebe2c9a62c4f5195ca63fb50ae88417"
+      },
+      "include/itch/journal.hpp": {
+        "bytes": 2191,
+        "sha256": "1cd9e31221d1603845181f5dfe4c9fc3a56da3b5a9a874123ee1675203340975"
+      },
+      "include/itch/messages.hpp": {
+        "bytes": 11808,
+        "sha256": "48c7d0ec5bfb531201f3fa9f247ed7f3cf2f4e00b46ad463559e9e4a1afcb409"
+      },
+      "include/itch/queue_sim.hpp": {
+        "bytes": 3322,
+        "sha256": "5031e65b70a18749fcc9e274d9a6a84d29cd1ff3c44d653b444dfe5c7f50ee6b"
+      },
+      "include/itch/queue_window.hpp": {
+        "bytes": 3352,
+        "sha256": "85e96de848c5572591b17b587901d52d0dc39e6d23e144da23588756e17945eb"
+      },
+      "include/itch/replay.hpp": {
+        "bytes": 2815,
+        "sha256": "9e91ab2cc04d89d59884c6bf28d046390b89a0f09036d79e05acab8d4bd8741c"
+      },
+      "include/itch/snapshots.hpp": {
+        "bytes": 4950,
+        "sha256": "7a431eedd50ba1e554986ccf7a5efea1702c2c23e14391c58e051d653a8ad446"
+      },
+      "src/book.cpp": {
+        "bytes": 7720,
+        "sha256": "c08152d9bb0debe5e7842556ecb93ffd4d2de595bea3012880157e3d75e069c6"
+      },
+      "src/framing.cpp": {
+        "bytes": 1460,
+        "sha256": "ab03285ee9dd4ff7d155f81bea74edab76f8b9065bc81084d10a27bd39b06dd3"
+      },
+      "src/journal.cpp": {
+        "bytes": 4045,
+        "sha256": "33a41a1aa5e2003268f06da3dfd61eac6a980e06f8cb83929a0bd5c6b9644c9c"
+      },
+      "src/queue_sim.cpp": {
+        "bytes": 14138,
+        "sha256": "2da5625b9ede5a68c84ad219e91b8c9f43a6c5885f358e9172ca132527dc437d"
+      },
+      "src/queue_window.cpp": {
+        "bytes": 19686,
+        "sha256": "98cfbc84d9bd2c5ffea0ed1108fb6396e9f19e2777d5c3ff2a8da24fb9e7f772"
+      },
+      "src/replay.cpp": {
+        "bytes": 4767,
+        "sha256": "bcecd0fe0fdad39c11c497966e1a5840541f3e0d10626e9933e4a126b3618991"
+      },
+      "tools/bench.cpp": {
+        "bytes": 6779,
+        "sha256": "33f24effb42d6c93835f543b8d9df0dd607a5c600ff678f5d317f6f2704f2030"
+      },
+      "tools/census.cpp": {
+        "bytes": 4810,
+        "sha256": "466b9e9c86e1836c5b1b1c2d214e3325efa07e06728c4a2ca873495106c8cbc3"
+      },
+      "tools/cli.hpp": {
+        "bytes": 1085,
+        "sha256": "ff2d6e114a6844c9cc4b12ca90c3c45e93a3eb18683d99e973b5cd67387731c3"
+      },
+      "tools/journal_replay.cpp": {
+        "bytes": 9419,
+        "sha256": "b7d146d82a0b4e477c435ae884a5674135b6d4b356fe9a0f35426abd36712ba1"
+      },
+      "tools/loopback.cpp": {
+        "bytes": 12585,
+        "sha256": "a740ca708a0220c22344ba1cb40ee48919c92e7a4f7550faad85254bbfd958f8"
+      },
+      "tools/queue_sim.cpp": {
+        "bytes": 17130,
+        "sha256": "9a5a389c4f9dd2c81f641e6d2bca119dcbf9fa98f649750930d3bf2089f0c118"
+      },
+      "tools/queue_window.cpp": {
+        "bytes": 15749,
+        "sha256": "9796ff4b1b67bbdfb310644b1fe5ab4d6eb74a1e8a2bb5d04edc741ae3feea5e"
+      },
+      "tools/replay.cpp": {
+        "bytes": 7776,
+        "sha256": "eb2d3cc2d77e7737d9b9f7a1132a6bb1607976e0ee4287c87dc80d4557e1950f"
+      },
+      "tools/snapshots.cpp": {
+        "bytes": 9829,
+        "sha256": "72992f0b87e8ee5716d0475db7eb60ccd43c3074899cc9c119d8350f7ca7dd54"
+      },
+      "tools/source.hpp": {
+        "bytes": 1012,
+        "sha256": "ce7e405434d9583c49c0e9c8b751cda1a4b70fec07f17e10ef6fd7f86d0f8c6c"
+      },
+      "tools/storage_bench.cpp": {
+        "bytes": 12562,
+        "sha256": "babd8c708d565c005f5840ed6fb7905678b56f50703004e7c7600b04c34e4538"
+      }
+    }
+  },
+  "window_evidence": {
+    "bytes": 16414,
+    "matches_head_blob": true,
+    "sha256": "1fea28b743676140a4c48d1f774554554fbca4c3211db9ef892d9d1d8d0d1ad7",
+    "tracked_path": "docs/validation/2026-10-22-window/canonical.json"
+  },
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 105350,
+    "original_report_sha256": "f1c28ac23d3fb6e4dac4ddd1f9a80ec23bd9ea214de3845e063808e84401e9da",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}

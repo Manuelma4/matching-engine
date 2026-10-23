@@ -5,6 +5,13 @@ orders, Nasdaq-style modify, O(1) cancel, and five book variants that each repla
 container of the previous one, benchmarked across five market regimes with identical
 output proven by event-stream hashes.
 
+The same repository also contains the [ITCH feed handler](feed-handler/README.md):
+an offline Nasdaq decoder and multi-instrument L3 replica that reuses the engine's
+storage primitives. The engine decides trades; the replica reconstructs published
+exchange events. Start with the [pipeline walkthrough](feed-handler/docs/TECHNICAL_WALKTHROUGH.md)
+and [validation record](feed-handler/docs/VALIDATION.md) for independent BBO/depth
+comparisons, deterministic journalling, measured storage and bounded causal examples.
+
 ## Results at a glance
 
 Single thread, Apple M4 Pro, macOS 26.6, Apple clang 21 `-O3`, no core pinning. Medians of
@@ -89,6 +96,25 @@ bench/run.sh                               # full protocol, results in docs/benc
 
 The library is consumable with CMake `FetchContent` (`me` for the books, `me_workloads`
 for the order-flow regimes); the benchmark only builds when this is the top-level project.
+
+## Build the feed handler in this repository
+
+The engine-only build remains the default. To build both components without fetching
+another engine checkout:
+
+```bash
+cmake -S . -B build-combined -DCMAKE_BUILD_TYPE=Release \
+  -DME_BUILD_FEED_HANDLER=ON
+cmake --build build-combined -j 4
+./build-combined/feed-handler/itch_loopback --ops 10000 --seed 42
+python3 feed-handler/bench/identified_queue_demo.py
+```
+
+The feed handler also supports a [standalone component build](feed-handler/README.md#build).
+For an integrated ASan/UBSan build enable both `ME_SANITIZE` and `ITCH_SANITIZE`.
+[Integration and historical provenance](feed-handler/docs/INTEGRATION.md) explains
+which commands are current and which retained experiments depend on their original
+layout. Consolidation does not rerun market-data validation or increase its coverage.
 
 ## Roadmap
 

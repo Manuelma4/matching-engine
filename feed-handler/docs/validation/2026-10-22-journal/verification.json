@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "source_commit": "f3750781ef8b34b47dba0d4194f11fcae9c2939d",
+  "canonical_journal_report_sha256": "49936637b290bd3d1bb4cba76c2d1aff016d27bf3c529cdf3a2e3a5173126130",
+  "prior_canonical_validation": {
+    "path": "docs/validation/2026-10-22-nasdaq-2019-12-30/validation.json",
+    "sha256": "0aa99307cdf131b73fb0d6104ddbeb12bb836078bc99ab3db856932751214cd0",
+    "raw_identity_matches": true,
+    "message_count_matches": true
+  },
+  "prior_independent_bbo": {
+    "path": "docs/validation/2026-10-22-bbo/independent_bbo.json",
+    "sha256": "d95d993530c6fa236233600ee501cf99d3139f6acef53aab761801bc1ee94aa3",
+    "passed": true,
+    "note": "Independent sampled BBO evidence is distinct from same-core raw/journal replay equivalence.",
+    "raw_identity_matches": true
+  },
+  "matching_engine": {
+    "configured_pin": "01656701c973036d88724fbe2d27fa5b98f55cd4",
+    "local_commit": "dbd280185a0d45f0839881caeff8d535bcd56779",
+    "branch": "main",
+    "dirty": false,
+    "source_difference_from_pin": []
+  },
+  "private_verification": {
+    "registered_ctests": 43,
+    "release_baseline": {
+      "ctests_passed": 42,
+      "excluded": "Validation.JournalEvidence; added subsequently"
+    },
+    "release_journal": {
+      "ctests_passed": 2,
+      "integration_cases": 21,
+      "evidence_runner_cases": 16,
+      "command": "ctest --test-dir ../itch-feed-handler-tests/build --output-on-failure -R '^Validation.Journal'",
+      "log_sha256": "d4c9e7aaf821764e79cfd77131c617e5da9efe483d7f8deff49b4bbd2b0103f0"
+    },
+    "asan_ubsan": {
+      "integration_cases_in_ctest": 20,
+      "additional_maximum_carry_case_passed": true,
+      "additional_case": "JournalIntegration.test_maximum_wire_frame_uses_full_carry_buffer_without_overrun",
+      "command": "ctest --test-dir ../itch-feed-handler-tests/build-asan --output-on-failure -R '^Validation.Journal$'",
+      "additional_command": "python3 ../itch-feed-handler-tests/test_journal.py bench/journal.py ../itch-feed-handler-tests/build-asan/itch/itch_journal_replay JournalIntegration.test_maximum_wire_frame_uses_full_carry_buffer_without_overrun",
+      "ctest_log_sha256": "2120064f077675dba7396b8d03364b9cc78046af2acee1f444943570dcc87eca",
+      "scope": "Synthetic corruption, exact bytes, framing, lifecycle and checkpoint cases; no full canonical journal sanitizer rerun."
+    },
+    "harness_source_sha256": {
+      "test_journal.py": "2149b12986f48a51bc79180bdaa3e73504a0b20b8325072412054847495713c8",
+      "test_validate_journal.py": "1b76379aa739905cdd69ca9dfaaa305694763366cb74dcceaf00deafd469913b",
+      "CMakeLists.txt": "c4c073546ee6688005efee78309eeb9adb801168ea8fb08057eede25891af78b"
+    },
+    "negative_controls": [
+      "Equal-timestamp adds reordered: final book and full-state hashes equal, intermediate FIFO hashes differ.",
+      "CRC-valid incorrect stored SHA-256 rejected by Python; C++ success retains source_identity_verified=false.",
+      "Corruption, truncation, repaired outer checksums, non-canonical packing and maximum split-frame carry are exercised.",
+      "Missing/anomalous/malformed summaries, nonempty stderr, all-empty checkpoints and input/tool/journal mutation fail."
+    ]
+  },
+  "retention": {
+    "journals_and_checkpoint_rows": "Ignored out/journal-canonical-v1/; not committed",
+    "public_evidence": "Aggregate counts, identities, schema, commands and limits only"
+  },
+  "limits": [
+    "27 sampled full-state checkpoints, not every real-day state.",
+    "FNV-1a state fingerprints are non-cryptographic and can collide.",
+    "Same reconstruction core on both transports; no additional independent depth/FIFO oracle.",
+    "Offline observed-wire container, no accepted-mutation encoding or live crash recovery.",
+    "No throughput, storage-speed or latency inference from this integrity run."
+  ],
+  "read_only_quality_review": {
+    "passed": true,
+    "checks": [
+      "Stored journal headers/footers and byte formula match the report.",
+      "Actual private checkpoint CSVs match reported counts, coverage and SHA-256.",
+      "Source, binary, prior report and private harness identities match.",
+      "Published evidence contains no per-event rows; data artefacts are Git-ignored.",
+      "Documentation scopes and all local Markdown links agree with the evidence."
+    ],
+    "full_data_replayed_or_rehashed_by_review": false
+  }
+}

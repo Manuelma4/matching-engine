@@ -14,6 +14,7 @@ endif()
 
 option(ME_SANITIZE "Build with AddressSanitizer + UndefinedBehaviorSanitizer" OFF)
 option(ME_BUILD_BENCH "Build the benchmark" ${PROJECT_IS_TOP_LEVEL})
+option(ME_BUILD_FEED_HANDLER "Build the offline feed-handler component" OFF)
 
 add_library(me_warnings INTERFACE)
 target_compile_options(me_warnings INTERFACE -Wall -Wextra -Wpedantic -Wshadow -Wconversion)
@@ -35,4 +36,9 @@ target_link_libraries(me_workloads PUBLIC me PRIVATE me_warnings)
 if(ME_BUILD_BENCH)
   add_executable(me_bench bench/main.cpp)
   target_link_libraries(me_bench PRIVATE me_workloads me_warnings)
+endif()
+
+# Reuse this checkout's shared primitives and workloads in the feed replica.
+if(ME_BUILD_FEED_HANDLER)
+  add_subdirectory(feed-handler)
 endif()

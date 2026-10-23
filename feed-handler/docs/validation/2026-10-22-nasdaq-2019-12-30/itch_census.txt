@@ -1,0 +1,28 @@
+type message                               count            bytes
+A    add order                         117145568       4451531584
+C    order executed with price             99917          3796846
+D    order delete                      114360997       2401580937
+E    order executed                      5722824        188853192
+F    add order (MPID)                    1485888         62407296
+H    trading action                         8966           242082
+I    net order imbalance                 4024315        209264380
+J    LULD auction collar                      34             1258
+K    IPO quoting period                        3               90
+L    market participant position          215161          6024508
+P    trade (non-cross)                   1218602         56055692
+Q    cross trade                           17836           749112
+R    stock directory                        8906           365146
+S    system event                              6               84
+U    order replace                      21639067        800645479
+V    MWCB decline level                        1               37
+X    order cancel                        2787676         69691900
+Y    Reg SHO restriction                    9013           198286
+
+messages     268744780
+file bytes   8251407909
+identity     sum(count * (length + 2)) + end record = 8251407909  == file size
+trailing     0 bytes outside complete frames
+end record   absent (allowed)
+after end    0 records after session end
+anomalies    0 unknown type, 0 wrong length
+elapsed      11.662 s (23.0 M msg/s)

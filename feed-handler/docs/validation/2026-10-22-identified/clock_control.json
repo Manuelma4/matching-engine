@@ -1,0 +1,50 @@
+{
+  "baseline_matches_frozen_probes": true,
+  "command": [
+    "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+    "workspace/itch-feed-handler-tests/identified_clock_control.py",
+    "--fixtures",
+    "out/identified-fixture-v1/cases.json",
+    "--tool",
+    "bench/identified_events.py",
+    "--output",
+    "out/identified-clock-control-v1"
+  ],
+  "compared_probes": 7,
+  "control": "raw_seed_timestamp_instead_of_effective_time",
+  "driver": {
+    "bytes": 3295,
+    "path": "workspace/itch-feed-handler-tests/identified_clock_control.py",
+    "sha256": "fc3fe77a7405b80c97badf0bd253abcb6521a2935a37fd3ec6d1c2ca77a4ce38"
+  },
+  "fixture": {
+    "bytes": 403685,
+    "path": "workspace/itch-feed-handler/out/identified-fixture-v1/cases.json",
+    "sha256": "135ed4e8bc98c13ee5b4ab38e5e9687bfe7a94881f7533813c0038d0b710e2e7"
+  },
+  "limitations": [
+    "Deliberate private observer mutation on synthetic frozen frames",
+    "No market data, empirical fills or performance measurement"
+  ],
+  "mutant": {
+    "bytes": 29654,
+    "path": "workspace/itch-feed-handler/out/identified-clock-control-v1/seed_clock_mutant.py",
+    "sha256": "1635b82a14b19668147dffbd0907af7a6b329ef616f41a9a0200ecacd2bfd1dc"
+  },
+  "mutant_detected": true,
+  "mutant_probe_discrepancies": 3,
+  "passed": true,
+  "production_unchanged": true,
+  "schema_version": 1,
+  "source": {
+    "bytes": 29644,
+    "path": "workspace/itch-feed-handler/bench/identified_events.py",
+    "sha256": "10bc0a310e441a4dd91653e5c66bbefa0dddd171844ef5f3d6197f3ec66cb918"
+  },
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 1717,
+    "original_report_sha256": "2d1283893a85634b25bd5c52d8a6a80a1f03cea50507c71f6e67518c278f6d7d",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "source_commit": "40f22c6a945b7512c8c6dd8866e3e60cdbed05b5",
+  "source_branch": "main",
+  "matching_engine_branch": "main",
+  "passed": true,
+  "model": "strict_displayed_window_v1",
+  "source_files": [
+    {
+      "path": "workspace/itch-feed-handler/CMakeLists.txt",
+      "bytes": 3137,
+      "sha256": "02e487837850a23afe78479ef45a54ec67395d03848fbc6edf61904fe5ba0a1f"
+    },
+    {
+      "path": "workspace/itch-feed-handler/include/itch/queue_window.hpp",
+      "bytes": 3352,
+      "sha256": "85e96de848c5572591b17b587901d52d0dc39e6d23e144da23588756e17945eb"
+    },
+    {
+      "path": "workspace/itch-feed-handler/src/queue_window.cpp",
+      "bytes": 19686,
+      "sha256": "98cfbc84d9bd2c5ffea0ed1108fb6396e9f19e2777d5c3ff2a8da24fb9e7f772"
+    },
+    {
+      "path": "workspace/itch-feed-handler/tools/queue_window.cpp",
+      "bytes": 15749,
+      "sha256": "9796ff4b1b67bbdfb310644b1fe5ab4d6eb74a1e8a2bb5d04edc741ae3feea5e"
+    },
+    {
+      "path": "workspace/itch-feed-handler/docs/HISTORICAL_WINDOW.md",
+      "bytes": 9892,
+      "sha256": "5566e9338fb23a050742ee8dc41881d7460e9480a70596d96d08cb516eeb4e06"
+    }
+  ],
+  "private_harness": [
+    {
+      "path": "workspace/itch-feed-handler-tests/CMakeLists.txt",
+      "bytes": 3986,
+      "sha256": "c3f5f9b9dbc05a01987cfdf413f900f81c2c6fb1d3a5ff2945691f58ac54c2aa"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/test_queue_window.cpp",
+      "bytes": 27187,
+      "sha256": "e2a533ae50161968edfeb76f66ca040aaafe7566756d2c8183cba9aeefa9d58a"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/test_queue_window_cli.py",
+      "bytes": 21062,
+      "sha256": "83d60bf5bb98e7f76a15474993a50ef219f6e4a3dcc64420dab81fe55e5c2354"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/queue_window_evidence.py",
+      "bytes": 27671,
+      "sha256": "36943e268f2a25865e91cea04107100fe91cfb9fd6ddbc847ea2b112516561fa"
+    }
+  ],
+  "binaries": [
+    {
+      "path": "workspace/itch-feed-handler/build/itch_queue_window",
+      "bytes": 100656,
+      "sha256": "e7e72b034c420d10e015a51c03d43aabbaef342305bfd76dad8a5777cde7c16b"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/build/queue_window_tests",
+      "bytes": 755872,
+      "sha256": "ae983a2ca3a000dc3b0acab93ef9d90c95008a9760fad112cc84605a60540d33"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/build-asan/itch/itch_queue_window",
+      "bytes": 1388288,
+      "sha256": "ec599eebcc4a2375a72ace0b012170938e2e9f51f057a33e59aae60db6e6259f"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/build-asan/queue_window_tests",
+      "bytes": 6298080,
+      "sha256": "d4f77a74540c79e43983ec494ea6a0d892b7a9d3cc028a79c06684c9f6074177"
+    }
+  ],
+  "logs": [
+    {
+      "path": "workspace/itch-feed-handler-tests/build/ctest-queue-window-combined.log",
+      "bytes": 4564,
+      "sha256": "bc1b34c4b25b435d8a5885b876647320d733a7795bf325981d601304f9a27518"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/build/ctest-queue-window.log",
+      "bytes": 4411,
+      "sha256": "5bae55c09faca40419a8982923a0da2ee7b8be0136a3a06da48fb13a8071a4fe"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/build/queue-window-cli-tests.log",
+      "bytes": 117,
+      "sha256": "0479c468be2d3180382aff46c7038aaf3e231ae5af489bd34a833d9e792157ea"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/build-asan/ctest-queue-window.log",
+      "bytes": 4416,
+      "sha256": "04615e8e3ab3eac7e4e6720be4c50c9f693d140afa53115e5182d5f229c3248a"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/build-asan/queue-window-cli-tests.log",
+      "bytes": 117,
+      "sha256": "370a7bbb15504eba01334dceb2ed8c090131ac0f6d5aa6035e7cddf5194ff38b"
+    }
+  ],
+  "checks": {
+    "release_registered_ctests": 97,
+    "release_selected_ctests": 22,
+    "cpp_cases_release": 21,
+    "cli_methods_release": 18,
+    "cpp_cases_asan_ubsan": 21,
+    "cli_methods_asan_ubsan": 18,
+    "canonical_successful_full_source_projections": 2,
+    "source_messages_per_success": 268744780,
+    "source_bytes_per_success": 8251407909,
+    "independent_bbo_states": 15,
+    "post_message_states": 13,
+    "seed_states": 2,
+    "independent_bbo_differences": 0,
+    "real_pre_opening_rejections": 1
+  },
+  "protocol_reading": {
+    "specification": {
+      "url": "https://www.nasdaqtrader.com/content/technicalsupport/specifications/dataproducts/NQTVITCHspecification.pdf",
+      "revision": "2023-04-28",
+      "retrieved_on": "2026-10-22",
+      "path": "workspace/itch-feed-handler/data/reference/nasdaq-specification-20261022/NQTVITCHspecification.pdf",
+      "bytes": 1200722,
+      "sha256": "45e0531d1b4b3beb886e9618b2ab824a5aa9bda3a99c0dff03509306e68aacc3"
+    },
+    "faq": {
+      "url": "https://www.nasdaqtrader.com/Content/TechnicalSupport/FAQs/ITCH_FAQ.pdf",
+      "reading_scope": "Official search-indexed page 3 text; live retrieval returned HTML/error, no PDF digest claimed"
+    }
+  },
+  "independent_reference": {
+    "repository": "KareemJandali/itchbook",
+    "commit": "3c646f9da182136125059243b475f7b8baa53773",
+    "licence": "MIT",
+    "comparison": "Four BBO fields plus source identities for each seed/selected post-message state",
+    "prefix_messages_replayed": 7993582,
+    "prefix_bytes_consumed": 273665559,
+    "projector_order_counts_compared": false,
+    "separate_book_helper_order_counts_compared": true,
+    "detailed_identity_report": "canonical.json"
+  },
+  "scope": {
+    "reconstruction_or_queue_kernel_changed": false,
+    "matching_engine_code_changed": false,
+    "performance_measured": false,
+    "canonical_projector_sanitizer_run": false,
+    "real_queue_or_fill_simulation_run": false,
+    "adversarial_mid_run_file_mutation_tested": false
+  },
+  "limitations": [
+    "Only two retrospectively selected fixed-positive-best windows, not all instruments or intermediate real-day states.",
+    "Observed displayed E quantity does not establish full parent aggressor demand; no calibrated queue/fill/P&L claim.",
+    "Whole-source replay enforces defined lifecycle and reconstruction counters, not every possible exchange rule or ignored metadata field.",
+    "Focused ASan/UBSan applies to private hand-encoded adapter and CLI tests; full canonical projections are Release.",
+    "Detailed normalised/provenance rows, synthetic tests and external source archives remain private or ignored."
+  ],
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 7077,
+    "original_report_sha256": "f295127dcaac46b9e85c96a19758a169d302b71f98ff8e93f72b88a2fc013c0a",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}

@@ -1,0 +1,351 @@
+{
+  "build_diagnostic": "Fresh GoogleTest1.15.2 compilation emits a char8_t-to-char32_t conversion warning with this compiler; no project-source warnings or runtime stderr. No warning-free whole-build claim.",
+  "checks": {
+    "all38_frozen_unit_names_completed_without_skips": true,
+    "deep_loss_preserves_bbo_but_changes_complete_order_count": [
+      6,
+      5
+    ],
+    "fixture_sha_and_body_joins_checked_separately": true,
+    "independent_fixture_review": {
+      "bytes": 1566,
+      "path": "workspace/itch-feed-handler/out/mold-contract-v1/fixture-review-root-v2.json",
+      "sha256": "cb733a2efb7a576a2ed5ca6d180e06106508ee9df48fa5dc55a982597ecfa57c"
+    },
+    "profiles": [
+      {
+        "binaries": [
+          {
+            "bytes": 779144,
+            "path": "workspace/itch-feed-handler-tests/build-mold-v1-release/mold_tests",
+            "sha256": "df73f3c240da7bc061593d60f9e719f314a1eb80c4dc4a65b0e6e58ed2d05175"
+          },
+          {
+            "bytes": 124080,
+            "path": "workspace/itch-feed-handler-tests/build-mold-v1-release/mold_integration",
+            "sha256": "7fb21ff0c3924837b33008126dc06e1366202bdaa32953e3bb15ab59aaedf152"
+          }
+        ],
+        "binaries_before_after_equal": true,
+        "compile_database": {
+          "bytes": 26953,
+          "path": "workspace/itch-feed-handler-tests/build-mold-v1-release/compile_commands.json",
+          "sha256": "4eaa9aba9536aff46c62def3444668b15f509a2a1c67e5441638095e006dad1a"
+        },
+        "ctest_groups": 2,
+        "ctest_report": {
+          "bytes": 1862,
+          "path": "workspace/itch-feed-handler/out/mold-verification-v2/release-ctest.xml",
+          "sha256": "1bb02c9cecca65895ede6add10ae2a5ef13c4512c191299df3c18047df7df543"
+        },
+        "integration_summary": {
+          "cases": 17,
+          "checks": 16391,
+          "discrepancies": 0,
+          "literal_inventories": 27,
+          "literal_inventory_rows": 84,
+          "messages": 194,
+          "order_row_instances": 518,
+          "packets": 84,
+          "passed": true,
+          "scope": "wholly_synthetic",
+          "source_messages": 26,
+          "states": 194
+        },
+        "name": "release",
+        "repeated_integration_stdout_exact": true,
+        "sanitiser_flags_confirmed": true,
+        "sanitisers": false,
+        "unit_methods": 38,
+        "unit_report": {
+          "bytes": 15479,
+          "path": "workspace/itch-feed-handler/out/mold-verification-v2/release-gtest.json",
+          "sha256": "c3997470c2b677c4dbd9f9e4395c1b3d3bc5da48c4128979503ba5a57d52ebe7"
+        }
+      },
+      {
+        "binaries": [
+          {
+            "bytes": 5869688,
+            "path": "workspace/itch-feed-handler-tests/build-mold-v1-asan-ubsan/mold_tests",
+            "sha256": "98969c2141c37e274fededd8c69374f904bbb4620fe1e548efd4efb482477bb4"
+          },
+          {
+            "bytes": 1734800,
+            "path": "workspace/itch-feed-handler-tests/build-mold-v1-asan-ubsan/mold_integration",
+            "sha256": "1b2e4f384755c37f2bb01fee8959a49b832ee0c3f22d473c8f4e98256af7810a"
+          }
+        ],
+        "binaries_before_after_equal": true,
+        "compile_database": {
+          "bytes": 28563,
+          "path": "workspace/itch-feed-handler-tests/build-mold-v1-asan-ubsan/compile_commands.json",
+          "sha256": "e0363fdeef5efcdf2a9f92dc5ce30cabea59fea188ce48db39c50d044566f63c"
+        },
+        "ctest_groups": 2,
+        "ctest_report": {
+          "bytes": 1861,
+          "path": "workspace/itch-feed-handler/out/mold-verification-v2/asan-ubsan-ctest.xml",
+          "sha256": "a1300648c292f3d1780d3ad8d89c98dcef7063ee9541aa6467c458fd9b94e173"
+        },
+        "integration_summary": {
+          "cases": 17,
+          "checks": 16391,
+          "discrepancies": 0,
+          "literal_inventories": 27,
+          "literal_inventory_rows": 84,
+          "messages": 194,
+          "order_row_instances": 518,
+          "packets": 84,
+          "passed": true,
+          "scope": "wholly_synthetic",
+          "source_messages": 26,
+          "states": 194
+        },
+        "name": "asan-ubsan",
+        "repeated_integration_stdout_exact": true,
+        "sanitiser_flags_confirmed": true,
+        "sanitisers": true,
+        "unit_methods": 38,
+        "unit_report": {
+          "bytes": 15499,
+          "path": "workspace/itch-feed-handler/out/mold-verification-v2/asan-ubsan-gtest.json",
+          "sha256": "870569a129ade00a925ce58ee13d1f64282ba400fed2b4e8a34b25a90b20b602"
+        }
+      }
+    ],
+    "runtime_stderr_empty": true,
+    "sanitiser_environment": {
+      "ASAN_OPTIONS": "halt_on_error=1:abort_on_error=1",
+      "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+    },
+    "source_fixture_commit_branch_and_binary_stability": true,
+    "two_complete_packetisations_match_all26_source_states": true
+  },
+  "completed_at_utc": "2026-10-22T20:04:44.245930+00:00",
+  "contract": {
+    "approved_before_implementation_sha256": "f42e67491f753a1513a405f12f648e44d708e830a59e12697278f7fdef9cd4bb",
+    "independent_reviews": 2,
+    "pre_implementation_review": {
+      "bytes": 1388,
+      "path": "workspace/itch-feed-handler/out/mold-contract-v1/review.json",
+      "sha256": "f47af528b2b55a6fe15d9adf29ade062b59c758b336b69022cdd32ee49f62252"
+    },
+    "subsequent_changes": "Descriptor ownership clarification, API documentation and precise BinaryFILE terminator wording; receiver policy unchanged."
+  },
+  "environment": {
+    "compiler": "Apple clang 21.0.0 (clang-2100.1.1.101), arm64-apple-darwin25.6.0",
+    "executable": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.14.6 (v3.14.6:c63aec69bd5, Jun 10 2026, 08:07:54) [Clang 21.0.0 (clang-2100.1.1.101)]"
+  },
+  "fixture": {
+    "counts": {
+      "cases": 17,
+      "literal_inventories": 27,
+      "literal_inventory_rows": 84,
+      "messages": 194,
+      "order_row_instances": 518,
+      "packets": 84,
+      "source_messages": 26,
+      "states": 194
+    },
+    "files": {
+      "cases.json": {
+        "bytes": 57503,
+        "sha256": "d5ab422c21248bdeb64709aee56681fc272c9d3ca5e7857247976047f7184448"
+      },
+      "datagrams.bin": {
+        "bytes": 10684,
+        "sha256": "3aed7fc6418ba52aadef56fbfa14c672b7ac37f61530a4aa0434a78b9c124260"
+      },
+      "expected-messages.csv": {
+        "bytes": 30739,
+        "sha256": "f789f1132cac137419a4dba15e793c7fd8f5161767ccb845f677010ce31cd6fc"
+      },
+      "expected-orders.csv": {
+        "bytes": 21671,
+        "sha256": "1e498da9a0d417f71944786f7c827ae5ee18f98b639016392c4aae2a330a48f0"
+      },
+      "expected-results.csv": {
+        "bytes": 8801,
+        "sha256": "2cfc74a77e73bc4f371ae5a110b1517c109b043b1c4b8cc568fd81ddd4c1e4ee"
+      },
+      "source.csv": {
+        "bytes": 3883,
+        "sha256": "b52d91e8af85ae0bf0a1fe983e823740032cf44736332a3809d2d05a585effb3"
+      },
+      "source.itch": {
+        "bytes": 707,
+        "sha256": "1cc4bf3bfa54c2f767ebd260a906ce51f188d992effdd0b567e1507992c49ccc"
+      },
+      "trace.csv": {
+        "bytes": 27316,
+        "sha256": "d3708cacdefad2ba312aad489b61c8fc4adc84d4ca1116b37ca3514537176d4f"
+      }
+    },
+    "frozen_before_implementation_execution": true,
+    "generator": {
+      "bytes": 18140,
+      "path": "workspace/itch-feed-handler-tests/freeze_mold.py",
+      "sha256": "5eb5d44ba3078d27857f3e4e8ebfa306a7bf89f428e5ee0619fd524aad61f2d9"
+    },
+    "manifest": {
+      "bytes": 1831,
+      "path": "workspace/itch-feed-handler/out/mold-fixture-v1/freeze-manifest.json",
+      "sha256": "4bb1fad7df64158c22c929869b5cca12eae3951e4a83dfe12f851758b26117cc"
+    },
+    "oracle_method": "Literal inventories, BBO values and per-packet results; only byte serialisation/offsets/hashes are derived.",
+    "production_imports": false,
+    "source_kind": "Hand-encoded 707-byte BinaryFILE and privately length-framed synthetic datagrams; no venue packet capture."
+  },
+  "fresh_publication_identity_checks": 188,
+  "limits": [
+    "This increment checks wholly synthetic datagrams, not canonical repacketisation or actual network captures.",
+    "The 26 unique source bodies have strictly increasing ITCH timestamps; duplicate-body joins and timestamp-tie integration are not covered here.",
+    "The allocation-failure resource_failure path is reviewed in source, not exercised by allocation fault injection.",
+    "Structural preflight is atomic; arbitrary downstream book side effects have no multi-message rollback. A failed consumer run must be discarded.",
+    "No reorder buffering, automatic recovery, session switching, network requests, sockets or live gateway.",
+    "No full-day historical replay, empirical latency, throughput, hidden-priority, calibrated-fill or P&L claim is added. Existing canonical evidence is retained, not rerun."
+  ],
+  "linked_matching_engine": {
+    "branch": "main",
+    "clean_before_after": true,
+    "commit": "dbd280185a0d45f0839881caeff8d535bcd56779"
+  },
+  "negative_control": {
+    "frozen_deep_gap_test_fails_mutant": true,
+    "mutation": "Remove forward-gap rejection in an ignored private source copy.",
+    "production_source_unchanged": true,
+    "report": {
+      "bytes": 5073,
+      "path": "workspace/itch-feed-handler/out/mold-mutant-gap-v1/verification.json",
+      "sha256": "2dc765455fd7facd1c40e24e22333b9b3406a64fec670c9c98808378a0b8772f"
+    },
+    "same_test_passes_production": true,
+    "test_source": {
+      "bytes": 24781,
+      "path": "workspace/itch-feed-handler-tests/test_mold.cpp",
+      "sha256": "f4ba0a8c52b1049bafc2decc217604de343fd4473fbc4770636c5f3747eff8c0"
+    },
+    "unit_warning_cleanup": "Only three discarded-result (void) casts followed the frozen test version; assertions and hand bytes unchanged."
+  },
+  "official_specification": {
+    "bytes": 86837,
+    "formatting_revision": "2024-08-02",
+    "retrieved_utc": "2026-10-22",
+    "schema_version": 1,
+    "sha256": "96cdd02b8728a441cb970d1371a96e73c01e1edaffb2891d43667e2a0ad8add5",
+    "title": "MoldUDP64 Protocol Specification V1.00",
+    "url": "https://www.nasdaqtrader.com/content/technicalsupport/specifications/dataproducts/moldudp64.pdf"
+  },
+  "passed": true,
+  "private_harness": {
+    "files": [
+      {
+        "bytes": 24799,
+        "path": "workspace/itch-feed-handler-tests/test_mold.cpp",
+        "sha256": "dcdd570f29494ee97338d5c5bb166203cdbf54fc213734f3f0b3b027ade07a49"
+      },
+      {
+        "bytes": 23753,
+        "path": "workspace/itch-feed-handler-tests/mold_integration.cpp",
+        "sha256": "7cd38f915f301f8d6e87f91d481cd4d0f082fba2471245e748df42123bab5b6b"
+      },
+      {
+        "bytes": 18140,
+        "path": "workspace/itch-feed-handler-tests/freeze_mold.py",
+        "sha256": "5eb5d44ba3078d27857f3e4e8ebfa306a7bf89f428e5ee0619fd524aad61f2d9"
+      },
+      {
+        "bytes": 5931,
+        "path": "workspace/itch-feed-handler-tests/CMakeLists.txt",
+        "sha256": "50efd8ddbf71188691769868066479b98ab8969f583144860e7de211d5dd1be0"
+      },
+      {
+        "bytes": 12349,
+        "path": "workspace/itch-feed-handler-tests/verify_mold_increment.py",
+        "sha256": "a009b6b03a6e3ecd837fe7ff82450003556fe6e0f374767fa6ebe36a73819220"
+      },
+      {
+        "bytes": 5008,
+        "path": "workspace/itch-feed-handler-tests/review_mold_fixture.py",
+        "sha256": "c01c0e9b925778ad3ee2463c794456da00727293901f19389cc61edd466e388e"
+      }
+    ],
+    "independent_unit_freeze": {
+      "bytes": 4175,
+      "path": "workspace/itch-feed-handler/out/mold-unit-verification-v1/pre-execution-freeze-v2.json",
+      "sha256": "a737bff2404e1746eb372e03ed7615c69571742e0f84deba77c1746a66ea5857"
+    },
+    "separate_acceptance_receipt": {
+      "bytes": 11913,
+      "path": "workspace/itch-feed-handler/out/mold-unit-verification-v1/verification-private.json",
+      "sha256": "10be6944c09c8e5d15066d0f281fdb0bb67ec838e7a14f3c7238e8c9d157441b"
+    },
+    "warning_cleanup": {
+      "bytes": 377,
+      "path": "workspace/itch-feed-handler/out/mold-unit-verification-v1/warning-cleanup.json",
+      "sha256": "5df63607ba87cbb3d5119f153071a88be4afaf67c32bc2ef76735e67913377d1"
+    }
+  },
+  "retained_failed_attempt": {
+    "cause": "Private parent targets absent from compile database; corrected root CMAKE_EXPORT_COMPILE_COMMANDS=ON before test execution in that attempt.",
+    "report": {
+      "bytes": 742,
+      "path": "workspace/itch-feed-handler/out/mold-verification-v1/failure.json",
+      "sha256": "6dc3b60f13268eaf9b6c6531613cbdcf57f744493253ce4384aac5207a4d93f2"
+    }
+  },
+  "retained_input_identity_records": 158,
+  "retained_report": {
+    "bytes": 77637,
+    "path": "workspace/itch-feed-handler/out/mold-verification-v2/verification-private.json",
+    "sha256": "216e743338c9921f97c0e53f1dafa3892f21f81019866b4f240fe072da3b086d"
+  },
+  "schema_version": 1,
+  "scope": "wholly_synthetic_offline_moldudp64_v1",
+  "source": {
+    "branch": "main",
+    "clean_before_after": true,
+    "commit": "cd9c80e33a23d67b20bcfbc9158621faa0737794",
+    "files": [
+      {
+        "bytes": 3442,
+        "path": "workspace/itch-feed-handler/CMakeLists.txt",
+        "sha256": "b4c947d7fe1a3b4c7e8e71b7e00cba3239d0061e9969b7d5c529c3fb41510e3b"
+      },
+      {
+        "bytes": 14359,
+        "path": "workspace/itch-feed-handler/README.md",
+        "sha256": "729ec8018178f62c03bbda3cf3dafb6638b13328e239ae3e614af5a54eee4e91"
+      },
+      {
+        "bytes": 10427,
+        "path": "workspace/itch-feed-handler/docs/MOLDUDP64.md",
+        "sha256": "a63492f7c11c057a75640b8ea0f695eb5c7bcf25b0d70482370f1570227d8f0b"
+      },
+      {
+        "bytes": 4855,
+        "path": "workspace/itch-feed-handler/include/itch/mold.hpp",
+        "sha256": "60c5cf5764fd01b92b6de541a5ad8a9afe90de1b6bd1ca9bd9c5d49a8e44b35c"
+      },
+      {
+        "bytes": 732,
+        "path": "workspace/itch-feed-handler/include/itch/mold_itch.hpp",
+        "sha256": "66e3719f75af0cba5e15e3acf086327d2a7a11cf140683b07f94386dff470252"
+      },
+      {
+        "bytes": 8817,
+        "path": "workspace/itch-feed-handler/src/mold.cpp",
+        "sha256": "4b4b0de896d56b37147c20f2e32e74ace740cc056ce7286bfdb56736ae3bf3dc"
+      }
+    ]
+  },
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 15342,
+    "original_report_sha256": "04c38fe622c5e7e541045f6b1d7a6f532dd20a439a4f5ec653f7ffe2c5872ac8",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}

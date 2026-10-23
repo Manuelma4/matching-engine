@@ -1,0 +1,33 @@
+Source commit: 0c45da9a5c37345da5f21b644f612d6dfb9be846
+Local build:
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DFETCHCONTENT_SOURCE_DIR_MATCHING_ENGINE=../matching-engine
+cmake --build build --target itch_snapshots -j 4
+
+Reference build:
+cmake -S data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773 -B data/reference/build-3c646f9 -DCMAKE_BUILD_TYPE=Release
+cmake --build data/reference/build-3c646f9 --target book_replay -j 2
+
+Apple clang version 21.0.0 (clang-2100.1.1.101)
+Target: arm64-apple-darwin25.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+
+Local cache:
+CMAKE_BUILD_TYPE:STRING=Release
+CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/c++
+CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
+
+Reference cache:
+CMAKE_BUILD_TYPE:STRING=Release
+CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/c++
+CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
+
+Private release verification:
+ctest --test-dir itch-feed-handler-tests/build --output-on-failure -j 2
+41/41 Test  #1: L3Book.AddExecuteCancelDeleteReplace .................................................   Passed    0.01 sec
+
+100% tests passed out of 41
+
+Total Test time (real) =   4.46 sec
+
+Focused ASan/UBSan: eight snapshot C++ cases, 11 snapshot CLI process cases and existing input CLI suite passed.

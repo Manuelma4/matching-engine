@@ -1,0 +1,24 @@
+messages        28734686 in 2.467 s (11.6 M msg/s, 85.9 ns/msg)
+adds            10629593
+executions      681693 (79037316 printable shares, 0 non-printable)
+other volume    30188025 shares non-displayed (P), 0 crossed (Q), 0 broken
+peak orders     67283
+live at end     0 orders
+end of messages seen
+anomalies       0 unknown ref, 0 duplicate ref, 0 share underflow, 0 capacity, 0 unknown type, 0 wrong length, 0 invalid side, 0 locate mismatch
+trailing        0 bytes outside complete frames
+after end       0 records after session end
+book hash       cbf29ce484222325
+
+locate   symbol             volume
+2338     EEM               2158763
+8177     USO               1890395
+7559     SWN               1489598
+8684     XLF               1380417
+1402     CHK               1020108
+6104     PFE               1003683
+2349     EFA                971227
+3916     IAU                905188
+3273     GE                 898314
+6699     RIG                875645
+validation      passed (complete day required)

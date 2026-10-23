@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "scope": "Synthetic hand-worked boundary fixture, not market data",
+  "local_source_commit": "0c45da9",
+  "reference_commit": "3c646f9da182136125059243b475f7b8baa53773",
+  "input": {
+    "bytes": 245,
+    "sha256": "42a8c146483139358438087c143f342a22258e003ee36196a81406fbbb5e6ec9"
+  },
+  "messages": 9,
+  "interval_ns": 1000000,
+  "rows": 5,
+  "expected_output": {
+    "bytes": 191,
+    "sha256": "379c1e08a0b6d09903464f18c9b931179a5fe9ea7dc5af5caf1d0067b2c56e1c"
+  },
+  "local_output": {
+    "bytes": 191,
+    "sha256": "379c1e08a0b6d09903464f18c9b931179a5fe9ea7dc5af5caf1d0067b2c56e1c"
+  },
+  "reference_output": {
+    "bytes": 191,
+    "sha256": "379c1e08a0b6d09903464f18c9b931179a5fe9ea7dc5af5caf1d0067b2c56e1c"
+  },
+  "exact_hand_oracle_agreement": true,
+  "intentional_post_update_control": {
+    "expected_rejection": true,
+    "observed_comparison_passed": false,
+    "mismatch_counts": {
+      "ask_px_1": 2,
+      "ask_sz_1": 3,
+      "bid_px_1": 1,
+      "bid_sz_1": 2,
+      "quote_mismatch": 3
+    },
+    "first_discrepancies": [
+      {
+        "category": "quote_mismatch",
+        "timestamp_ns": 1000000,
+        "fields": [
+          "ask_px_1",
+          "ask_sz_1",
+          "bid_px_1",
+          "bid_sz_1"
+        ]
+      },
+      {
+        "category": "quote_mismatch",
+        "timestamp_ns": 2000000,
+        "fields": [
+          "ask_sz_1",
+          "bid_sz_1"
+        ]
+      },
+      {
+        "category": "quote_mismatch",
+        "timestamp_ns": 4000000,
+        "fields": [
+          "ask_px_1",
+          "ask_sz_1"
+        ]
+      }
+    ],
+    "interpretation": "Deliberately changing sampling to post-update produces three differences; this is a test control, not a discrepancy observed in the real-day reconstruction."
+  }
+}

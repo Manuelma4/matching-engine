@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "baseline_source_commit": "f3750781ef8b34b47dba0d4194f11fcae9c2939d",
+  "current_source_commit": "52229945705389323519c50a0c234e9fbbcd956c",
+  "retained_baseline_binary_sha256": "26a006b211376fab02111c7fde12e5db6c637e1edf9a79390fffed875c95f0f0",
+  "cases": [
+    {
+      "case": "nasdaq",
+      "configuration": "correctness-nasdaq-default-open_addressed",
+      "full_checkpoint_rows": 269,
+      "prior_checkpoint_rows_compared": 27,
+      "prior_and_selected_checkpoint_sha256": "e3c17eeaad9e1084177a4baff00bdae6f420b55d387c8983e1b8057dcb9a86e0",
+      "full_checkpoint_sha256": "3bb7e71e40d772c4df6f7e1bab62131b78c3c7a33a075be94807b95032ebc753",
+      "semantic_counters_and_final_fingerprints_match": true,
+      "exact_selected_bytes_match": true
+    },
+    {
+      "case": "nasdaq",
+      "configuration": "correctness-nasdaq-default-std_unordered",
+      "full_checkpoint_rows": 269,
+      "prior_checkpoint_rows_compared": 27,
+      "prior_and_selected_checkpoint_sha256": "e3c17eeaad9e1084177a4baff00bdae6f420b55d387c8983e1b8057dcb9a86e0",
+      "full_checkpoint_sha256": "3bb7e71e40d772c4df6f7e1bab62131b78c3c7a33a075be94807b95032ebc753",
+      "semantic_counters_and_final_fingerprints_match": true,
+      "exact_selected_bytes_match": true
+    },
+    {
+      "case": "nasdaq",
+      "configuration": "correctness-nasdaq-fit-open_addressed",
+      "full_checkpoint_rows": 269,
+      "prior_checkpoint_rows_compared": 27,
+      "prior_and_selected_checkpoint_sha256": "e3c17eeaad9e1084177a4baff00bdae6f420b55d387c8983e1b8057dcb9a86e0",
+      "full_checkpoint_sha256": "3bb7e71e40d772c4df6f7e1bab62131b78c3c7a33a075be94807b95032ebc753",
+      "semantic_counters_and_final_fingerprints_match": true,
+      "exact_selected_bytes_match": true
+    },
+    {
+      "case": "nasdaq",
+      "configuration": "correctness-nasdaq-fit-std_unordered",
+      "full_checkpoint_rows": 269,
+      "prior_checkpoint_rows_compared": 27,
+      "prior_and_selected_checkpoint_sha256": "e3c17eeaad9e1084177a4baff00bdae6f420b55d387c8983e1b8057dcb9a86e0",
+      "full_checkpoint_sha256": "3bb7e71e40d772c4df6f7e1bab62131b78c3c7a33a075be94807b95032ebc753",
+      "semantic_counters_and_final_fingerprints_match": true,
+      "exact_selected_bytes_match": true
+    },
+    {
+      "case": "bx",
+      "configuration": "correctness-bx-default-open_addressed",
+      "full_checkpoint_rows": 29,
+      "prior_checkpoint_rows_compared": 29,
+      "prior_and_selected_checkpoint_sha256": "b29fbe253529dfb2a7b5eb5272393f1454488a3603dca4692ff0258165be942c",
+      "full_checkpoint_sha256": "b29fbe253529dfb2a7b5eb5272393f1454488a3603dca4692ff0258165be942c",
+      "semantic_counters_and_final_fingerprints_match": true,
+      "exact_selected_bytes_match": true
+    },
+    {
+      "case": "bx",
+      "configuration": "correctness-bx-default-std_unordered",
+      "full_checkpoint_rows": 29,
+      "prior_checkpoint_rows_compared": 29,
+      "prior_and_selected_checkpoint_sha256": "b29fbe253529dfb2a7b5eb5272393f1454488a3603dca4692ff0258165be942c",
+      "full_checkpoint_sha256": "b29fbe253529dfb2a7b5eb5272393f1454488a3603dca4692ff0258165be942c",
+      "semantic_counters_and_final_fingerprints_match": true,
+      "exact_selected_bytes_match": true
+    },
+    {
+      "case": "bx",
+      "configuration": "correctness-bx-fit-open_addressed",
+      "full_checkpoint_rows": 29,
+      "prior_checkpoint_rows_compared": 29,
+      "prior_and_selected_checkpoint_sha256": "b29fbe253529dfb2a7b5eb5272393f1454488a3603dca4692ff0258165be942c",
+      "full_checkpoint_sha256": "b29fbe253529dfb2a7b5eb5272393f1454488a3603dca4692ff0258165be942c",
+      "semantic_counters_and_final_fingerprints_match": true,
+      "exact_selected_bytes_match": true
+    },
+    {
+      "case": "bx",
+      "configuration": "correctness-bx-fit-std_unordered",
+      "full_checkpoint_rows": 29,
+      "prior_checkpoint_rows_compared": 29,
+      "prior_and_selected_checkpoint_sha256": "b29fbe253529dfb2a7b5eb5272393f1454488a3603dca4692ff0258165be942c",
+      "full_checkpoint_sha256": "b29fbe253529dfb2a7b5eb5272393f1454488a3603dca4692ff0258165be942c",
+      "semantic_counters_and_final_fingerprints_match": true,
+      "exact_selected_bytes_match": true
+    }
+  ],
+  "scope": "Prior-code continuity at all previously sampled canonical checkpoints and every 1M BX checkpoint; not every intermediate state.",
+  "bx_baseline_input_identity": {
+    "source_bytes": 837472908,
+    "source_sha256": "6741035beda0c237fc2d30e03756f30449791844f372de955a29da32a4b842e5",
+    "checkpoint_every": 1000000,
+    "checkpoint_sha256": "b29fbe253529dfb2a7b5eb5272393f1454488a3603dca4692ff0258165be942c",
+    "summary_sha256": "be7eb559dcc476b89a442d71a0c7462deaaa52484075589c92287ea9ba8c73f1",
+    "passed": true,
+    "input_unchanged": true
+  }
+}

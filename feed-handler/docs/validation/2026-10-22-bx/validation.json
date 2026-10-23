@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-22T13:40:25.173409+00:00",
+  "archive": {
+    "name": "20190730.BX_ITCH_50.gz",
+    "bytes": 391242214,
+    "sha256": "a0a057010cc5172cfaf2d8a7b4d5f133557fa47b3a5837fcf985b6e5533e50eb",
+    "source_url": "https://emi.nasdaq.com/ITCH/Nasdaq%20BX%20ITCH/20190730.BX_ITCH_50.gz"
+  },
+  "environment": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "python": "3.14.6"
+  },
+  "source": {
+    "git_commit": "bd1ff20a9db8ee58f6751f9a25ea0c84c57cb769",
+    "git_dirty": false,
+    "file_sha256": {
+      "CMakeLists.txt": "fc112c76d2ac72a1c4621f861b28a67cfbe7f1c0590c25175b389ee76ea9f8d9",
+      "bench/validate.py": "07eae050e280b196b64be49db2bd1777d8f1475085b09483261a457ae8cd7df5",
+      "include/itch/book.hpp": "b4b6199320aa650f554906c2bae2fbb1071c5fd9aee9fe74d7d1a8a047b4faf0",
+      "include/itch/encode.hpp": "3976ae407926e57f060b18485cdaff7a2def42f65886c9c065840ae0f9979b61",
+      "include/itch/endian.hpp": "e461783ae5a73df12ef028b66696bf466cf78cb1bbefb48b44eb07c8991bab7f",
+      "include/itch/framing.hpp": "502138feb5250b51e92fa37ec11f1536aebe2c9a62c4f5195ca63fb50ae88417",
+      "include/itch/messages.hpp": "48c7d0ec5bfb531201f3fa9f247ed7f3cf2f4e00b46ad463559e9e4a1afcb409",
+      "include/itch/replay.hpp": "96d72547b9c2cfd77e183a0f29876ce14279dc0e9cb650b4bec067546f5a0570",
+      "src/book.cpp": "32b8a6125f5e558d69f00654a1798bdbb85c7c2576e59990ad29f7a48b47caed",
+      "src/framing.cpp": "ab03285ee9dd4ff7d155f81bea74edab76f8b9065bc81084d10a27bd39b06dd3",
+      "src/replay.cpp": "86aa49fd356970faf2a392fb476074508d8037f002d4fdcb26a5120497189a7f",
+      "tools/bench.cpp": "33f24effb42d6c93835f543b8d9df0dd607a5c600ff678f5d317f6f2704f2030",
+      "tools/census.cpp": "466b9e9c86e1836c5b1b1c2d214e3325efa07e06728c4a2ca873495106c8cbc3",
+      "tools/cli.hpp": "ff2d6e114a6844c9cc4b12ca90c3c45e93a3eb18683d99e973b5cd67387731c3",
+      "tools/loopback.cpp": "a740ca708a0220c22344ba1cb40ee48919c92e7a4f7550faad85254bbfd958f8",
+      "tools/replay.cpp": "eb2d3cc2d77e7737d9b9f7a1132a6bb1607976e0ee4287c87dc80d4557e1950f",
+      "tools/source.hpp": "ce7e405434d9583c49c0e9c8b751cda1a4b70fec07f17e10ef6fd7f86d0f8c6c"
+    },
+    "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "tools": {
+    "itch_census": {
+      "sha256": "ce802cf250d60a9d4d2419d0576954ef9ec348fbe4b6d9f4eae8380676cdf986"
+    },
+    "itch_replay": {
+      "sha256": "dca0bcbbdae61e856585dedced980b9f6a1eef112f03aa57b316a11fb7e41718"
+    }
+  },
+  "runs": {
+    "itch_census": {
+      "command": [
+        "itch_census",
+        "-"
+      ],
+      "exit_code": 0,
+      "error": null,
+      "raw_bytes": 837472908,
+      "raw_sha256": "6741035beda0c237fc2d30e03756f30449791844f372de955a29da32a4b842e5",
+      "log": "itch_census.txt"
+    },
+    "itch_replay": {
+      "command": [
+        "itch_replay",
+        "-"
+      ],
+      "exit_code": 0,
+      "error": null,
+      "raw_bytes": 837472908,
+      "raw_sha256": "6741035beda0c237fc2d30e03756f30449791844f372de955a29da32a4b842e5",
+      "log": "itch_replay.txt"
+    }
+  },
+  "checks": {
+    "tools_succeeded": true,
+    "same_raw_input": true,
+    "same_message_count": true,
+    "census_byte_identity": true,
+    "no_trailing_bytes": true,
+    "system_C_seen": true,
+    "book_empty_at_end": true,
+    "no_replay_anomalies": true
+  },
+  "passed": true,
+  "timing_scope": "Python gzip streaming with hashing and pipe I/O; not a benchmark",
+  "summary": {
+    "messages": 28734686,
+    "message_counts": {
+      "A": 10580123,
+      "C": 2304,
+      "D": 10164658,
+      "E": 679389,
+      "F": 49470,
+      "H": 8867,
+      "L": 5936,
+      "N": 4636704,
+      "P": 243778,
+      "R": 8849,
+      "S": 6,
+      "U": 2046443,
+      "V": 1,
+      "X": 299199,
+      "Y": 8959
+    },
+    "raw_bytes": 837472908,
+    "raw_sha256": "6741035beda0c237fc2d30e03756f30449791844f372de955a29da32a4b842e5",
+    "peak_orders": 67283,
+    "live_orders_at_end": 0,
+    "final_book_hash": "cbf29ce484222325"
+  }
+}

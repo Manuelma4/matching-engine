@@ -1,0 +1,233 @@
+{
+  "checks": {
+    "all_controls_intended_paths": true,
+    "altered_expectation_controls": 4,
+    "design_cases": 7,
+    "first_expectation_audit_passed": true,
+    "future_model_calls": 0,
+    "implementation_absent": true,
+    "inventory_hashes": 6,
+    "literal_schedule_rows": 92,
+    "materialised_invalid_inputs": 0,
+    "pending_rows": 13,
+    "planned_invalid_inputs": 16,
+    "structural_rows": 2784
+  },
+  "controls": [
+    {
+      "altered_expectations": {
+        "bytes": 24563,
+        "path": "workspace/itch-feed-handler/out/execution-prefix-design-audit-v1/control-wrong_ahead_after_E.json",
+        "sha256": "b19c34a5a0560dc3b18864743e70ecbf1c97b698c1c9d7c5ef0364cb882c17b9"
+      },
+      "error": "ahead: cases[0].final.own.ahead_shares: value differs",
+      "intended_path": "ahead: cases[0].final.own.ahead_shares",
+      "name": "wrong_ahead_after_E",
+      "rejected": true
+    },
+    {
+      "altered_expectations": {
+        "bytes": 24557,
+        "path": "workspace/itch-feed-handler/out/execution-prefix-design-audit-v1/control-premature_ACK.json",
+        "sha256": "e7052898d232dee893a47ef506b83ef709bccd130df2e6e27dd5fbbbc6e6a65d"
+      },
+      "error": "own_lifecycle: cases[4].final.own.local_state: value differs",
+      "intended_path": "own_lifecycle: cases[4].final.own.local_state",
+      "name": "premature_ACK",
+      "rejected": true
+    },
+    {
+      "altered_expectations": {
+        "bytes": 24563,
+        "path": "workspace/itch-feed-handler/out/execution-prefix-design-audit-v1/control-extended_horizon.json",
+        "sha256": "1db7054c60c45685c8889a728ba5b81f34139a6749c795feaaf30fb08d8f48d7"
+      },
+      "error": "coverage: cases[0].config.horizon_ns: value differs",
+      "intended_path": "coverage: cases[0].config.horizon_ns",
+      "name": "extended_horizon",
+      "rejected": true
+    },
+    {
+      "altered_expectations": {
+        "bytes": 24563,
+        "path": "workspace/itch-feed-handler/out/execution-prefix-design-audit-v1/control-mixed_PRE_metadata_POST_payload.json",
+        "sha256": "1994fb3ddd5c5a5d885859c2b3d0d998bea493a4ef4dc495bf9bfd93829aa277"
+      },
+      "error": "causal_inventory: cases[6].final.observed.inventory_sha256: value differs",
+      "intended_path": "causal_inventory: cases[6].final.observed.inventory_sha256",
+      "name": "mixed_PRE_metadata_POST_payload",
+      "rejected": true
+    }
+  ],
+  "errors": [],
+  "hypothetical_fills_calculated": false,
+  "inputs": {
+    "audit": {
+      "bytes": 7814,
+      "path": "workspace/itch-feed-handler/out/execution-prefix-design-audit-v1/audit.json",
+      "sha256": "4e32f4045f84912f172cee03ba5efd6b3491ac6914bd37e2010c180bc3b4e496"
+    },
+    "audit_command": {
+      "bytes": 1618,
+      "path": "workspace/itch-feed-handler/out/execution-prefix-design-audit-execution-v1/command.json",
+      "sha256": "ad75dc770d4345bcf92e2627add0d512530c294b47bdd4ca4415699e732fc612"
+    },
+    "auditor": {
+      "bytes": 18395,
+      "path": "workspace/itch-feed-handler-tests/audit_execution_prefix_design.py",
+      "sha256": "467ad95805213cad001a73125d6583749d00ba0814719a7298e4a64efae0a811"
+    },
+    "contract": {
+      "bytes": 18372,
+      "path": "workspace/itch-feed-handler/docs/IDENTIFIED_EXECUTION_PROFILE.md",
+      "sha256": "c64db21dd6f106ff02484392f8f6094df4d8651ee0665628db57e3faf43bc2aa"
+    },
+    "freeze_manifest": {
+      "bytes": 1926,
+      "path": "workspace/itch-feed-handler/out/execution-prefix-design-fixtures-v1/freeze-manifest.json",
+      "sha256": "0febe00dd5228675fd6d9648cbef5a3d2ee01b4e11f1d61af2fa2671df0d607a"
+    }
+  },
+  "limitations": [
+    "This audit verifies hand expectations, not an implemented queue or runtime refusals.",
+    "Sixteen invalid-input descriptions require coherent materialisation and source review before code.",
+    "Only retained selected-book closure and explicitly joined status are admitted by the proposed policy; no exact global witness is invented.",
+    "Own zero fills are a conservative convention around named external executions, without empirical calibration."
+  ],
+  "model": "execution_prefix_design_evidence_v1",
+  "passed": true,
+  "queue_admitted": false,
+  "review_input_set": [
+    {
+      "bytes": 18395,
+      "path": "workspace/itch-feed-handler-tests/audit_execution_prefix_design.py",
+      "sha256": "467ad95805213cad001a73125d6583749d00ba0814719a7298e4a64efae0a811"
+    },
+    {
+      "bytes": 39879,
+      "path": "workspace/itch-feed-handler-tests/execution_prefix_hand_expectations.json",
+      "sha256": "82fa006a4eba2e4d15fadd659883c9a94bf3e3438393dad91e70597328910059"
+    },
+    {
+      "bytes": 2705,
+      "path": "workspace/itch-feed-handler-tests/execution_prefix_refusals.json",
+      "sha256": "cee7839422ecbd9ad61e73ee2f7bacf2a206ab523da9302234938ae4f31e1bf3"
+    },
+    {
+      "bytes": 4744,
+      "path": "workspace/itch-feed-handler-tests/one_u_queue_contract.json",
+      "sha256": "882c4ebddd588bb4d87ebf441b4a8030f2a2b5bfe1e73fe586505fb2907ac45b"
+    },
+    {
+      "bytes": 18372,
+      "path": "workspace/itch-feed-handler/docs/IDENTIFIED_EXECUTION_PROFILE.md",
+      "sha256": "c64db21dd6f106ff02484392f8f6094df4d8651ee0665628db57e3faf43bc2aa"
+    },
+    {
+      "bytes": 16431,
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-23-identified-execution-prerequisites/review.json",
+      "sha256": "92734ee6a962535fc988ba56da2920f5beae0db76aa03c22f4f569e62c9b9be6"
+    },
+    {
+      "bytes": 24563,
+      "path": "workspace/itch-feed-handler/out/execution-prefix-design-audit-v1/control-extended_horizon.json",
+      "sha256": "1db7054c60c45685c8889a728ba5b81f34139a6749c795feaaf30fb08d8f48d7"
+    },
+    {
+      "bytes": 24563,
+      "path": "workspace/itch-feed-handler/out/execution-prefix-design-audit-v1/control-mixed_PRE_metadata_POST_payload.json",
+      "sha256": "1994fb3ddd5c5a5d885859c2b3d0d998bea493a4ef4dc495bf9bfd93829aa277"
+    },
+    {
+      "bytes": 24557,
+      "path": "workspace/itch-feed-handler/out/execution-prefix-design-audit-v1/control-premature_ACK.json",
+      "sha256": "e7052898d232dee893a47ef506b83ef709bccd130df2e6e27dd5fbbbc6e6a65d"
+    },
+    {
+      "bytes": 24563,
+      "path": "workspace/itch-feed-handler/out/execution-prefix-design-audit-v1/control-wrong_ahead_after_E.json",
+      "sha256": "b19c34a5a0560dc3b18864743e70ecbf1c97b698c1c9d7c5ef0364cb882c17b9"
+    },
+    {
+      "bytes": 18372,
+      "path": "workspace/itch-feed-handler/out/execution-prefix-design-fixtures-v1/contract.md",
+      "sha256": "c64db21dd6f106ff02484392f8f6094df4d8651ee0665628db57e3faf43bc2aa"
+    },
+    {
+      "bytes": 39879,
+      "path": "workspace/itch-feed-handler/out/execution-prefix-design-fixtures-v1/expectations.json",
+      "sha256": "82fa006a4eba2e4d15fadd659883c9a94bf3e3438393dad91e70597328910059"
+    },
+    {
+      "bytes": 1926,
+      "path": "workspace/itch-feed-handler/out/execution-prefix-design-fixtures-v1/freeze-manifest.json",
+      "sha256": "0febe00dd5228675fd6d9648cbef5a3d2ee01b4e11f1d61af2fa2671df0d607a"
+    },
+    {
+      "bytes": 2705,
+      "path": "workspace/itch-feed-handler/out/execution-prefix-design-fixtures-v1/refusals.json",
+      "sha256": "cee7839422ecbd9ad61e73ee2f7bacf2a206ab523da9302234938ae4f31e1bf3"
+    },
+    {
+      "bytes": 9654,
+      "path": "workspace/itch-feed-handler/out/identified-execution-retained-review-v1/prefix-review.json",
+      "sha256": "0681bfe06b8439533d151a0e82161e1e9d1640021465711dfdbd91b55054c9bb"
+    },
+    {
+      "bytes": 56275,
+      "path": "workspace/itch-feed-handler/out/identified-history-canonical-v1/producer/window-001/ledger.json",
+      "sha256": "298b37421421f845211e800e390a80da7081078fd4370f87e72f9f6b315369e9"
+    },
+    {
+      "bytes": 400266,
+      "path": "workspace/itch-feed-handler/out/identified-history-canonical-v1/producer/window-001/validation.json",
+      "sha256": "10e847348df00167782d2fefb959e2e41a9f642d685f5e533ed081fdb1ce26c2"
+    },
+    {
+      "bytes": 434409,
+      "path": "workspace/itch-feed-handler/out/l3-canonical-v2/reference.orders.csv",
+      "sha256": "775f99545d84f47d7031bb8f245176ab81ccdaf8aa44d5f16f80499229c74e2b"
+    },
+    {
+      "bytes": 5878,
+      "path": "workspace/itch-feed-handler/out/l3-canonical-v2/reference.summary.json",
+      "sha256": "32bd1c10bfedaff5628537f24b42771a2daae1710f48c2e93f051e066c1373ee"
+    },
+    {
+      "bytes": 6281054,
+      "path": "workspace/itch-feed-handler/out/one-u-queue-fixtures-v1/fixtures.json",
+      "sha256": "8ab8a2861a634114b412563f3d76f55eebcafcbee8f098db9fec7868514a3b9e"
+    }
+  ],
+  "schema_version": 1,
+  "scope": {
+    "design_only": true,
+    "implementation_files_unchanged": 61,
+    "model_or_project_imports": false,
+    "new_historical_states": 0,
+    "raw_opened_statted_or_hashed": false,
+    "reference_or_book_replayed": false,
+    "retained_distinct_historical_states": 37
+  },
+  "source_at_review": {
+    "engine": {
+      "branch": "main",
+      "commit": "dbd280185a0d45f0839881caeff8d535bcd56779"
+    },
+    "itch": {
+      "branch": "main",
+      "commit": "30a79b2943f47cecb7c8a54f46173517ea457fc9"
+    }
+  },
+  "source_baseline": {
+    "bytes": 47895,
+    "path": "workspace/itch-feed-handler/out/identified-execution-prerequisites-postcommit-v1/verification.json",
+    "sha256": "81e6985898373e75ec0b50378e5f589cfc0dd66f7e47885ed243fa4a89b2e343"
+  },
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 10349,
+    "original_report_sha256": "57cd0afbd795d1bd5d493764a7600c0fc7466c04e31e384724c84fa33e584328",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}

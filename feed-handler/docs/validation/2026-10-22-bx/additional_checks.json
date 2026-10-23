@@ -1,0 +1,32 @@
+{
+  "mapped_raw_sha256": "6741035beda0c237fc2d30e03756f30449791844f372de955a29da32a4b842e5",
+  "same_message_count": true,
+  "same_lifecycle_counters_and_volume_rows": true,
+  "mapped_command": [
+    "itch_replay",
+    "data/20190730.BX_ITCH_50.itch"
+  ],
+  "loopback_operations": 5000000,
+  "loopback_touch_comparisons": 10000000,
+  "loopback_final_hash": "deeac4250bf08677",
+  "private_tests": {
+    "matching_engine_release": 172,
+    "itch_release": 30,
+    "itch_asan_ubsan": 30
+  },
+  "mutation_campaign": {
+    "rounds": 200,
+    "seed": 42,
+    "messages": 5536099,
+    "expected_anomalies": 180381,
+    "sanitizer_failures": 0,
+    "commands": [
+      "itch-feed-handler-tests/build-asan/itch/itch_loopback --ops 10000 --seed 42 --out itch-feed-handler-tests/build-asan/mutation-source.itch",
+      "itch-feed-handler-tests/build-asan/itch_mutate itch-feed-handler-tests/build-asan/mutation-source.itch 200 42"
+    ]
+  },
+  "additional_tool_sha256": {
+    "itch_bench": "bcc21f1ba7ee37362fa927ab36896103fc223481e2e45199ccd530037da9da4f",
+    "itch_loopback": "18f5dc550a0d9d705927c6cd7d774b289bbbf8765c35d002cb7b9db6f1c7cc49"
+  }
+}

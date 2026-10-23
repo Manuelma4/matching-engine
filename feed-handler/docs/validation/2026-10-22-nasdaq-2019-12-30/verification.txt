@@ -1,0 +1,10 @@
+Private release tests: cmake -S itch-feed-handler-tests -B itch-feed-handler-tests/build -DCMAKE_BUILD_TYPE=Release
+cmake --build itch-feed-handler-tests/build -j 4
+ctest --test-dir itch-feed-handler-tests/build --output-on-failure -j 2
+31/31 Test #31: Validation.IndependentReference ........................................   Passed    3.30 sec
+
+100% tests passed out of 31
+
+Total Test time (real) =   4.01 sec
+Includes 28 C++ cases plus 3 Python suites: 14 CLI cases, 4 evidence-runner cases, 21 reference-comparison cases.
+Tutorial small-loopback command smoke-tested: 50000 engine operations, 44205 feed messages, 1502933 bytes, 100000 matching touch comparisons.

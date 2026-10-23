@@ -1,0 +1,7 @@
+data/20190730.BX_ITCH_50.itch: 837472908 bytes, 28734686 messages, 5 runs per layer (median, range)
+
+framing     543.1 M msg/s (523.0-557.2)     1.8 ns/msg
+dispatch    550.4 M msg/s (546.9-556.2)     1.8 ns/msg
+replay       28.9 M msg/s (28.0-29.2)    34.6 ns/msg
+
+peak orders 67283, book hash cbf29ce484222325 (sink 10210949830)

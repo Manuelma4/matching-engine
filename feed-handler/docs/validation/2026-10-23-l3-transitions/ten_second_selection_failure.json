@@ -1,0 +1,556 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+        "workspace/itch-feed-handler-tests/select_l3_transitions_v2.py",
+        "--output",
+        "workspace/itch-feed-handler/out/l3-transition-verification-v2/selection"
+      ],
+      "exit_code": 1,
+      "name": "select",
+      "stderr": {
+        "bytes": 66,
+        "path": "workspace/itch-feed-handler/out/l3-transition-verification-v2/select.stderr",
+        "sha256": "66004903452e5f7f612252b2fa0954bae12178a7bbf2d65bc4508ef6a214235b"
+      },
+      "stdout": {
+        "bytes": 0,
+        "path": "workspace/itch-feed-handler/out/l3-transition-verification-v2/select.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "timed_out": false
+    }
+  ],
+  "completed_at_utc": "2026-10-22T22:41:40.039656+00:00",
+  "contract_commit": "0157d3ca0444fa8a948db2637e0d2b0220878e29",
+  "earlier_negative": {
+    "bytes": 30063,
+    "path": "workspace/itch-feed-handler/docs/validation/2026-10-23-l3-transitions/initial_selection_failure.json",
+    "sha256": "ad3ad2c8a58369e464f932f102552dbb0687ba37355417db380f19a280581512"
+  },
+  "errors": [
+    {
+      "message": "process failed: select",
+      "type": "ValueError"
+    }
+  ],
+  "fixture_verification": {
+    "identity": {
+      "bytes": 2038,
+      "path": "workspace/itch-feed-handler/out/l3-transition-source-review-v2/fixtures.json",
+      "sha256": "fd7806c35a45d678540d6bfbea5f30e700321ac71cf8793aca59877e44d147fb"
+    },
+    "independent_methods": 24,
+    "selector_methods": 24,
+    "total_passed_methods": 48
+  },
+  "gate": "independent_canonical_x_u_transitions_v2",
+  "historical_sanitised_replay_this_increment": false,
+  "incorporated_base_contract": {
+    "commit": "cf25f599ab6d9aea7382be56f86eb73ed8399c50",
+    "file": {
+      "bytes": 11223,
+      "path": "workspace/itch-feed-handler/docs/L3_TRANSITIONS.md",
+      "sha256": "49792512e02954e1b7f48c7fddc6c07f40f034f6ab6d41421a074af6405cd572"
+    }
+  },
+  "independent_failure_review": {
+    "bytes": 63858,
+    "path": "workspace/itch-feed-handler/out/l3-transition-final-review-v2/audit.json",
+    "sha256": "43a196d953eacc4018acc16247a3a9d53078d94e0536cf1715ef28b4ab46930d"
+  },
+  "independent_reference": {
+    "archive": {
+      "bytes": 2845808,
+      "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9.tar.gz",
+      "sha256": "ef0260c360e6900f801e7011c4396529526ad0afa432cb09500e02ab0a07ea42"
+    },
+    "commit": "3c646f9da182136125059243b475f7b8baa53773",
+    "files_verified_against_archive": {
+      "CMakeLists.txt": {
+        "bytes": 8982,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/CMakeLists.txt",
+        "sha256": "eee433bf79d40e5ae6a50879be86f8a39a8cafe7e67f76098de823ce712398ab"
+      },
+      "LICENSE": {
+        "bytes": 1071,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/LICENSE",
+        "sha256": "ff3503dbd31b89b83139d4c8c3eb139504236469ded8bca692f0eb2c2b7acfc3"
+      },
+      "include/itchbook/bench/histogram.hpp": {
+        "bytes": 5960,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/bench/histogram.hpp",
+        "sha256": "798c24a6493662397bcd02040d59378f85d86a5f9ed0a288d6cf7d86c692e3c1"
+      },
+      "include/itchbook/bench/rdtsc.hpp": {
+        "bytes": 8016,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/bench/rdtsc.hpp",
+        "sha256": "02792a1b8f2f7d8e6c516d4cc4d169521e90620ad6b6d0e4e6503a2f97d86a5d"
+      },
+      "include/itchbook/bench/topology.hpp": {
+        "bytes": 8633,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/bench/topology.hpp",
+        "sha256": "6841aa7099599e010643bc6979180a8f253eeba07c243affbfc77b0c0cfe48d3"
+      },
+      "include/itchbook/bench/trace.hpp": {
+        "bytes": 10145,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/bench/trace.hpp",
+        "sha256": "66e22f5027178f55975101ee6eeabfa9aa2f034e76db6ab557f3ebfb782f2063"
+      },
+      "include/itchbook/book/book.hpp": {
+        "bytes": 44688,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/book/book.hpp",
+        "sha256": "88c2b6748f886fbaec1ddba1d10cf42d3fb0e92a9f8d41dbbed28c296f6708cf"
+      },
+      "include/itchbook/book/book_set.hpp": {
+        "bytes": 16930,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/book/book_set.hpp",
+        "sha256": "55dd727a0e8dcb356eed3f708ff81794e184ab30fdbdaa628c610268b026d3a1"
+      },
+      "include/itchbook/book/dispatch.hpp": {
+        "bytes": 9399,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/book/dispatch.hpp",
+        "sha256": "724314660e1df2c7012710be35d5009e67e872c6b15fd05e1df54544ddbb71d9"
+      },
+      "include/itchbook/book/level.hpp": {
+        "bytes": 2474,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/book/level.hpp",
+        "sha256": "be716033a2c431097ca2bff848fb69ae42b6ebc183dcb22faf9cc5e212f6d2dc"
+      },
+      "include/itchbook/book/order.hpp": {
+        "bytes": 2929,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/book/order.hpp",
+        "sha256": "c275bfc8ed19747e6a03098f5e7616cbc2f6aa586bc71ef419b389939084e31f"
+      },
+      "include/itchbook/book/pool.hpp": {
+        "bytes": 5614,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/book/pool.hpp",
+        "sha256": "0cc0edde338362ffd37ba15b2f6a37644bfd4f38356f92fdddf58b61f3899f55"
+      },
+      "include/itchbook/book/report.hpp": {
+        "bytes": 4206,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/book/report.hpp",
+        "sha256": "d0694220af76774c9f63db87d617a4d0e85807f2dcbec24061d8eaeacaf544a9"
+      },
+      "include/itchbook/emit/itch_encode.hpp": {
+        "bytes": 9174,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/emit/itch_encode.hpp",
+        "sha256": "df7ed85f9de94c455cea1855b960eb1ee4ffc14d21033ca260cc86d6e97fbbdd"
+      },
+      "include/itchbook/emit/sink.hpp": {
+        "bytes": 3389,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/emit/sink.hpp",
+        "sha256": "28fb959a318f32ac348016f1d542ecc526c3a2abced8dd61658e9733ca3011ed"
+      },
+      "include/itchbook/engine/gateway.hpp": {
+        "bytes": 36614,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/engine/gateway.hpp",
+        "sha256": "dafa2923e0fd69d4fe48cb5067edb6918bb63f02e1a83b18a883cf1b01bf2af3"
+      },
+      "include/itchbook/engine/matcher.hpp": {
+        "bytes": 27903,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/engine/matcher.hpp",
+        "sha256": "c6d235361c7fbd58949b29be7b5bb214b42a51e4259ccca431d59bd463a628f6"
+      },
+      "include/itchbook/engine/order_types.hpp": {
+        "bytes": 7140,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/engine/order_types.hpp",
+        "sha256": "cdf7e68ee4c5ea47efa56f8fb7021ad2b35114318a0f3291e6c479f53c91fe9a"
+      },
+      "include/itchbook/itch/live_orders.hpp": {
+        "bytes": 5527,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/itch/live_orders.hpp",
+        "sha256": "71475ca72c7377cef8ff15edac38d97cdb7acc5f3a2dd7c09c07bdcdf792d5ac"
+      },
+      "include/itchbook/itch/messages.hpp": {
+        "bytes": 18744,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/itch/messages.hpp",
+        "sha256": "61b0b39c51b14bf798e7f9d1fcdac4e8c5abf357e8388b49c4449a688aaaf08c"
+      },
+      "include/itchbook/itch/parser.hpp": {
+        "bytes": 1514,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/itch/parser.hpp",
+        "sha256": "2e59f8b0a075f95c6c22a818fc075235788ca40c57100fc1d58a527506cd2e48"
+      },
+      "include/itchbook/itch/reader.hpp": {
+        "bytes": 2190,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/itch/reader.hpp",
+        "sha256": "9478485478474cb3e9cd765d2c74c367a1f7dfc9b3f619114ae5bbcd4e639e10"
+      },
+      "include/itchbook/mold/packet.hpp": {
+        "bytes": 4795,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/mold/packet.hpp",
+        "sha256": "ca0f193acaba5bb6936f0ba75dd63d1d5fbf476396a454b5de29dcc95330a16f"
+      },
+      "include/itchbook/mold/publisher.hpp": {
+        "bytes": 5737,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/mold/publisher.hpp",
+        "sha256": "cb110597243716a73bdc4f02605f399c3ee17bf0b91ba20840e3962663057c8e"
+      },
+      "include/itchbook/mold/sequencer.hpp": {
+        "bytes": 9993,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/mold/sequencer.hpp",
+        "sha256": "9f8d520bc83d62865d4642da2664ee467bad341a43ebf3b74c83c3e2f0d96a94"
+      },
+      "include/itchbook/ouch/encode.hpp": {
+        "bytes": 7933,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/ouch/encode.hpp",
+        "sha256": "8fb549dc68202d65966f74d8447d78ce8a507b093b0c8fd22f08cf956d9e5d32"
+      },
+      "include/itchbook/ouch/messages.hpp": {
+        "bytes": 21929,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/ouch/messages.hpp",
+        "sha256": "5327241c1665711c84f5cf247766efd10b46cec1e25b3de2312348dba5908341"
+      },
+      "include/itchbook/pipe/reader_thread.hpp": {
+        "bytes": 13681,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/pipe/reader_thread.hpp",
+        "sha256": "46e157ad99b466fc6bac9a545437da5f846ac06ff95d8ceb4a09bbfe42b07c46"
+      },
+      "include/itchbook/pipe/spsc_ring.hpp": {
+        "bytes": 14765,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/pipe/spsc_ring.hpp",
+        "sha256": "fed3a60b98c730e2dd69bc6a5457a39396392b7e708b57263b3e20517b206caa"
+      },
+      "include/itchbook/recover/gap_policy.hpp": {
+        "bytes": 10114,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/recover/gap_policy.hpp",
+        "sha256": "415465642f450f9380f62f043567c0be5699309f12ee6029338227adb3d488aa"
+      },
+      "include/itchbook/recover/halt.hpp": {
+        "bytes": 7114,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/recover/halt.hpp",
+        "sha256": "740c35ae4ab5fe13d93ad1d2ae8ba9e6a4320c3bfb406953fe316eb7062fd0e6"
+      },
+      "include/itchbook/recover/snapshot.hpp": {
+        "bytes": 8798,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/recover/snapshot.hpp",
+        "sha256": "0a8befc7a84fe8806d977ec29f240e97e111774ed6ed7d4a447875d8572ad05c"
+      },
+      "include/itchbook/recover/strategy_snapshot.hpp": {
+        "bytes": 10886,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/recover/strategy_snapshot.hpp",
+        "sha256": "9815679cba02e1fc5a8d1285354a58707535dee06aab9e738d8d626abc140056"
+      },
+      "include/itchbook/replay/split.hpp": {
+        "bytes": 23525,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/replay/split.hpp",
+        "sha256": "9ca1f2cbd3c3ecb741a25fbe0539760234e1dea265167974db68ba1013a8700e"
+      },
+      "include/itchbook/risk/kill_switch.hpp": {
+        "bytes": 16247,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/risk/kill_switch.hpp",
+        "sha256": "fe626e27936da02b22e563107375347fb621b135c6166accd681c4df30cde3d4"
+      },
+      "include/itchbook/sim/as_maker.hpp": {
+        "bytes": 18984,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/sim/as_maker.hpp",
+        "sha256": "7a6e7e373a9573c37ee3623cb707cd0a844501c68fad3c0341f309a9eb404223"
+      },
+      "include/itchbook/sim/backtest.hpp": {
+        "bytes": 16556,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/sim/backtest.hpp",
+        "sha256": "3d2c4f951fc7de962ee19250e71a2b86171336cc925a62f2ae7b84154942c7d9"
+      },
+      "include/itchbook/sim/closed_loop.hpp": {
+        "bytes": 18887,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/sim/closed_loop.hpp",
+        "sha256": "f3742fd239faecd7cb0c4b2e5f0f16bab4c24e4e2d9e7bb3bc9835233dda116a"
+      },
+      "include/itchbook/sim/event.hpp": {
+        "bytes": 4179,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/sim/event.hpp",
+        "sha256": "19dbbc1218c11a2f723fae9fb2f57203fb382db95f35ddf51cf0c2d76c3c4108"
+      },
+      "include/itchbook/sim/fees.hpp": {
+        "bytes": 4638,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/sim/fees.hpp",
+        "sha256": "1d6e4623dd2ae4053c15fde0318a2db6f7e5a2c5de26d44f9a4c15810341e501"
+      },
+      "include/itchbook/sim/intensity.hpp": {
+        "bytes": 15533,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/sim/intensity.hpp",
+        "sha256": "6f612df8172044335a28fd2c61f5d4af6ebd7a50b07e20eb9430d08733842b95"
+      },
+      "include/itchbook/sim/inventory_strategies.hpp": {
+        "bytes": 6233,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/sim/inventory_strategies.hpp",
+        "sha256": "89d9fd053d2359c2c9270ecdd9075d4d37eee07bb0efca306a471dcc7ca0356e"
+      },
+      "include/itchbook/sim/inventory_strategy.hpp": {
+        "bytes": 6808,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/sim/inventory_strategy.hpp",
+        "sha256": "bb2ac59d6e4d943cf6db4cc5c2e75a041a22dc69b51fe42c0ff067a4343fd410"
+      },
+      "include/itchbook/sim/latency_model.hpp": {
+        "bytes": 2168,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/sim/latency_model.hpp",
+        "sha256": "8b9a0825dd5a7ce1a450c136300f25a896db9b5adb78cda3823a289899d19df9"
+      },
+      "include/itchbook/sim/ledger.hpp": {
+        "bytes": 7395,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/sim/ledger.hpp",
+        "sha256": "0aa25a0be8720ad1705431142d4f9919c2c13f42d65b2f8c139caf09ffde69ff"
+      },
+      "include/itchbook/sim/markout.hpp": {
+        "bytes": 6611,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/sim/markout.hpp",
+        "sha256": "847ca80774d10f4e7ea003b0fb70e79a678c54a4da88eb1488b7b9ff69c27180"
+      },
+      "include/itchbook/sim/mid.hpp": {
+        "bytes": 2817,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/sim/mid.hpp",
+        "sha256": "144940fff3b5149bb33a4e8f2b791382d256aa8450cb5592f20f58d7c267f995"
+      },
+      "include/itchbook/sim/money.hpp": {
+        "bytes": 2837,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/sim/money.hpp",
+        "sha256": "f2d4caba9e729e3f44d8641fa7a89a2064f3fac76e21651d1a634cf7333d36ab"
+      },
+      "include/itchbook/sim/parity_maker.hpp": {
+        "bytes": 4896,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/sim/parity_maker.hpp",
+        "sha256": "fba169067a8e666f3c8e44395fcb6091451d1927969db20965ca2f685f471e32"
+      },
+      "include/itchbook/sim/queue_model.hpp": {
+        "bytes": 27157,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/sim/queue_model.hpp",
+        "sha256": "ca6c1676a1323b2d3fda5b5c4db9d06852f3e0d86e7509d5cb2d2a3346951757"
+      },
+      "include/itchbook/sim/resolve.hpp": {
+        "bytes": 5606,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/sim/resolve.hpp",
+        "sha256": "023b77141c8fb3a8290876390f7fc65deeb5fc8880b343ed8dacc4a365f97263"
+      },
+      "include/itchbook/sim/strategies.hpp": {
+        "bytes": 6570,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/sim/strategies.hpp",
+        "sha256": "2cfa59604bda825b83e801d96e0c7d7457353b4585d26d88d986cd2b62a9dd29"
+      },
+      "include/itchbook/sim/strategy.hpp": {
+        "bytes": 2998,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/sim/strategy.hpp",
+        "sha256": "57f15bc3d9866a5fc615865ae60d694441f901a77bb7b473afde2de861b57c84"
+      },
+      "include/itchbook/soupbin/encode.hpp": {
+        "bytes": 4030,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/soupbin/encode.hpp",
+        "sha256": "9f0538bd8d2feac47e6f2191adf96e9624d61e4219410aed77e09a095d5aca2b"
+      },
+      "include/itchbook/soupbin/messages.hpp": {
+        "bytes": 7492,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/soupbin/messages.hpp",
+        "sha256": "5cd9b0d834a556e3fbf3f67eb56f9cf4f140e992c06f47e8b366d6f856e2c864"
+      },
+      "include/itchbook/soupbin/session.hpp": {
+        "bytes": 32269,
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include/itchbook/soupbin/session.hpp",
+        "sha256": "daa2c8867dcfed5ed55b09abe1db5c780417e592e92173bc6ff13c3b966adcd5"
+      }
+    },
+    "licence": "MIT",
+    "upstream_git_checkout": false
+  },
+  "new_build_executed": false,
+  "passed": false,
+  "primary_specification": {
+    "bytes": 1200722,
+    "path": "workspace/itch-feed-handler/data/reference/nasdaq-specification-20261022/NQTVITCHspecification.pdf",
+    "sha256": "45e0531d1b4b3beb886e9618b2ab824a5aa9bda3a99c0dff03509306e68aacc3"
+  },
+  "private_coordinator_failure": {
+    "bytes": 28194,
+    "path": "workspace/itch-feed-handler/out/l3-transition-verification-v2/failure.json",
+    "sha256": "0e59ab2d7bedc4976225e6510aa1923f8cdbd0f29e9c56a308b24394b373cf60"
+  },
+  "raw_historical_replay_executed": false,
+  "retained_build_provenance": {
+    "compiled_source_commit": "acd2f29d483b688dd5ece18202dfbb9cadf6291f",
+    "core_files": {
+      "include/itch/book.hpp": {
+        "bytes": 6396,
+        "path": "workspace/itch-feed-handler/include/itch/book.hpp",
+        "sha256": "18aa04a2525e7acede4f5f7a5aa1671e2aaed81b1acc57c7f41b01602fa1fb3e"
+      },
+      "include/itch/endian.hpp": {
+        "bytes": 2298,
+        "path": "workspace/itch-feed-handler/include/itch/endian.hpp",
+        "sha256": "e461783ae5a73df12ef028b66696bf466cf78cb1bbefb48b44eb07c8991bab7f"
+      },
+      "include/itch/framing.hpp": {
+        "bytes": 3392,
+        "path": "workspace/itch-feed-handler/include/itch/framing.hpp",
+        "sha256": "502138feb5250b51e92fa37ec11f1536aebe2c9a62c4f5195ca63fb50ae88417"
+      },
+      "include/itch/messages.hpp": {
+        "bytes": 11808,
+        "path": "workspace/itch-feed-handler/include/itch/messages.hpp",
+        "sha256": "48c7d0ec5bfb531201f3fa9f247ed7f3cf2f4e00b46ad463559e9e4a1afcb409"
+      },
+      "include/itch/replay.hpp": {
+        "bytes": 2815,
+        "path": "workspace/itch-feed-handler/include/itch/replay.hpp",
+        "sha256": "9e91ab2cc04d89d59884c6bf28d046390b89a0f09036d79e05acab8d4bd8741c"
+      },
+      "src/book.cpp": {
+        "bytes": 7720,
+        "path": "workspace/itch-feed-handler/src/book.cpp",
+        "sha256": "c08152d9bb0debe5e7842556ecb93ffd4d2de595bea3012880157e3d75e069c6"
+      },
+      "src/framing.cpp": {
+        "bytes": 1460,
+        "path": "workspace/itch-feed-handler/src/framing.cpp",
+        "sha256": "ab03285ee9dd4ff7d155f81bea74edab76f8b9065bc81084d10a27bd39b06dd3"
+      },
+      "src/replay.cpp": {
+        "bytes": 4767,
+        "path": "workspace/itch-feed-handler/src/replay.cpp",
+        "sha256": "bcecd0fe0fdad39c11c497966e1a5840541f3e0d10626e9933e4a126b3618991"
+      }
+    },
+    "engine_dependencies_current_only": {
+      "commit": "dbd280185a0d45f0839881caeff8d535bcd56779",
+      "headers": {
+        "include/me/core.hpp": {
+          "bytes": 2083,
+          "path": "workspace/matching-engine/include/me/core.hpp",
+          "sha256": "1e8b9c371c9efdfeb2db95a4a51c0c916ecb426fd36ed8908fc1f7b523709569"
+        },
+        "include/me/index.hpp": {
+          "bytes": 3347,
+          "path": "workspace/matching-engine/include/me/index.hpp",
+          "sha256": "928ce72653d1b955a3b2017dbd5b36e24b83485b5aa06ac7ac8fd64db6f50d47"
+        }
+      },
+      "qualification": "These are freshly recorded current dependency-source identities, not proof of the retained binary compile-time dependency bytes. No dependency-equivalence or rebuilt-binary claim."
+    },
+    "gate7_evidence": {
+      "bytes": 27500,
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-22-l3/canonical.json",
+      "sha256": "a4ae84974f0ce09da32af8cd6dfc91c0be0cfd7ed775abf7c5816f5f3d291811"
+    },
+    "helpers": {
+      "independent_l3_local": {
+        "bytes": 100648,
+        "path": "workspace/itch-feed-handler-tests/build/independent_l3_local",
+        "sha256": "a2ffdaf633505638b74250726b1e3b54ef940dc4e4b5421777b4ef1cced2075f"
+      },
+      "independent_l3_local.cpp": {
+        "bytes": 17369,
+        "path": "workspace/itch-feed-handler-tests/independent_l3_local.cpp",
+        "sha256": "905a760e56bf715465c83d2648c97db3498b5aa37889c1087688b3bf95c80e77"
+      },
+      "independent_l3_reference.cpp": {
+        "bytes": 21272,
+        "path": "workspace/itch-feed-handler-tests/independent_l3_reference.cpp",
+        "sha256": "61962eb24d0b206f3bcc28cdcc94e2c1555756fd36d547edec6f8eb1f9d1a0d3"
+      },
+      "l3_canonical_evidence.py": {
+        "bytes": 13671,
+        "path": "workspace/itch-feed-handler-tests/l3_canonical_evidence.py",
+        "sha256": "64a2343ad1e644d3b6e9ba3431a68feb002401393e2c3a0360b030105fca5ff9"
+      },
+      "reference": {
+        "bytes": 77240,
+        "path": "workspace/itch-feed-handler/out/l3-helper-build-v1/reference",
+        "sha256": "89e654ae0e91d96b0abe6cb319697c20827a9d6b22a0cb87ea33e5b37102ff3b"
+      }
+    },
+    "retained_builds_reused": true,
+    "source_match_scope": "Eight direct ITCH source/header files match the accepted Gate7 source context; the exact retained accepted binary is reused, not rebuilt."
+  },
+  "schema_version": 1,
+  "scope": {
+    "fresh_after_sha256_verified": false,
+    "full_sha256_precheck_scope": "Enforced by reviewed selector control flow before the deadline failure; no separately published successful input identity receipt.",
+    "new_book_exports": 0,
+    "new_validated_states": 0,
+    "no_fallback_or_widening_in_v2": true,
+    "prefix_digest_scope": "Selector failure report; not independently rehashed in failure review.",
+    "raw_source_scan_executed": true,
+    "v1_evidence_preserved": true
+  },
+  "selection_failure": {
+    "completed_window_ids": [
+      2,
+      3,
+      4
+    ],
+    "deadline_excess_ns": 134070,
+    "exclusive_deadline_ns": 34210000075566,
+    "first_witness_frame_sha256": "f9230902df9e33c4f8e94fedc6e10eb49ce13bac5f5273710e628612b96573c6",
+    "first_witness_source": {
+      "body_bytes": 35,
+      "frame_end_offset": 267272991,
+      "frame_offset": 267272954,
+      "sequence": 7809559,
+      "timestamp_ns": 34210000209636,
+      "type": "U"
+    },
+    "identity": {
+      "bytes": 14614,
+      "path": "workspace/itch-feed-handler/out/l3-transition-verification-v2/selection/failure.json",
+      "sha256": "601e8810ad11e1289457cc6db66b699664a41a8e87a759e64dad184f25d39bfc"
+    },
+    "missing_window_ids": [
+      1
+    ],
+    "reason": "exclusive search deadline reached",
+    "scan": {
+      "captured_selected_headers": 4504,
+      "consumed_prefix_bytes": 267272991,
+      "prefix_sha256": "45725f89acbad5afc1eb6403311f419cca61da5d94b74b312b67eb70cafcbd52",
+      "scanned_messages": 7809559
+    }
+  },
+  "source": {
+    "feed": {
+      "branch": "main",
+      "commit": "0157d3ca0444fa8a948db2637e0d2b0220878e29"
+    },
+    "matching_engine": {
+      "branch": "main",
+      "commit": "dbd280185a0d45f0839881caeff8d535bcd56779"
+    }
+  },
+  "sources": {
+    "auditor": {
+      "bytes": 31828,
+      "path": "workspace/itch-feed-handler-tests/audit_l3_transition_selection_v2.py",
+      "sha256": "58294cc6f365591c660dc214e5fd6306d237732f9678a12d525a44e07e5c3e41"
+    },
+    "base_contract": {
+      "bytes": 11223,
+      "path": "workspace/itch-feed-handler/docs/L3_TRANSITIONS.md",
+      "sha256": "49792512e02954e1b7f48c7fddc6c07f40f034f6ab6d41421a074af6405cd572"
+    },
+    "comparator": {
+      "bytes": 20217,
+      "path": "workspace/itch-feed-handler/bench/compare_l3.py",
+      "sha256": "abf11fca148a5d9fac5c232cd72bf9bf6ff63b2db0d72bffc411da1b17f21bfb"
+    },
+    "contract": {
+      "bytes": 4138,
+      "path": "workspace/itch-feed-handler/docs/L3_TRANSITIONS_TEN_SECOND.md",
+      "sha256": "689c5a074719da59671a8ddde6d31d5e6fe8c21475c6ff758cc2935101d51e53"
+    },
+    "coordinator": {
+      "bytes": 30435,
+      "path": "workspace/itch-feed-handler-tests/l3_transition_evidence_v2.py",
+      "sha256": "b4b93803509dae2ae22b9d0c7b51df858c846aaffd1462a18ec53bcfe9bac8cf"
+    },
+    "selector": {
+      "bytes": 21361,
+      "path": "workspace/itch-feed-handler-tests/select_l3_transitions_v2.py",
+      "sha256": "4735fc11e6ac24bd3ebf7b0d4344ab768e9655262ec702db91a15015144b0856"
+    }
+  },
+  "started_at_utc": "2026-10-22T22:41:31.226281+00:00",
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 30954,
+    "original_report_sha256": "26ded2966cbfcbc1a70953ffbd5603dadeaffd6428bd1adafd8f7303ad3cbeef",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}

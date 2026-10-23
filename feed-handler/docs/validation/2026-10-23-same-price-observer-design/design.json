@@ -1,0 +1,416 @@
+{
+  "accepted_gate21_commit": "957ed8c04d49edd297ae6ba40debd1268e17bb2d",
+  "actual_activity": {
+    "cpp_builds_tests_or_book_replays": 0,
+    "expectation_audit_attempts": 2,
+    "expectation_audits_passed": 1,
+    "expectation_audits_refused": 1,
+    "freezer_executions": 4,
+    "new_independently_validated_states": 0,
+    "observer_executed": false,
+    "public_implementation_files_unchanged": 59,
+    "raw_opened": false,
+    "reference_executed": false,
+    "retained_historical_distinct_states": 37,
+    "runtime_producer_executions": 0
+  },
+  "all_five_repeat_files_equal": true,
+  "audit_command": {
+    "argv": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "workspace/itch-feed-handler-tests/audit_same_price_observer_design.py",
+      "--oracle",
+      "out/same-price-observer-oracle-v2/oracle.json",
+      "--output",
+      "out/same-price-observer-oracle-audit-v2"
+    ],
+    "audit.stderr.txt": {
+      "bytes": 0,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-design-execution-v2/audit.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audit.stdout.txt": {
+      "bytes": 245,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-design-execution-v2/audit.stdout.txt",
+      "sha256": "2876fd4ac450155f63408e8686e5c1c1299229e4c7cef019a136095d017af82b"
+    },
+    "cwd": "workspace/itch-feed-handler",
+    "exit_code": 0,
+    "timed_out": false
+  },
+  "auditor_controls": [
+    {
+      "error": "$.windows[0].facts[0].expected_after_order.attribution.kind: literal value mismatch",
+      "intended_path": "$.windows[0].facts[0].expected_after_order.attribution.kind",
+      "name": "inherited_unknown",
+      "rejected": true
+    },
+    {
+      "error": "$.windows[0].states[1].watched_orders[1].fifo_rank: literal value mismatch",
+      "intended_path": "$.windows[0].states[1].watched_orders[1].fifo_rank",
+      "name": "new_tail_rank",
+      "rejected": true
+    },
+    {
+      "error": "$.windows[0].profiles[1].expected_probes[2].delivery_ns: available information has not yet been delivered",
+      "intended_path": "$.windows[0].profiles[1].expected_probes[2].delivery_ns",
+      "name": "coherent_future_probe",
+      "rejected": true
+    },
+    {
+      "error": "$.windows[0].facts[0].event_index: exact type mismatch",
+      "intended_path": "$.windows[0].facts[0].event_index",
+      "name": "boolean_fact_index",
+      "rejected": true
+    }
+  ],
+  "contract": {
+    "bytes": 13120,
+    "path": "workspace/itch-feed-handler/docs/SAME_PRICE_OBSERVER.md",
+    "sha256": "6a2dfe90476d1ca3304027bbe26ccbca63bc8e7766f02d16fa0df6307718926a"
+  },
+  "contract_commit": "4d016da2744fec6709fb102b03044471c42a836c",
+  "errors": [],
+  "expected_profiles": [
+    {
+      "available_probes": 3,
+      "captured_row_instances": 37680,
+      "delivered_snapshots": 2,
+      "feed_delay_ns": 0,
+      "name": "zero",
+      "pending_deliveries": 0,
+      "probes": 4
+    },
+    {
+      "available_probes": 0,
+      "captured_row_instances": 15072,
+      "delivered_snapshots": 0,
+      "feed_delay_ns": 1000000,
+      "name": "one_ms_clipped",
+      "pending_deliveries": 2,
+      "probes": 3
+    },
+    {
+      "available_probes": 3,
+      "captured_row_instances": 37680,
+      "delivered_snapshots": 2,
+      "feed_delay_ns": 1000000,
+      "name": "one_ms_complete",
+      "pending_deliveries": 0,
+      "probes": 7
+    },
+    {
+      "available_probes": 0,
+      "captured_row_instances": 15072,
+      "delivered_snapshots": 0,
+      "feed_delay_ns": 872,
+      "name": "undelivered_seed",
+      "pending_deliveries": 2,
+      "probes": 3
+    }
+  ],
+  "expected_totals": {
+    "available_probes": 6,
+    "captured_row_instances": 105504,
+    "facts": 1,
+    "probes": 17,
+    "profiles": 4,
+    "source_states": 2,
+    "windows": 1
+  },
+  "first_refusal": {
+    "command": {
+      "bytes": 973,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-design-execution-v1/command.json",
+      "sha256": "b9bf7df96b5becf4eee448871e1bf7abcaabfa426bac492b31374ebed49a7a15"
+    },
+    "correction": "One freezer sort key; fresh repeated freezes and an auditor pin-only update. No expectation changed.",
+    "first_run_auditor_snapshot": {
+      "bytes": 38637,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-auditor-source-review-v2/first-run-auditor.py",
+      "sha256": "f9aa2852c0f0a2a8d0a7e4a06375c4c06ed3b526cfda0542d42f02c7766dc9a0"
+    },
+    "initial_freezer_snapshot": {
+      "bytes": 21359,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-oracle-v1/source_snapshot.py",
+      "sha256": "9e9ad03f5dab2f12a71561fa878249a8483ad0dc8b453eb80b076a5f98a7ea8e"
+    },
+    "initial_manifest": {
+      "bytes": 24893,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-oracle-v1/freeze_manifest.json",
+      "sha256": "83868275e76fb1f544d808f1db751589b0789e1fb6b4cdeb284ecb366f59c772"
+    },
+    "initial_oracle": {
+      "bytes": 16935,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-oracle-v1/oracle.json",
+      "sha256": "1128c4beded4c28c4e70cc543809c861628db1a044fd30dbe785d6c33fdfb928"
+    },
+    "initial_repeat_manifest": {
+      "bytes": 24893,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-oracle-repeat-v1/freeze_manifest.json",
+      "sha256": "83868275e76fb1f544d808f1db751589b0789e1fb6b4cdeb284ecb366f59c772"
+    },
+    "initial_repeat_oracle": {
+      "bytes": 16935,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-oracle-repeat-v1/oracle.json",
+      "sha256": "1128c4beded4c28c4e70cc543809c861628db1a044fd30dbe785d6c33fdfb928"
+    },
+    "path": "manifest.protected_inputs[0].path",
+    "phase": "manifest admission before oracle parsing or outcome derivation",
+    "reason": "Path-component ordering differed from lexical ordering of complete absolute-path strings.",
+    "stderr": {
+      "bytes": 1711,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-design-execution-v1/audit.stderr.txt",
+      "sha256": "a2008ad746631ef01460470815d515f74679745aaad924b39675cdd318c1c06a"
+    },
+    "stdout": {
+      "bytes": 0,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-design-execution-v1/audit.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "freeze_manifest": {
+    "bytes": 24893,
+    "path": "workspace/itch-feed-handler/out/same-price-observer-oracle-v2/freeze_manifest.json",
+    "sha256": "eaf7d2e40d24d5fe81c0c83ed35fc43df93d3f1d80a9726f0e845492143ace79"
+  },
+  "frozen_oracle": {
+    "bytes": 16935,
+    "path": "workspace/itch-feed-handler/out/same-price-observer-oracle-v2/oracle.json",
+    "sha256": "1128c4beded4c28c4e70cc543809c861628db1a044fd30dbe785d6c33fdfb928"
+  },
+  "hand_expectations": {
+    "bytes": 13815,
+    "path": "workspace/itch-feed-handler/out/same-price-observation-handwork-json-v1/expectations.json",
+    "sha256": "3484aac38466a072b2aeda95bdeac94afea864bf7f4b62446fa27ea8f0f2cdac"
+  },
+  "hand_note_provenance": {
+    "derivation_readme": {
+      "bytes": 1482,
+      "path": "workspace/itch-feed-handler/out/same-price-observation-handwork-json-v1/README.md",
+      "sha256": "d41f89acaefdbf0cf5db554c65e38920f30f5776589b743e84e9666349c6568e"
+    },
+    "derivation_source": {
+      "bytes": 10695,
+      "path": "workspace/itch-feed-handler/out/same-price-observation-handwork-json-v1/derive.py",
+      "sha256": "d3161bee3d88869fbaf7c78442304ac2fc26a1cb53d20544d2131aa11f69fa61"
+    },
+    "machine_provenance": {
+      "bytes": 3059,
+      "path": "workspace/itch-feed-handler/out/same-price-observation-handwork-json-v1/provenance.json",
+      "sha256": "a680f40e577138cf7b244e4a9dd637e561f8ea636273f044be959678eecfecef"
+    },
+    "original_clock_note": {
+      "bytes": 6588,
+      "path": "workspace/itch-feed-handler/out/same-price-observation-handwork-v1/handwork.md",
+      "sha256": "07fdc92349a104ac2c2d50c0353cfbbf529b570aa538c54be74964c6a4de0cd0"
+    }
+  },
+  "independent_audit": {
+    "bytes": 28160,
+    "path": "workspace/itch-feed-handler/out/same-price-observer-oracle-audit-v2/audit.json",
+    "sha256": "4596c220073a9136e7a2c64c520af01b0b7db7a79dd26ac7fc810677d7a764b6"
+  },
+  "independently_audited_input_identities": 81,
+  "inputs": {
+    "classification": {
+      "bytes": 93414,
+      "path": "workspace/itch-feed-handler/out/same-price-classification-v1/verification.json",
+      "sha256": "10cfb567ca8e1fbbcba81ebbb813065ff8313f80d975fa6b07bea7ab93c07536"
+    },
+    "gate21_canonical": {
+      "bytes": 84288,
+      "path": "workspace/itch-feed-handler/out/same-price-comparison-v1/verification.json",
+      "sha256": "da98ad6c5edb8fa63a7558e54bdc0d52470a6c9be5f3244b1ac29161f816d19f"
+    },
+    "gate21_postcommit": {
+      "bytes": 133806,
+      "path": "workspace/itch-feed-handler/out/same-price-l3-postcommit-v1/verification.json",
+      "sha256": "80c124e0ae198402940d67c09c11c5bb37896351a6e3b9fcc1ad026d7555892e"
+    },
+    "gate21_public": {
+      "bytes": 35461,
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-23-same-price-l3/verification.json",
+      "sha256": "698f849714ce62b2927e926df14e062b0751be72624b31820c6982271c481bfe"
+    },
+    "observer_contract": {
+      "bytes": 18869,
+      "path": "workspace/itch-feed-handler/docs/IDENTIFIED_EVENTS.md",
+      "sha256": "46d0e49d07d6b69b79939f093338c8e05f7fbbab1ebfaf73a366b44ee423c863"
+    },
+    "observer_source": {
+      "bytes": 29644,
+      "path": "workspace/itch-feed-handler/bench/identified_events.py",
+      "sha256": "10bc0a310e441a4dd91653e5c66bbefa0dddd171844ef5f3d6197f3ec66cb918"
+    },
+    "reference_orders": {
+      "bytes": 383758,
+      "path": "workspace/itch-feed-handler/out/same-price-comparison-v1/reference-1.orders.csv",
+      "sha256": "91afe6398bc6240f7f8989913b127d7c157de6b4cbfe757a62714787848fa1cb"
+    },
+    "reference_summary": {
+      "bytes": 1119,
+      "path": "workspace/itch-feed-handler/out/same-price-comparison-v1/reference-1.summary.json",
+      "sha256": "84e43701b9e847316ff43318137150a7af4573e514c1e60c070569743dda800b"
+    },
+    "transitions_contract": {
+      "bytes": 8186,
+      "path": "workspace/itch-feed-handler/docs/IDENTIFIED_TRANSITIONS.md",
+      "sha256": "cbf474a42f925805161821d4ce0d1d8aa8306174cca8366b9d64056cd67fc15c"
+    },
+    "transitions_source": {
+      "bytes": 49694,
+      "path": "workspace/itch-feed-handler/bench/identified_transitions.py",
+      "sha256": "7955aa818f77ec4a20d8223ca421e0b913ab5cbf39f134c62bf464e949563f9d"
+    }
+  },
+  "limitations": [
+    "Expectation and auditor-control results; no observer-runtime comparison yet.",
+    "Raw/prefix authentication and reference execution are retained Gate21 evidence, including its separate-pass hashing timing qualification.",
+    "Two reused inventories add no historical samples; distinct independent L3 states remain 37.",
+    "No actual matching-priority, hidden-liquidity, session/strategy eligibility, hypothetical-fill or performance claim."
+  ],
+  "model": "same_price_observer_design_v1",
+  "oracle_equal_to_initial_frozen_expectations": true,
+  "passed": true,
+  "pre_execution_readback_correction": {
+    "change": "Replaced two unbounded receipt readbacks with bounded regular-descriptor, byte and owned-inode checks before the first audit attempt.",
+    "initial_auditor_snapshot": {
+      "bytes": 38501,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-auditor-source-review-v1/reviewed-initial-auditor.py",
+      "sha256": "5184fc925ed9c8ae4bb5ee0c9f62d98218197dbd1ab6dc154a40c6f8b9d578de"
+    }
+  },
+  "protected_freeze_originals": 74,
+  "repeat_manifest": {
+    "bytes": 24893,
+    "path": "workspace/itch-feed-handler/out/same-price-observer-oracle-repeat-v2/freeze_manifest.json",
+    "sha256": "eaf7d2e40d24d5fe81c0c83ed35fc43df93d3f1d80a9726f0e845492143ace79"
+  },
+  "repeat_oracle": {
+    "bytes": 16935,
+    "path": "workspace/itch-feed-handler/out/same-price-observer-oracle-repeat-v2/oracle.json",
+    "sha256": "1128c4beded4c28c4e70cc543809c861628db1a044fd30dbe785d6c33fdfb928"
+  },
+  "reviews": {
+    "auditor_corrected": {
+      "bytes": 1902,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-auditor-comparator-review-v2/review.json",
+      "sha256": "2b0279c328dacd05e4fdcece4fc7a599b2c92eecad2a0cd41e0f0081992c007a"
+    },
+    "auditor_initial": {
+      "bytes": 2193,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-auditor-comparator-review-v1/review.json",
+      "sha256": "cca829d7efd15eae5d38c1049711205c2f1f3ebac075f8ba7e40f7b415ba7e56"
+    },
+    "contract": {
+      "bytes": 2623,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-contract-exporter-review-v1/review.json",
+      "sha256": "2eff7003340549f9bb9b987ee9e0cffc049080ab6748ee9ed6cde564c4c9d46b"
+    },
+    "freezer_corrected": {
+      "bytes": 1785,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-freezer-exporter-review-v2/review.json",
+      "sha256": "98bb32d28432ad6448195b2d3764aeae5c84f820fae8ec30787b146c6fddfdd8"
+    },
+    "freezer_initial": {
+      "bytes": 2136,
+      "path": "workspace/itch-feed-handler/out/same-price-observer-freezer-exporter-review-v1/review.json",
+      "sha256": "abd11cb71214f79820d5a5455ae1a92bff563329c4cdda27e1482fa05a7dfce3"
+    }
+  },
+  "schema_version": 1,
+  "source_at_execution": {
+    "engine": {
+      "branch": "main",
+      "commit": "dbd280185a0d45f0839881caeff8d535bcd56779",
+      "file_sha256": {
+        "CMakeLists.txt": "9886fbc8523f033ca2a2ce93f1cf8fb63961d9ef9e40c089ad5aa2e06a541823",
+        "bench/main.cpp": "2e128198eb4489a8234c6c4035466ed405cac794f622ce77e713364a50a389d1",
+        "bench/rng.hpp": "ecce719bb32149fbe06b46f57d074b1a89481cc141c7f1fd00ae0b5bc84609ae",
+        "bench/summarize.py": "6fa2e3a6ea129ec4f991c8a4608e76c46b4daab2d4fc8f5686f316fce9a85531",
+        "bench/workloads.cpp": "c08cb0a3f4e07c4835ec6a0b071a85063694435ac4d24fa28e3d8133c9582310",
+        "bench/workloads.hpp": "707d788d0a64caa74ae6a9a26ebda4c289ea74736d2c82a9f5da8aee459562e9",
+        "include/me/book.hpp": "3d108b220052193961042001cc6b41838052990a55c6f4524187b29aaefcd445",
+        "include/me/book_v1.hpp": "e89934e838faf4dc314f9d5a1c535ad3e839e3fa1e8de9d48f466dcdd53412fb",
+        "include/me/core.hpp": "1e8b9c371c9efdfeb2db95a4a51c0c916ecb426fd36ed8908fc1f7b523709569",
+        "include/me/index.hpp": "928ce72653d1b955a3b2017dbd5b36e24b83485b5aa06ac7ac8fd64db6f50d47",
+        "include/me/levels.hpp": "fa40d4a70053ff3a1d14cee7cf0e2a3bd527cfe48cb6e903a7e187a860d7d872",
+        "include/me/store.hpp": "c0ce83d7da8cd4bd9b2b61850d7dea4ad4cb9298e9f493c68599083a7657af42",
+        "include/me/types.hpp": "50ef826d9a2155695b1b5169af52fc878735ca563d5a1b9ef9f687da69002552",
+        "src/book.cpp": "abc53bdce8129d52727295112e92cfae2114ea1da9e6f8eb67f21a0bff80a2ae",
+        "src/book_v1.cpp": "ef84b5f8ad61b6249b779710ef96bbbf0666a03cdb298fde3f93ce71c2e3f716"
+      },
+      "path": "workspace/matching-engine"
+    },
+    "itch": {
+      "branch": "main",
+      "commit": "4d016da2744fec6709fb102b03044471c42a836c",
+      "file_sha256": {
+        "CMakeLists.txt": "e52c483dca2d3d770ed0003c6240659e8246046edc12dcaa0dfeda184fddadc4",
+        "bench/audit_handoff.py": "a14fac8bcc7a57677ab58c9fc2a504a46b848626df9b150e571a7a3ee7d67630",
+        "bench/compare_bbo.py": "83caa1216e4d3c2e3eec184dd87755ac08008747ab6c3a8848d765d4623868b8",
+        "bench/compare_l3.py": "abf11fca148a5d9fac5c232cd72bf9bf6ff63b2db0d72bffc411da1b17f21bfb",
+        "bench/compare_level_search.py": "8b1b31d4a811d23595a000ab10846e1c7a028d004b0fa32a38925087d77ffb56",
+        "bench/compare_reference.py": "63643ac2e5c8397d9fe2a950437bb147fafb14bf8564a305bacc062093f512fd",
+        "bench/compare_storage.py": "91d7ada64c24ee916ab1399dae3c70c1c74260aa74d04fdc52d445e2a5acdc46",
+        "bench/identified_events.py": "10bc0a310e441a4dd91653e5c66bbefa0dddd171844ef5f3d6197f3ec66cb918",
+        "bench/identified_history.py": "4f3e14a8c56e75de8c274f10a62f97b9c0f38845bd422fc5fcd1c9d8b3b29fbc",
+        "bench/identified_transitions.py": "7955aa818f77ec4a20d8223ca421e0b913ab5cbf39f134c62bf464e949563f9d",
+        "bench/journal.py": "e4307dbf4932f0535efab512205bd8be3b86ff83da54cc6365d13a691bfe661b",
+        "bench/repacketise_history.py": "28abf9d2efacdd4ddd133450b84142b3c9e4c76e03b76057e4c007b1a2e9675f",
+        "bench/validate.py": "07eae050e280b196b64be49db2bd1777d8f1475085b09483261a457ae8cd7df5",
+        "bench/validate_journal.py": "df8bebe2892861708566f4ea7cb7f51967a16be69498046b0cd2b93b23671433",
+        "include/itch/book.hpp": "539553d740a7cd3f1f25bfddb89b8bea1ddb3745d1f56e4ab0ea02c451ed37df",
+        "include/itch/encode.hpp": "3976ae407926e57f060b18485cdaff7a2def42f65886c9c065840ae0f9979b61",
+        "include/itch/endian.hpp": "e461783ae5a73df12ef028b66696bf466cf78cb1bbefb48b44eb07c8991bab7f",
+        "include/itch/framing.hpp": "502138feb5250b51e92fa37ec11f1536aebe2c9a62c4f5195ca63fb50ae88417",
+        "include/itch/journal.hpp": "1cd9e31221d1603845181f5dfe4c9fc3a56da3b5a9a874123ee1675203340975",
+        "include/itch/messages.hpp": "48c7d0ec5bfb531201f3fa9f247ed7f3cf2f4e00b46ad463559e9e4a1afcb409",
+        "include/itch/mold.hpp": "60c5cf5764fd01b92b6de541a5ad8a9afe90de1b6bd1ca9bd9c5d49a8e44b35c",
+        "include/itch/mold_itch.hpp": "66e3719f75af0cba5e15e3acf086327d2a7a11cf140683b07f94386dff470252",
+        "include/itch/queue_sim.hpp": "5031e65b70a18749fcc9e274d9a6a84d29cd1ff3c44d653b444dfe5c7f50ee6b",
+        "include/itch/queue_window.hpp": "85e96de848c5572591b17b587901d52d0dc39e6d23e144da23588756e17945eb",
+        "include/itch/replay.hpp": "9e91ab2cc04d89d59884c6bf28d046390b89a0f09036d79e05acab8d4bd8741c",
+        "include/itch/snapshots.hpp": "7a431eedd50ba1e554986ccf7a5efea1702c2c23e14391c58e051d653a8ad446",
+        "src/book.cpp": "a679b2c681bebd8b3c7f5b99af4b393a5bd1b94e2077a1e0ffd951ed4e2b40e7",
+        "src/framing.cpp": "ab03285ee9dd4ff7d155f81bea74edab76f8b9065bc81084d10a27bd39b06dd3",
+        "src/journal.cpp": "33a41a1aa5e2003268f06da3dfd61eac6a980e06f8cb83929a0bd5c6b9644c9c",
+        "src/mold.cpp": "4b4b0de896d56b37147c20f2e32e74ace740cc056ce7286bfdb56736ae3bf3dc",
+        "src/queue_sim.cpp": "2da5625b9ede5a68c84ad219e91b8c9f43a6c5885f358e9172ca132527dc437d",
+        "src/queue_window.cpp": "98cfbc84d9bd2c5ffea0ed1108fb6396e9f19e2777d5c3ff2a8da24fb9e7f772",
+        "src/replay.cpp": "bcecd0fe0fdad39c11c497966e1a5840541f3e0d10626e9933e4a126b3618991",
+        "tools/bench.cpp": "33f24effb42d6c93835f543b8d9df0dd607a5c600ff678f5d317f6f2704f2030",
+        "tools/census.cpp": "466b9e9c86e1836c5b1b1c2d214e3325efa07e06728c4a2ca873495106c8cbc3",
+        "tools/cli.hpp": "ff2d6e114a6844c9cc4b12ca90c3c45e93a3eb18683d99e973b5cd67387731c3",
+        "tools/journal_replay.cpp": "2cb83b19b6f500580e22d9d8028a4c33d812f9d1062453e3134d47cc1769b045",
+        "tools/loopback.cpp": "a740ca708a0220c22344ba1cb40ee48919c92e7a4f7550faad85254bbfd958f8",
+        "tools/queue_sim.cpp": "9a5a389c4f9dd2c81f641e6d2bca119dcbf9fa98f649750930d3bf2089f0c118",
+        "tools/queue_window.cpp": "9796ff4b1b67bbdfb310644b1fe5ab4d6eb74a1e8a2bb5d04edc741ae3feea5e",
+        "tools/replay.cpp": "eb2d3cc2d77e7737d9b9f7a1132a6bb1607976e0ee4287c87dc80d4557e1950f",
+        "tools/snapshots.cpp": "72992f0b87e8ee5716d0475db7eb60ccd43c3074899cc9c119d8350f7ca7dd54",
+        "tools/source.hpp": "ce7e405434d9583c49c0e9c8b751cda1a4b70fec07f17e10ef6fd7f86d0f8c6c",
+        "tools/storage_bench.cpp": "e803c30477adb554967ac9676679d94054a37c13afa4d471cd18b6dbbdd09f68"
+      },
+      "path": "workspace/itch-feed-handler"
+    }
+  },
+  "sources": {
+    "freezer": {
+      "bytes": 21368,
+      "path": "workspace/itch-feed-handler-tests/freeze_same_price_observer.py",
+      "sha256": "9ea88b8408a28d569f145d56d8d415d04380e0ab95fd9b41fbf1d2d60d34db2a"
+    },
+    "independent_auditor": {
+      "bytes": 38637,
+      "path": "workspace/itch-feed-handler-tests/audit_same_price_observer_design.py",
+      "sha256": "d605e8f5122b6613421b1f127d2e93f19ecb09207a3ef1edc37794d120022f91"
+    }
+  },
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 21660,
+    "original_report_sha256": "5da00ecbb01e4e7177649723ca13e0d9d1659bf9f4fb0319d85bdefb565c3a1c",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}

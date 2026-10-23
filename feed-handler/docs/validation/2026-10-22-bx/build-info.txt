@@ -1,0 +1,12 @@
+Source commit: bd1ff20a9db8ee58f6751f9a25ea0c84c57cb769
+Build: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DFETCHCONTENT_SOURCE_DIR_MATCHING_ENGINE=../matching-engine
+Build jobs: 4
+Benchmark: itch_bench --runs 5 data/20190730.BX_ITCH_50.itch
+Clock: std::chrono::steady_clock; no CPU pinning
+Apple clang version 21.0.0 (clang-2100.1.1.101)
+Target: arm64-apple-darwin25.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+
+CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/c++
+CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG

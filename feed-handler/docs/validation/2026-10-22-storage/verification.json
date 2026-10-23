@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "source_commit": "52229945705389323519c50a0c234e9fbbcd956c",
+  "registered_ctests": 52,
+  "release": {
+    "open_addressed": {
+      "selected_ctests": 51,
+      "skipped_std_only_cases": 3,
+      "failures": 0,
+      "log_sha256": "c4f71f3fb2cea7ba521b65a71a1f0adb04305ab097eba658694cf9dce84c78b7"
+    },
+    "std_unordered": {
+      "selected_ctests": 51,
+      "skipped": 0,
+      "failures": 0,
+      "log_sha256": "62c4f7d07cdf63464cbe8a74f640668054b2050f9794ff33b11b49d5f494bc1f"
+    },
+    "excluded_shared_ctest": "Validation.StorageComparison",
+    "shared_storage_runner_tests": {
+      "cases": 16,
+      "passed": true,
+      "log_sha256": "4e945b271349e544e1d307e732e00009d0b35f21e519f6e21c53a7d8768aa5f3"
+    }
+  },
+  "asan_ubsan": {
+    "standard_index_allocation_cases": 13,
+    "allocation_cases_passed": true,
+    "allocation_result_provenance": "Independent test agent tool result; CTest cost history retained privately.",
+    "storage_tool_cases": 12,
+    "storage_tool_passed": true,
+    "storage_tool_ctest_log_sha256": "91ae28884dd6b1d87a8ecf769498cd0ea06f0fb0f247fb63e22965dcbc1b6389"
+  },
+  "harness_source_sha256": {
+    "CMakeLists.txt": "33a137b58e7380df61c2228baadc85f3bab99dedca1997159e7e097fd8013406",
+    "test_book_failures.cpp": "b51839cde4a7d2e2819f4c78a72224aae66d7813b2234977f472e6221969c4a7",
+    "test_storage_bench.py": "df87e9095682471f9bc7f879fc6b1ea7ef3b739686813712536dbb99d1f1d630",
+    "test_storage_comparison.py": "96e667d47306d4f60ac06b915dbc0d2f8110f32650f8f9f385cf99b7720c5147"
+  },
+  "negative_controls": [
+    "Separate std node/vector allocation failures preserve FIFO, references, counts and reusable capacity.",
+    "Single-order flat replacement avoids transiently full probe table.",
+    "Stale pre-change replay binary was rejected for missing index/capacity metadata; rebuilt end-to-end smoke passed.",
+    "Runner rejects malformed/non-finite/oversized durations, diagnostics, variant/config mismatch, empty or differing checkpoints and changed artefacts."
+  ],
+  "smoke_report_sha256": "d2f35d48f5f2bcd9b36702e65ae1fb2dacaa3d6aabf4dd6ed91a6a1ec0acdcb2",
+  "prior_code_equivalence_report": "docs/validation/2026-10-22-storage/prior_code_equivalence.json",
+  "recorded_at_utc": "2026-10-22T16:10:59.312589+00:00",
+  "comparison_sha256": "7311ba36280789b941059ca4102aa6c7e82a5f40e50fb20b96f79c4aedd0294b",
+  "prior_code_equivalence_sha256": "aedf54f235c48b5723323e0f7cc6a1fc2005b08f4ce96d6a8c4053af354d86db",
+  "input_evidence_links": [
+    {
+      "case": "nasdaq",
+      "report": "docs/validation/2026-10-22-nasdaq-2019-12-30/validation.json",
+      "report_sha256": "0aa99307cdf131b73fb0d6104ddbeb12bb836078bc99ab3db856932751214cd0",
+      "raw_identity_matches": true,
+      "message_count_matches": true
+    },
+    {
+      "case": "bx",
+      "report": "docs/validation/2026-10-22-bx/validation.json",
+      "report_sha256": "8593af9856d927626107bf2f535dfeb3252ad49671141be26f10ea6d99bd273c",
+      "raw_identity_matches": true,
+      "message_count_matches": true
+    }
+  ],
+  "matching_engine_pin": {
+    "configured_pin": "01656701c973036d88724fbe2d27fa5b98f55cd4",
+    "local_commit": "dbd280185a0d45f0839881caeff8d535bcd56779",
+    "implementation_difference_from_pin": []
+  },
+  "run_counts": {
+    "correctness": 8,
+    "memory": 8,
+    "timing": 48,
+    "total_sequential_launches": 64,
+    "timing_repetitions_per_configuration": 6,
+    "memory_repetitions_per_configuration": 1
+  },
+  "observations": [
+    "Standard-index replay median and range were higher than flat-index replay for each matched dataset/profile in this run.",
+    "Standard-index construction medians were lower in all four matched profiles.",
+    "Fitted flat-index capacity reduced streaming process peak RSS, but Nasdaq median replay rose from 29.4967858125 to 32.9497865205 seconds; ranges overlap.",
+    "BX fitted flat-index replay median fell from 0.990848146 to 0.7220029165 seconds.",
+    "Default standard-index RSS was lower; fitted Nasdaq standard-index RSS was slightly higher than flat. Memory is one streaming pass per configuration."
+  ],
+  "limitations": [
+    "Two historical venue/day flows on one unpinned desktop Mac; not a universal ranking.",
+    "No hardware-counter or allocation-only attribution; concrete hash/bucket/allocator policies differ.",
+    "RSS includes the whole streaming process and allocator retention; not index-only bytes.",
+    "Sampled semantic state fingerprints are non-cryptographic; states between checkpoints remain unverified.",
+    "Six timing observations per configuration; no latency percentiles or inference of Linux performance."
+  ],
+  "retention": {
+    "detailed_checkpoints_and_process_logs": "Ignored out/storage-realflow-v1/",
+    "public_report": "Per-run aggregate summaries, timing rows, execution order, identities and statistics; no per-event rows."
+  },
+  "read_only_quality_review": {
+    "passed": true,
+    "checks": [
+      "All64 sequential launches, phase order, group rotation and balanced variant order verified.",
+      "All24 median/minimum/maximum/count distributions independently recomputed.",
+      "All8 checkpoint configurations match actual private CSVs and retained prior-code checkpoints.",
+      "All128 process log identities, current binaries, caches, compiler records and source files match the report.",
+      "Input identities link to prior canonical and BX validation; no additional full-input rehash was used for review.",
+      "Documentation numbers, local links, negative findings, uncertainty and memory/test scopes match the evidence."
+    ],
+    "additional_large_replay_or_input_rehash": false
+  }
+}

@@ -1,0 +1,255 @@
+{
+  "completed_at_utc": "2026-10-22T19:32:12.690000+00:00",
+  "design": {
+    "full_expected_fields_independently_constructed": true,
+    "independent_contract_reviews": 3,
+    "no_cli_trust_bypass": true,
+    "pinned_historical_current_evidence": true,
+    "row_byte_bounds_and_checked_descriptor_io": true,
+    "synthetic_outer_admission_mocked_only_in_private_tests": true
+  },
+  "environment": {
+    "executable": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.14.6 (v3.14.6:c63aec69bd5, Jun 10 2026, 08:07:54) [Clang 21.0.0 (clang-2100.1.1.101)]"
+  },
+  "fixture": {
+    "cases": 2,
+    "facts": 9,
+    "files": {
+      "binding.json": {
+        "bytes": 14889,
+        "sha256": "1ae7c966547b351d14efab70611e527f30dc2ee56a5df41a415b2f6340bd3b12"
+      },
+      "cases.json": {
+        "bytes": 205723,
+        "sha256": "5c14b418161707632e20097bc0f221057b3421da5e2f2d170810a781da738574"
+      },
+      "expected-independent-coverage.json": {
+        "bytes": 6967,
+        "sha256": "7c40a3fe96e66c7fb3a34496df849a2107d53a135da13f849c6a61d884fb52c9"
+      },
+      "expected-scan.json": {
+        "bytes": 4509,
+        "sha256": "75f39be43fdca6ee40a62ba5f8431e18293167a960ae668e11d82fc50b4ba8ed"
+      },
+      "source.itch": {
+        "bytes": 1142,
+        "sha256": "508c5ee250185fc5acf66c5e91e821a44fe24d9035df1f8bbef4de46345f9ed2"
+      },
+      "windows.json": {
+        "bytes": 244,
+        "sha256": "9dc87d0f1a5229dc0d169fcf30b966fbb8ff732e3b2e1a2dbb2ec70aa8130a2b"
+      }
+    },
+    "frozen_before_producer_matrix": true,
+    "manifest": {
+      "bytes": 1624,
+      "path": "workspace/itch-feed-handler/out/identified-history-fixture-v1/freeze-manifest.json",
+      "sha256": "ae33006e574067920158a4c28aa1bcb922d71b7f80ccab223db1fd5975553306"
+    },
+    "profiles": 6,
+    "source_order_rows": 49,
+    "states": 11
+  },
+  "freshly_verified_small_artefacts": [
+    {
+      "bytes": 3738,
+      "path": "workspace/itch-feed-handler/out/identified-history-canonical-v1/aggregate.json",
+      "sha256": "942818ff8a78284d5990539b4963183e930e866c020b2e95b333b27d55a47647"
+    },
+    {
+      "bytes": 42575,
+      "path": "workspace/itch-feed-handler/out/identified-history-canonical-v1/producer.json",
+      "sha256": "12734d2522555d8036b78bb999b19087c33aed3c5c28cc402ef8ed95bf63dc08"
+    },
+    {
+      "bytes": 9368,
+      "path": "workspace/itch-feed-handler/out/identified-history-canonical-v1/coverage.json",
+      "sha256": "f0a83cabf1a5711a2c455bd6d0ad2879094f12d837a90653bf333e6aff58e6cc"
+    },
+    {
+      "bytes": 11544,
+      "path": "workspace/itch-feed-handler/out/identified-history-canonical-v1/audit-private-manifest.json",
+      "sha256": "ebae3e7509d448d047aeadd5e17462ffb10b72a2cf91cafcdf9ea7b724cebecf"
+    },
+    {
+      "bytes": 27113,
+      "path": "workspace/itch-feed-handler/out/identified-history-canonical-v1/final-review.json",
+      "sha256": "ee106dedbe38c323c1f6952fd44256e6ed6e41739750d66e50d0defca7394c7e"
+    },
+    {
+      "bytes": 1624,
+      "path": "workspace/itch-feed-handler/out/identified-history-fixture-v1/freeze-manifest.json",
+      "sha256": "ae33006e574067920158a4c28aa1bcb922d71b7f80ccab223db1fd5975553306"
+    },
+    {
+      "bytes": 614,
+      "path": "workspace/itch-feed-handler/out/identified-history-freeze-receipt.json",
+      "sha256": "5dd4d3fb4c1ce60a1b0857a4556736de3af86d2e19a84286930faf0de52959d3"
+    },
+    {
+      "bytes": 3232,
+      "path": "workspace/itch-feed-handler/out/identified-history-verification-v1/verification-private.json",
+      "sha256": "53570ee8d9d6cf5b6be247a05249bc600cb469a2909036b30479aea27a424a8d"
+    },
+    {
+      "bytes": 15723,
+      "path": "workspace/itch-feed-handler-tests/freeze_identified_history.py",
+      "sha256": "58b9ac180e4f448bb6eeef428eb5099f6f0724f2ed09573b89643b5a196a2640"
+    },
+    {
+      "bytes": 9417,
+      "path": "workspace/itch-feed-handler-tests/independent_identified_coverage.py",
+      "sha256": "213f54352e302e0d7b105aa639c750de7c1eaab81aad303d7b46d41e56020bc4"
+    },
+    {
+      "bytes": 27595,
+      "path": "workspace/itch-feed-handler-tests/audit_identified_history.py",
+      "sha256": "50aa616807ade92cd6df884e11614d129962cbeb2eaea4edeefbb14d1693f80a"
+    },
+    {
+      "bytes": 28425,
+      "path": "workspace/itch-feed-handler-tests/review_identified_history_retained.py",
+      "sha256": "a5268c497eb291ca24103ecfda55a820405b70e7a5203ddbac1de48c721e23c2"
+    },
+    {
+      "bytes": 32447,
+      "path": "workspace/itch-feed-handler-tests/test_identified_history.py",
+      "sha256": "498b1b7a9dc5e7ff4b0eb30bc4ff28b58a281354ebcaf0c854277bc8359954c1"
+    },
+    {
+      "bytes": 5360,
+      "path": "workspace/itch-feed-handler-tests/CMakeLists.txt",
+      "sha256": "a6cf4b8a1071ff29962844605fb513ddaaa28c814cfd1bb75915c3b0b5dd31f4"
+    },
+    {
+      "bytes": 62228,
+      "path": "workspace/itch-feed-handler/bench/identified_history.py",
+      "sha256": "4f3e14a8c56e75de8c274f10a62f97b9c0f38845bd422fc5fcd1c9d8b3b29fbc"
+    },
+    {
+      "bytes": 29644,
+      "path": "workspace/itch-feed-handler/bench/identified_events.py",
+      "sha256": "10bc0a310e441a4dd91653e5c66bbefa0dddd171844ef5f3d6197f3ec66cb918"
+    },
+    {
+      "bytes": 20217,
+      "path": "workspace/itch-feed-handler/bench/compare_l3.py",
+      "sha256": "abf11fca148a5d9fac5c232cd72bf9bf6ff63b2db0d72bffc411da1b17f21bfb"
+    },
+    {
+      "bytes": 48571,
+      "path": "workspace/itch-feed-handler/bench/audit_handoff.py",
+      "sha256": "a14fac8bcc7a57677ab58c9fc2a504a46b848626df9b150e571a7a3ee7d67630"
+    },
+    {
+      "bytes": 0,
+      "path": "workspace/itch-feed-handler/out/identified-history-verification-v1/cmake-configure.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 163,
+      "path": "workspace/itch-feed-handler/out/identified-history-verification-v1/cmake-configure.stdout",
+      "sha256": "da6381f56f8c2b0c80b68552aabaa9f496cf3c12875246d118676282c1941846"
+    },
+    {
+      "bytes": 1151,
+      "path": "workspace/itch-feed-handler/out/identified-history-verification-v1/commands.json",
+      "sha256": "e153ecde5924d9a069bb5a6cd78a98eac17ae32e7c361eb3feda286ba17cac9e"
+    },
+    {
+      "bytes": 0,
+      "path": "workspace/itch-feed-handler/out/identified-history-verification-v1/ctest.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 266,
+      "path": "workspace/itch-feed-handler/out/identified-history-verification-v1/ctest.stdout",
+      "sha256": "d6825c195d7ddb1810fa0b44d3759fa1148f72a8c90ad6bd6ad93d5d7d62f292"
+    },
+    {
+      "bytes": 132,
+      "path": "workspace/itch-feed-handler/out/identified-history-verification-v1/unittest.stderr",
+      "sha256": "0a11edb36f0e78b696bb14d25fb7db302d367dc31d8ec0bcbaa998d9e5f88336"
+    },
+    {
+      "bytes": 0,
+      "path": "workspace/itch-feed-handler/out/identified-history-verification-v1/unittest.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "independent_review": {
+    "historical_raw_reread": false,
+    "production_reexecuted": false,
+    "report": {
+      "bytes": 27113,
+      "path": "workspace/itch-feed-handler/out/identified-history-canonical-v1/final-review.json",
+      "sha256": "ee106dedbe38c323c1f6952fd44256e6ed6e41739750d66e50d0defca7394c7e"
+    }
+  },
+  "limitations": [
+    "Only the admitted canonical A/D/E windows; independent states are retained, not freshly replayed",
+    "Seed attribution unknown; new A attribution records wire-field absence, not observed MPID",
+    "Full raw identity is fresh; semantic framing/reconstruction scope remains bounded",
+    "No own orders, eligibility, fills, aggressor estimates or performance claim",
+    "The 15 states/16886 row instances reuse the Gate 7 boundaries, not additional historical samples",
+    "Framing scan includes one later witness; whole-file hashing is not a full-day semantic replay",
+    "Canonical F/C/X/U/P/Q/B coverage is not claimed"
+  ],
+  "passed": true,
+  "public_aggregate": {
+    "bytes": 21214,
+    "path": "workspace/itch-feed-handler/docs/validation/2026-10-22-identified-history/canonical.json",
+    "sha256": "b7e29cf063fba8aff5d0494e872fa17363ea4fde7c2d28bf210fb17100533d25"
+  },
+  "raw": {
+    "framing_scope": "byte-zero prefix through later closing witness",
+    "full_source_freshly_hashed_before_after": true,
+    "logical_module_identity_remains_unverified": true,
+    "retained_prefix_freshly_hashed_before_after": true
+  },
+  "recorder": {
+    "bytes": 8569,
+    "path": "workspace/itch-feed-handler-tests/record_identified_history_verification.py",
+    "sha256": "ab8ede8f49d59aeea6811b1af9f757d551941385e01d3c8d0254438452c2975d"
+  },
+  "schema_version": 1,
+  "scope": {
+    "canonical_facts": 13,
+    "canonical_states": 15,
+    "canonical_types": [
+      "A",
+      "D",
+      "E"
+    ],
+    "cpp_code_changed": false,
+    "own_orders": false,
+    "performance_claim": false,
+    "probes": 58,
+    "queue_or_fill_model_changed": false,
+    "reference_replay_repeated": false,
+    "reused_independent_inventory_boundaries": true
+  },
+  "source_commit": "464e4a7b9f190187d931181a2f49abbf100689b9",
+  "tests": {
+    "focused_ctest": "Validation.IdentifiedHistory",
+    "focused_ctest_passed": true,
+    "methods": 33,
+    "new_sanitiser_run": false,
+    "old_cpp_matrix_repeated": false,
+    "passed": true,
+    "registered_ctests": 101
+  },
+  "unchanged_engine": {
+    "branch": "main",
+    "clean": true,
+    "commit": "dbd280185a0d45f0839881caeff8d535bcd56779"
+  },
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 10644,
+    "original_report_sha256": "2139f83c58f8ff4515fc062b4e814da650c08a6baf925f34bc9d72537cc4358b",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}

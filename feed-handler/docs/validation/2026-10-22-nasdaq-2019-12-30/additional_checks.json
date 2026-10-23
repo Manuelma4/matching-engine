@@ -1,0 +1,28 @@
+{
+  "mapped_raw_sha256": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f",
+  "mapped_message_count_matches": true,
+  "mapped_lifecycle_counters_and_volume_rows_match": true,
+  "retained_source_hashes_match": true,
+  "private_release_ctests_passed": 31,
+  "private_reference_regressions_passed": 21,
+  "asan_ubsan_full_day": {
+    "exit_code": 0,
+    "messages": 268744780,
+    "semantic_report_matches_release": true,
+    "diagnostic_bytes": 0,
+    "command": [
+      "itch-feed-handler-tests/build-asan/itch/itch_replay",
+      "itch-feed-handler/data/12302019.NASDAQ_ITCH50.itch"
+    ],
+    "configure": [
+      "cmake",
+      "-S",
+      "itch-feed-handler-tests",
+      "-B",
+      "itch-feed-handler-tests/build-asan",
+      "-DITCH_SANITIZE=ON",
+      "-DCMAKE_BUILD_TYPE=Debug"
+    ],
+    "tool_sha256": "1648c2349e63005512cd69d529823c9a20b34501b18ec04ec76d4243f315f3cc"
+  }
+}

@@ -1,0 +1,725 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-22T14:25:01.100364+00:00",
+  "scope": "Independent implementation comparison of Nasdaq single-venue displayed BBO on a fixed time grid. This is not NBBO, full-depth, queue-priority, every-event, execution-quality or independently licensed market-data validation.",
+  "clock_semantics": "First grid point strictly follows the first positive accepted timestamp. At a grid boundary, snapshots precede the triggering message, including a message timestamped exactly at the boundary. Only modelled messages for the selected locate, plus system events, advance the clock. No EOF flush.",
+  "interval_ns": 1000000000,
+  "passed": true,
+  "checks": {
+    "reference_entry_point_and_build_definition_pinned": true,
+    "identical_decompressed_input": true,
+    "all_requested_symbols_compared": true,
+    "all_symbol_comparisons_passed": true,
+    "inputs_tools_and_pinned_sources_unchanged": true
+  },
+  "errors": [],
+  "symbols": [
+    {
+      "symbol": "MSFT",
+      "passed": true,
+      "errors": [],
+      "checks": {
+        "local_summary_valid": true,
+        "reference_summary_valid": true,
+        "local_observed_nonempty_book": true,
+        "reference_observed_nonempty_book": true,
+        "same_message_count": true,
+        "valid_clock_extent": true,
+        "local_row_count_matches_summary": true,
+        "local_complete_clock_extent": true,
+        "reference_row_count_matches_summary": true,
+        "reference_complete_clock_extent": true,
+        "nonempty_common_grid": true,
+        "all_sampled_bbo_rows_match": true,
+        "local_tool_succeeded_without_stderr": true,
+        "reference_tool_succeeded_without_stderr": true
+      },
+      "snapshots": {
+        "local": {
+          "rows": 61228,
+          "first_timestamp_ns": 11073000000000,
+          "last_timestamp_ns": 72300000000000,
+          "nonempty_book_rows": 57600,
+          "two_sided_book_rows": 57600,
+          "bytes": 2364034,
+          "sha256": "05c8c6bed6aa2fa7db91518743268e463f6b516697ef3a29f633fd043f84655e"
+        },
+        "reference": {
+          "rows": 61228,
+          "first_timestamp_ns": 11073000000000,
+          "last_timestamp_ns": 72300000000000,
+          "nonempty_book_rows": 57600,
+          "two_sided_book_rows": 57600,
+          "bytes": 2364034,
+          "sha256": "05c8c6bed6aa2fa7db91518743268e463f6b516697ef3a29f633fd043f84655e"
+        }
+      },
+      "clock_extent": {
+        "first_accepted_timestamp_ns": 11072057543747,
+        "last_accepted_timestamp_ns": 72300000040070,
+        "expected_first_snapshot_ns": 11073000000000,
+        "expected_last_snapshot_ns": 72300000000000,
+        "expected_rows": 61228
+      },
+      "counts": {
+        "messages": 268744780,
+        "reference_messages_applied": 1220971,
+        "local_final_orders": 0,
+        "local_peak_orders": 1924078,
+        "local_anomalies": 0,
+        "reference_unknown_refs": 0,
+        "reference_final_orders": 0
+      },
+      "comparison": {
+        "common_timestamps": 61228,
+        "equal_rows": 61228,
+        "mismatch_counts": {},
+        "first_discrepancies": [],
+        "example_limit": 10
+      },
+      "runs": {
+        "local": {
+          "command": [
+            "workspace/itch-feed-handler/build/itch_snapshots",
+            "--strict",
+            "--symbol",
+            "MSFT",
+            "--interval-ms",
+            "1000",
+            "--out",
+            "workspace/itch-feed-handler/out/bbo-canonical-1s/MSFT/local.csv",
+            "--summary",
+            "workspace/itch-feed-handler/out/bbo-canonical-1s/MSFT/local.json",
+            "workspace/itch-feed-handler/data/12302019.NASDAQ_ITCH50.itch"
+          ],
+          "exit_code": 0,
+          "error": null,
+          "elapsed_seconds": 35.326646,
+          "stdout": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stderr": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "passed": true
+        },
+        "reference": {
+          "command": [
+            "workspace/itch-feed-handler/data/reference/build-3c646f9/book_replay",
+            "workspace/itch-feed-handler/data/12302019.NASDAQ_ITCH50.gz",
+            "--symbol",
+            "MSFT",
+            "--snapshots",
+            "workspace/itch-feed-handler/out/bbo-canonical-1s/MSFT/reference.csv",
+            "--interval-ms",
+            "1000",
+            "--levels",
+            "1",
+            "--json",
+            "workspace/itch-feed-handler/out/bbo-canonical-1s/MSFT/reference.json"
+          ],
+          "exit_code": 0,
+          "error": null,
+          "elapsed_seconds": 13.307324,
+          "stdout": {
+            "bytes": 1288,
+            "sha256": "375eb5a4d1856e9f271f666278d34ccba1f3153e7f509c2aa0b221d6aad33280"
+          },
+          "stderr": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "passed": true
+        }
+      },
+      "summary_files": {
+        "local": {
+          "bytes": 779,
+          "sha256": "6bc4fb1f85c45717344480d201921d28f592e06e76ff0e1b6713a7a7b7d7f5f0"
+        },
+        "reference": {
+          "bytes": 545,
+          "sha256": "4b384138c1f8c44734889f184b413aa9bcb15ef694ca0e724fa243295384ff18"
+        }
+      }
+    },
+    {
+      "symbol": "QQQ",
+      "passed": true,
+      "errors": [],
+      "checks": {
+        "local_summary_valid": true,
+        "reference_summary_valid": true,
+        "local_observed_nonempty_book": true,
+        "reference_observed_nonempty_book": true,
+        "same_message_count": true,
+        "valid_clock_extent": true,
+        "local_row_count_matches_summary": true,
+        "local_complete_clock_extent": true,
+        "reference_row_count_matches_summary": true,
+        "reference_complete_clock_extent": true,
+        "nonempty_common_grid": true,
+        "all_sampled_bbo_rows_match": true,
+        "local_tool_succeeded_without_stderr": true,
+        "reference_tool_succeeded_without_stderr": true
+      },
+      "snapshots": {
+        "local": {
+          "rows": 61228,
+          "first_timestamp_ns": 11073000000000,
+          "last_timestamp_ns": 72300000000000,
+          "nonempty_book_rows": 57600,
+          "two_sided_book_rows": 57600,
+          "bytes": 2444276,
+          "sha256": "4394b3c4df521f0a12d55ffbf78301e70734b5db5e82c0074446ae0c91be8b80"
+        },
+        "reference": {
+          "rows": 61228,
+          "first_timestamp_ns": 11073000000000,
+          "last_timestamp_ns": 72300000000000,
+          "nonempty_book_rows": 57600,
+          "two_sided_book_rows": 57600,
+          "bytes": 2444276,
+          "sha256": "4394b3c4df521f0a12d55ffbf78301e70734b5db5e82c0074446ae0c91be8b80"
+        }
+      },
+      "clock_extent": {
+        "first_accepted_timestamp_ns": 11072057543747,
+        "last_accepted_timestamp_ns": 72300000040070,
+        "expected_first_snapshot_ns": 11073000000000,
+        "expected_last_snapshot_ns": 72300000000000,
+        "expected_rows": 61228
+      },
+      "counts": {
+        "messages": 268744780,
+        "reference_messages_applied": 2376243,
+        "local_final_orders": 0,
+        "local_peak_orders": 1924078,
+        "local_anomalies": 0,
+        "reference_unknown_refs": 0,
+        "reference_final_orders": 0
+      },
+      "comparison": {
+        "common_timestamps": 61228,
+        "equal_rows": 61228,
+        "mismatch_counts": {},
+        "first_discrepancies": [],
+        "example_limit": 10
+      },
+      "runs": {
+        "local": {
+          "command": [
+            "workspace/itch-feed-handler/build/itch_snapshots",
+            "--strict",
+            "--symbol",
+            "QQQ",
+            "--interval-ms",
+            "1000",
+            "--out",
+            "workspace/itch-feed-handler/out/bbo-canonical-1s/QQQ/local.csv",
+            "--summary",
+            "workspace/itch-feed-handler/out/bbo-canonical-1s/QQQ/local.json",
+            "workspace/itch-feed-handler/data/12302019.NASDAQ_ITCH50.itch"
+          ],
+          "exit_code": 0,
+          "error": null,
+          "elapsed_seconds": 35.89113,
+          "stdout": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stderr": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "passed": true
+        },
+        "reference": {
+          "command": [
+            "workspace/itch-feed-handler/data/reference/build-3c646f9/book_replay",
+            "workspace/itch-feed-handler/data/12302019.NASDAQ_ITCH50.gz",
+            "--symbol",
+            "QQQ",
+            "--snapshots",
+            "workspace/itch-feed-handler/out/bbo-canonical-1s/QQQ/reference.csv",
+            "--interval-ms",
+            "1000",
+            "--levels",
+            "1",
+            "--json",
+            "workspace/itch-feed-handler/out/bbo-canonical-1s/QQQ/reference.json"
+          ],
+          "exit_code": 0,
+          "error": null,
+          "elapsed_seconds": 13.482061,
+          "stdout": {
+            "bytes": 1287,
+            "sha256": "4f65012f77a527ba8d205973ffa82b9665bef79804b45b732b1949e258d18482"
+          },
+          "stderr": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "passed": true
+        }
+      },
+      "summary_files": {
+        "local": {
+          "bytes": 778,
+          "sha256": "554f3483376a5dddccd8ff677b30a41a41225a57acb2bc7a9275dc2d36fb32dc"
+        },
+        "reference": {
+          "bytes": 544,
+          "sha256": "3d41fc949bdfcee8b4834539c2238db3e059dff30db4e1eb73ac9dcc7a170d75"
+        }
+      }
+    },
+    {
+      "symbol": "ALLE",
+      "passed": true,
+      "errors": [],
+      "checks": {
+        "local_summary_valid": true,
+        "reference_summary_valid": true,
+        "local_observed_nonempty_book": true,
+        "reference_observed_nonempty_book": true,
+        "same_message_count": true,
+        "valid_clock_extent": true,
+        "local_row_count_matches_summary": true,
+        "local_complete_clock_extent": true,
+        "reference_row_count_matches_summary": true,
+        "reference_complete_clock_extent": true,
+        "nonempty_common_grid": true,
+        "all_sampled_bbo_rows_match": true,
+        "local_tool_succeeded_without_stderr": true,
+        "reference_tool_succeeded_without_stderr": true
+      },
+      "snapshots": {
+        "local": {
+          "rows": 61228,
+          "first_timestamp_ns": 11073000000000,
+          "last_timestamp_ns": 72300000000000,
+          "nonempty_book_rows": 26987,
+          "two_sided_book_rows": 26985,
+          "bytes": 2451935,
+          "sha256": "9e7946eaf92e3c35ed676753b220618c50e1ac854bca1612892971ce43d02d31"
+        },
+        "reference": {
+          "rows": 61228,
+          "first_timestamp_ns": 11073000000000,
+          "last_timestamp_ns": 72300000000000,
+          "nonempty_book_rows": 26987,
+          "two_sided_book_rows": 26985,
+          "bytes": 2451935,
+          "sha256": "9e7946eaf92e3c35ed676753b220618c50e1ac854bca1612892971ce43d02d31"
+        }
+      },
+      "clock_extent": {
+        "first_accepted_timestamp_ns": 11072057543747,
+        "last_accepted_timestamp_ns": 72300000040070,
+        "expected_first_snapshot_ns": 11073000000000,
+        "expected_last_snapshot_ns": 72300000000000,
+        "expected_rows": 61228
+      },
+      "counts": {
+        "messages": 268744780,
+        "reference_messages_applied": 24046,
+        "local_final_orders": 0,
+        "local_peak_orders": 1924078,
+        "local_anomalies": 0,
+        "reference_unknown_refs": 0,
+        "reference_final_orders": 0
+      },
+      "comparison": {
+        "common_timestamps": 61228,
+        "equal_rows": 61228,
+        "mismatch_counts": {},
+        "first_discrepancies": [],
+        "example_limit": 10
+      },
+      "runs": {
+        "local": {
+          "command": [
+            "workspace/itch-feed-handler/build/itch_snapshots",
+            "--strict",
+            "--symbol",
+            "ALLE",
+            "--interval-ms",
+            "1000",
+            "--out",
+            "workspace/itch-feed-handler/out/bbo-canonical-1s/ALLE/local.csv",
+            "--summary",
+            "workspace/itch-feed-handler/out/bbo-canonical-1s/ALLE/local.json",
+            "workspace/itch-feed-handler/data/12302019.NASDAQ_ITCH50.itch"
+          ],
+          "exit_code": 0,
+          "error": null,
+          "elapsed_seconds": 35.201441,
+          "stdout": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stderr": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "passed": true
+        },
+        "reference": {
+          "command": [
+            "workspace/itch-feed-handler/data/reference/build-3c646f9/book_replay",
+            "workspace/itch-feed-handler/data/12302019.NASDAQ_ITCH50.gz",
+            "--symbol",
+            "ALLE",
+            "--snapshots",
+            "workspace/itch-feed-handler/out/bbo-canonical-1s/ALLE/reference.csv",
+            "--interval-ms",
+            "1000",
+            "--levels",
+            "1",
+            "--json",
+            "workspace/itch-feed-handler/out/bbo-canonical-1s/ALLE/reference.json"
+          ],
+          "exit_code": 0,
+          "error": null,
+          "elapsed_seconds": 13.353731,
+          "stdout": {
+            "bytes": 1288,
+            "sha256": "d3f1b243fe3f22a5aef2120b4c40aab85a196a27f482aa8a0b82d2d82fad08ea"
+          },
+          "stderr": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "passed": true
+        }
+      },
+      "summary_files": {
+        "local": {
+          "bytes": 778,
+          "sha256": "821e1cceef5a498b356ac7cc442a98296bc2ba4cd480e5af40eea5ad041defe4"
+        },
+        "reference": {
+          "bytes": 504,
+          "sha256": "81e89a7cd70cf343975b817c5a940576dd8176a05c44a08a3970aab47d28874a"
+        }
+      }
+    },
+    {
+      "symbol": "AQB",
+      "passed": true,
+      "errors": [],
+      "checks": {
+        "local_summary_valid": true,
+        "reference_summary_valid": true,
+        "local_observed_nonempty_book": true,
+        "reference_observed_nonempty_book": true,
+        "same_message_count": true,
+        "valid_clock_extent": true,
+        "local_row_count_matches_summary": true,
+        "local_complete_clock_extent": true,
+        "reference_row_count_matches_summary": true,
+        "reference_complete_clock_extent": true,
+        "nonempty_common_grid": true,
+        "all_sampled_bbo_rows_match": true,
+        "local_tool_succeeded_without_stderr": true,
+        "reference_tool_succeeded_without_stderr": true
+      },
+      "snapshots": {
+        "local": {
+          "rows": 61228,
+          "first_timestamp_ns": 11073000000000,
+          "last_timestamp_ns": 72300000000000,
+          "nonempty_book_rows": 44246,
+          "two_sided_book_rows": 44246,
+          "bytes": 2287373,
+          "sha256": "2036699be06c4e5e4586933f036ec1c976aed4b36a909b8f7562540637537b44"
+        },
+        "reference": {
+          "rows": 61228,
+          "first_timestamp_ns": 11073000000000,
+          "last_timestamp_ns": 72300000000000,
+          "nonempty_book_rows": 44246,
+          "two_sided_book_rows": 44246,
+          "bytes": 2287373,
+          "sha256": "2036699be06c4e5e4586933f036ec1c976aed4b36a909b8f7562540637537b44"
+        }
+      },
+      "clock_extent": {
+        "first_accepted_timestamp_ns": 11072057543747,
+        "last_accepted_timestamp_ns": 72300000040070,
+        "expected_first_snapshot_ns": 11073000000000,
+        "expected_last_snapshot_ns": 72300000000000,
+        "expected_rows": 61228
+      },
+      "counts": {
+        "messages": 268744780,
+        "reference_messages_applied": 893,
+        "local_final_orders": 0,
+        "local_peak_orders": 1924078,
+        "local_anomalies": 0,
+        "reference_unknown_refs": 0,
+        "reference_final_orders": 0
+      },
+      "comparison": {
+        "common_timestamps": 61228,
+        "equal_rows": 61228,
+        "mismatch_counts": {},
+        "first_discrepancies": [],
+        "example_limit": 10
+      },
+      "runs": {
+        "local": {
+          "command": [
+            "workspace/itch-feed-handler/build/itch_snapshots",
+            "--strict",
+            "--symbol",
+            "AQB",
+            "--interval-ms",
+            "1000",
+            "--out",
+            "workspace/itch-feed-handler/out/bbo-canonical-1s/AQB/local.csv",
+            "--summary",
+            "workspace/itch-feed-handler/out/bbo-canonical-1s/AQB/local.json",
+            "workspace/itch-feed-handler/data/12302019.NASDAQ_ITCH50.itch"
+          ],
+          "exit_code": 0,
+          "error": null,
+          "elapsed_seconds": 39.910947,
+          "stdout": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stderr": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "passed": true
+        },
+        "reference": {
+          "command": [
+            "workspace/itch-feed-handler/data/reference/build-3c646f9/book_replay",
+            "workspace/itch-feed-handler/data/12302019.NASDAQ_ITCH50.gz",
+            "--symbol",
+            "AQB",
+            "--snapshots",
+            "workspace/itch-feed-handler/out/bbo-canonical-1s/AQB/reference.csv",
+            "--interval-ms",
+            "1000",
+            "--levels",
+            "1",
+            "--json",
+            "workspace/itch-feed-handler/out/bbo-canonical-1s/AQB/reference.json"
+          ],
+          "exit_code": 0,
+          "error": null,
+          "elapsed_seconds": 13.504064,
+          "stdout": {
+            "bytes": 1287,
+            "sha256": "a4ea129371e459325b4b8fe8bdc032049c22cfce0006678febdf76624c6d7585"
+          },
+          "stderr": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "passed": true
+        }
+      },
+      "summary_files": {
+        "local": {
+          "bytes": 777,
+          "sha256": "adcb5ca505d11996f8fc4d3a8e461ae49ef6725dbf4338d07a241f8d9a4b1ceb"
+        },
+        "reference": {
+          "bytes": 501,
+          "sha256": "38782739df2964a7fcf8f06cc53de6428d7792a1678d999c94ab2b051b825513"
+        }
+      }
+    },
+    {
+      "symbol": "MKD",
+      "passed": true,
+      "errors": [],
+      "checks": {
+        "local_summary_valid": true,
+        "reference_summary_valid": true,
+        "local_observed_nonempty_book": true,
+        "reference_observed_nonempty_book": true,
+        "same_message_count": true,
+        "valid_clock_extent": true,
+        "local_row_count_matches_summary": true,
+        "local_complete_clock_extent": true,
+        "reference_row_count_matches_summary": true,
+        "reference_complete_clock_extent": true,
+        "nonempty_common_grid": true,
+        "all_sampled_bbo_rows_match": true,
+        "local_tool_succeeded_without_stderr": true,
+        "reference_tool_succeeded_without_stderr": true
+      },
+      "snapshots": {
+        "local": {
+          "rows": 61228,
+          "first_timestamp_ns": 11073000000000,
+          "last_timestamp_ns": 72300000000000,
+          "nonempty_book_rows": 43058,
+          "two_sided_book_rows": 40576,
+          "bytes": 2263737,
+          "sha256": "de575bcc3ec8ecd971fdc5b4d40200f795dd05901dedc0ba9f431eb3a8adb82e"
+        },
+        "reference": {
+          "rows": 61228,
+          "first_timestamp_ns": 11073000000000,
+          "last_timestamp_ns": 72300000000000,
+          "nonempty_book_rows": 43058,
+          "two_sided_book_rows": 40576,
+          "bytes": 2263737,
+          "sha256": "de575bcc3ec8ecd971fdc5b4d40200f795dd05901dedc0ba9f431eb3a8adb82e"
+        }
+      },
+      "clock_extent": {
+        "first_accepted_timestamp_ns": 11072057543747,
+        "last_accepted_timestamp_ns": 72300000040070,
+        "expected_first_snapshot_ns": 11073000000000,
+        "expected_last_snapshot_ns": 72300000000000,
+        "expected_rows": 61228
+      },
+      "counts": {
+        "messages": 268744780,
+        "reference_messages_applied": 32843,
+        "local_final_orders": 0,
+        "local_peak_orders": 1924078,
+        "local_anomalies": 0,
+        "reference_unknown_refs": 0,
+        "reference_final_orders": 0
+      },
+      "comparison": {
+        "common_timestamps": 61228,
+        "equal_rows": 61228,
+        "mismatch_counts": {},
+        "first_discrepancies": [],
+        "example_limit": 10
+      },
+      "runs": {
+        "local": {
+          "command": [
+            "workspace/itch-feed-handler/build/itch_snapshots",
+            "--strict",
+            "--symbol",
+            "MKD",
+            "--interval-ms",
+            "1000",
+            "--out",
+            "workspace/itch-feed-handler/out/bbo-canonical-1s/MKD/local.csv",
+            "--summary",
+            "workspace/itch-feed-handler/out/bbo-canonical-1s/MKD/local.json",
+            "workspace/itch-feed-handler/data/12302019.NASDAQ_ITCH50.itch"
+          ],
+          "exit_code": 0,
+          "error": null,
+          "elapsed_seconds": 37.908164,
+          "stdout": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stderr": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "passed": true
+        },
+        "reference": {
+          "command": [
+            "workspace/itch-feed-handler/data/reference/build-3c646f9/book_replay",
+            "workspace/itch-feed-handler/data/12302019.NASDAQ_ITCH50.gz",
+            "--symbol",
+            "MKD",
+            "--snapshots",
+            "workspace/itch-feed-handler/out/bbo-canonical-1s/MKD/reference.csv",
+            "--interval-ms",
+            "1000",
+            "--levels",
+            "1",
+            "--json",
+            "workspace/itch-feed-handler/out/bbo-canonical-1s/MKD/reference.json"
+          ],
+          "exit_code": 0,
+          "error": null,
+          "elapsed_seconds": 13.674984,
+          "stdout": {
+            "bytes": 1287,
+            "sha256": "76c60ca5d3cf5dab96825bfb389ad76630cc27562165dcd046fd769a25d643f4"
+          },
+          "stderr": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "passed": true
+        }
+      },
+      "summary_files": {
+        "local": {
+          "bytes": 778,
+          "sha256": "ce75fba91432564a2a87ca22cc67ecbb4da9c2ee7f331d2e82318b9d45adb159"
+        },
+        "reference": {
+          "bytes": 529,
+          "sha256": "7ca6bf65c74899bdf847b36700f90e2e66025cb8aa3294976d711ebf5c4da6f9"
+        }
+      }
+    }
+  ],
+  "reference_source": {
+    "repository": "https://github.com/KareemJandali/itchbook",
+    "commit": "3c646f9da182136125059243b475f7b8baa53773",
+    "limitations": "Pinned replay entry point and build definition are checked by SHA-256; binary hashes identify the actual executables. The report does not attest the compiler or prove every dependency was built from the stated source.",
+    "files": {
+      "tools/book_replay.cpp": {
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/tools/book_replay.cpp",
+        "bytes": 37095,
+        "sha256": "a0421a30edb9894bb2c32b486448590a0a11910f2a416c1584a79a000483257b"
+      },
+      "CMakeLists.txt": {
+        "path": "workspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/CMakeLists.txt",
+        "bytes": 8982,
+        "sha256": "eee433bf79d40e5ae6a50879be86f8a39a8cafe7e67f76098de823ce712398ab"
+      }
+    }
+  },
+  "comparison_runner": {
+    "path": "workspace/itch-feed-handler/bench/compare_bbo.py",
+    "bytes": 23823,
+    "sha256": "83caa1216e4d3c2e3eec184dd87755ac08008747ab6c3a8848d765d4623868b8"
+  },
+  "archive": {
+    "path": "workspace/itch-feed-handler/data/12302019.NASDAQ_ITCH50.gz",
+    "bytes": 3524013057,
+    "sha256": "ef03df46a27e6bda4dead017f84c2e3979df7211f02c7868b51d53fceb99c689"
+  },
+  "raw_input": {
+    "path": "workspace/itch-feed-handler/data/12302019.NASDAQ_ITCH50.itch",
+    "bytes": 8251407909,
+    "sha256": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f"
+  },
+  "local_tool": {
+    "path": "workspace/itch-feed-handler/build/itch_snapshots",
+    "bytes": 62240,
+    "sha256": "dc8ad67aea0528be0d9d309b2ef8b25bab79cc67aebbaa6b575ee0d5e33a8938"
+  },
+  "reference_tool": {
+    "path": "workspace/itch-feed-handler/data/reference/build-3c646f9/book_replay",
+    "bytes": 113928,
+    "sha256": "57511e76d8d534c841f983a8c2ee53249f91ed4d94cba51b5e4463f2a04d144f"
+  },
+  "archive_raw_identity": {
+    "bytes": 8251407909,
+    "sha256": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f"
+  },
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 27020,
+    "original_report_sha256": "d95d993530c6fa236233600ee501cf99d3139f6acef53aab761801bc1ee94aa3",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}

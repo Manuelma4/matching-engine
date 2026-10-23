@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "purpose": "Original-repository consolidation build and synthetic integration validation",
+  "passed": true,
+  "source_basis": {
+    "original_engine_parent": "dbd280185a0d45f0839881caeff8d535bcd56779",
+    "copied_feed_public_snapshot": "6d2e38809aee4a38b5bfb614d75e7e96f71fcf17",
+    "root_cmake": {
+      "bytes": 1518,
+      "sha256": "fd917e4694c9681d6d6fd7476a2918fe55618662312ff2a5b1111bace191a8da"
+    },
+    "component_cmake": {
+      "bytes": 4140,
+      "sha256": "2ab891c71f7d0ed5595bad2b6ad4f455d8b30350e4b56b0707ed1b473cfe1c9f"
+    }
+  },
+  "compiler": "AppleClang21.0.0.21000101",
+  "integrated_release": {
+    "ctest_groups_passed": 11,
+    "cpp_tests_enumerated": 302,
+    "cpp_tests_passed": 299,
+    "cpp_tests_skipped": 3,
+    "cli_methods_passed": 65,
+    "reference_index": "open_addressed",
+    "loopback": {
+      "symbols": 5,
+      "operations": 5000,
+      "touch_comparisons": 10000,
+      "full_books_identical": true,
+      "replica_anomalies": 0,
+      "book_hash": "2ef03f30f28e59ec"
+    }
+  },
+  "integrated_sanitised": {
+    "ctest_groups_passed": 11,
+    "cpp_tests_enumerated": 302,
+    "cpp_tests_passed": 299,
+    "cpp_tests_skipped": 3,
+    "cli_methods_passed": 65,
+    "reference_index": "open_addressed",
+    "loopback": {
+      "symbols": 5,
+      "operations": 5000,
+      "touch_comparisons": 10000,
+      "full_books_identical": true,
+      "replica_anomalies": 0,
+      "book_hash": "2ef03f30f28e59ec"
+    },
+    "sanitisers": [
+      "AddressSanitizer",
+      "UndefinedBehaviorSanitizer"
+    ],
+    "leak_detection_enabled": false
+  },
+  "additional_checks": {
+    "engine_only_build_passed": true,
+    "standalone_component_build_passed": true,
+    "partial_dependency_configurations_refused": 2,
+    "partial_dependency_diagnostic": "The feed handler requires both me and me_workloads targets",
+    "data_free_delayed_seed_example_passed": true
+  },
+  "skipped_cpp_cases": [
+    "L3BookFailures.StdNodeFailureOnExistingLevelPreservesEveryReferenceAndPriority",
+    "L3BookFailures.StdReplacementIntoExistingLevelSurvivesEveryIndexAllocationFailure",
+    "L3BookFailures.StdNodeFailureWithFullSingleOrderAndLevelPreservesOriginalForRetry"
+  ],
+  "recorded_warnings": [
+    "The disconnected FetchContent cache argument is unused when parent engine targets are reused.",
+    "Retained GoogleTest headers emit one char8_t-to-char32_t conversion warning."
+  ],
+  "reporting_correction": "All11 Release groups already passed exit0; parent checks assumed older summary wording and spacing. Retained logs were reconciled without rerunning the tests or changing source.",
+  "private_verification_receipt": {
+    "bytes": 63559,
+    "sha256": "b98d9341ddc45ab925e1ad3baf027bdc519729aa59eda8b893d45c69e5e4e16b"
+  },
+  "scope": {
+    "synthetic_inputs_only": true,
+    "market_data_opened_or_rehashed": false,
+    "historical_replays_rerun": false,
+    "current_independent_historical_states": 37,
+    "new_independent_historical_states": 0,
+    "performance_comparison_performed": false
+  },
+  "limitations": [
+    "The default open-addressed index is exercised; three standard-index-only allocation checks are explicit skips.",
+    "Private test sources and detailed command/build records remain outside the public repository.",
+    "Integration checks do not widen historical reconstruction or queue/fill claims."
+  ]
+}

@@ -1,0 +1,13 @@
+FMID    266516 resting orders,   44 bid /   39 ask levels: identical
+RWLK     87645 resting orders,  156 bid /  327 ask levels: identical
+DEEP    196600 resting orders,  629 bid /  696 ask levels: identical
+FLSH     37964 resting orders, 1388 bid /  291 ask levels: identical
+MMKR       710 resting orders,   98 bid /   49 ask levels: identical
+
+engine operations  5000000 (1000000 per stock, seed 42)
+feed               154662813 bytes, 2.25 s to publish and rebuild
+touch comparisons  10000000, all equal
+full books         identical
+replica anomalies  none
+book hash          deeac4250bf08677
+written            out/loopback.itch

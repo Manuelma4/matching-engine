@@ -1,0 +1,1195 @@
+{
+  "additional_metadata_files_rehashed_during_finalisation": 4,
+  "anchors": {
+    "freeze_manifest": {
+      "bytes": 13784,
+      "path": "itch-feed-handler/out/offline-restart-oracle-v1/freeze-manifest.json",
+      "sha256": "987ae273e587d6536b6e9cab7b6adedbca818354de624f1c7327a9ef1f49fc95"
+    },
+    "frozen_oracle": {
+      "bytes": 159212,
+      "path": "itch-feed-handler/out/offline-restart-oracle-v1/oracle.json",
+      "sha256": "aa4ba251f3a3294d3589a8128257d5f62259f218430458ee25f1d6fad9d80db5"
+    },
+    "gate11_evidence": {
+      "bytes": 19053,
+      "path": "itch-feed-handler/docs/validation/2026-10-22-canonical-transport/verification.json",
+      "sha256": "d3055c07edf93bff5fb29d8014d9d159d9f77cb5a5ec00a8f1f5a776e81e5ea7"
+    },
+    "gate11_fixture_manifest": {
+      "bytes": 6169,
+      "path": "itch-feed-handler/out/canonical-transport-fixture-v1/freeze-manifest.json",
+      "sha256": "cf6da1ee6558fac63b109101c8f71e5612c687f74c1f1d746e713c52b8bd867b"
+    },
+    "gate12_design_evidence": {
+      "bytes": 38927,
+      "path": "itch-feed-handler/docs/validation/2026-10-22-offline-restart/design.json",
+      "sha256": "69b754514820673ec6898763459faf7097a947d8ddf3669520e39cda50de1128"
+    },
+    "oracle_schema": {
+      "bytes": 13961,
+      "path": "itch-feed-handler/docs/OFFLINE_RESTART_ORACLE.md",
+      "sha256": "10f01d7130b24568d60fff88468b192f0490b3cc736e7af4f7ea48bedd1b15c5"
+    },
+    "original_bundle_manifest": {
+      "bytes": 24064,
+      "path": "itch-feed-handler/out/canonical-transport-canonical-v1/manifest.json",
+      "sha256": "b736130dd04013ee8811efe575856503d169b56495e8b94b0bd7e20fea19ae08"
+    },
+    "restart_policy": {
+      "bytes": 17618,
+      "path": "itch-feed-handler/docs/OFFLINE_RESTART.md",
+      "sha256": "29b57fb1f0070c3f7f6c6b01b4418474898c240418252a4e0b0ad1e99e338673"
+    },
+    "runtime_interface": {
+      "bytes": 9427,
+      "path": "itch-feed-handler/docs/OFFLINE_RESTART_RUNTIME.md",
+      "sha256": "411afe24b7cbd80c37623071a4783bd77a21a2161bc71656595094b37bd63bf5"
+    }
+  },
+  "build_and_runtime_diagnostics": {
+    "bad_seed_intentional_stderr_bytes": 90,
+    "fatal_sanitiser_environment": {
+      "ASAN_OPTIONS": "halt_on_error=1:abort_on_error=1",
+      "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+    },
+    "final_configure_and_build_stderr_empty": true,
+    "negative_controls_were_release_only": true,
+    "normal_runtime_stderr_empty": true,
+    "stale_token_failure_detected_by_independent_verifier": true,
+    "stale_token_process_exit_code": 0
+  },
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "workspace/itch-feed-handler-tests/restart-runtime",
+        "-B",
+        "workspace/itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-release",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DITCH_SANITIZE=OFF",
+        "-DITCH_REFERENCE_INDEX=open_addressed",
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+        "-DFETCHCONTENT_SOURCE_DIR_MATCHING_ENGINE=workspace/matching-engine"
+      ],
+      "exit_code": 0,
+      "name": "release-configure",
+      "stderr": {
+        "bytes": 0,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/release-configure.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 486,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/release-configure.stdout",
+        "sha256": "550541676325a50f8222fc14ec0c6dee183a758e23bf09ae40491b58fc8da138"
+      },
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "workspace/itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-release",
+        "--target",
+        "offline_restart",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "name": "release-build",
+      "stderr": {
+        "bytes": 0,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/release-build.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 968,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/release-build.stdout",
+        "sha256": "8bf1c15cc222de3e0e490692b443e251f072eba00323b1b171314745e827c690"
+      },
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "workspace/itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-release/offline_restart",
+        "workspace/itch-feed-handler/out/canonical-transport-canonical-v1",
+        "workspace/itch-feed-handler/out/canonical-transport-fixture-v1",
+        "workspace/itch-feed-handler/out/offline-restart-runtime-verification-v3/schedule"
+      ],
+      "exit_code": 0,
+      "name": "release-first",
+      "sanitiser_environment": {
+        "ASAN_OPTIONS": "halt_on_error=1:abort_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+      },
+      "stderr": {
+        "bytes": 0,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/release-first.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 141169,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/release-first.stdout",
+        "sha256": "e327cb8c0fa02a71f7e7d8addcd186b19b0494450e115c56f1cf3bb1ce3a9b54"
+      },
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "workspace/itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-release/offline_restart",
+        "workspace/itch-feed-handler/out/canonical-transport-canonical-v1",
+        "workspace/itch-feed-handler/out/canonical-transport-fixture-v1",
+        "workspace/itch-feed-handler/out/offline-restart-runtime-verification-v3/schedule"
+      ],
+      "exit_code": 0,
+      "name": "release-second",
+      "sanitiser_environment": {
+        "ASAN_OPTIONS": "halt_on_error=1:abort_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+      },
+      "stderr": {
+        "bytes": 0,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/release-second.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 141169,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/release-second.stdout",
+        "sha256": "e327cb8c0fa02a71f7e7d8addcd186b19b0494450e115c56f1cf3bb1ce3a9b54"
+      },
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "workspace/itch-feed-handler-tests/restart-runtime",
+        "-B",
+        "workspace/itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-asan-ubsan",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DITCH_SANITIZE=ON",
+        "-DITCH_REFERENCE_INDEX=open_addressed",
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+        "-DFETCHCONTENT_SOURCE_DIR_MATCHING_ENGINE=workspace/matching-engine"
+      ],
+      "exit_code": 0,
+      "name": "asan-ubsan-configure",
+      "stderr": {
+        "bytes": 0,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/asan-ubsan-configure.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 489,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/asan-ubsan-configure.stdout",
+        "sha256": "1f0a898845c11b7fbae3b1eaafaa2ed930caeaa15d0c29f2505a3ba5ddf62627"
+      },
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "workspace/itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-asan-ubsan",
+        "--target",
+        "offline_restart",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "name": "asan-ubsan-build",
+      "stderr": {
+        "bytes": 0,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/asan-ubsan-build.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 968,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/asan-ubsan-build.stdout",
+        "sha256": "48ab80fc6fec47aae943472354f619420245fc5023346733198564bce6fdc00b"
+      },
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "workspace/itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-asan-ubsan/offline_restart",
+        "workspace/itch-feed-handler/out/canonical-transport-canonical-v1",
+        "workspace/itch-feed-handler/out/canonical-transport-fixture-v1",
+        "workspace/itch-feed-handler/out/offline-restart-runtime-verification-v3/schedule"
+      ],
+      "exit_code": 0,
+      "name": "asan-ubsan-first",
+      "sanitiser_environment": {
+        "ASAN_OPTIONS": "halt_on_error=1:abort_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+      },
+      "stderr": {
+        "bytes": 0,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/asan-ubsan-first.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 141169,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/asan-ubsan-first.stdout",
+        "sha256": "e327cb8c0fa02a71f7e7d8addcd186b19b0494450e115c56f1cf3bb1ce3a9b54"
+      },
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "workspace/itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-asan-ubsan/offline_restart",
+        "workspace/itch-feed-handler/out/canonical-transport-canonical-v1",
+        "workspace/itch-feed-handler/out/canonical-transport-fixture-v1",
+        "workspace/itch-feed-handler/out/offline-restart-runtime-verification-v3/schedule"
+      ],
+      "exit_code": 0,
+      "name": "asan-ubsan-second",
+      "sanitiser_environment": {
+        "ASAN_OPTIONS": "halt_on_error=1:abort_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+      },
+      "stderr": {
+        "bytes": 0,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/asan-ubsan-second.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 141169,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/asan-ubsan-second.stdout",
+        "sha256": "e327cb8c0fa02a71f7e7d8addcd186b19b0494450e115c56f1cf3bb1ce3a9b54"
+      },
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "workspace/itch-feed-handler-tests/restart-runtime",
+        "-B",
+        "workspace/itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-bad-partial-seed",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DITCH_SANITIZE=OFF",
+        "-DITCH_REFERENCE_INDEX=open_addressed",
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+        "-DFETCHCONTENT_SOURCE_DIR_MATCHING_ENGINE=workspace/matching-engine"
+      ],
+      "exit_code": 0,
+      "name": "bad-partial-seed-configure",
+      "stderr": {
+        "bytes": 0,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/bad-partial-seed-configure.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 495,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/bad-partial-seed-configure.stdout",
+        "sha256": "8a35d043eda83639dba2abd23a02ee2f7d400e17fe2d508b26d6e188d76b4b54"
+      },
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "workspace/itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-bad-partial-seed",
+        "--target",
+        "offline_restart_bad_partial_seed",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "name": "bad-partial-seed-build",
+      "stderr": {
+        "bytes": 0,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/bad-partial-seed-build.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 1019,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/bad-partial-seed-build.stdout",
+        "sha256": "eae57e6c57321048323c86627b4421e96653411977ee7b282a9f01daf3fffc02"
+      },
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "workspace/itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-bad-partial-seed/offline_restart_bad_partial_seed",
+        "workspace/itch-feed-handler/out/canonical-transport-canonical-v1",
+        "workspace/itch-feed-handler/out/canonical-transport-fixture-v1",
+        "workspace/itch-feed-handler/out/offline-restart-runtime-verification-v3/schedule"
+      ],
+      "exit_code": 1,
+      "name": "bad-partial-seed-run",
+      "sanitiser_environment": {
+        "ASAN_OPTIONS": "halt_on_error=1:abort_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+      },
+      "stderr": {
+        "bytes": 90,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/bad-partial-seed-run.stderr",
+        "sha256": "6986a027d74b2060a2fbb7efb2d6836e9cf3448683001bff9bd58f562239abff"
+      },
+      "stdout": {
+        "bytes": 0,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/bad-partial-seed-run.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "workspace/itch-feed-handler-tests/restart-runtime",
+        "-B",
+        "workspace/itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-ignore-stale-ordinal",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DITCH_SANITIZE=OFF",
+        "-DITCH_REFERENCE_INDEX=open_addressed",
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+        "-DFETCHCONTENT_SOURCE_DIR_MATCHING_ENGINE=workspace/matching-engine"
+      ],
+      "exit_code": 0,
+      "name": "ignore-stale-ordinal-configure",
+      "stderr": {
+        "bytes": 0,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/ignore-stale-ordinal-configure.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 499,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/ignore-stale-ordinal-configure.stdout",
+        "sha256": "23fa3078e1fe530cd7ff7ad6d68d5999b1cb7cd52e8591facd207b7e4e6a0b11"
+      },
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "workspace/itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-ignore-stale-ordinal",
+        "--target",
+        "offline_restart_stale_token",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "name": "ignore-stale-ordinal-build",
+      "stderr": {
+        "bytes": 0,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/ignore-stale-ordinal-build.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 1004,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/ignore-stale-ordinal-build.stdout",
+        "sha256": "71f7b669503092ea397657bc998f4c5c16dca30b3478f977d0661faaf37ad17b"
+      },
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "workspace/itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-ignore-stale-ordinal/offline_restart_stale_token",
+        "workspace/itch-feed-handler/out/canonical-transport-canonical-v1",
+        "workspace/itch-feed-handler/out/canonical-transport-fixture-v1",
+        "workspace/itch-feed-handler/out/offline-restart-runtime-verification-v3/schedule"
+      ],
+      "exit_code": 0,
+      "name": "ignore-stale-ordinal-run",
+      "sanitiser_environment": {
+        "ASAN_OPTIONS": "halt_on_error=1:abort_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+      },
+      "stderr": {
+        "bytes": 0,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/ignore-stale-ordinal-run.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 141185,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/ignore-stale-ordinal-run.stdout",
+        "sha256": "6dc951a72e9cae55a334bed384c6d17a231fdf99077e2e142651cc9b64f8333f"
+      },
+      "timed_out": false
+    }
+  ],
+  "completed_at_utc": "2026-10-22T22:04:01.815039+00:00",
+  "gate": "bounded_offline_restart_runtime_v1",
+  "historical_scope": {
+    "canonical_day": "2019-12-30",
+    "cpp_sha256_recomputed": false,
+    "historical_raw_read_this_increment": false,
+    "independent_reference_replayed_this_increment": false,
+    "new_historical_samples": 0,
+    "raw_full_identity_freshly_verified_this_increment": false,
+    "retained_identified_facts": 13,
+    "retained_independent_complete_inventories": 15,
+    "retained_independent_order_row_instances": 16886,
+    "symbols": [
+      "QQQ",
+      "MSFT"
+    ],
+    "synthetic_occurrence_control_separate": true
+  },
+  "instrumentation_qualification": {
+    "compared_order_rows": "Executed observed inventory-row instances, including repeated diagnostics across generations; not unique historical orders or throughput.",
+    "gate12_metadata_counts_are_runtime_comparisons": false,
+    "inventory_comparisons": "Executed complete FIFO/BBO comparisons: fresh imported seeds, each applied callback including the partial callback, each arrival diagnostic, each admitted EOF and each accepted candidate value.",
+    "partial_callback_explains_applied_returned_difference": true
+  },
+  "integrity": {
+    "independent_retained_review": {
+      "compared_order_rows_per_run": 151398,
+      "consumed_files_stable": 285,
+      "cpp_runtime_or_verifier_reexecuted": false,
+      "final_build_stderr_empty": true,
+      "four_normal_outputs_byte_identical": true,
+      "four_outputs_exact_frozen_projection": true,
+      "inventory_comparisons_per_run": 285,
+      "legacy_private_and_public_code_unchanged": true,
+      "lifetime_entries_per_run": 42,
+      "lifetime_epochs_per_run": 21,
+      "maximum_live_generations": 1,
+      "precise_partial_seed_guard": true,
+      "protected_hash_passes": 2,
+      "protected_identity_count": 241,
+      "record": {
+        "bytes": 72363,
+        "path": "itch-feed-handler/out/offline-restart-runtime-independent-v2/audit.json",
+        "sha256": "bfa9efbe8d8d271a267140eb1fedacccd110e2bd8cdd197c4c417896c331849c"
+      },
+      "source": {
+        "bytes": 18483,
+        "path": "itch-feed-handler/out/offline-restart-runtime-independent-v2/audit.py",
+        "sha256": "60e2b038e64c5ae3f0ee427b00470ab1284f62a178ea955219c1d53cc7e4186a"
+      },
+      "stale_ordinal_denial_reason_differences": 8,
+      "status": "passed",
+      "successful_unauthorised_promotion_demonstrated": false,
+      "v2_v3_normal_stdout_byte_identical": true
+    },
+    "old_gate11_private_files_unchanged": true,
+    "old_public_implementation_files": 42,
+    "protected_inputs_at_runtime": 241,
+    "protected_inputs_unchanged_before_after": true,
+    "schedule_files": {
+      "arrivals.csv": {
+        "bytes": 4365,
+        "sha256": "1eec7793f7fe3aab9ea042cd94d35c4c6c86738c3d74bbccdb4d30b89ec00633"
+      },
+      "attempts.csv": {
+        "bytes": 941,
+        "sha256": "4a3799c892cb92c1d955691622fa6a529ceb4ee6c43dbeb17acee36df0bc7fec"
+      },
+      "cases.csv": {
+        "bytes": 2460,
+        "sha256": "2b99c002eb7d79e29d9e3a72d2954c69b5a3e2ab594062f33e8c883133194f3c"
+      },
+      "controls.csv": {
+        "bytes": 2485,
+        "sha256": "4a198a823496b657d6afc1aee6f787196db564f2de9fe2fe760f81adf021852c"
+      }
+    }
+  },
+  "limitations": [
+    "This is bounded recomputation from authenticated retained local inputs, not a live venue retransmission implementation.",
+    "Two reserved attempts per case, at most one live generation and no reset, recovery checkpoint, reorder cache or packet fabrication.",
+    "Admission refusals occur before construction and do not test allocator exhaustion.",
+    "The stale-ordinal mutant demonstrates an incorrect denial reason and token-before-promotion boundary; successful unauthorised promotion is not claimed.",
+    "Repeated full-state comparisons do not add historical samples or prove arbitrary future streams.",
+    "No network availability, receipt-clock, latency, performance, queue eligibility, shadow-fill or strategy claim.",
+    "Per-case, per-arrival, lifetime and complete inventory records remain ignored; this publication contains aggregates and identities."
+  ],
+  "negative_controls": [
+    {
+      "binary": {
+        "bytes": 301232,
+        "path": "itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-bad-partial-seed/offline_restart_bad_partial_seed",
+        "sha256": "b2a536e146e04b7ceb5f763005472b1f2fa83c16eb4036ee42ce1222d0f39b78"
+      },
+      "compile_database": {
+        "bytes": 16506,
+        "path": "itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-bad-partial-seed/compile_commands.json",
+        "sha256": "1ba2f9b0aea806630da637cf7c8e2f256046eb0fb2ed1f6771e3933ead85f991"
+      },
+      "expected_stderr": "offline restart verification failed: restart seed FIFO/BBO mismatch: msft_partial_apply/2\n",
+      "guard_detected": true,
+      "link_flags": {
+        "bytes": 341,
+        "path": "itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-bad-partial-seed/CMakeFiles/offline_restart_bad_partial_seed.dir/link.txt",
+        "sha256": "ee31887f67424ae343428718463b463e78ef6d37b0957bf28e7c5b93ce5d7a75"
+      },
+      "name": "bad-partial-seed",
+      "precise_seed_guard": true,
+      "private_compile_definition": "OFFLINE_RESTART_BAD_PARTIAL_SEED",
+      "process_exit_code": 1,
+      "sanitisers": false,
+      "stderr": {
+        "bytes": 90,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/bad-partial-seed-run.stderr",
+        "sha256": "6986a027d74b2060a2fbb7efb2d6836e9cf3448683001bff9bd58f562239abff"
+      },
+      "stdout": {
+        "bytes": 0,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/bad-partial-seed-run.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "target": "offline_restart_bad_partial_seed"
+    },
+    {
+      "actual": "already_promoted",
+      "binary": {
+        "bytes": 301128,
+        "path": "itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-ignore-stale-ordinal/offline_restart_stale_token",
+        "sha256": "02df5f31a4f309a1f554591b9fbdb9fd5304abcdee07d77ca8f968687f0a8aaf"
+      },
+      "compile_database": {
+        "bytes": 16594,
+        "path": "itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-ignore-stale-ordinal/compile_commands.json",
+        "sha256": "e681f0fcf0c0a20f0c3f1e25242a1324975e82d3ca305bfe31129631717ba29d"
+      },
+      "error": "runtime mismatch at $.cases[1].controls[1].actual.reason: expected=\"token_mismatch\" actual=\"already_promoted\"",
+      "expected": "token_mismatch",
+      "first_difference_path": "$.cases[1].controls[1].actual.reason",
+      "guard_detected": true,
+      "link_flags": {
+        "bytes": 331,
+        "path": "itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-ignore-stale-ordinal/CMakeFiles/offline_restart_stale_token.dir/link.txt",
+        "sha256": "4e5fbf9895595149b4c2eb9a03fbf65044164ff7b27ac85adb201609516a8794"
+      },
+      "name": "ignore-stale-ordinal",
+      "private_compile_definition": "OFFLINE_RESTART_IGNORE_STALE_ORDINAL",
+      "process_exit_code": 0,
+      "sanitisers": false,
+      "stderr": {
+        "bytes": 0,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/ignore-stale-ordinal-run.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 141185,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/ignore-stale-ordinal-run.stdout",
+        "sha256": "6dc951a72e9cae55a334bed384c6d17a231fdf99077e2e142651cc9b64f8333f"
+      },
+      "target": "offline_restart_stale_token"
+    }
+  ],
+  "normal_execution": {
+    "actual_stdout_byte_identical_within_and_across_profiles": true,
+    "counts_per_run": {
+      "by_scope": {
+        "canonical_selected_projection_v1": {
+          "admission_refusals": 1,
+          "applied_callbacks": 82,
+          "callback_state_checks": 82,
+          "cases": 10,
+          "compared_order_rows": 151384,
+          "constructed_generations": 18,
+          "controls": 38,
+          "inventory_comparisons": 262,
+          "promotions": 8,
+          "reserved_attempts": 19,
+          "returned_callbacks": 81,
+          "supplied_arrivals": 136
+        },
+        "synthetic_occurrence_control_v1": {
+          "admission_refusals": 1,
+          "applied_callbacks": 3,
+          "callback_state_checks": 3,
+          "cases": 2,
+          "compared_order_rows": 14,
+          "constructed_generations": 3,
+          "controls": 4,
+          "inventory_comparisons": 23,
+          "promotions": 1,
+          "reserved_attempts": 4,
+          "returned_callbacks": 3,
+          "supplied_arrivals": 13
+        }
+      },
+      "total": {
+        "admission_refusals": 2,
+        "applied_callbacks": 85,
+        "callback_state_checks": 85,
+        "cases": 12,
+        "compared_order_rows": 151398,
+        "constructed_generations": 21,
+        "controls": 42,
+        "inventory_comparisons": 285,
+        "promotions": 9,
+        "reserved_attempts": 23,
+        "returned_callbacks": 84,
+        "supplied_arrivals": 149
+      }
+    },
+    "exact_frozen_outcomes_per_run": true,
+    "lifetime_epochs_per_run": 21,
+    "lifetime_qualification": "Epoch traces and independently reviewed ownership code establish the tested scope; object addresses may be reused.",
+    "maximum_live_generations": 1,
+    "processes": [
+      {
+        "exit_code": 0,
+        "name": "release-first",
+        "stderr": {
+          "bytes": 0,
+          "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/release-first.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 141169,
+          "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/release-first.stdout",
+          "sha256": "e327cb8c0fa02a71f7e7d8addcd186b19b0494450e115c56f1cf3bb1ce3a9b54"
+        }
+      },
+      {
+        "exit_code": 0,
+        "name": "release-second",
+        "stderr": {
+          "bytes": 0,
+          "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/release-second.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 141169,
+          "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/release-second.stdout",
+          "sha256": "e327cb8c0fa02a71f7e7d8addcd186b19b0494450e115c56f1cf3bb1ce3a9b54"
+        }
+      },
+      {
+        "exit_code": 0,
+        "name": "asan-ubsan-first",
+        "stderr": {
+          "bytes": 0,
+          "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/asan-ubsan-first.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 141169,
+          "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/asan-ubsan-first.stdout",
+          "sha256": "e327cb8c0fa02a71f7e7d8addcd186b19b0494450e115c56f1cf3bb1ce3a9b54"
+        }
+      },
+      {
+        "exit_code": 0,
+        "name": "asan-ubsan-second",
+        "stderr": {
+          "bytes": 0,
+          "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/asan-ubsan-second.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 141169,
+          "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/asan-ubsan-second.stdout",
+          "sha256": "e327cb8c0fa02a71f7e7d8addcd186b19b0494450e115c56f1cf3bb1ce3a9b54"
+        }
+      }
+    ],
+    "profiles": [
+      {
+        "binary": {
+          "bytes": 301120,
+          "path": "itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-release/offline_restart",
+          "sha256": "6c5f927976e3d292f74797436ed5ad2745dcb65cbd7f4cfb34f25f559713388c"
+        },
+        "compile_database": {
+          "bytes": 16308,
+          "path": "itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-release/compile_commands.json",
+          "sha256": "079c091f39b2a25b06b826d7cfa59b033605ca40de62cfc7849da7199943de93"
+        },
+        "effective_compile_commands": [
+          {
+            "command": "/usr/bin/c++ -DITCH_STD_REFERENCE_INDEX=0 -I\"workspace/itch-feed-handler/include\" -I\"workspace/matching-engine/include\" -O3 -DNDEBUG -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -o CMakeFiles/offline_restart.dirhome/Quantitative_finance/itch-feed-handler-tests/offline_restart.cpp.o -c \"workspace/itch-feed-handler-tests/offline_restart.cpp\"",
+            "file": "workspace/itch-feed-handler-tests/offline_restart.cpp",
+            "output": "CMakeFiles/offline_restart.dirhome/Quantitative_finance/itch-feed-handler-tests/offline_restart.cpp.o"
+          },
+          {
+            "command": "/usr/bin/c++  -I\"workspace/itch-feed-handler/include\" -O3 -DNDEBUG -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -o CMakeFiles/itch_mold.dir/src/mold.cpp.o -c \"workspace/itch-feed-handler/src/mold.cpp\"",
+            "file": "workspace/itch-feed-handler/src/mold.cpp",
+            "output": "feed/CMakeFiles/itch_mold.dir/src/mold.cpp.o"
+          },
+          {
+            "command": "/usr/bin/c++ -DITCH_STD_REFERENCE_INDEX=0 -I\"workspace/itch-feed-handler/include\" -I\"workspace/matching-engine/include\" -O3 -DNDEBUG -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -o CMakeFiles/itch.dir/src/book.cpp.o -c \"workspace/itch-feed-handler/src/book.cpp\"",
+            "file": "workspace/itch-feed-handler/src/book.cpp",
+            "output": "feed/CMakeFiles/itch.dir/src/book.cpp.o"
+          }
+        ],
+        "effective_link_command": "/usr/bin/c++ -O3 -DNDEBUG -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names \"CMakeFiles/offline_restart.dirhome/Quantitative_finance/itch-feed-handler-tests/offline_restart.cpp.o\" -o offline_restart  feed/libitch_mold.a feed/libitch.a _deps/matching_engine-build/libme.a",
+        "exact_frozen_outcomes": true,
+        "lifetime_epochs": 21,
+        "link_flags": {
+          "bytes": 307,
+          "path": "itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-release/CMakeFiles/offline_restart.dir/link.txt",
+          "sha256": "d502fdc5c869cc978b86dc1e72305fe41758552524e2d1764cb9fba848859867"
+        },
+        "max_live_generations": 1,
+        "name": "release",
+        "repeated_stdout_byte_identical": true,
+        "sanitisers": false,
+        "target": "offline_restart"
+      },
+      {
+        "binary": {
+          "bytes": 4303456,
+          "path": "itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-asan-ubsan/offline_restart",
+          "sha256": "85e009482c991050aa781700fe15d27ddf5bb10ec2206b8111bdbcdc3bbd801a"
+        },
+        "compile_database": {
+          "bytes": 17320,
+          "path": "itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-asan-ubsan/compile_commands.json",
+          "sha256": "cd6d8fffaa4e8dcd9351619b71f247b3aca43dd2dddba966e102d947ea0ec5cb"
+        },
+        "effective_compile_commands": [
+          {
+            "command": "/usr/bin/c++ -DITCH_STD_REFERENCE_INDEX=0 -I\"workspace/itch-feed-handler/include\" -I\"workspace/matching-engine/include\" -g -std=c++20 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -fsanitize=address,undefined -fno-omit-frame-pointer -o CMakeFiles/offline_restart.dirhome/Quantitative_finance/itch-feed-handler-tests/offline_restart.cpp.o -c \"workspace/itch-feed-handler-tests/offline_restart.cpp\"",
+            "file": "workspace/itch-feed-handler-tests/offline_restart.cpp",
+            "output": "CMakeFiles/offline_restart.dirhome/Quantitative_finance/itch-feed-handler-tests/offline_restart.cpp.o"
+          },
+          {
+            "command": "/usr/bin/c++  -I\"workspace/itch-feed-handler/include\" -g -std=c++20 -arch arm64 -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic -Wshadow -Wconversion -o CMakeFiles/itch_mold.dir/src/mold.cpp.o -c \"workspace/itch-feed-handler/src/mold.cpp\"",
+            "file": "workspace/itch-feed-handler/src/mold.cpp",
+            "output": "feed/CMakeFiles/itch_mold.dir/src/mold.cpp.o"
+          },
+          {
+            "command": "/usr/bin/c++ -DITCH_STD_REFERENCE_INDEX=0 -I\"workspace/itch-feed-handler/include\" -I\"workspace/matching-engine/include\" -g -std=c++20 -arch arm64 -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic -Wshadow -Wconversion -o CMakeFiles/itch.dir/src/book.cpp.o -c \"workspace/itch-feed-handler/src/book.cpp\"",
+            "file": "workspace/itch-feed-handler/src/book.cpp",
+            "output": "feed/CMakeFiles/itch.dir/src/book.cpp.o"
+          }
+        ],
+        "effective_link_command": "/usr/bin/c++ -g -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names -fsanitize=address,undefined \"CMakeFiles/offline_restart.dirhome/Quantitative_finance/itch-feed-handler-tests/offline_restart.cpp.o\" -o offline_restart  feed/libitch_mold.a feed/libitch.a _deps/matching_engine-build/libme.a",
+        "exact_frozen_outcomes": true,
+        "lifetime_epochs": 21,
+        "link_flags": {
+          "bytes": 326,
+          "path": "itch-feed-handler-tests/build-offline-restart-runtime-verification-v3-asan-ubsan/CMakeFiles/offline_restart.dir/link.txt",
+          "sha256": "0795656aa1264ab38011f8f08afbb648bfecece9f8d9e7cc24d9bac936105881"
+        },
+        "max_live_generations": 1,
+        "name": "asan-ubsan",
+        "repeated_stdout_byte_identical": true,
+        "sanitisers": true,
+        "target": "offline_restart"
+      }
+    ],
+    "runs": 4
+  },
+  "passed": true,
+  "private_verification": {
+    "bytes": 93643,
+    "path": "itch-feed-handler/out/offline-restart-runtime-verification-v3/verification.json",
+    "sha256": "6d19d09780321872476ca35f6f84f5a4109e91ce8193bed8efcfe45a6c82dbe0"
+  },
+  "publication_date": "2026-10-23",
+  "publication_timezone": "Europe/Paris",
+  "retained_attempts": {
+    "initial_independent_audit_scope_correction": {
+      "reason": "The first independent evidence audit incorrectly required the order-book index-layout definition on generic mold.cpp. The corrected audit checks that ABI definition on actual L3 consumers (worker and book) and separately validates the generic transport flags. This correction changed only the metadata audit; original failure and source remain bound by the successful audit.",
+      "record": {
+        "bytes": 138,
+        "path": "itch-feed-handler/out/offline-restart-runtime-independent-v1/failure.json",
+        "sha256": "9b1b027455df3f059f0150fcee766a3a6d4129b49c595173ecb78d19186224b0"
+      },
+      "runtime_or_verifier_rerun": false,
+      "source": {
+        "bytes": 18266,
+        "path": "itch-feed-handler/out/offline-restart-runtime-independent-v1/audit.py",
+        "sha256": "189736fedfd3750e4145af867ae04fced7a5d4b20243c0be3e8df698632037e2"
+      }
+    },
+    "initial_verifier_failure": {
+      "before_any_build_or_worker_process": true,
+      "reason": "The integer-only reader rejected a floating diagnostic value in a SHA-pinned historical metadata report. The targeted reader was corrected only for that retained diagnostic report.",
+      "record": {
+        "bytes": 1231,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v1/failure.json",
+        "sha256": "5cb02f11b15901a0e078b99a6252ba71e75a54308001b7eed82e9dcad3cf7ab2"
+      }
+    },
+    "v2_success_with_compile_warning": {
+      "build_warning_records": [
+        {
+          "name": "release-build",
+          "stderr": {
+            "bytes": 297,
+            "path": "itch-feed-handler/out/offline-restart-runtime-verification-v2/release-build.stderr",
+            "sha256": "1234deda2c02d964e4adf21041c37186a9cfd0389c06233801b28404dacbf0fe"
+          }
+        },
+        {
+          "name": "asan-ubsan-build",
+          "stderr": {
+            "bytes": 297,
+            "path": "itch-feed-handler/out/offline-restart-runtime-verification-v2/asan-ubsan-build.stderr",
+            "sha256": "1234deda2c02d964e4adf21041c37186a9cfd0389c06233801b28404dacbf0fe"
+          }
+        },
+        {
+          "name": "bad-partial-seed-build",
+          "stderr": {
+            "bytes": 297,
+            "path": "itch-feed-handler/out/offline-restart-runtime-verification-v2/bad-partial-seed-build.stderr",
+            "sha256": "1234deda2c02d964e4adf21041c37186a9cfd0389c06233801b28404dacbf0fe"
+          }
+        },
+        {
+          "name": "ignore-stale-ordinal-build",
+          "stderr": {
+            "bytes": 297,
+            "path": "itch-feed-handler/out/offline-restart-runtime-verification-v2/ignore-stale-ordinal-build.stderr",
+            "sha256": "1234deda2c02d964e4adf21041c37186a9cfd0389c06233801b28404dacbf0fe"
+          }
+        }
+      ],
+      "four_normal_stdout_bytes_identical_to_final_v3": true,
+      "normal_runtime_stderr_empty": true,
+      "record": {
+        "bytes": 93650,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v2/verification.json",
+        "sha256": "49d0b2983ebf642b69041ea840118a5e0c00f3dcb8e2f72cbf9ed410cf2f4ace"
+      },
+      "runtime_matrix_passed": true,
+      "source_snapshot": {
+        "bytes": 41208,
+        "path": "itch-feed-handler/out/offline-restart-runtime-verification-v2/startup-sources/offline_restart.cpp",
+        "sha256": "c1ee23ccbc86b08c897789472628224d66dd6568779a3b0110936dacf86e55b5"
+      },
+      "warning": "Implicit char-to-unsigned-char range-loop conversion in the JSON quoting helper; one explicit cast removed the warning."
+    },
+    "v3_final": {
+      "all_final_build_stderr_empty": true,
+      "focused_rerun_after_source_change": true
+    }
+  },
+  "runtime_executed": true,
+  "schema_version": 1,
+  "selected_metadata_identities_rehashed_during_preparation": 128,
+  "source": {
+    "gate12_design_evidence_commit": "cef89d1e567f8aa1abffd251f803304fda391228",
+    "interface_commit": "81b6d7ccb2e23437927f6ca06a7a0db59a23b77e",
+    "policy_and_oracle_schema_commit": "72d13f5849ca56fc42f583081e16b3b03b2adcc5",
+    "private_tool_files": {
+      "build_restart_schedule.py": {
+        "bytes": 13873,
+        "path": "itch-feed-handler-tests/build_restart_schedule.py",
+        "sha256": "93949380e0442d852166d8d35b3e73165a5afb965a5faa5ad746c39e8f641021"
+      },
+      "canonical_transport.cpp": {
+        "bytes": 39093,
+        "path": "itch-feed-handler-tests/canonical_transport.cpp",
+        "sha256": "43acf19c60275ca360d472a14f2aabd6d3b88bdd618f612cbb5313031a6e7758"
+      },
+      "offline_restart.cpp": {
+        "bytes": 41263,
+        "path": "itch-feed-handler-tests/offline_restart.cpp",
+        "sha256": "812cb9c85327aac7934f8e75897473a30c65c16be5c2b76573a68a4b249b4797"
+      },
+      "restart-runtime/CMakeLists.txt": {
+        "bytes": 1358,
+        "path": "itch-feed-handler-tests/restart-runtime/CMakeLists.txt",
+        "sha256": "151752a88932d67919b2d03c0884c9f39db386e62b5b5f15556945dcd3be892b"
+      },
+      "verify_offline_restart.py": {
+        "bytes": 26988,
+        "path": "itch-feed-handler-tests/verify_offline_restart.py",
+        "sha256": "16465c241ca81c8beb3edecd782d655e235cd67f404fa284085e465431f6e277"
+      }
+    },
+    "public_implementation_baseline_commit": "88ff5d76daafb70726f7fb442b4954f2ff38cb98",
+    "public_implementation_files_unchanged": {
+      "CMakeLists.txt": {
+        "bytes": 3442,
+        "path": "itch-feed-handler/CMakeLists.txt",
+        "sha256": "b4c947d7fe1a3b4c7e8e71b7e00cba3239d0061e9969b7d5c529c3fb41510e3b"
+      },
+      "bench/audit_handoff.py": {
+        "bytes": 48571,
+        "path": "itch-feed-handler/bench/audit_handoff.py",
+        "sha256": "a14fac8bcc7a57677ab58c9fc2a504a46b848626df9b150e571a7a3ee7d67630"
+      },
+      "bench/compare_bbo.py": {
+        "bytes": 23823,
+        "path": "itch-feed-handler/bench/compare_bbo.py",
+        "sha256": "83caa1216e4d3c2e3eec184dd87755ac08008747ab6c3a8848d765d4623868b8"
+      },
+      "bench/compare_l3.py": {
+        "bytes": 20217,
+        "path": "itch-feed-handler/bench/compare_l3.py",
+        "sha256": "abf11fca148a5d9fac5c232cd72bf9bf6ff63b2db0d72bffc411da1b17f21bfb"
+      },
+      "bench/compare_reference.py": {
+        "bytes": 13512,
+        "path": "itch-feed-handler/bench/compare_reference.py",
+        "sha256": "63643ac2e5c8397d9fe2a950437bb147fafb14bf8564a305bacc062093f512fd"
+      },
+      "bench/compare_storage.py": {
+        "bytes": 28760,
+        "path": "itch-feed-handler/bench/compare_storage.py",
+        "sha256": "91d7ada64c24ee916ab1399dae3c70c1c74260aa74d04fdc52d445e2a5acdc46"
+      },
+      "bench/identified_events.py": {
+        "bytes": 29644,
+        "path": "itch-feed-handler/bench/identified_events.py",
+        "sha256": "10bc0a310e441a4dd91653e5c66bbefa0dddd171844ef5f3d6197f3ec66cb918"
+      },
+      "bench/identified_history.py": {
+        "bytes": 62228,
+        "path": "itch-feed-handler/bench/identified_history.py",
+        "sha256": "4f3e14a8c56e75de8c274f10a62f97b9c0f38845bd422fc5fcd1c9d8b3b29fbc"
+      },
+      "bench/journal.py": {
+        "bytes": 11587,
+        "path": "itch-feed-handler/bench/journal.py",
+        "sha256": "e4307dbf4932f0535efab512205bd8be3b86ff83da54cc6365d13a691bfe661b"
+      },
+      "bench/repacketise_history.py": {
+        "bytes": 42543,
+        "path": "itch-feed-handler/bench/repacketise_history.py",
+        "sha256": "28abf9d2efacdd4ddd133450b84142b3c9e4c76e03b76057e4c007b1a2e9675f"
+      },
+      "bench/validate.py": {
+        "bytes": 7126,
+        "path": "itch-feed-handler/bench/validate.py",
+        "sha256": "07eae050e280b196b64be49db2bd1777d8f1475085b09483261a457ae8cd7df5"
+      },
+      "bench/validate_journal.py": {
+        "bytes": 13616,
+        "path": "itch-feed-handler/bench/validate_journal.py",
+        "sha256": "df8bebe2892861708566f4ea7cb7f51967a16be69498046b0cd2b93b23671433"
+      },
+      "include/itch/book.hpp": {
+        "bytes": 6396,
+        "path": "itch-feed-handler/include/itch/book.hpp",
+        "sha256": "18aa04a2525e7acede4f5f7a5aa1671e2aaed81b1acc57c7f41b01602fa1fb3e"
+      },
+      "include/itch/encode.hpp": {
+        "bytes": 3972,
+        "path": "itch-feed-handler/include/itch/encode.hpp",
+        "sha256": "3976ae407926e57f060b18485cdaff7a2def42f65886c9c065840ae0f9979b61"
+      },
+      "include/itch/endian.hpp": {
+        "bytes": 2298,
+        "path": "itch-feed-handler/include/itch/endian.hpp",
+        "sha256": "e461783ae5a73df12ef028b66696bf466cf78cb1bbefb48b44eb07c8991bab7f"
+      },
+      "include/itch/framing.hpp": {
+        "bytes": 3392,
+        "path": "itch-feed-handler/include/itch/framing.hpp",
+        "sha256": "502138feb5250b51e92fa37ec11f1536aebe2c9a62c4f5195ca63fb50ae88417"
+      },
+      "include/itch/journal.hpp": {
+        "bytes": 2191,
+        "path": "itch-feed-handler/include/itch/journal.hpp",
+        "sha256": "1cd9e31221d1603845181f5dfe4c9fc3a56da3b5a9a874123ee1675203340975"
+      },
+      "include/itch/messages.hpp": {
+        "bytes": 11808,
+        "path": "itch-feed-handler/include/itch/messages.hpp",
+        "sha256": "48c7d0ec5bfb531201f3fa9f247ed7f3cf2f4e00b46ad463559e9e4a1afcb409"
+      },
+      "include/itch/mold.hpp": {
+        "bytes": 4855,
+        "path": "itch-feed-handler/include/itch/mold.hpp",
+        "sha256": "60c5cf5764fd01b92b6de541a5ad8a9afe90de1b6bd1ca9bd9c5d49a8e44b35c"
+      },
+      "include/itch/mold_itch.hpp": {
+        "bytes": 732,
+        "path": "itch-feed-handler/include/itch/mold_itch.hpp",
+        "sha256": "66e3719f75af0cba5e15e3acf086327d2a7a11cf140683b07f94386dff470252"
+      },
+      "include/itch/queue_sim.hpp": {
+        "bytes": 3322,
+        "path": "itch-feed-handler/include/itch/queue_sim.hpp",
+        "sha256": "5031e65b70a18749fcc9e274d9a6a84d29cd1ff3c44d653b444dfe5c7f50ee6b"
+      },
+      "include/itch/queue_window.hpp": {
+        "bytes": 3352,
+        "path": "itch-feed-handler/include/itch/queue_window.hpp",
+        "sha256": "85e96de848c5572591b17b587901d52d0dc39e6d23e144da23588756e17945eb"
+      },
+      "include/itch/replay.hpp": {
+        "bytes": 2815,
+        "path": "itch-feed-handler/include/itch/replay.hpp",
+        "sha256": "9e91ab2cc04d89d59884c6bf28d046390b89a0f09036d79e05acab8d4bd8741c"
+      },
+      "include/itch/snapshots.hpp": {
+        "bytes": 4950,
+        "path": "itch-feed-handler/include/itch/snapshots.hpp",
+        "sha256": "7a431eedd50ba1e554986ccf7a5efea1702c2c23e14391c58e051d653a8ad446"
+      },
+      "src/book.cpp": {
+        "bytes": 7720,
+        "path": "itch-feed-handler/src/book.cpp",
+        "sha256": "c08152d9bb0debe5e7842556ecb93ffd4d2de595bea3012880157e3d75e069c6"
+      },
+      "src/framing.cpp": {
+        "bytes": 1460,
+        "path": "itch-feed-handler/src/framing.cpp",
+        "sha256": "ab03285ee9dd4ff7d155f81bea74edab76f8b9065bc81084d10a27bd39b06dd3"
+      },
+      "src/journal.cpp": {
+        "bytes": 4045,
+        "path": "itch-feed-handler/src/journal.cpp",
+        "sha256": "33a41a1aa5e2003268f06da3dfd61eac6a980e06f8cb83929a0bd5c6b9644c9c"
+      },
+      "src/mold.cpp": {
+        "bytes": 8817,
+        "path": "itch-feed-handler/src/mold.cpp",
+        "sha256": "4b4b0de896d56b37147c20f2e32e74ace740cc056ce7286bfdb56736ae3bf3dc"
+      },
+      "src/queue_sim.cpp": {
+        "bytes": 14138,
+        "path": "itch-feed-handler/src/queue_sim.cpp",
+        "sha256": "2da5625b9ede5a68c84ad219e91b8c9f43a6c5885f358e9172ca132527dc437d"
+      },
+      "src/queue_window.cpp": {
+        "bytes": 19686,
+        "path": "itch-feed-handler/src/queue_window.cpp",
+        "sha256": "98cfbc84d9bd2c5ffea0ed1108fb6396e9f19e2777d5c3ff2a8da24fb9e7f772"
+      },
+      "src/replay.cpp": {
+        "bytes": 4767,
+        "path": "itch-feed-handler/src/replay.cpp",
+        "sha256": "bcecd0fe0fdad39c11c497966e1a5840541f3e0d10626e9933e4a126b3618991"
+      },
+      "tools/bench.cpp": {
+        "bytes": 6779,
+        "path": "itch-feed-handler/tools/bench.cpp",
+        "sha256": "33f24effb42d6c93835f543b8d9df0dd607a5c600ff678f5d317f6f2704f2030"
+      },
+      "tools/census.cpp": {
+        "bytes": 4810,
+        "path": "itch-feed-handler/tools/census.cpp",
+        "sha256": "466b9e9c86e1836c5b1b1c2d214e3325efa07e06728c4a2ca873495106c8cbc3"
+      },
+      "tools/cli.hpp": {
+        "bytes": 1085,
+        "path": "itch-feed-handler/tools/cli.hpp",
+        "sha256": "ff2d6e114a6844c9cc4b12ca90c3c45e93a3eb18683d99e973b5cd67387731c3"
+      },
+      "tools/journal_replay.cpp": {
+        "bytes": 9419,
+        "path": "itch-feed-handler/tools/journal_replay.cpp",
+        "sha256": "b7d146d82a0b4e477c435ae884a5674135b6d4b356fe9a0f35426abd36712ba1"
+      },
+      "tools/loopback.cpp": {
+        "bytes": 12585,
+        "path": "itch-feed-handler/tools/loopback.cpp",
+        "sha256": "a740ca708a0220c22344ba1cb40ee48919c92e7a4f7550faad85254bbfd958f8"
+      },
+      "tools/queue_sim.cpp": {
+        "bytes": 17130,
+        "path": "itch-feed-handler/tools/queue_sim.cpp",
+        "sha256": "9a5a389c4f9dd2c81f641e6d2bca119dcbf9fa98f649750930d3bf2089f0c118"
+      },
+      "tools/queue_window.cpp": {
+        "bytes": 15749,
+        "path": "itch-feed-handler/tools/queue_window.cpp",
+        "sha256": "9796ff4b1b67bbdfb310644b1fe5ab4d6eb74a1e8a2bb5d04edc741ae3feea5e"
+      },
+      "tools/replay.cpp": {
+        "bytes": 7776,
+        "path": "itch-feed-handler/tools/replay.cpp",
+        "sha256": "eb2d3cc2d77e7737d9b9f7a1132a6bb1607976e0ee4287c87dc80d4557e1950f"
+      },
+      "tools/snapshots.cpp": {
+        "bytes": 9829,
+        "path": "itch-feed-handler/tools/snapshots.cpp",
+        "sha256": "72992f0b87e8ee5716d0475db7eb60ccd43c3074899cc9c119d8350f7ca7dd54"
+      },
+      "tools/source.hpp": {
+        "bytes": 1012,
+        "path": "itch-feed-handler/tools/source.hpp",
+        "sha256": "ce7e405434d9583c49c0e9c8b751cda1a4b70fec07f17e10ef6fd7f86d0f8c6c"
+      },
+      "tools/storage_bench.cpp": {
+        "bytes": 12562,
+        "path": "itch-feed-handler/tools/storage_bench.cpp",
+        "sha256": "babd8c708d565c005f5840ed6fb7905678b56f50703004e7c7600b04c34e4538"
+      }
+    },
+    "retained_gate11_private_files_unchanged": {
+      "CMakeLists.txt": {
+        "bytes": 7073,
+        "path": "itch-feed-handler-tests/CMakeLists.txt",
+        "sha256": "a69c6869bfe8ff6530cf4424efffbcba824306537a4e94651405edba1014d608"
+      },
+      "canonical_transport.cpp": {
+        "bytes": 39093,
+        "path": "itch-feed-handler-tests/canonical_transport.cpp",
+        "sha256": "43acf19c60275ca360d472a14f2aabd6d3b88bdd618f612cbb5313031a6e7758"
+      },
+      "freeze_canonical_transport.py": {
+        "bytes": 30441,
+        "path": "itch-feed-handler-tests/freeze_canonical_transport.py",
+        "sha256": "9da801ac1e8b8910cc0dd44900291cc917c1ac4b2e010c625d4775e9d082a984"
+      },
+      "record_canonical_transport_evidence.py": {
+        "bytes": 11990,
+        "path": "itch-feed-handler-tests/record_canonical_transport_evidence.py",
+        "sha256": "d5f283a9347ecd3f91bd52449ddf25f65a18cefff17c135417ec2dee56123df2"
+      },
+      "review_canonical_transport_fixture.py": {
+        "bytes": 15390,
+        "path": "itch-feed-handler-tests/review_canonical_transport_fixture.py",
+        "sha256": "41922c4ebc48f0f7aaf3ed4e60193c9d6cab81c7f2879efeaa508ee87ce86ce9"
+      },
+      "run_canonical_packet_producer.py": {
+        "bytes": 5856,
+        "path": "itch-feed-handler-tests/run_canonical_packet_producer.py",
+        "sha256": "43b3113afb26fea39b32eb9eea693974889ee3526e55c17021e10065d1fefa03"
+      },
+      "test_repacketise_cli.py": {
+        "bytes": 5148,
+        "path": "itch-feed-handler-tests/test_repacketise_cli.py",
+        "sha256": "fc588761ee98f785ca628dcb1b04a887783f9593a4af0ef418216e0a253e6473"
+      },
+      "test_repacketise_history.py": {
+        "bytes": 13753,
+        "path": "itch-feed-handler-tests/test_repacketise_history.py",
+        "sha256": "64fce5cfebb2394e577b80fe3c829809f95dfd24793343eccf399f2f01015f07"
+      },
+      "verify_canonical_transport.py": {
+        "bytes": 26107,
+        "path": "itch-feed-handler-tests/verify_canonical_transport.py",
+        "sha256": "272490eed2bf46185126602fd7a20cbd61b0c0557b9d91f1fc0e57a45c9deb72"
+      }
+    },
+    "source_before_after": {
+      "itch-feed-handler": {
+        "branch": "main",
+        "clean": true,
+        "commit": "81b6d7ccb2e23437927f6ca06a7a0db59a23b77e"
+      },
+      "matching-engine": {
+        "branch": "main",
+        "clean": true,
+        "commit": "dbd280185a0d45f0839881caeff8d535bcd56779"
+      }
+    }
+  },
+  "source_review_receipts": [
+    {
+      "bytes": 1700,
+      "path": "itch-feed-handler/out/offline-restart-runtime-source-review-v1/review.json",
+      "sha256": "fbf69330e7b262b0dc8eaba4356ee686f8346748c255ba9338600b7e76f270aa"
+    },
+    {
+      "bytes": 2070,
+      "path": "itch-feed-handler/out/offline-restart-runtime-source-review-v2/review.json",
+      "sha256": "cd1ca54ec522bf1c4f2b810af455ac2c7febfb636b93da3d2aefb7cdb398c67c"
+    },
+    {
+      "bytes": 2364,
+      "path": "itch-feed-handler/out/offline-restart-runtime-source-review-v3/review.json",
+      "sha256": "a6b9b92dd20425def1c6b801d09ca5a9702faf8c6e7727fe24c8f60a3af2d1f3"
+    }
+  ],
+  "started_at_utc": "2026-10-22T22:03:35.724249+00:00",
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 54843,
+    "original_report_sha256": "2145d208cdc1b8ebf2e32b95a60ce755a8d2854491c5b78d2a7d450220c06256",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}

@@ -1,0 +1,1004 @@
+{
+  "accepted_evidence": {
+    "frozen_manifest": {
+      "bytes": 4973,
+      "path": "workspace/itch-feed-handler/out/identified-transition-oracle-v1/freeze_manifest.json",
+      "sha256": "a040e9a808f69057798f7028b40db988ee6c22a8f0daf976bf4c18c10b37f4d5"
+    },
+    "frozen_oracle": {
+      "bytes": 123352,
+      "path": "workspace/itch-feed-handler/out/identified-transition-oracle-v1/oracle.json",
+      "sha256": "44b1f3cb3e0d4c7412c176a0afb52e867e43cee934979bb4d79e047c15729497"
+    },
+    "gate14": {
+      "bytes": 81814,
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-23-l3-transitions/verification.json",
+      "sha256": "a0eb34d2aea23821ed1e4823fe8e84f9ee9c015fad24d9f39ce663e28111b2bc"
+    },
+    "gate14_commit": "3c5af0af73320bd9fd9f75476c8ca0b0627eeb7c",
+    "gate15_commit": "8e1bafe35fa38f403276194c9ae2f6f0d69ae050",
+    "gate15_design": {
+      "bytes": 19474,
+      "path": "workspace/itch-feed-handler/docs/validation/2026-10-23-identified-transitions-design/design.json",
+      "sha256": "68b096a586891c7e933ebf830b77069f307b9379b2adea8a561d6b17245ae560"
+    },
+    "independent_expectation_audit": {
+      "bytes": 10344,
+      "path": "workspace/itch-feed-handler/out/identified-transition-oracle-audit-v1/audit.json",
+      "sha256": "7b5dff99a689ee2ebcd5cccdb3597460feaf7557e975f756115482c0f90d0f02"
+    }
+  },
+  "actual_per_run": {
+    "available_probe_inventory_comparisons": 99,
+    "available_probes": 99,
+    "captured_row_instances": 218428,
+    "exact_discrepancies": 0,
+    "facts": 16,
+    "ledger_constructions": 8,
+    "ledger_seed_inventory_comparisons": 4,
+    "probes": 164,
+    "profile_aggregates": [
+      {
+        "available_probes": 36,
+        "captured_rows": 61851,
+        "delivered_snapshots": 20,
+        "pending_deliveries": 0,
+        "probe_count": 40,
+        "profile": "zero",
+        "windows": 4
+      },
+      {
+        "available_probes": 18,
+        "captured_rows": 57358,
+        "delivered_snapshots": 6,
+        "pending_deliveries": 14,
+        "probe_count": 36,
+        "profile": "one_ms_clipped",
+        "windows": 4
+      },
+      {
+        "available_probes": 45,
+        "captured_rows": 77130,
+        "delivered_snapshots": 20,
+        "pending_deliveries": 0,
+        "probe_count": 64,
+        "profile": "one_ms_complete",
+        "windows": 4
+      },
+      {
+        "available_probes": 0,
+        "captured_rows": 22089,
+        "delivered_snapshots": 0,
+        "pending_deliveries": 20,
+        "probe_count": 24,
+        "profile": "undelivered_seed",
+        "windows": 4
+      }
+    ],
+    "profile_source_snapshot_comparisons": 80,
+    "profiles": 16,
+    "row_count_meaning": "Captured rows count repeated source snapshots and available-probe inventories in the sixteen actual observation results. Standalone validation and ledger-seed checks are separate overlapping copies.",
+    "source_inventory_rows": 22089,
+    "source_states": 20,
+    "standalone_source_inventory_comparisons": 20,
+    "type_counts": {
+      "A": 3,
+      "D": 6,
+      "E": 1,
+      "U": 4,
+      "X": 2
+    },
+    "windows": 4
+  },
+  "contracts": {
+    "admission": {
+      "bytes": 8186,
+      "path": "workspace/itch-feed-handler/docs/IDENTIFIED_TRANSITIONS.md",
+      "sha256": "cbf474a42f925805161821d4ce0d1d8aa8306174cca8366b9d64056cd67fc15c"
+    },
+    "oracle_schema": {
+      "bytes": 11293,
+      "path": "workspace/itch-feed-handler/docs/IDENTIFIED_TRANSITIONS_ORACLE.md",
+      "sha256": "e4755b70abd1d775d1b3e2ae7097a2754ce8a632983b6859c98e47b0a8f2cd5e"
+    },
+    "runtime_interface": {
+      "bytes": 6958,
+      "path": "workspace/itch-feed-handler/docs/IDENTIFIED_TRANSITIONS_RUNTIME.md",
+      "sha256": "aacef1943a07a9c1c4c51f6a447bb274ad2651509788e9562f1997b0ac93c4a3"
+    }
+  },
+  "errors": [],
+  "execution": {
+    "all_32_detail_files_repeat_exactly": true,
+    "all_four_process_stderr_empty": true,
+    "detail_identities": [
+      {
+        "window-001/expected_sources.json": {
+          "bytes": 530,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-001/expected_sources.json",
+          "sha256": "22b9c8a02a2958347f1ac63a1e43ad93f02c6f45b433f8afd28d4bb0ac26d5ee"
+        },
+        "window-001/joins.json": {
+          "bytes": 1057,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-001/joins.json",
+          "sha256": "c0bc135a2dbf4d84c237a0656ae49fdf58b238c7e35664bcb67f1179ea8e3538"
+        },
+        "window-001/ledger.json": {
+          "bytes": 287393,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-001/ledger.json",
+          "sha256": "51681627d57dc0d5514e00ebe693c7d025e7737e996ec53f387e1c919f398d61"
+        },
+        "window-001/observation-one_ms_clipped.json": {
+          "bytes": 4536806,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-001/observation-one_ms_clipped.json",
+          "sha256": "25e58d0d7017da615479847d381eb9153af2c82e13a2f8160d6cd91c0aa8da25"
+        },
+        "window-001/observation-one_ms_complete.json": {
+          "bytes": 5103939,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-001/observation-one_ms_complete.json",
+          "sha256": "35ad199afd78596ccd0b4922101f9f22c81df0ae2ce8db34a2fe4b26b0fa755c"
+        },
+        "window-001/observation-undelivered_seed.json": {
+          "bytes": 1418166,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-001/observation-undelivered_seed.json",
+          "sha256": "b0f077c8dd2fd0133a787b48535c53aec44710a87454de6728f78ba0c7fa89a1"
+        },
+        "window-001/observation-zero.json": {
+          "bytes": 3969745,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-001/observation-zero.json",
+          "sha256": "67c435a9c720cccd245cef1c10f17d2e2300dfa2c969b136e674cbbec6a08d7d"
+        },
+        "window-001/validation.json": {
+          "bytes": 1417200,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-001/validation.json",
+          "sha256": "f0c96d3428f0d23ae453df6701f2b127237d0551ad4372931ff8faefcac93b85"
+        },
+        "window-002/expected_sources.json": {
+          "bytes": 530,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-002/expected_sources.json",
+          "sha256": "8e6cb8eda47f3ae2c970f93b1a8e87fa9543b0e21a92d7da5aab572e2c0aebe9"
+        },
+        "window-002/joins.json": {
+          "bytes": 1052,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-002/joins.json",
+          "sha256": "be3155056833100b748e4b3c7a30c6c17ce5bfaeb18aea4a29e3528d4e4288cb"
+        },
+        "window-002/ledger.json": {
+          "bytes": 119318,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-002/ledger.json",
+          "sha256": "27f41aa8714685e8a953c84a0641fbd4aee0e83fac4d6a8efb06bf1b0452ad7c"
+        },
+        "window-002/observation-one_ms_clipped.json": {
+          "bytes": 1154808,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-002/observation-one_ms_clipped.json",
+          "sha256": "992ab9c20096e296ec9067f29944b0619658f7e6acf4bfb9adf91a8c548cb6cd"
+        },
+        "window-002/observation-one_ms_complete.json": {
+          "bytes": 2078893,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-002/observation-one_ms_complete.json",
+          "sha256": "7612202aefba5405561ed586f4bcf3dc8eda00f468e66b50c47e2f6a300da408"
+        },
+        "window-002/observation-undelivered_seed.json": {
+          "bytes": 577912,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-002/observation-undelivered_seed.json",
+          "sha256": "77ac43b2cf2dd07f9e713f8ca3f5d34a9ebe6fcc85c30f4957f7b5e4200c7fac"
+        },
+        "window-002/observation-zero.json": {
+          "bytes": 1616975,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-002/observation-zero.json",
+          "sha256": "78adf38ac204989c1f76184c9aa1b10051af61c7ba27ec64285c0f0ca350ac5d"
+        },
+        "window-002/validation.json": {
+          "bytes": 576949,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-002/validation.json",
+          "sha256": "4f7bd4b0e2755d682f37f6456926659cadd3d5996fef3849c3495a15b422dfa3"
+        },
+        "window-003/expected_sources.json": {
+          "bytes": 530,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-003/expected_sources.json",
+          "sha256": "7dbf1c3a75e8ac6c3dc69cad9ce545d7a6ce3920823af9f9750afbcbca4d1429"
+        },
+        "window-003/joins.json": {
+          "bytes": 1052,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-003/joins.json",
+          "sha256": "2984ca25a1793d2e92007949f107bddf9cb9544bc30bd7b7f6f257fa7374da20"
+        },
+        "window-003/ledger.json": {
+          "bytes": 41463,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-003/ledger.json",
+          "sha256": "ddf593d12355cfaadfca38c6adf570fbced51ee440a204074a031be4756669ce"
+        },
+        "window-003/observation-one_ms_clipped.json": {
+          "bytes": 189476,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-003/observation-one_ms_clipped.json",
+          "sha256": "c6784918e4d4decdb51aeaa467831f9154327c76bb376bd1106c98daf8e21f84"
+        },
+        "window-003/observation-one_ms_complete.json": {
+          "bytes": 530443,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-003/observation-one_ms_complete.json",
+          "sha256": "4a794b05fe3e4f3b3ff92cf316857e2d290df3a7e15cc4d0918e81e094451bc6"
+        },
+        "window-003/observation-undelivered_seed.json": {
+          "bytes": 189475,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-003/observation-undelivered_seed.json",
+          "sha256": "5fdda3b4098453f5e61772d00cfd80fc82ae4ad9703b9bcb526653ab48da4f55"
+        },
+        "window-003/observation-zero.json": {
+          "bytes": 529669,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-003/observation-zero.json",
+          "sha256": "ca412398d07ed18a3774a8bcfc9e340d82ee4f077c11843ac0f2d8152ad6dd40"
+        },
+        "window-003/validation.json": {
+          "bytes": 188513,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-003/validation.json",
+          "sha256": "63f479aa1d8807c19b33a0e14a5df9ff4b5a76f779837c3d8150c97e5582da20"
+        },
+        "window-004/expected_sources.json": {
+          "bytes": 530,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-004/expected_sources.json",
+          "sha256": "6b71f0bbd6e9ca5ddac37482033abd1cd0b3b783e115c79a85393f5e277f74dd"
+        },
+        "window-004/joins.json": {
+          "bytes": 1048,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-004/joins.json",
+          "sha256": "3597b491eeb26d0252bb5a4da029a380a9ec2df701968dd7252a2e144a0d565d"
+        },
+        "window-004/ledger.json": {
+          "bytes": 39677,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-004/ledger.json",
+          "sha256": "cef38dd86dfe4cc35a3c40c0622ad2668017e992acdd7c258cfd32c1670ccde1"
+        },
+        "window-004/observation-one_ms_clipped.json": {
+          "bytes": 251395,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-004/observation-one_ms_clipped.json",
+          "sha256": "6692567d8c0aea6803e062fe1e5095731dcf19109481aa898b6ee16f3746acdf"
+        },
+        "window-004/observation-one_ms_complete.json": {
+          "bytes": 538320,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-004/observation-one_ms_complete.json",
+          "sha256": "dac58a1aa73249ffdd69040320ecc2009d067cbeca9d428e105fb2adc9bb2ce5"
+        },
+        "window-004/observation-undelivered_seed.json": {
+          "bytes": 179560,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-004/observation-undelivered_seed.json",
+          "sha256": "680a592fcca3062b8b9695cf47cae27642ec39aa9d09f42f3a0430585f8e4a95"
+        },
+        "window-004/observation-zero.json": {
+          "bytes": 501861,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-004/observation-zero.json",
+          "sha256": "5f09ae42959e86e82d730646f32046421a2d5ee4f94f432e869766cfdeb0cbff"
+        },
+        "window-004/validation.json": {
+          "bytes": 178597,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1/window-004/validation.json",
+          "sha256": "320e9f9eae7aec97e49f3e235d7aa5bc461f8c557539bef27bc5d1e6f11b8e02"
+        }
+      },
+      {
+        "window-001/expected_sources.json": {
+          "bytes": 530,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-001/expected_sources.json",
+          "sha256": "22b9c8a02a2958347f1ac63a1e43ad93f02c6f45b433f8afd28d4bb0ac26d5ee"
+        },
+        "window-001/joins.json": {
+          "bytes": 1057,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-001/joins.json",
+          "sha256": "c0bc135a2dbf4d84c237a0656ae49fdf58b238c7e35664bcb67f1179ea8e3538"
+        },
+        "window-001/ledger.json": {
+          "bytes": 287393,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-001/ledger.json",
+          "sha256": "51681627d57dc0d5514e00ebe693c7d025e7737e996ec53f387e1c919f398d61"
+        },
+        "window-001/observation-one_ms_clipped.json": {
+          "bytes": 4536806,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-001/observation-one_ms_clipped.json",
+          "sha256": "25e58d0d7017da615479847d381eb9153af2c82e13a2f8160d6cd91c0aa8da25"
+        },
+        "window-001/observation-one_ms_complete.json": {
+          "bytes": 5103939,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-001/observation-one_ms_complete.json",
+          "sha256": "35ad199afd78596ccd0b4922101f9f22c81df0ae2ce8db34a2fe4b26b0fa755c"
+        },
+        "window-001/observation-undelivered_seed.json": {
+          "bytes": 1418166,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-001/observation-undelivered_seed.json",
+          "sha256": "b0f077c8dd2fd0133a787b48535c53aec44710a87454de6728f78ba0c7fa89a1"
+        },
+        "window-001/observation-zero.json": {
+          "bytes": 3969745,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-001/observation-zero.json",
+          "sha256": "67c435a9c720cccd245cef1c10f17d2e2300dfa2c969b136e674cbbec6a08d7d"
+        },
+        "window-001/validation.json": {
+          "bytes": 1417200,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-001/validation.json",
+          "sha256": "f0c96d3428f0d23ae453df6701f2b127237d0551ad4372931ff8faefcac93b85"
+        },
+        "window-002/expected_sources.json": {
+          "bytes": 530,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-002/expected_sources.json",
+          "sha256": "8e6cb8eda47f3ae2c970f93b1a8e87fa9543b0e21a92d7da5aab572e2c0aebe9"
+        },
+        "window-002/joins.json": {
+          "bytes": 1052,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-002/joins.json",
+          "sha256": "be3155056833100b748e4b3c7a30c6c17ce5bfaeb18aea4a29e3528d4e4288cb"
+        },
+        "window-002/ledger.json": {
+          "bytes": 119318,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-002/ledger.json",
+          "sha256": "27f41aa8714685e8a953c84a0641fbd4aee0e83fac4d6a8efb06bf1b0452ad7c"
+        },
+        "window-002/observation-one_ms_clipped.json": {
+          "bytes": 1154808,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-002/observation-one_ms_clipped.json",
+          "sha256": "992ab9c20096e296ec9067f29944b0619658f7e6acf4bfb9adf91a8c548cb6cd"
+        },
+        "window-002/observation-one_ms_complete.json": {
+          "bytes": 2078893,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-002/observation-one_ms_complete.json",
+          "sha256": "7612202aefba5405561ed586f4bcf3dc8eda00f468e66b50c47e2f6a300da408"
+        },
+        "window-002/observation-undelivered_seed.json": {
+          "bytes": 577912,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-002/observation-undelivered_seed.json",
+          "sha256": "77ac43b2cf2dd07f9e713f8ca3f5d34a9ebe6fcc85c30f4957f7b5e4200c7fac"
+        },
+        "window-002/observation-zero.json": {
+          "bytes": 1616975,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-002/observation-zero.json",
+          "sha256": "78adf38ac204989c1f76184c9aa1b10051af61c7ba27ec64285c0f0ca350ac5d"
+        },
+        "window-002/validation.json": {
+          "bytes": 576949,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-002/validation.json",
+          "sha256": "4f7bd4b0e2755d682f37f6456926659cadd3d5996fef3849c3495a15b422dfa3"
+        },
+        "window-003/expected_sources.json": {
+          "bytes": 530,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-003/expected_sources.json",
+          "sha256": "7dbf1c3a75e8ac6c3dc69cad9ce545d7a6ce3920823af9f9750afbcbca4d1429"
+        },
+        "window-003/joins.json": {
+          "bytes": 1052,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-003/joins.json",
+          "sha256": "2984ca25a1793d2e92007949f107bddf9cb9544bc30bd7b7f6f257fa7374da20"
+        },
+        "window-003/ledger.json": {
+          "bytes": 41463,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-003/ledger.json",
+          "sha256": "ddf593d12355cfaadfca38c6adf570fbced51ee440a204074a031be4756669ce"
+        },
+        "window-003/observation-one_ms_clipped.json": {
+          "bytes": 189476,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-003/observation-one_ms_clipped.json",
+          "sha256": "c6784918e4d4decdb51aeaa467831f9154327c76bb376bd1106c98daf8e21f84"
+        },
+        "window-003/observation-one_ms_complete.json": {
+          "bytes": 530443,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-003/observation-one_ms_complete.json",
+          "sha256": "4a794b05fe3e4f3b3ff92cf316857e2d290df3a7e15cc4d0918e81e094451bc6"
+        },
+        "window-003/observation-undelivered_seed.json": {
+          "bytes": 189475,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-003/observation-undelivered_seed.json",
+          "sha256": "5fdda3b4098453f5e61772d00cfd80fc82ae4ad9703b9bcb526653ab48da4f55"
+        },
+        "window-003/observation-zero.json": {
+          "bytes": 529669,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-003/observation-zero.json",
+          "sha256": "ca412398d07ed18a3774a8bcfc9e340d82ee4f077c11843ac0f2d8152ad6dd40"
+        },
+        "window-003/validation.json": {
+          "bytes": 188513,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-003/validation.json",
+          "sha256": "63f479aa1d8807c19b33a0e14a5df9ff4b5a76f779837c3d8150c97e5582da20"
+        },
+        "window-004/expected_sources.json": {
+          "bytes": 530,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-004/expected_sources.json",
+          "sha256": "6b71f0bbd6e9ca5ddac37482033abd1cd0b3b783e115c79a85393f5e277f74dd"
+        },
+        "window-004/joins.json": {
+          "bytes": 1048,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-004/joins.json",
+          "sha256": "3597b491eeb26d0252bb5a4da029a380a9ec2df701968dd7252a2e144a0d565d"
+        },
+        "window-004/ledger.json": {
+          "bytes": 39677,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-004/ledger.json",
+          "sha256": "cef38dd86dfe4cc35a3c40c0622ad2668017e992acdd7c258cfd32c1670ccde1"
+        },
+        "window-004/observation-one_ms_clipped.json": {
+          "bytes": 251395,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-004/observation-one_ms_clipped.json",
+          "sha256": "6692567d8c0aea6803e062fe1e5095731dcf19109481aa898b6ee16f3746acdf"
+        },
+        "window-004/observation-one_ms_complete.json": {
+          "bytes": 538320,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-004/observation-one_ms_complete.json",
+          "sha256": "dac58a1aa73249ffdd69040320ecc2009d067cbeca9d428e105fb2adc9bb2ce5"
+        },
+        "window-004/observation-undelivered_seed.json": {
+          "bytes": 179560,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-004/observation-undelivered_seed.json",
+          "sha256": "680a592fcca3062b8b9695cf47cae27642ec39aa9d09f42f3a0430585f8e4a95"
+        },
+        "window-004/observation-zero.json": {
+          "bytes": 501861,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-004/observation-zero.json",
+          "sha256": "5f09ae42959e86e82d730646f32046421a2d5ee4f94f432e869766cfdeb0cbff"
+        },
+        "window-004/validation.json": {
+          "bytes": 178597,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2/window-004/validation.json",
+          "sha256": "320e9f9eae7aec97e49f3e235d7aa5bc461f8c557539bef27bc5d1e6f11b8e02"
+        }
+      }
+    ],
+    "exit_codes": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "first_attempts_passed": true,
+    "independent_verifier_processes": 2,
+    "independent_verifier_reports": [
+      {
+        "bytes": 32849,
+        "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/audit-1/audit.json",
+        "sha256": "794e0f685e6bf666dfd4a3185f3f51e8b7c62d3a74938c11b57ebe69a3272c53"
+      },
+      {
+        "bytes": 32849,
+        "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/audit-2/audit.json",
+        "sha256": "3bf03beaac76a2d8bbcebe57d069a5a680b7cd75fa638680acd97ac2fba93a59"
+      }
+    ],
+    "private_recorder": {
+      "bytes": 72714,
+      "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/aggregate.json",
+      "sha256": "bd7e31174818d4bf386765fde275114ed5277c23e380bcd3ae8071ebac8bc17d"
+    },
+    "process_records": [
+      {
+        "argv": [
+          "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+          "workspace/itch-feed-handler/bench/identified_transitions.py",
+          "--raw",
+          "workspace/itch-feed-handler/data/12302019.NASDAQ_ITCH50.itch",
+          "--evidence",
+          "workspace/itch-feed-handler/docs/validation/2026-10-23-l3-transitions/verification.json",
+          "--artifacts-dir",
+          "workspace/itch-feed-handler/out/l3-transition-verification-v3",
+          "--output",
+          "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1",
+          "--report",
+          "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/producer-1.json"
+        ],
+        "cwd": "workspace/itch-feed-handler",
+        "exit_code": 0,
+        "stderr": {
+          "bytes": 0,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/producer-1.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 412,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/producer-1.stdout.txt",
+          "sha256": "a1b6f492eccb44c465bb6ad57004f79c7b8864d58add3699c3826d66e09ef4d5"
+        }
+      },
+      {
+        "argv": [
+          "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+          "workspace/itch-feed-handler-tests/verify_identified_transitions.py",
+          "--producer-output",
+          "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-1",
+          "--producer-report",
+          "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/producer-1.json",
+          "--output",
+          "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/audit-1"
+        ],
+        "cwd": "workspace/itch-feed-handler",
+        "exit_code": 0,
+        "stderr": {
+          "bytes": 0,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/independent-verifier-1.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 252,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/independent-verifier-1.stdout.txt",
+          "sha256": "c3810d98b78afd1aaab7e5bd189c6f707cf355f271a4961c5ed44ee7b12bb19e"
+        }
+      },
+      {
+        "argv": [
+          "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+          "workspace/itch-feed-handler/bench/identified_transitions.py",
+          "--raw",
+          "workspace/itch-feed-handler/data/12302019.NASDAQ_ITCH50.itch",
+          "--evidence",
+          "workspace/itch-feed-handler/docs/validation/2026-10-23-l3-transitions/verification.json",
+          "--artifacts-dir",
+          "workspace/itch-feed-handler/out/l3-transition-verification-v3",
+          "--output",
+          "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2",
+          "--report",
+          "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/producer-2.json"
+        ],
+        "cwd": "workspace/itch-feed-handler",
+        "exit_code": 0,
+        "stderr": {
+          "bytes": 0,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/producer-2.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 412,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/producer-2.stdout.txt",
+          "sha256": "a1b6f492eccb44c465bb6ad57004f79c7b8864d58add3699c3826d66e09ef4d5"
+        }
+      },
+      {
+        "argv": [
+          "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+          "workspace/itch-feed-handler-tests/verify_identified_transitions.py",
+          "--producer-output",
+          "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/details-2",
+          "--producer-report",
+          "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/producer-2.json",
+          "--output",
+          "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/audit-2"
+        ],
+        "cwd": "workspace/itch-feed-handler",
+        "exit_code": 0,
+        "stderr": {
+          "bytes": 0,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/independent-verifier-2.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 252,
+          "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/independent-verifier-2.stdout.txt",
+          "sha256": "f9c2b3dcf0c502394434c23f03237dae5fd5a7763016b0ce0a78f12d49279477"
+        }
+      }
+    ],
+    "producer_processes": 2,
+    "producer_report_byte_equality_claimed": false,
+    "producer_reports": [
+      {
+        "bytes": 41245,
+        "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/producer-1.json",
+        "sha256": "668a4b1e1d1688c8ce4f77b5a4aa87598491a3e9e712ae62148716fd2c361422"
+      },
+      {
+        "bytes": 41245,
+        "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-v1/producer-2.json",
+        "sha256": "8aa14d9f6383f110d9ee4f52abde167288da1e38d760a35a4fccea17d322698a"
+      }
+    ]
+  },
+  "focused_private_tests": {
+    "first_execution_passed": true,
+    "fixture_counts": {
+      "available_probes": 16,
+      "captured_row_instances": 210,
+      "facts": 5,
+      "frames": 22,
+      "independent_order_rows": 36,
+      "prefix_bytes": 681,
+      "prefix_messages": 21,
+      "probes": 57,
+      "profiles": 16,
+      "raw_bytes": 719,
+      "states": 9,
+      "windows": 4
+    },
+    "fixture_manifest": {
+      "bytes": 1142,
+      "path": "workspace/itch-feed-handler/out/identified-transitions-fixture-v1/freeze_manifest.json",
+      "sha256": "110333259c998ee3630ce87e5e702de7976d7609daf148f4c3d61c074f84d9eb"
+    },
+    "fixture_source_before_first_under_test_import": true,
+    "methods": 20,
+    "no_skips": true,
+    "outer_admission_mocked_only_in_private_synthetic_cli_tests": true,
+    "passed": true,
+    "stderr_scope": "Standard unittest method progress and successful summary; not an empty-stderr claim.",
+    "stdout_empty": true,
+    "unit_retained_review": {
+      "bytes": 7577,
+      "path": "workspace/itch-feed-handler/out/identified-transitions-unit-review-v1/audit.json",
+      "sha256": "3f49300e9fb89503c59ddf1af5ab3db7777b297d9092308cde37c417f119d962"
+    },
+    "unit_review_identities_stable": 16,
+    "verification": {
+      "bytes": 2862,
+      "path": "workspace/itch-feed-handler/out/identified-transitions-unit-v1/verification.json",
+      "sha256": "f4685cb252c9a8462898cc055b1de4d773d68f0b79acad4af7bca09b3e201f54"
+    }
+  },
+  "gate": 16,
+  "historical_coverage": {
+    "combined_distinct_states": 35,
+    "new_independent_historical_states": 0,
+    "new_independent_reference_execution": false,
+    "new_real_tied_source_or_seed_gap_case": false,
+    "real_u_moved_price": 4,
+    "real_u_populated_destination": 0,
+    "real_u_same_price": 0,
+    "real_x_full_depletion": 0,
+    "real_x_partial": 2,
+    "retained_states_reused": 20
+  },
+  "implementation_commit": "8087757bdc08b8ee407abd9815c571d21be21e90",
+  "independent_runtime_verification": {
+    "altered_actual_cases": 2,
+    "altered_actual_controls": [
+      {
+        "error": "window-004.ledger.facts[1].after_order.attribution: replacement knowledge differs from copied pre-order",
+        "name": "qqq_second_u_loses_inherited_unknown",
+        "rejected": true
+      },
+      {
+        "error": "window-002.observation-one_ms_complete.probes[8].delivery_ns: future delivery information",
+        "name": "msft_u_probe_receives_future_post_u_state",
+        "rejected": true
+      }
+    ],
+    "altered_actual_executions_per_verifier": 2,
+    "consumed_identities_stable_per_run": 99,
+    "controls_are_separate_from_normal_counts_and_gate15_expectation_controls": true,
+    "expected_values_from_actual_output": false,
+    "full_typed_objects_compared": true,
+    "imports_or_executes_under_test_components": false
+  },
+  "input_identities": {
+    "workspace/itch-feed-handler/docs/validation/2026-10-23-l3-transitions/verification.json": {
+      "bytes": 81814,
+      "sha256": "a0eb34d2aea23821ed1e4823fe8e84f9ee9c015fad24d9f39ce663e28111b2bc"
+    },
+    "workspace/itch-feed-handler/out/l3-transition-verification-v3/comparison.json": {
+      "bytes": 4415,
+      "sha256": "05699a3342d7fbe08cb9178cdb3ca267109d88eeb5c56e8f766c96313565574d"
+    },
+    "workspace/itch-feed-handler/out/l3-transition-verification-v3/independent-deltas/review.json": {
+      "bytes": 9954,
+      "sha256": "3d1cbb31061f3783e610d45345af9f639f04a36a820426dc560cff9dcbeef663"
+    },
+    "workspace/itch-feed-handler/out/l3-transition-verification-v3/independent-enumeration/review.json": {
+      "bytes": 2972,
+      "sha256": "9ebd7e91b9e340af46fffc7a7dcee393144e1a15dd9d073fd5ef957810a1e5e3"
+    },
+    "workspace/itch-feed-handler/out/l3-transition-verification-v3/local-1.orders.csv": {
+      "bytes": 570241,
+      "sha256": "b19e9397d8a9e63cd9638b79c2e83f68aa29808dc81ba34ef4bd89eaa2bf22f8"
+    },
+    "workspace/itch-feed-handler/out/l3-transition-verification-v3/local-1.summary.json": {
+      "bytes": 7699,
+      "sha256": "ada2d419ddd0e1f8947518ad6886dc30ec798004a59be7c3972fb436f2e14c4c"
+    },
+    "workspace/itch-feed-handler/out/l3-transition-verification-v3/reference-1.orders.csv": {
+      "bytes": 570241,
+      "sha256": "b19e9397d8a9e63cd9638b79c2e83f68aa29808dc81ba34ef4bd89eaa2bf22f8"
+    },
+    "workspace/itch-feed-handler/out/l3-transition-verification-v3/reference-1.summary.json": {
+      "bytes": 7697,
+      "sha256": "2e417cc4935acec077ab3b9e2eb5e1e6511f7bf3a30b8bec420a34a55d6beade"
+    },
+    "workspace/itch-feed-handler/out/l3-transition-verification-v3/selection/census.csv": {
+      "bytes": 2097,
+      "sha256": "181896314ae8f51859372b1a4cba1c950b3a39adfaaafa8e378203b6cf2f190b"
+    },
+    "workspace/itch-feed-handler/out/l3-transition-verification-v3/selection/checkpoints.csv": {
+      "bytes": 1292,
+      "sha256": "b0b48c49858c4a8cc90a0dc0911a6f71a10c22c705d9402999e36bc2fa18759c"
+    },
+    "workspace/itch-feed-handler/out/l3-transition-verification-v3/selection/selection.json": {
+      "bytes": 32709,
+      "sha256": "87422cf40e3819f2dcd0bce5002bff8c7231d159e2dde9f3c526009b8490deb4"
+    }
+  },
+  "limitations": [
+    "All comparisons reuse twenty retained Gate14 states, keeping combined independent depth coverage at 35; repeats add no historical samples.",
+    "Canonical real data contains only partial X and moved-price U into initially empty destinations; synthetic same-price/populated-destination/tie checks remain separate.",
+    "The full raw hashes establish identity; global framing is bounded to the exact prefix and logical source states to the four admitted windows.",
+    "Imported seed attribution remains unknown and FIFO is a reconstruction convention, not proof of actual exchange priority or recovered MPID knowledge.",
+    "Existing transport/queue eligibility and normalisation profiles remain unchanged; no own-order, hidden-liquidity, empirical-fill, latency or performance claim follows.",
+    "A subsequent documentation commit can change report source-commit/path fields while leaving all tested implementation and detail bytes unchanged."
+  ],
+  "model": "canonical_identified_transitions_runtime_v1",
+  "next_gate": {
+    "gate": 17,
+    "objective": "Review and freeze a measured price-level storage comparison with common correctness checks and bounded measurement protocol before implementation or timing."
+  },
+  "passed": true,
+  "preservation": {
+    "branches_or_worktrees_created": false,
+    "engine_commit": "dbd280185a0d45f0839881caeff8d535bcd56779",
+    "legacy_files_match_accepted_historical_blobs": true,
+    "legacy_implementation_files": 42,
+    "new_adapter_files": 1,
+    "old_observer_and_history_profiles_unchanged": true,
+    "pushed": false,
+    "total_implementation_files": 43
+  },
+  "private_sources": {
+    "canonical_recorder": {
+      "bytes": 11409,
+      "path": "workspace/itch-feed-handler-tests/record_identified_transitions.py",
+      "sha256": "9f98a73d5cc386f7277adbeec2d6af4e6abb25e62040d7be6de21afbc22b6af9"
+    },
+    "fixture_freezer": {
+      "bytes": 15286,
+      "path": "workspace/itch-feed-handler-tests/freeze_identified_transition_fixture.py",
+      "sha256": "9e5283e5f7124c89336def1fa0d015eced031ec0ad0a7a9c2399e495e79a652f"
+    },
+    "focused_tests": {
+      "bytes": 20333,
+      "path": "workspace/itch-feed-handler-tests/test_identified_transitions.py",
+      "sha256": "3bc5dfed1d932e4974e9e1494f2e01b0027f63afbc2c6cc1ea1dda09cf661645"
+    },
+    "independent_verifier": {
+      "bytes": 37978,
+      "path": "workspace/itch-feed-handler-tests/verify_identified_transitions.py",
+      "sha256": "9dc8ee947a92019f071006747667592afb488fb40349686af5842677b4defe35"
+    }
+  },
+  "protected_driver_inputs_stable": 174,
+  "raw_authentication": {
+    "before_after_each_producer": {
+      "bytes": 8251407909,
+      "prefix_bytes": 284563784,
+      "prefix_sha256": "1a64008af2e7c9ec0bece0d99d63e0dc35c6e07a5dd1185a044e4b4a6d75a925",
+      "sha256": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f"
+    },
+    "exact_prefix_scans": 2,
+    "fresh_full_and_prefix_identity_before_after": true,
+    "full_day_semantic_replay_executed": false,
+    "full_file_hash_passes": 4,
+    "global_frames_per_scan": 8300042,
+    "logical_observer_identity_verified": false,
+    "outer_producer_identity_verified": true,
+    "prefix_hash_passes": 4,
+    "producer_runs": 2,
+    "recorder_or_verifiers_reopen_raw": false,
+    "stable_descriptor_path_and_checked_close": true
+  },
+  "retained_final_review": {
+    "identity": {
+      "bytes": 4540,
+      "path": "workspace/itch-feed-handler/out/identified-transitions-runtime-independent-review-v1/audit.json",
+      "sha256": "fecd3036be4f2f27530f1c5e9588bf5178f1890478239561d3c29f71104b879f"
+    },
+    "raw_reopened": false,
+    "source": {
+      "bytes": 16612,
+      "path": "workspace/itch-feed-handler-tests/review_identified_transitions_runtime.py",
+      "sha256": "3df66663606cf70b158e8227cac64135e19c6799340700a3e0f0d94ed97851ad"
+    },
+    "under_test_components_or_tests_rerun": false,
+    "unique_small_files_rehashed_before_after": 268
+  },
+  "retained_reference": {
+    "licence": "MIT",
+    "orders": {
+      "bytes": 570241,
+      "path": "workspace/itch-feed-handler/out/l3-transition-verification-v3/reference-1.orders.csv",
+      "sha256": "b19e9397d8a9e63cd9638b79c2e83f68aa29808dc81ba34ef4bd89eaa2bf22f8"
+    },
+    "repository": "https://github.com/KareemJandali/itchbook",
+    "revision": "3c646f9da182136125059243b475f7b8baa53773",
+    "scope": "Retained Gate14 complete independent displayed inventories; no new reference execution or vendor oracle.",
+    "summary": {
+      "bytes": 7697,
+      "path": "workspace/itch-feed-handler/out/l3-transition-verification-v3/reference-1.summary.json",
+      "sha256": "2e417cc4935acec077ab3b9e2eb5e1e6511f7bf3a30b8bec420a34a55d6beade"
+    }
+  },
+  "review_corrections_before_first_execution": [
+    "Require ignored report admission before any failure receipt can write to that destination.",
+    "Bounded owned report readback and final source/input/detail guards, removing only owned failed publications.",
+    "Preserve first source/state discrepancy context and the combined duplicate-export row cap."
+  ],
+  "schema_version": 1,
+  "scope": {
+    "market_data_and_per_event_details_ignored": true,
+    "new_cpp_build_or_test": false,
+    "new_sanitiser_run": false,
+    "performance_measurement": false,
+    "python_adapter_and_observer_executed": true,
+    "transport_or_queue_or_fill_model_changed": false
+  },
+  "source_before_after": {
+    "branch": "main",
+    "clean": true,
+    "commit": "8087757bdc08b8ee407abd9815c571d21be21e90",
+    "files": {
+      "CMakeLists.txt": {
+        "bytes": 3442,
+        "sha256": "b4c947d7fe1a3b4c7e8e71b7e00cba3239d0061e9969b7d5c529c3fb41510e3b"
+      },
+      "bench/audit_handoff.py": {
+        "bytes": 48571,
+        "sha256": "a14fac8bcc7a57677ab58c9fc2a504a46b848626df9b150e571a7a3ee7d67630"
+      },
+      "bench/compare_bbo.py": {
+        "bytes": 23823,
+        "sha256": "83caa1216e4d3c2e3eec184dd87755ac08008747ab6c3a8848d765d4623868b8"
+      },
+      "bench/compare_l3.py": {
+        "bytes": 20217,
+        "sha256": "abf11fca148a5d9fac5c232cd72bf9bf6ff63b2db0d72bffc411da1b17f21bfb"
+      },
+      "bench/compare_reference.py": {
+        "bytes": 13512,
+        "sha256": "63643ac2e5c8397d9fe2a950437bb147fafb14bf8564a305bacc062093f512fd"
+      },
+      "bench/compare_storage.py": {
+        "bytes": 28760,
+        "sha256": "91d7ada64c24ee916ab1399dae3c70c1c74260aa74d04fdc52d445e2a5acdc46"
+      },
+      "bench/identified_events.py": {
+        "bytes": 29644,
+        "sha256": "10bc0a310e441a4dd91653e5c66bbefa0dddd171844ef5f3d6197f3ec66cb918"
+      },
+      "bench/identified_history.py": {
+        "bytes": 62228,
+        "sha256": "4f3e14a8c56e75de8c274f10a62f97b9c0f38845bd422fc5fcd1c9d8b3b29fbc"
+      },
+      "bench/identified_transitions.py": {
+        "bytes": 49694,
+        "sha256": "7955aa818f77ec4a20d8223ca421e0b913ab5cbf39f134c62bf464e949563f9d"
+      },
+      "bench/journal.py": {
+        "bytes": 11587,
+        "sha256": "e4307dbf4932f0535efab512205bd8be3b86ff83da54cc6365d13a691bfe661b"
+      },
+      "bench/repacketise_history.py": {
+        "bytes": 42543,
+        "sha256": "28abf9d2efacdd4ddd133450b84142b3c9e4c76e03b76057e4c007b1a2e9675f"
+      },
+      "bench/validate.py": {
+        "bytes": 7126,
+        "sha256": "07eae050e280b196b64be49db2bd1777d8f1475085b09483261a457ae8cd7df5"
+      },
+      "bench/validate_journal.py": {
+        "bytes": 13616,
+        "sha256": "df8bebe2892861708566f4ea7cb7f51967a16be69498046b0cd2b93b23671433"
+      },
+      "include/itch/book.hpp": {
+        "bytes": 6396,
+        "sha256": "18aa04a2525e7acede4f5f7a5aa1671e2aaed81b1acc57c7f41b01602fa1fb3e"
+      },
+      "include/itch/encode.hpp": {
+        "bytes": 3972,
+        "sha256": "3976ae407926e57f060b18485cdaff7a2def42f65886c9c065840ae0f9979b61"
+      },
+      "include/itch/endian.hpp": {
+        "bytes": 2298,
+        "sha256": "e461783ae5a73df12ef028b66696bf466cf78cb1bbefb48b44eb07c8991bab7f"
+      },
+      "include/itch/framing.hpp": {
+        "bytes": 3392,
+        "sha256": "502138feb5250b51e92fa37ec11f1536aebe2c9a62c4f5195ca63fb50ae88417"
+      },
+      "include/itch/journal.hpp": {
+        "bytes": 2191,
+        "sha256": "1cd9e31221d1603845181f5dfe4c9fc3a56da3b5a9a874123ee1675203340975"
+      },
+      "include/itch/messages.hpp": {
+        "bytes": 11808,
+        "sha256": "48c7d0ec5bfb531201f3fa9f247ed7f3cf2f4e00b46ad463559e9e4a1afcb409"
+      },
+      "include/itch/mold.hpp": {
+        "bytes": 4855,
+        "sha256": "60c5cf5764fd01b92b6de541a5ad8a9afe90de1b6bd1ca9bd9c5d49a8e44b35c"
+      },
+      "include/itch/mold_itch.hpp": {
+        "bytes": 732,
+        "sha256": "66e3719f75af0cba5e15e3acf086327d2a7a11cf140683b07f94386dff470252"
+      },
+      "include/itch/queue_sim.hpp": {
+        "bytes": 3322,
+        "sha256": "5031e65b70a18749fcc9e274d9a6a84d29cd1ff3c44d653b444dfe5c7f50ee6b"
+      },
+      "include/itch/queue_window.hpp": {
+        "bytes": 3352,
+        "sha256": "85e96de848c5572591b17b587901d52d0dc39e6d23e144da23588756e17945eb"
+      },
+      "include/itch/replay.hpp": {
+        "bytes": 2815,
+        "sha256": "9e91ab2cc04d89d59884c6bf28d046390b89a0f09036d79e05acab8d4bd8741c"
+      },
+      "include/itch/snapshots.hpp": {
+        "bytes": 4950,
+        "sha256": "7a431eedd50ba1e554986ccf7a5efea1702c2c23e14391c58e051d653a8ad446"
+      },
+      "src/book.cpp": {
+        "bytes": 7720,
+        "sha256": "c08152d9bb0debe5e7842556ecb93ffd4d2de595bea3012880157e3d75e069c6"
+      },
+      "src/framing.cpp": {
+        "bytes": 1460,
+        "sha256": "ab03285ee9dd4ff7d155f81bea74edab76f8b9065bc81084d10a27bd39b06dd3"
+      },
+      "src/journal.cpp": {
+        "bytes": 4045,
+        "sha256": "33a41a1aa5e2003268f06da3dfd61eac6a980e06f8cb83929a0bd5c6b9644c9c"
+      },
+      "src/mold.cpp": {
+        "bytes": 8817,
+        "sha256": "4b4b0de896d56b37147c20f2e32e74ace740cc056ce7286bfdb56736ae3bf3dc"
+      },
+      "src/queue_sim.cpp": {
+        "bytes": 14138,
+        "sha256": "2da5625b9ede5a68c84ad219e91b8c9f43a6c5885f358e9172ca132527dc437d"
+      },
+      "src/queue_window.cpp": {
+        "bytes": 19686,
+        "sha256": "98cfbc84d9bd2c5ffea0ed1108fb6396e9f19e2777d5c3ff2a8da24fb9e7f772"
+      },
+      "src/replay.cpp": {
+        "bytes": 4767,
+        "sha256": "bcecd0fe0fdad39c11c497966e1a5840541f3e0d10626e9933e4a126b3618991"
+      },
+      "tools/bench.cpp": {
+        "bytes": 6779,
+        "sha256": "33f24effb42d6c93835f543b8d9df0dd607a5c600ff678f5d317f6f2704f2030"
+      },
+      "tools/census.cpp": {
+        "bytes": 4810,
+        "sha256": "466b9e9c86e1836c5b1b1c2d214e3325efa07e06728c4a2ca873495106c8cbc3"
+      },
+      "tools/cli.hpp": {
+        "bytes": 1085,
+        "sha256": "ff2d6e114a6844c9cc4b12ca90c3c45e93a3eb18683d99e973b5cd67387731c3"
+      },
+      "tools/journal_replay.cpp": {
+        "bytes": 9419,
+        "sha256": "b7d146d82a0b4e477c435ae884a5674135b6d4b356fe9a0f35426abd36712ba1"
+      },
+      "tools/loopback.cpp": {
+        "bytes": 12585,
+        "sha256": "a740ca708a0220c22344ba1cb40ee48919c92e7a4f7550faad85254bbfd958f8"
+      },
+      "tools/queue_sim.cpp": {
+        "bytes": 17130,
+        "sha256": "9a5a389c4f9dd2c81f641e6d2bca119dcbf9fa98f649750930d3bf2089f0c118"
+      },
+      "tools/queue_window.cpp": {
+        "bytes": 15749,
+        "sha256": "9796ff4b1b67bbdfb310644b1fe5ab4d6eb74a1e8a2bb5d04edc741ae3feea5e"
+      },
+      "tools/replay.cpp": {
+        "bytes": 7776,
+        "sha256": "eb2d3cc2d77e7737d9b9f7a1132a6bb1607976e0ee4287c87dc80d4557e1950f"
+      },
+      "tools/snapshots.cpp": {
+        "bytes": 9829,
+        "sha256": "72992f0b87e8ee5716d0475db7eb60ccd43c3074899cc9c119d8350f7ca7dd54"
+      },
+      "tools/source.hpp": {
+        "bytes": 1012,
+        "sha256": "ce7e405434d9583c49c0e9c8b751cda1a4b70fec07f17e10ef6fd7f86d0f8c6c"
+      },
+      "tools/storage_bench.cpp": {
+        "bytes": 12562,
+        "sha256": "babd8c708d565c005f5840ed6fb7905678b56f50703004e7c7600b04c34e4538"
+      }
+    }
+  },
+  "source_clean_main_at_execution": true,
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 51256,
+    "original_report_sha256": "abab623102b1da4db3fb6dce7168f291a89065cb2a4bb367d1a5314a7083c8b1",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}

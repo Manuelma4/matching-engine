@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "purpose": "private future-aware-decision mutation negative control",
+  "actual_source_unchanged": true,
+  "mutation_detected": true,
+  "original_source": "workspace/itch-feed-handler/src/queue_sim.cpp",
+  "original_source_sha256": "2da5625b9ede5a68c84ad219e91b8c9f43a6c5885f358e9172ca132527dc437d",
+  "mutated_source": "workspace/itch-feed-handler-tests/build/queue-lookahead-negative-control/queue_future_aware.cpp",
+  "mutated_source_sha256": "70bc59ea030d2cd1becd8c07fed811dc5cefbbf02a8024543214b0945dc9ea0a",
+  "test_source_sha256": "a59def93d16f3cde2f0dbfaec06a6b3905301fdd71b793b14d8894fb07302c67",
+  "test_object_sha256": "5c5fdaa36a67a79f9e0e3d348dcfd703ba3d88ff424f30b133ba6d6bc1e04558",
+  "driver_sha256": "6b1aed126590d1cc4ee3dcca4350def08e76ddfaff3250d3b30cd6af94e0b1e5",
+  "mutated_executable_sha256": "4e1e002f8f83abfec29a527ea9ded29ae7562607d02a9abfb54fe062a088c01b",
+  "original_predicate": "if (!observed || observed_visible == 0 || !passive(c, observed_opposite))",
+  "mutated_predicate": "if (!observed || visible == 0 || !passive(c, opposite))",
+  "baseline_command": [
+    "workspace/itch-feed-handler-tests/build/queue_sim_tests",
+    "--gtest_filter=QueueSim.DelayedMarketDataDoesNotReadCurrentExchangeStateAtDecision"
+  ],
+  "baseline_exit_code": 0,
+  "compile_command": [
+    "/usr/bin/c++",
+    "-std=c++20",
+    "-O3",
+    "-DNDEBUG",
+    "-arch",
+    "arm64",
+    "-I",
+    "workspace/itch-feed-handler/include",
+    "workspace/itch-feed-handler-tests/build/queue-lookahead-negative-control/queue_future_aware.cpp",
+    "workspace/itch-feed-handler-tests/build/CMakeFiles/queue_sim_tests.dir/test_queue_sim.cpp.o",
+    "workspace/itch-feed-handler-tests/build/lib/libgtest_main.a",
+    "workspace/itch-feed-handler-tests/build/lib/libgtest.a",
+    "-o",
+    "workspace/itch-feed-handler-tests/build/queue-lookahead-negative-control/queue_future_aware_tests"
+  ],
+  "compile_exit_code": 0,
+  "test_command": [
+    "workspace/itch-feed-handler-tests/build/queue-lookahead-negative-control/queue_future_aware_tests",
+    "--gtest_filter=QueueSim.DelayedMarketDataDoesNotReadCurrentExchangeStateAtDecision"
+  ],
+  "expected_failure_exit_code": 1,
+  "logs": {
+    "baseline.log": {
+      "path": "workspace/itch-feed-handler-tests/build/queue-lookahead-negative-control/baseline.log",
+      "sha256": "8c8dfd3c01994777c4575517d1aaf5f3fd54836f45a43bbcc531d6aa8eb5a4f4"
+    },
+    "compile.log": {
+      "path": "workspace/itch-feed-handler-tests/build/queue-lookahead-negative-control/compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "expected-failure.log": {
+      "path": "workspace/itch-feed-handler-tests/build/queue-lookahead-negative-control/expected-failure.log",
+      "sha256": "82595c98318ed7153dbeeac48939d6ff7b63f518eaced2b09fbad7aafe3235dd"
+    }
+  },
+  "source_commit": "670925437deaf00c0412bb4575604d4a6f201749",
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 3367,
+    "original_report_sha256": "92922cb2a823c7e681880d13546dc28ee801b09f0ba0ab10274c66934f243026",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}

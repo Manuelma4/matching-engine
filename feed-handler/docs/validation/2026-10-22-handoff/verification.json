@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "source_commit": "83973d9a5a350810bcf0f373d5fceb534f4605ac",
+  "source_branch": "main",
+  "matching_engine_commit": "dbd280185a0d45f0839881caeff8d535bcd56779",
+  "matching_engine_branch": "main",
+  "passed": true,
+  "model": "frozen_displayed_window_causal_handoff_v1",
+  "canonical_report": {
+    "path": "workspace/itch-feed-handler/docs/validation/2026-10-22-handoff/canonical.json",
+    "bytes": 105350,
+    "sha256": "f1c28ac23d3fb6e4dac4ddd1f9a80ec23bd9ea214de3845e063808e84401e9da"
+  },
+  "independent_final_review": {
+    "path": "workspace/itch-feed-handler/out/handoff-verification-v1/independent-final.json",
+    "bytes": 32127,
+    "sha256": "08899da91bba51c79075c877881f720f5bc4c9a4939a929f1061995f1eec84d7"
+  },
+  "frozen_hand_oracle": {
+    "path": "workspace/itch-feed-handler-tests/queue_handoff_oracles.json",
+    "bytes": 60581,
+    "sha256": "4ccb5e7ccc1d9c3d6f4c1f1382d529335e08aff207e9978dfd6463b00e621c6e"
+  },
+  "private_hand_comparison": {
+    "path": "workspace/itch-feed-handler/out/handoff-hand-oracle-v1/comparison.json",
+    "bytes": 32215,
+    "sha256": "0afc94a10e46d9aa5cc2963da3f7a247299bd6e117c70290cd870725641a49b5"
+  },
+  "private_harness": [
+    {
+      "path": "workspace/itch-feed-handler-tests/test_handoff.py",
+      "bytes": 38955,
+      "sha256": "d02e8fad4c7355698af9fde1c28fa72cc5590c77e16bac98acfb1dfb938e9aa6"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/CMakeLists.txt",
+      "bytes": 4218,
+      "sha256": "281ffcecb7025e2ead940f50fb6a0313d800820be35fde0b250783ad7b114776"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/queue_handoff_hand_check.py",
+      "bytes": 5582,
+      "sha256": "147ba7e5b96989ea2f4ad78572beddbaa89547cc3d9f1f22ac71624e19e2ead8"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/queue_handoff_final_verification.py",
+      "bytes": 19635,
+      "sha256": "2b6c804939d96c9edd086912756fd1b0e1b35a3cf36a997b2f705bb0ea221e15"
+    },
+    {
+      "path": "workspace/itch-feed-handler-tests/record_handoff_verification.py",
+      "bytes": 6509,
+      "sha256": "f1a07f94bda4cb9f391b91483b854994667485e4b06eee4fa158929251a3a84c"
+    }
+  ],
+  "source_files": [
+    {
+      "path": "workspace/itch-feed-handler/bench/audit_handoff.py",
+      "bytes": 48571,
+      "sha256": "a14fac8bcc7a57677ab58c9fc2a504a46b848626df9b150e571a7a3ee7d67630"
+    },
+    {
+      "path": "workspace/itch-feed-handler/include/itch/queue_sim.hpp",
+      "bytes": 3322,
+      "sha256": "5031e65b70a18749fcc9e274d9a6a84d29cd1ff3c44d653b444dfe5c7f50ee6b"
+    },
+    {
+      "path": "workspace/itch-feed-handler/src/queue_sim.cpp",
+      "bytes": 14138,
+      "sha256": "2da5625b9ede5a68c84ad219e91b8c9f43a6c5885f358e9172ca132527dc437d"
+    },
+    {
+      "path": "workspace/itch-feed-handler/tools/queue_sim.cpp",
+      "bytes": 17130,
+      "sha256": "9a5a389c4f9dd2c81f641e6d2bca119dcbf9fa98f649750930d3bf2089f0c118"
+    }
+  ],
+  "simulator": {
+    "path": "workspace/itch-feed-handler/build/itch_queue_sim",
+    "bytes": 61264,
+    "sha256": "5d60644ea089d6d16eabd7d6b572ecc5715a0c9823e16141f7f233371fdde263"
+  },
+  "prior_queue_verification": {
+    "path": "workspace/itch-feed-handler/docs/validation/2026-10-22-queue/verification.json",
+    "bytes": 6375,
+    "sha256": "2a3ed0d9cdc79111bf5841af82448d9d4dece94ddcc1be7121e4da3627a2bb1d"
+  },
+  "window_evidence": {
+    "bytes": 16414,
+    "matches_head_blob": true,
+    "sha256": "1fea28b743676140a4c48d1f774554554fbca4c3211db9ef892d9d1d8d0d1ad7",
+    "tracked_path": "docs/validation/2026-10-22-window/canonical.json"
+  },
+  "logs": [
+    {
+      "path": "workspace/itch-feed-handler/out/handoff-verification-v1/private-configure.log",
+      "bytes": 163,
+      "sha256": "a67d1f6d33b1c83d0f46b12ef3554f875b7c3cfb68e472704fce0f8c516d48b9"
+    },
+    {
+      "path": "workspace/itch-feed-handler/out/handoff-verification-v1/private-tests.log",
+      "bytes": 128,
+      "sha256": "6597ea34d4e8cd274b2065ad8833b4f061668f29f71d1d3b9a9e3703cdcbb19c"
+    },
+    {
+      "path": "workspace/itch-feed-handler/out/handoff-verification-v1/private-ctest.log",
+      "bytes": 254,
+      "sha256": "e16993e73f426ce45218c4e993f32ff5bc0608f01cc709e43d3a0c6debe811d3"
+    },
+    {
+      "path": "workspace/itch-feed-handler/out/handoff-verification-v1/canonical.stdout.log",
+      "bytes": 980,
+      "sha256": "90a57e81d28024ab5285823fc9801e26e461789196c2eea73d232b2dec00be96"
+    },
+    {
+      "path": "workspace/itch-feed-handler/out/handoff-verification-v1/canonical.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "commands": [
+    {
+      "cwd": "workspace/itch-feed-handler-tests",
+      "argv": [
+        "python3",
+        "test_handoff.py",
+        "../itch-feed-handler/bench/audit_handoff.py",
+        "../itch-feed-handler/build/itch_queue_sim"
+      ]
+    },
+    {
+      "cwd": "workspace/itch-feed-handler-tests",
+      "argv": [
+        "cmake",
+        "-S",
+        ".",
+        "-B",
+        "build"
+      ]
+    },
+    {
+      "cwd": "workspace/itch-feed-handler-tests",
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "build",
+        "-R",
+        "^Validation.Handoff$",
+        "--output-on-failure"
+      ]
+    },
+    {
+      "cwd": "workspace/itch-feed-handler",
+      "argv": [
+        "python3",
+        "bench/audit_handoff.py",
+        "--window-evidence",
+        "docs/validation/2026-10-22-window/canonical.json",
+        "--projection-dir",
+        "out/window-canonical-v1",
+        "--simulator",
+        "build/itch_queue_sim",
+        "--output",
+        "out/handoff-canonical-v1",
+        "--report",
+        "docs/validation/2026-10-22-handoff/canonical.json"
+      ]
+    },
+    {
+      "cwd": "workspace/itch-feed-handler",
+      "argv": [
+        "python3",
+        "../itch-feed-handler-tests/queue_handoff_final_verification.py"
+      ]
+    },
+    {
+      "cwd": "workspace/itch-feed-handler-tests",
+      "argv": [
+        "python3",
+        "record_handoff_verification.py"
+      ]
+    }
+  ],
+  "results": {
+    "private_python_methods": 29,
+    "focused_ctests_passed": 1,
+    "registered_release_ctests": 98,
+    "canonical_configurations": 24,
+    "canonical_processed_audit_events": 284,
+    "independent_frozen_summary_matches": 24,
+    "historical_shadow_fills": 0
+  },
+  "checks": {
+    "all_current_implementation_hashes_match_clean_launch": true,
+    "simulator_binary_identical_to_prior_release": true,
+    "reconstruction_projector_and_queue_cpp_unchanged": true,
+    "independent_final_review_passed": true,
+    "frozen_oracle_identity_retained": true,
+    "matching_engine_clean_on_main": true
+  },
+  "scope": {
+    "raw_day_reopened": false,
+    "new_cpp_sanitizer_run": false,
+    "performance_measured": false,
+    "empirical_fill_calibration": false
+  },
+  "limitations": [
+    "Raw source SHA-256 is retained from committed prior full-source evidence, not recomputed here",
+    "Two retrospectively selected positive fixed-level windows; no statistical strategy sample",
+    "Displayed execution volume is not parent aggressor demand or empirical hypothetical fills",
+    "Single shadow order, explicit cancellation assumptions, no counterfactual market response",
+    "No monotonic relationship between latency and P&L is asserted",
+    "Private main-loop synthetic tests mock clean Git/anchor witnesses; guards are tested separately and production has no bypass.",
+    "Prior focused C++ Release/ASan checks are retained; unchanged code/binary adds no new sanitizer claim.",
+    "Detailed source/audit joins, frozen literal CSVs and private verification drivers remain private or ignored."
+  ],
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 8569,
+    "original_report_sha256": "70820c67ff63409bb78a6c92c788732b42165c860085ad2e5e9899e98a38edfa",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}

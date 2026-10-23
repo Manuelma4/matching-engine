@@ -1,0 +1,877 @@
+{
+  "altered_expectation_copy_controls": [
+    {
+      "error": "exact type/value mismatch: all12 hand-specified scenario/arrival/lifecycle objects at $[4].attempts[0].arrivals[1].expected.handler_returned",
+      "in_memory_only": true,
+      "matched_intended_semantic_or_type_guard": true,
+      "name": "partial_callback_returned_count"
+    },
+    {
+      "error": "exact type/value mismatch: all12 hand-specified scenario/arrival/lifecycle objects at $[10].attempts[0].eof.expected.promotable",
+      "in_memory_only": true,
+      "matched_intended_semantic_or_type_guard": true,
+      "name": "early_end_eof_promotable"
+    },
+    {
+      "error": "exact type/value mismatch: all12 hand-specified scenario/arrival/lifecycle objects at $[6].attempts[1].expected_admission.receiver (type)",
+      "in_memory_only": true,
+      "matched_intended_semantic_or_type_guard": true,
+      "name": "refused_seed_invented_receiver"
+    },
+    {
+      "error": "exact type/value mismatch: all12 hand-specified scenario/arrival/lifecycle objects at $[0].attempts[0].arrivals[0].expected.receiver.receive_attempts (type)",
+      "in_memory_only": true,
+      "matched_intended_semantic_or_type_guard": true,
+      "name": "receive_attempts_bool_is_not_integer"
+    }
+  ],
+  "byte_identical_repeat_files": [
+    {
+      "bytes": 159212,
+      "path": "itch-feed-handler/out/offline-restart-oracle-v2/oracle.json",
+      "sha256": "aa4ba251f3a3294d3589a8128257d5f62259f218430458ee25f1d6fad9d80db5"
+    },
+    {
+      "bytes": 13784,
+      "path": "itch-feed-handler/out/offline-restart-oracle-v2/freeze-manifest.json",
+      "sha256": "987ae273e587d6536b6e9cab7b6adedbca818354de624f1c7327a9ef1f49fc95"
+    }
+  ],
+  "count_convention": {
+    "all_outcome_counts_are_expectations_not_runtime_measurements": true,
+    "callback_state_checks": "Count planned state_checks entries only, excluding seed, diagnostic and control references.",
+    "planned_referenced_order_rows": "Sum the retained inventory length for every such occurrence. Repeated references count repeatedly. This is a conservative metadata budget, not executed comparisons, fresh historical states or throughput.",
+    "planned_state_references": "Count every serialised StateRef or StateRef+phase occurrence within each case, including repeated seed, candidate, outcome, diagnostic, control and final references."
+  },
+  "cpp_tests_executed_this_increment": false,
+  "design_and_expectation_checks_passed": true,
+  "freeze_manifest": {
+    "bytes": 13784,
+    "path": "itch-feed-handler/out/offline-restart-oracle-v1/freeze-manifest.json",
+    "sha256": "987ae273e587d6536b6e9cab7b6adedbca818354de624f1c7327a9ef1f49fc95"
+  },
+  "fresh_input_identities_unchanged_before_publication": true,
+  "fresh_input_identity_count": 137,
+  "gate": "offline_restart_contract_and_frozen_oracle_v1",
+  "historical_raw_read_this_increment": false,
+  "independent_expectation_audit": {
+    "checks": {
+      "accepted_git_and_file_pins": true,
+      "all42controls_and_token_precedence": true,
+      "all_arrival_and_partial_callback_expectations": true,
+      "closed_types_and_canonical_oracle": true,
+      "consumed_inputs_stable": true,
+      "end_versus_eof_completion": true,
+      "independent_inventory_and_BBO_references": true,
+      "old_packet_occurrence_and_source_joins": true,
+      "refusal_nulls_and_no_constructor_claim": true,
+      "scoped_bounds_and_recounts": true,
+      "supervisor_blocked_without_receiver_call": true,
+      "twelve_exact_case_patterns": true
+    },
+    "consumed_input_identities_unchanged": 69,
+    "freshly_rehashed_inputs": [
+      {
+        "bytes": 135696,
+        "path": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+        "sha256": "07919b0fbf82742c24420d7dcadbd459f61bc1feb638eca02b81dccab2daf4d5"
+      },
+      {
+        "bytes": 17618,
+        "path": "itch-feed-handler/docs/OFFLINE_RESTART.md",
+        "sha256": "29b57fb1f0070c3f7f6c6b01b4418474898c240418252a4e0b0ad1e99e338673"
+      },
+      {
+        "bytes": 13961,
+        "path": "itch-feed-handler/docs/OFFLINE_RESTART_ORACLE.md",
+        "sha256": "10f01d7130b24568d60fff88468b192f0490b3cc736e7af4f7ea48bedd1b15c5"
+      },
+      {
+        "bytes": 19053,
+        "path": "itch-feed-handler/docs/validation/2026-10-22-canonical-transport/verification.json",
+        "sha256": "d3055c07edf93bff5fb29d8014d9d159d9f77cb5a5ec00a8f1f5a776e81e5ea7"
+      },
+      {
+        "bytes": 21214,
+        "path": "itch-feed-handler/docs/validation/2026-10-22-identified-history/canonical.json",
+        "sha256": "b7e29cf063fba8aff5d0494e872fa17363ea4fde7c2d28bf210fb17100533d25"
+      },
+      {
+        "bytes": 27500,
+        "path": "itch-feed-handler/docs/validation/2026-10-22-l3/canonical.json",
+        "sha256": "a4ae84974f0ce09da32af8cd6dfc91c0be0cfd7ed775abf7c5816f5f3d291811"
+      },
+      {
+        "bytes": 24064,
+        "path": "itch-feed-handler/out/canonical-transport-canonical-v1/manifest.json",
+        "sha256": "b736130dd04013ee8811efe575856503d169b56495e8b94b0bd7e20fea19ae08"
+      },
+      {
+        "bytes": 1706,
+        "path": "itch-feed-handler/out/canonical-transport-canonical-v1/window-001/batched/occurrences.csv",
+        "sha256": "aeff774cf39fb4c6a709f45e3bee3638797474c7f87ee9807d293730fc94c0db"
+      },
+      {
+        "bytes": 868,
+        "path": "itch-feed-handler/out/canonical-transport-canonical-v1/window-001/batched/packets.csv",
+        "sha256": "30c6c0e1afb1b24d17f3940f47e58f69c6f9f051805584a741948c7587885473"
+      },
+      {
+        "bytes": 14549,
+        "path": "itch-feed-handler/out/canonical-transport-canonical-v1/window-001/seed.csv",
+        "sha256": "7d6b635009ef8d6865979a7c8160e0375008563a32771c9912d9f259970d88c8"
+      },
+      {
+        "bytes": 1699,
+        "path": "itch-feed-handler/out/canonical-transport-canonical-v1/window-001/single/occurrences.csv",
+        "sha256": "dca277711083e01c75ef4ca3479b2402b108c6c40c66d126749e6182d6dea368"
+      },
+      {
+        "bytes": 1070,
+        "path": "itch-feed-handler/out/canonical-transport-canonical-v1/window-001/single/packets.csv",
+        "sha256": "3ce589d9eb2d752cd648a0790035cf19458ab252a0e1efdf6aaadf551b9802f9"
+      },
+      {
+        "bytes": 1571,
+        "path": "itch-feed-handler/out/canonical-transport-canonical-v1/window-001/sources.csv",
+        "sha256": "525f1200e753351184388308a44023dcff38ef55d14c8e79bb2ea863ab131ba9"
+      },
+      {
+        "bytes": 695,
+        "path": "itch-feed-handler/out/canonical-transport-canonical-v1/window-001/window.csv",
+        "sha256": "e0a37ec38ab8ec2113a9509e0f2ffafb1c212914491ca16fa5a94f368ec22ae4"
+      },
+      {
+        "bytes": 1489,
+        "path": "itch-feed-handler/out/canonical-transport-canonical-v1/window-002/batched/occurrences.csv",
+        "sha256": "1129bd27b10f4d71b9c3307daaf6dc44c258069914a3f78fb49c7b101e5b882b"
+      },
+      {
+        "bytes": 792,
+        "path": "itch-feed-handler/out/canonical-transport-canonical-v1/window-002/batched/packets.csv",
+        "sha256": "2f5ea811ec8459895cada11c029d84b07ddf50d1f3d63d7d98afdf67ec540440"
+      },
+      {
+        "bytes": 58340,
+        "path": "itch-feed-handler/out/canonical-transport-canonical-v1/window-002/seed.csv",
+        "sha256": "91ecdfbf30c60eca89e24b0dcd0c34a010b435bead9589c413aab18b29109576"
+      },
+      {
+        "bytes": 1483,
+        "path": "itch-feed-handler/out/canonical-transport-canonical-v1/window-002/single/occurrences.csv",
+        "sha256": "8a4975315368e56727a4b544264a233466e510ac36de85013073ea1914a1f055"
+      },
+      {
+        "bytes": 941,
+        "path": "itch-feed-handler/out/canonical-transport-canonical-v1/window-002/single/packets.csv",
+        "sha256": "00f01bf1cef591db02a1584d5bc07e2a672e10dacde226f3f519c7b49b435485"
+      },
+      {
+        "bytes": 1363,
+        "path": "itch-feed-handler/out/canonical-transport-canonical-v1/window-002/sources.csv",
+        "sha256": "ec3dfb73de36bd50061f7ab4482a0c24b7ff90975efe5b40b7bd803959580c6d"
+      },
+      {
+        "bytes": 696,
+        "path": "itch-feed-handler/out/canonical-transport-canonical-v1/window-002/window.csv",
+        "sha256": "a12e213305fbd152be6a21676a8f274b59cd644d4ff2cadd7853582607c9aad0"
+      },
+      {
+        "bytes": 1543189,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/binding.json",
+        "sha256": "bd67a73520efbbc382f8e9e4e1dd951fecbd02c62c5293ddb5c77ee7e2a9561b"
+      },
+      {
+        "bytes": 1040,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/controls.json",
+        "sha256": "5116f200a0e088e887119143f978af5dd2acb565ae4fd0a159cd7aad11dd22fa"
+      },
+      {
+        "bytes": 1706,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/expected-bundle/window-001/batched/occurrences.csv",
+        "sha256": "aeff774cf39fb4c6a709f45e3bee3638797474c7f87ee9807d293730fc94c0db"
+      },
+      {
+        "bytes": 868,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/expected-bundle/window-001/batched/packets.csv",
+        "sha256": "30c6c0e1afb1b24d17f3940f47e58f69c6f9f051805584a741948c7587885473"
+      },
+      {
+        "bytes": 14549,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/expected-bundle/window-001/seed.csv",
+        "sha256": "7d6b635009ef8d6865979a7c8160e0375008563a32771c9912d9f259970d88c8"
+      },
+      {
+        "bytes": 1699,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/expected-bundle/window-001/single/occurrences.csv",
+        "sha256": "dca277711083e01c75ef4ca3479b2402b108c6c40c66d126749e6182d6dea368"
+      },
+      {
+        "bytes": 1070,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/expected-bundle/window-001/single/packets.csv",
+        "sha256": "3ce589d9eb2d752cd648a0790035cf19458ab252a0e1efdf6aaadf551b9802f9"
+      },
+      {
+        "bytes": 1571,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/expected-bundle/window-001/sources.csv",
+        "sha256": "525f1200e753351184388308a44023dcff38ef55d14c8e79bb2ea863ab131ba9"
+      },
+      {
+        "bytes": 695,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/expected-bundle/window-001/window.csv",
+        "sha256": "e0a37ec38ab8ec2113a9509e0f2ffafb1c212914491ca16fa5a94f368ec22ae4"
+      },
+      {
+        "bytes": 1489,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/expected-bundle/window-002/batched/occurrences.csv",
+        "sha256": "1129bd27b10f4d71b9c3307daaf6dc44c258069914a3f78fb49c7b101e5b882b"
+      },
+      {
+        "bytes": 792,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/expected-bundle/window-002/batched/packets.csv",
+        "sha256": "2f5ea811ec8459895cada11c029d84b07ddf50d1f3d63d7d98afdf67ec540440"
+      },
+      {
+        "bytes": 58340,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/expected-bundle/window-002/seed.csv",
+        "sha256": "91ecdfbf30c60eca89e24b0dcd0c34a010b435bead9589c413aab18b29109576"
+      },
+      {
+        "bytes": 1483,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/expected-bundle/window-002/single/occurrences.csv",
+        "sha256": "8a4975315368e56727a4b544264a233466e510ac36de85013073ea1914a1f055"
+      },
+      {
+        "bytes": 941,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/expected-bundle/window-002/single/packets.csv",
+        "sha256": "00f01bf1cef591db02a1584d5bc07e2a672e10dacde226f3f519c7b49b435485"
+      },
+      {
+        "bytes": 1363,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/expected-bundle/window-002/sources.csv",
+        "sha256": "ec3dfb73de36bd50061f7ab4482a0c24b7ff90975efe5b40b7bd803959580c6d"
+      },
+      {
+        "bytes": 696,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/expected-bundle/window-002/window.csv",
+        "sha256": "a12e213305fbd152be6a21676a8f274b59cd644d4ff2cadd7853582607c9aad0"
+      },
+      {
+        "bytes": 6169,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/freeze-manifest.json",
+        "sha256": "cf6da1ee6558fac63b109101c8f71e5612c687f74c1f1d746e713c52b8bd867b"
+      },
+      {
+        "bytes": 2641,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/input-identities.json",
+        "sha256": "af926218c080d5bca446ccd02f61315c4bd41776e65823c812555f06b5849bde"
+      },
+      {
+        "bytes": 12455,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/plans.csv",
+        "sha256": "0a2ade5cf2c0011d0248881693438c6f39450a7114a71851f515e637e4dc6242"
+      },
+      {
+        "bytes": 2425,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/synthetic/binding.json",
+        "sha256": "860dc03198481ecee347891965c8b6cc33907dd80b9d161f2298d50d83a6d5fb"
+      },
+      {
+        "bytes": 743,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/synthetic/expected-bundle/window-001/batched/occurrences.csv",
+        "sha256": "2ce170564fc193f4249256d5e78e7fd9e75d1293b2eed59a4e00dc4389d3086d"
+      },
+      {
+        "bytes": 521,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/synthetic/expected-bundle/window-001/batched/packets.csv",
+        "sha256": "9f32a9bfad5c8cd674cd5813f3517a341821bbe25b32d64b9b4c1611c0d59da1"
+      },
+      {
+        "bytes": 82,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/synthetic/expected-bundle/window-001/seed.csv",
+        "sha256": "81dd2f2f2f0b6375455977ff35beab0afb267690da8fd29e112a418f5ee09e91"
+      },
+      {
+        "bytes": 740,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/synthetic/expected-bundle/window-001/single/occurrences.csv",
+        "sha256": "ae2a11e22357cbbcac1053978db70f2be86734a16774d36e7c6e3c16534aa1e0"
+      },
+      {
+        "bytes": 567,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/synthetic/expected-bundle/window-001/single/packets.csv",
+        "sha256": "d257cef4766ba235796a620e0573cf366a2bd6a0c025802b95bc32122ab0e033"
+      },
+      {
+        "bytes": 620,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/synthetic/expected-bundle/window-001/sources.csv",
+        "sha256": "6b247781341ae00212061fbe91ff33fc41545cdc7c7f10c186942ce014806b79"
+      },
+      {
+        "bytes": 655,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/synthetic/expected-bundle/window-001/window.csv",
+        "sha256": "5995e7d0c1f8d129280dfca0b75cda57b84ea461232a2ae637bce7193642ec82"
+      },
+      {
+        "bytes": 2436,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/synthetic/plans.csv",
+        "sha256": "077a4e103f0490daa80f9fb344ef964baa19ca8e4b468df448e4accca295a87b"
+      },
+      {
+        "bytes": 118,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/synthetic/source.itch",
+        "sha256": "06a916b035ac1c486e99d4bf561995ee746c274156ab4a6cc5f076be50f80087"
+      },
+      {
+        "bytes": 100,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/synthetic/window-001/orders.csv",
+        "sha256": "b0e6be731a1927743777fafefdedb9f4515fa45b710a88ca81ee7ccb20bb01b8"
+      },
+      {
+        "bytes": 307,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/synthetic/window-001/states.csv",
+        "sha256": "620d8cb5d98a02d6031bfafe7175f5a56e420a45dfc8692fde1304142c9d8ccf"
+      },
+      {
+        "bytes": 101420,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/window-001/orders.csv",
+        "sha256": "56fcda69e5e8bc3860d2daedfb4198a02899b4f4a3ca34a9c3ccd8821b7e6294"
+      },
+      {
+        "bytes": 837,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/window-001/states.csv",
+        "sha256": "2a56f8fe5d7583f493a71291a7c63c18c3b54494c55e09663832d9e0e14cc7e7"
+      },
+      {
+        "bytes": 366833,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/window-002/orders.csv",
+        "sha256": "7448690c2b615e6eb289c356918639caa8603b118151eaa4336bd9326c390734"
+      },
+      {
+        "bytes": 770,
+        "path": "itch-feed-handler/out/canonical-transport-fixture-v1/window-002/states.csv",
+        "sha256": "6fbb908ce7d0ab37b2a55bfb6e5442417d069f996a9551de12cb49b352c5cd6f"
+      },
+      {
+        "bytes": 926,
+        "path": "itch-feed-handler/out/identified-history-canonical-v1/producer/window-001/expected_sources.json",
+        "sha256": "40abef133cc8239aec9b83d63b67689e221d911f994c89bcdae419c39f8814a1"
+      },
+      {
+        "bytes": 1674,
+        "path": "itch-feed-handler/out/identified-history-canonical-v1/producer/window-001/joins.json",
+        "sha256": "b59efeaca593178a1a28ef4989152d15c941f2eae26599e0db06875d3c50f6db"
+      },
+      {
+        "bytes": 56275,
+        "path": "itch-feed-handler/out/identified-history-canonical-v1/producer/window-001/ledger.json",
+        "sha256": "298b37421421f845211e800e390a80da7081078fd4370f87e72f9f6b315369e9"
+      },
+      {
+        "bytes": 794,
+        "path": "itch-feed-handler/out/identified-history-canonical-v1/producer/window-002/expected_sources.json",
+        "sha256": "5a5a06a69ae7dfef8e3b7a956f4038ff4cc834ac6322b0f903ad6176e6bc9b31"
+      },
+      {
+        "bytes": 1478,
+        "path": "itch-feed-handler/out/identified-history-canonical-v1/producer/window-002/joins.json",
+        "sha256": "c36bab3ae13736fd218fce815465fc51b7cca31260d7d1a18e0c7aaeb5020bd0"
+      },
+      {
+        "bytes": 206299,
+        "path": "itch-feed-handler/out/identified-history-canonical-v1/producer/window-002/ledger.json",
+        "sha256": "38a34c2585436409cafaede5cb2d71af804ecca3d6a613cea18f7a13712ed03e"
+      },
+      {
+        "bytes": 42575,
+        "path": "itch-feed-handler/out/identified-history-canonical-v1/producer.json",
+        "sha256": "12734d2522555d8036b78bb999b19087c33aed3c5c28cc402ef8ed95bf63dc08"
+      },
+      {
+        "bytes": 989,
+        "path": "itch-feed-handler/out/l3-canonical-v2/checkpoints.csv",
+        "sha256": "c6a39174b63c1f8a276f86be9d775017742ff4d08bb619af088f1d0b358caf61"
+      },
+      {
+        "bytes": 434409,
+        "path": "itch-feed-handler/out/l3-canonical-v2/reference.orders.csv",
+        "sha256": "775f99545d84f47d7031bb8f245176ab81ccdaf8aa44d5f16f80499229c74e2b"
+      },
+      {
+        "bytes": 5878,
+        "path": "itch-feed-handler/out/l3-canonical-v2/reference.summary.json",
+        "sha256": "32bd1c10bfedaff5628537f24b42771a2daae1710f48c2e93f051e066c1373ee"
+      },
+      {
+        "bytes": 13784,
+        "path": "itch-feed-handler/out/offline-restart-oracle-v1/freeze-manifest.json",
+        "sha256": "987ae273e587d6536b6e9cab7b6adedbca818354de624f1c7327a9ef1f49fc95"
+      },
+      {
+        "bytes": 159212,
+        "path": "itch-feed-handler/out/offline-restart-oracle-v1/oracle.json",
+        "sha256": "aa4ba251f3a3294d3589a8128257d5f62259f218430458ee25f1d6fad9d80db5"
+      },
+      {
+        "bytes": 50676,
+        "path": "itch-feed-handler-tests/review_restart_oracle.py",
+        "sha256": "e424ad8a2ed76bc68cbcdba33cd37c602e87400f6deb62d73cc785005eff267a"
+      }
+    ],
+    "generator_imported_or_read": false,
+    "passed": true,
+    "restart_implementation_imported": false
+  },
+  "independent_reference_replayed_this_increment": false,
+  "limitations": [
+    "Design review, serialisation repeatability and expectation-auditor controls do not prove runtime restart correctness, destruction, allocation failure handling or lifetime safety.",
+    "No public C++ or producer implementation changed; the 42 implementation identities match the accepted Gate 11 source snapshot.",
+    "Applied/returned callback and promotion totals are frozen expectations. The intentional partial callback explains the planned 85 applied versus 84 returned callbacks.",
+    "The model has no live sockets, actual Nasdaq packet capture, venue retransmission service, measured availability/latency, throughput claim or queue/fill integration.",
+    "A pre-construction seed/availability refusal is not an allocation-exhaustion test.",
+    "Canonical seeds, facts and independent inventories are retained evidence. Reading small retained artefacts again does not rerun the independent reconstruction or extend historical coverage.",
+    "Market data, complete inventories and per-arrival expectations remain ignored. This publication contains aggregate counts and source/input/reference identities only."
+  ],
+  "next_gate": {
+    "number": 13,
+    "public_receiver_and_book_change_required_by_design": false,
+    "status": "not_implemented_or_executed",
+    "task": "Freeze the concrete private one-shot generation runner interface; implement the bounded two-attempt supervisor and compare actual outcomes, lifetime epochs and all frozen states in focused Release and ASan/UBSan runs."
+  },
+  "oracle": {
+    "bytes": 159212,
+    "path": "itch-feed-handler/out/offline-restart-oracle-v1/oracle.json",
+    "sha256": "aa4ba251f3a3294d3589a8128257d5f62259f218430458ee25f1d6fad9d80db5"
+  },
+  "phase": "design_and_frozen_expectations_only",
+  "planned_outcomes": {
+    "by_scope": {
+      "canonical_selected_projection_v1": {
+        "admission_refusals": 1,
+        "applied_callbacks": 82,
+        "callback_state_checks": 82,
+        "cases": 10,
+        "constructed_generations": 18,
+        "controls": 38,
+        "expected_promotions": 8,
+        "planned_referenced_order_rows": 212533,
+        "planned_state_references": 360,
+        "reserved_attempts": 19,
+        "returned_callbacks": 81,
+        "supplied_arrivals": 136
+      },
+      "synthetic_occurrence_control_v1": {
+        "admission_refusals": 1,
+        "applied_callbacks": 3,
+        "callback_state_checks": 3,
+        "cases": 2,
+        "constructed_generations": 3,
+        "controls": 4,
+        "expected_promotions": 1,
+        "planned_referenced_order_rows": 16,
+        "planned_state_references": 35,
+        "reserved_attempts": 4,
+        "returned_callbacks": 3,
+        "supplied_arrivals": 13
+      }
+    },
+    "total": {
+      "admission_refusals": 2,
+      "applied_callbacks": 85,
+      "callback_state_checks": 85,
+      "cases": 12,
+      "constructed_generations": 21,
+      "controls": 42,
+      "expected_promotions": 9,
+      "planned_referenced_order_rows": 212549,
+      "planned_state_references": 395,
+      "reserved_attempts": 23,
+      "returned_callbacks": 84,
+      "supplied_arrivals": 149
+    }
+  },
+  "primary_specification": {
+    "pages": 6,
+    "qualification": "The official receiver example informs explicit session/next requirements. This profile models recomputation from authenticated local inputs; no venue request service or network availability is implemented.",
+    "receiver_example_page": 6,
+    "retained_pdf": {
+      "bytes": 86837,
+      "path": "itch-feed-handler/data/reference/moldudp64-specification-20261022/moldudp64.pdf",
+      "sha256": "96cdd02b8728a441cb970d1371a96e73c01e1edaffb2891d43667e2a0ad8add5"
+    },
+    "retrieved_again_this_increment": false,
+    "url": "https://www.nasdaqtrader.com/content/technicalsupport/specifications/dataproducts/moldudp64.pdf"
+  },
+  "private_tool_sources": {
+    "aggregate_recorder": {
+      "bytes": 18129,
+      "path": "itch-feed-handler-tests/record_restart_design_evidence.py",
+      "sha256": "181a1e7f9bffe63fbc472ebed7974134964e03a262a05d9412be202cafc42a7e"
+    },
+    "copy_controls": {
+      "bytes": 7439,
+      "path": "itch-feed-handler/out/offline-restart-audit-controls-v1/controls.py",
+      "sha256": "53f3c91a67a1ced062b4d6df8733065c3bec0898595789a261cea6dfdb698dc7"
+    },
+    "independent_auditor": {
+      "bytes": 50676,
+      "path": "itch-feed-handler-tests/review_restart_oracle.py",
+      "sha256": "e424ad8a2ed76bc68cbcdba33cd37c602e87400f6deb62d73cc785005eff267a"
+    },
+    "recorder": {
+      "bytes": 5444,
+      "path": "itch-feed-handler-tests/record_restart_freeze.py",
+      "sha256": "779b1a21e6adaf9ab25e06bc490855e39adbeba555022f2d7b84f06b3d99bd25"
+    },
+    "writer": {
+      "bytes": 35831,
+      "path": "itch-feed-handler-tests/freeze_restart_oracle.py",
+      "sha256": "f7136aebf6ca9afe01d50b99d759474e969fe225f43669572cf0ac079cf6d78c"
+    }
+  },
+  "recorded_at_utc": "2026-10-22T21:40:57.133906+00:00",
+  "restart_runtime_executed": false,
+  "retained_historical_coverage": {
+    "canonical_day": "2019-12-30",
+    "identified_facts": 13,
+    "independent_complete_inventories": 15,
+    "independent_implementation_commit": "3c646f9da182136125059243b475f7b8baa53773",
+    "independent_implementation_licence": "MIT",
+    "independent_order_row_instances": 16886,
+    "new_historical_samples": 0,
+    "old_fixed_level_exclusions_retained": true,
+    "prior_gate11_evidence": {
+      "bytes": 19053,
+      "path": "itch-feed-handler/docs/validation/2026-10-22-canonical-transport/verification.json",
+      "sha256": "d3055c07edf93bff5fb29d8014d9d159d9f77cb5a5ec00a8f1f5a776e81e5ea7"
+    },
+    "raw_identity": {
+      "history_evidence_sha256": "b7e29cf063fba8aff5d0494e872fa17363ea4fde7c2d28bf210fb17100533d25",
+      "history_producer_sha256": "12734d2522555d8036b78bb999b19087c33aed3c5c28cc402ef8ed95bf63dc08",
+      "input_bytes": 8251407909,
+      "input_sha256": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f",
+      "l3_evidence_sha256": "a4ae84974f0ce09da32af8cd6dfc91c0be0cfd7ed775abf7c5816f5f3d291811",
+      "retained_prefix_bytes": 273665559,
+      "retained_prefix_sha256": "51d56137b4bd2b6597051e8e01c152854758928897045af4e787a59fa8210dc1"
+    },
+    "raw_identity_freshly_reverified_this_increment": false,
+    "symbols": [
+      "MSFT",
+      "QQQ"
+    ],
+    "synthetic_occurrence_control_separate_from_canonical_history": true
+  },
+  "review_and_process_receipts": {
+    "audit_execution": {
+      "bytes": 3064,
+      "path": "itch-feed-handler/out/offline-restart-review-evidence-v1/execution.json",
+      "sha256": "46218d7cecb4055a1618502d39646ee6a8a38214b5bc7bf56639bf7385a81576"
+    },
+    "copy_controls": {
+      "bytes": 5332,
+      "path": "itch-feed-handler/out/offline-restart-audit-controls-v1/verification.json",
+      "sha256": "41b7771016c8dfa34bd47291c5c94acd3159be9c7f83527b187f806491bcd1ef"
+    },
+    "independent_audit": {
+      "bytes": 23098,
+      "path": "itch-feed-handler/out/offline-restart-review-v1/review.json",
+      "sha256": "95092f4e265f0592982cbc4cf824f9a12ca2b3d2f4a30ef87fe81266be3ca0df"
+    },
+    "primary-spec-review.json": {
+      "bytes": 465,
+      "path": "itch-feed-handler/out/offline-restart-contract-v1/primary-spec-review.json",
+      "sha256": "7b24ac0364e0d94bc1a63733c57fbdd65862625e41a2b463a97a23e5b9f28326"
+    },
+    "repeatability": {
+      "bytes": 1860,
+      "path": "itch-feed-handler/out/offline-restart-freeze-evidence-v1/repeatability.json",
+      "sha256": "34d77f04b9f480f751393889a5776a642825d5f4ea100dc92e88ebff332452da"
+    },
+    "review-audit.json": {
+      "bytes": 3897,
+      "path": "itch-feed-handler/out/offline-restart-contract-v1/review-audit.json",
+      "sha256": "cf9fdb35509af558d6408229a0995373ab2f6532eedba439fc307285d1bb6fda"
+    },
+    "review-comparator.json": {
+      "bytes": 3206,
+      "path": "itch-feed-handler/out/offline-restart-contract-v1/review-comparator.json",
+      "sha256": "8fbc3273651c26f2a71f1c6806835e2c9a5960627663165ad038a9301fb04eff"
+    },
+    "review.json": {
+      "bytes": 1443,
+      "path": "itch-feed-handler/out/offline-restart-contract-v1/review.json",
+      "sha256": "e2c427f3b0e5acc1d556d52f390dff1e6580c99dc19961bbefec8e7480a6cc7f"
+    },
+    "schema-review-audit.json": {
+      "bytes": 3344,
+      "path": "itch-feed-handler/out/offline-restart-contract-v1/schema-review-audit.json",
+      "sha256": "c5bef41d684f023e9c3fa18bed697714af83852fad5abf5da5118bdc3d9442b3"
+    },
+    "schema-review-comparator.json": {
+      "bytes": 2466,
+      "path": "itch-feed-handler/out/offline-restart-contract-v1/schema-review-comparator.json",
+      "sha256": "663cd00f7a678b140bfac626a91226445256b08f033cd14a2cd4d8bb567cc94a"
+    },
+    "writer-source-review.json": {
+      "bytes": 794,
+      "path": "itch-feed-handler/out/offline-restart-contract-v1/writer-source-review.json",
+      "sha256": "845ee74062561417e8cd92ed7c80e6a01858100f1188b9be11cdb810ebcecf12"
+    },
+    "writer_processes": [
+      {
+        "bytes": 44560,
+        "path": "itch-feed-handler/out/offline-restart-freeze-evidence-v1/process.json",
+        "sha256": "dc9d0246cee7dffcd3e29be0af4baadefba294b403e9a9895984ba953275d9f7"
+      },
+      {
+        "bytes": 44560,
+        "path": "itch-feed-handler/out/offline-restart-freeze-evidence-v2/process.json",
+        "sha256": "4a98de01526b87706a98379b4857f855301fe1a9ed9e7406651905bff631d5f8"
+      }
+    ]
+  },
+  "runtime_generations_observed": null,
+  "runtime_state_comparisons": null,
+  "sanitisers_executed_this_increment": false,
+  "schema_version": 1,
+  "source": {
+    "branch": "main",
+    "clean_during_both_oracle_processes": true,
+    "contract_commit": "72d13f5849ca56fc42f583081e16b3b03b2adcc5",
+    "implementation_baseline_commit": "88ff5d76daafb70726f7fb442b4954f2ff38cb98",
+    "oracle_schema": {
+      "bytes": 13961,
+      "path": "itch-feed-handler/docs/OFFLINE_RESTART_ORACLE.md",
+      "sha256": "10f01d7130b24568d60fff88468b192f0490b3cc736e7af4f7ea48bedd1b15c5"
+    },
+    "policy": {
+      "bytes": 17618,
+      "path": "itch-feed-handler/docs/OFFLINE_RESTART.md",
+      "sha256": "29b57fb1f0070c3f7f6c6b01b4418474898c240418252a4e0b0ad1e99e338673"
+    },
+    "prior_evidence_commit": "5ada51a59911cbff665f97165566f8ebb05547ba",
+    "public_implementation_files_unchanged": {
+      "CMakeLists.txt": {
+        "bytes": 3442,
+        "path": "itch-feed-handler/CMakeLists.txt",
+        "sha256": "b4c947d7fe1a3b4c7e8e71b7e00cba3239d0061e9969b7d5c529c3fb41510e3b"
+      },
+      "bench/audit_handoff.py": {
+        "bytes": 48571,
+        "path": "itch-feed-handler/bench/audit_handoff.py",
+        "sha256": "a14fac8bcc7a57677ab58c9fc2a504a46b848626df9b150e571a7a3ee7d67630"
+      },
+      "bench/compare_bbo.py": {
+        "bytes": 23823,
+        "path": "itch-feed-handler/bench/compare_bbo.py",
+        "sha256": "83caa1216e4d3c2e3eec184dd87755ac08008747ab6c3a8848d765d4623868b8"
+      },
+      "bench/compare_l3.py": {
+        "bytes": 20217,
+        "path": "itch-feed-handler/bench/compare_l3.py",
+        "sha256": "abf11fca148a5d9fac5c232cd72bf9bf6ff63b2db0d72bffc411da1b17f21bfb"
+      },
+      "bench/compare_reference.py": {
+        "bytes": 13512,
+        "path": "itch-feed-handler/bench/compare_reference.py",
+        "sha256": "63643ac2e5c8397d9fe2a950437bb147fafb14bf8564a305bacc062093f512fd"
+      },
+      "bench/compare_storage.py": {
+        "bytes": 28760,
+        "path": "itch-feed-handler/bench/compare_storage.py",
+        "sha256": "91d7ada64c24ee916ab1399dae3c70c1c74260aa74d04fdc52d445e2a5acdc46"
+      },
+      "bench/identified_events.py": {
+        "bytes": 29644,
+        "path": "itch-feed-handler/bench/identified_events.py",
+        "sha256": "10bc0a310e441a4dd91653e5c66bbefa0dddd171844ef5f3d6197f3ec66cb918"
+      },
+      "bench/identified_history.py": {
+        "bytes": 62228,
+        "path": "itch-feed-handler/bench/identified_history.py",
+        "sha256": "4f3e14a8c56e75de8c274f10a62f97b9c0f38845bd422fc5fcd1c9d8b3b29fbc"
+      },
+      "bench/journal.py": {
+        "bytes": 11587,
+        "path": "itch-feed-handler/bench/journal.py",
+        "sha256": "e4307dbf4932f0535efab512205bd8be3b86ff83da54cc6365d13a691bfe661b"
+      },
+      "bench/repacketise_history.py": {
+        "bytes": 42543,
+        "path": "itch-feed-handler/bench/repacketise_history.py",
+        "sha256": "28abf9d2efacdd4ddd133450b84142b3c9e4c76e03b76057e4c007b1a2e9675f"
+      },
+      "bench/validate.py": {
+        "bytes": 7126,
+        "path": "itch-feed-handler/bench/validate.py",
+        "sha256": "07eae050e280b196b64be49db2bd1777d8f1475085b09483261a457ae8cd7df5"
+      },
+      "bench/validate_journal.py": {
+        "bytes": 13616,
+        "path": "itch-feed-handler/bench/validate_journal.py",
+        "sha256": "df8bebe2892861708566f4ea7cb7f51967a16be69498046b0cd2b93b23671433"
+      },
+      "include/itch/book.hpp": {
+        "bytes": 6396,
+        "path": "itch-feed-handler/include/itch/book.hpp",
+        "sha256": "18aa04a2525e7acede4f5f7a5aa1671e2aaed81b1acc57c7f41b01602fa1fb3e"
+      },
+      "include/itch/encode.hpp": {
+        "bytes": 3972,
+        "path": "itch-feed-handler/include/itch/encode.hpp",
+        "sha256": "3976ae407926e57f060b18485cdaff7a2def42f65886c9c065840ae0f9979b61"
+      },
+      "include/itch/endian.hpp": {
+        "bytes": 2298,
+        "path": "itch-feed-handler/include/itch/endian.hpp",
+        "sha256": "e461783ae5a73df12ef028b66696bf466cf78cb1bbefb48b44eb07c8991bab7f"
+      },
+      "include/itch/framing.hpp": {
+        "bytes": 3392,
+        "path": "itch-feed-handler/include/itch/framing.hpp",
+        "sha256": "502138feb5250b51e92fa37ec11f1536aebe2c9a62c4f5195ca63fb50ae88417"
+      },
+      "include/itch/journal.hpp": {
+        "bytes": 2191,
+        "path": "itch-feed-handler/include/itch/journal.hpp",
+        "sha256": "1cd9e31221d1603845181f5dfe4c9fc3a56da3b5a9a874123ee1675203340975"
+      },
+      "include/itch/messages.hpp": {
+        "bytes": 11808,
+        "path": "itch-feed-handler/include/itch/messages.hpp",
+        "sha256": "48c7d0ec5bfb531201f3fa9f247ed7f3cf2f4e00b46ad463559e9e4a1afcb409"
+      },
+      "include/itch/mold.hpp": {
+        "bytes": 4855,
+        "path": "itch-feed-handler/include/itch/mold.hpp",
+        "sha256": "60c5cf5764fd01b92b6de541a5ad8a9afe90de1b6bd1ca9bd9c5d49a8e44b35c"
+      },
+      "include/itch/mold_itch.hpp": {
+        "bytes": 732,
+        "path": "itch-feed-handler/include/itch/mold_itch.hpp",
+        "sha256": "66e3719f75af0cba5e15e3acf086327d2a7a11cf140683b07f94386dff470252"
+      },
+      "include/itch/queue_sim.hpp": {
+        "bytes": 3322,
+        "path": "itch-feed-handler/include/itch/queue_sim.hpp",
+        "sha256": "5031e65b70a18749fcc9e274d9a6a84d29cd1ff3c44d653b444dfe5c7f50ee6b"
+      },
+      "include/itch/queue_window.hpp": {
+        "bytes": 3352,
+        "path": "itch-feed-handler/include/itch/queue_window.hpp",
+        "sha256": "85e96de848c5572591b17b587901d52d0dc39e6d23e144da23588756e17945eb"
+      },
+      "include/itch/replay.hpp": {
+        "bytes": 2815,
+        "path": "itch-feed-handler/include/itch/replay.hpp",
+        "sha256": "9e91ab2cc04d89d59884c6bf28d046390b89a0f09036d79e05acab8d4bd8741c"
+      },
+      "include/itch/snapshots.hpp": {
+        "bytes": 4950,
+        "path": "itch-feed-handler/include/itch/snapshots.hpp",
+        "sha256": "7a431eedd50ba1e554986ccf7a5efea1702c2c23e14391c58e051d653a8ad446"
+      },
+      "src/book.cpp": {
+        "bytes": 7720,
+        "path": "itch-feed-handler/src/book.cpp",
+        "sha256": "c08152d9bb0debe5e7842556ecb93ffd4d2de595bea3012880157e3d75e069c6"
+      },
+      "src/framing.cpp": {
+        "bytes": 1460,
+        "path": "itch-feed-handler/src/framing.cpp",
+        "sha256": "ab03285ee9dd4ff7d155f81bea74edab76f8b9065bc81084d10a27bd39b06dd3"
+      },
+      "src/journal.cpp": {
+        "bytes": 4045,
+        "path": "itch-feed-handler/src/journal.cpp",
+        "sha256": "33a41a1aa5e2003268f06da3dfd61eac6a980e06f8cb83929a0bd5c6b9644c9c"
+      },
+      "src/mold.cpp": {
+        "bytes": 8817,
+        "path": "itch-feed-handler/src/mold.cpp",
+        "sha256": "4b4b0de896d56b37147c20f2e32e74ace740cc056ce7286bfdb56736ae3bf3dc"
+      },
+      "src/queue_sim.cpp": {
+        "bytes": 14138,
+        "path": "itch-feed-handler/src/queue_sim.cpp",
+        "sha256": "2da5625b9ede5a68c84ad219e91b8c9f43a6c5885f358e9172ca132527dc437d"
+      },
+      "src/queue_window.cpp": {
+        "bytes": 19686,
+        "path": "itch-feed-handler/src/queue_window.cpp",
+        "sha256": "98cfbc84d9bd2c5ffea0ed1108fb6396e9f19e2777d5c3ff2a8da24fb9e7f772"
+      },
+      "src/replay.cpp": {
+        "bytes": 4767,
+        "path": "itch-feed-handler/src/replay.cpp",
+        "sha256": "bcecd0fe0fdad39c11c497966e1a5840541f3e0d10626e9933e4a126b3618991"
+      },
+      "tools/bench.cpp": {
+        "bytes": 6779,
+        "path": "itch-feed-handler/tools/bench.cpp",
+        "sha256": "33f24effb42d6c93835f543b8d9df0dd607a5c600ff678f5d317f6f2704f2030"
+      },
+      "tools/census.cpp": {
+        "bytes": 4810,
+        "path": "itch-feed-handler/tools/census.cpp",
+        "sha256": "466b9e9c86e1836c5b1b1c2d214e3325efa07e06728c4a2ca873495106c8cbc3"
+      },
+      "tools/cli.hpp": {
+        "bytes": 1085,
+        "path": "itch-feed-handler/tools/cli.hpp",
+        "sha256": "ff2d6e114a6844c9cc4b12ca90c3c45e93a3eb18683d99e973b5cd67387731c3"
+      },
+      "tools/journal_replay.cpp": {
+        "bytes": 9419,
+        "path": "itch-feed-handler/tools/journal_replay.cpp",
+        "sha256": "b7d146d82a0b4e477c435ae884a5674135b6d4b356fe9a0f35426abd36712ba1"
+      },
+      "tools/loopback.cpp": {
+        "bytes": 12585,
+        "path": "itch-feed-handler/tools/loopback.cpp",
+        "sha256": "a740ca708a0220c22344ba1cb40ee48919c92e7a4f7550faad85254bbfd958f8"
+      },
+      "tools/queue_sim.cpp": {
+        "bytes": 17130,
+        "path": "itch-feed-handler/tools/queue_sim.cpp",
+        "sha256": "9a5a389c4f9dd2c81f641e6d2bca119dcbf9fa98f649750930d3bf2089f0c118"
+      },
+      "tools/queue_window.cpp": {
+        "bytes": 15749,
+        "path": "itch-feed-handler/tools/queue_window.cpp",
+        "sha256": "9796ff4b1b67bbdfb310644b1fe5ab4d6eb74a1e8a2bb5d04edc741ae3feea5e"
+      },
+      "tools/replay.cpp": {
+        "bytes": 7776,
+        "path": "itch-feed-handler/tools/replay.cpp",
+        "sha256": "eb2d3cc2d77e7737d9b9f7a1132a6bb1607976e0ee4287c87dc80d4557e1950f"
+      },
+      "tools/snapshots.cpp": {
+        "bytes": 9829,
+        "path": "itch-feed-handler/tools/snapshots.cpp",
+        "sha256": "72992f0b87e8ee5716d0475db7eb60ccd43c3074899cc9c119d8350f7ca7dd54"
+      },
+      "tools/source.hpp": {
+        "bytes": 1012,
+        "path": "itch-feed-handler/tools/source.hpp",
+        "sha256": "ce7e405434d9583c49c0e9c8b751cda1a4b70fec07f17e10ef6fd7f86d0f8c6c"
+      },
+      "tools/storage_bench.cpp": {
+        "bytes": 12562,
+        "path": "itch-feed-handler/tools/storage_bench.cpp",
+        "sha256": "babd8c708d565c005f5840ed6fb7905678b56f50703004e7c7600b04c34e4538"
+      }
+    },
+    "snapshot_before_aggregate_publication": {
+      "feed": {
+        "branch": "main",
+        "commit": "72d13f5849ca56fc42f583081e16b3b03b2adcc5",
+        "status_porcelain": " M README.md\n M docs/VALIDATION.md\n"
+      },
+      "matching_engine": {
+        "branch": "main",
+        "commit": "dbd280185a0d45f0839881caeff8d535bcd56779",
+        "status_porcelain": ""
+      }
+    }
+  }
+}

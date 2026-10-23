@@ -1,0 +1,189 @@
+{
+  "errors": [],
+  "evidence": [
+    {
+      "bytes": 58858,
+      "label": "runtime verification receipt",
+      "sha256": "af1e4d8484a77b07ef4a880f7c48c145774f84143bd24fae45f890082e4b8fdd"
+    },
+    {
+      "bytes": 54659,
+      "label": "independent retained-output review",
+      "sha256": "e3214ad98cee94b92b22f590a46a64ff7f60ec90b27c4605989b2495e072df4d"
+    },
+    {
+      "bytes": 1537,
+      "label": "pre-execution source approval",
+      "sha256": "197397c201c4a285d9063dbf50796a2c59b30db4430dbe8fbc2bc274f207f80b"
+    },
+    {
+      "bytes": 14113,
+      "label": "materialised refusal manifest",
+      "sha256": "55d2ca6946bc5b7167ac6b706013d25bc3e4272c769be09c0cd2b569499bdbd2"
+    },
+    {
+      "bytes": 39879,
+      "label": "frozen hand expectations",
+      "sha256": "82fa006a4eba2e4d15fadd659883c9a94bf3e3438393dad91e70597328910059"
+    },
+    {
+      "bytes": 18372,
+      "label": "frozen profile contract",
+      "sha256": "c64db21dd6f106ff02484392f8f6094df4d8651ee0665628db57e3faf43bc2aa"
+    },
+    {
+      "bytes": 434409,
+      "label": "independent reference orders",
+      "sha256": "775f99545d84f47d7031bb8f245176ab81ccdaf8aa44d5f16f80499229c74e2b"
+    },
+    {
+      "bytes": 5878,
+      "label": "independent reference summary",
+      "sha256": "32bd1c10bfedaff5628537f24b42771a2daae1710f48c2e93f051e066c1373ee"
+    }
+  ],
+  "execution": {
+    "exit_code": 0,
+    "python_implementation": "cpython",
+    "python_version": "3.14.6",
+    "stderr_bytes": 0,
+    "stdout_bytes": 0
+  },
+  "implementation": {
+    "bytes": 10590,
+    "path": "bench/identified_execution_queue.py",
+    "sha256": "34fce463b308faf3f8bc1871216653b6a37ebf6353043a62fc4dc0c2ed28da73"
+  },
+  "limitations": [
+    "Six inventories are reused; row-instance counts are not independent historical samples.",
+    "Named external execution changes shares ahead, but own fills are zero by declared convention.",
+    "Selected-book closure and inherited restricted status do not establish an exact global endpoint witness or fresh raw authentication.",
+    "Private harnesses, market data, detailed outputs and full local provenance are excluded from this repository."
+  ],
+  "model": "identified_execution_prefix_shadow_queue_v1",
+  "passed": true,
+  "results": {
+    "actual_artefacts": 22,
+    "actual_output_controls": [
+      {
+        "error": "historical_inventory: historical_snapshots[5].orders[0].reference: differs",
+        "intended_path": "historical_inventory: historical_snapshots[5].orders[0].reference",
+        "name": "stale_FIFO",
+        "rejected": true,
+        "scenario": "before-all"
+      },
+      {
+        "error": "causal_trace: trace[6].state.observed_inventory_sha256: differs",
+        "intended_path": "causal_trace: trace[6].state.observed_inventory_sha256",
+        "name": "mixed_PRE_POST",
+        "rejected": true,
+        "scenario": "delayed-seed"
+      },
+      {
+        "error": "own_lifecycle: trace[3].state.local_state: differs",
+        "intended_path": "own_lifecycle: trace[3].state.local_state",
+        "name": "premature_ACK",
+        "rejected": true,
+        "scenario": "ack-pending"
+      },
+      {
+        "error": "coverage: config.horizon_ns: differs",
+        "intended_path": "coverage: config.horizon_ns",
+        "name": "extended_horizon",
+        "rejected": true,
+        "scenario": "before-all"
+      },
+      {
+        "error": "named_ahead: trace[13].state.ahead_shares: differs",
+        "intended_path": "named_ahead: trace[13].state.ahead_shares",
+        "name": "stale_E_ahead",
+        "rejected": true,
+        "scenario": "before-all"
+      }
+    ],
+    "api_attempts": 30,
+    "cash4": 0,
+    "deterministic_batches_equal": true,
+    "distinct_retained_historical_states": 37,
+    "fees4": 0,
+    "historical_order_row_instances": 38976,
+    "historical_states_reused": 6,
+    "intended_refusals": 16,
+    "new_historical_states": 0,
+    "normal_execution_attempts": 1,
+    "normal_execution_failures": 0,
+    "own_fills": 0,
+    "pending_rows": 26,
+    "position": 0,
+    "positive_calls": 14,
+    "prior_altered_expectation_controls": 4,
+    "protected_inputs": 115,
+    "refusal_categories": {
+      "clock": 1,
+      "config": 8,
+      "profile": 7
+    },
+    "repeat_batches": 2,
+    "scenario_count": 7,
+    "scenarios": [
+      {
+        "name": "before-all",
+        "pending_rows": 0,
+        "trace_rows": 15
+      },
+      {
+        "name": "at-E",
+        "pending_rows": 0,
+        "trace_rows": 15
+      },
+      {
+        "name": "no-feed",
+        "pending_rows": 6,
+        "trace_rows": 7
+      },
+      {
+        "name": "arrival-pending",
+        "pending_rows": 1,
+        "trace_rows": 13
+      },
+      {
+        "name": "ack-pending",
+        "pending_rows": 1,
+        "trace_rows": 14
+      },
+      {
+        "name": "cancelled",
+        "pending_rows": 0,
+        "trace_rows": 18
+      },
+      {
+        "name": "delayed-seed",
+        "pending_rows": 5,
+        "trace_rows": 10
+      }
+    ],
+    "trace_rows": 184
+  },
+  "schema_version": 1,
+  "scope": {
+    "actual_venue_priority_established": false,
+    "authentication_scope": "inherited common raw identity, complete selected coverage and explicit restricted status census; no fresh raw or exact global E witness",
+    "empirical_fill_calibration": false,
+    "fresh_full_raw_sha256_verified": false,
+    "own_zero_fill_is_convention": true,
+    "pure_module_authentication_flags": false,
+    "queue_admitted": true,
+    "raw_opened_statted_or_hashed": false,
+    "reference_executed": false
+  },
+  "source_at_execution": {
+    "engine": {
+      "branch": "main",
+      "commit": "dbd280185a0d45f0839881caeff8d535bcd56779"
+    },
+    "itch": {
+      "branch": "main",
+      "commit": "f56716ebca73d8e536859728a864e9881a40ad1f"
+    }
+  }
+}

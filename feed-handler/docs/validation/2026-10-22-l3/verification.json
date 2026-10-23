@@ -1,0 +1,413 @@
+{
+  "schema_version": 1,
+  "model": "independent_displayed_order_fifo_v1",
+  "passed": true,
+  "source_commit": "acd2f29d483b688dd5ece18202dfbb9cadf6291f",
+  "source_branch": "main",
+  "matching_engine_commit": "dbd280185a0d45f0839881caeff8d535bcd56779",
+  "matching_engine_branch": "main",
+  "canonical_report": {
+    "path": "workspace/itch-feed-handler/docs/validation/2026-10-22-l3/canonical.json",
+    "bytes": 27500,
+    "sha256": "a4ae84974f0ce09da32af8cd6dfc91c0be0cfd7ed775abf7c5816f5f3d291811"
+  },
+  "initial_failed_report": {
+    "path": "workspace/itch-feed-handler/docs/validation/2026-10-22-l3/initial_failure.json",
+    "bytes": 18369,
+    "sha256": "1b6c38e1dff1a992addad11f77b09359dbca9a0305f2044e1717306842df4c0e"
+  },
+  "failed_helper_and_driver_snapshots": [
+    {
+      "path": "workspace/itch-feed-handler/out/l3-canonical-v1/failed-independent_l3_local.cpp",
+      "bytes": 17066,
+      "sha256": "0fd0718c204e7a840a24e24e9d8cb942645d2132b7f92721fde299dba3567787"
+    },
+    {
+      "path": "workspace/itch-feed-handler/out/l3-canonical-v1/failed-independent_l3_local",
+      "bytes": 100648,
+      "sha256": "b9c6ec65cad3c3ca71d3ca48bce18d05a93f43fe8b9a8bb7558bb513ef2ff1a6"
+    },
+    {
+      "path": "workspace/itch-feed-handler/out/l3-canonical-v1/failed-l3_canonical_evidence.py",
+      "bytes": 13671,
+      "sha256": "5626137d4e7a37e694847008bb64330982b6d818c73733acb10f3bd416be775f"
+    }
+  ],
+  "private_acceptance_manifest": {
+    "path": "workspace/itch-feed-handler/out/l3-fixture-v1/verification-private-v2.json",
+    "bytes": 7268,
+    "sha256": "bf05670071d5b50a1de6c97e344b190541ed57e1fa2b34f514baeadc2710eece"
+  },
+  "private_acceptance": {
+    "checks": {
+      "all_11_manifests_match_except_explicit_reference_scope": true,
+      "both_producers_equal_literal_49_rows": true,
+      "checked_close_failure_rejected": true,
+      "nonregular_input_no_hang": true,
+      "nonselected_ACEL_plus_and_internal_space_symbols_accepted": true,
+      "nonselected_uint32_price_accepted": true,
+      "selected_export_out_of_common_price_domain_rejected": true,
+      "three_bbo_preserving_mutants_rejected": true
+    },
+    "correction": {
+      "cause": "Private local helper applied requested-symbol charset and common export signed-price bound to all global feed messages",
+      "initial_canonical_failure_preserved": "out/l3-canonical-v1/aggregate.json",
+      "scope": "Global feed identity permits nonempty printable ASCII; global A/U prices use positive uint32; requested checkpoint charset and selected export domain remain unchanged"
+    },
+    "files": {
+      "itch-feed-handler-tests/CMakeLists.txt": {
+        "bytes": 4676,
+        "sha256": "ad86f4e01571565101aea9e9fde4b218b2e80a11af65c8b7491bd259c38befde"
+      },
+      "itch-feed-handler-tests/build-asan/independent_l3_local": {
+        "bytes": 1372424,
+        "sha256": "2c303496ad951d6fc5c3d6d2d624335be1ab8cc1e818582ad4c45cc9be3150ff"
+      },
+      "itch-feed-handler-tests/build/independent_l3_local": {
+        "bytes": 100648,
+        "sha256": "a2ffdaf633505638b74250726b1e3b54ef940dc4e4b5421777b4ef1cced2075f"
+      },
+      "itch-feed-handler-tests/independent_l3_local.cpp": {
+        "bytes": 17369,
+        "sha256": "905a760e56bf715465c83d2648c97db3498b5aa37889c1087688b3bf95c80e77"
+      },
+      "itch-feed-handler-tests/independent_l3_reference.cpp": {
+        "bytes": 21272,
+        "sha256": "61962eb24d0b206f3bcc28cdcc94e2c1555756fd36d547edec6f8eb1f9d1a0d3"
+      },
+      "itch-feed-handler-tests/test_l3_comparison.py": {
+        "bytes": 29938,
+        "sha256": "d99a269c104aec12031933e2b931910eb56a3a51c8482c274e841a9320bbb9ec"
+      },
+      "itch-feed-handler/bench/compare_l3.py": {
+        "bytes": 20217,
+        "sha256": "abf11fca148a5d9fac5c232cd72bf9bf6ff63b2db0d72bffc411da1b17f21bfb"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/build-local-asan-v2.log": {
+        "bytes": 230,
+        "sha256": "f5497a6c68363d2c7a5aa16191a03fa7b7b87fdabe3840fdec0402b6bbb0965a"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/build-local-release-v2.log": {
+        "bytes": 230,
+        "sha256": "f5497a6c68363d2c7a5aa16191a03fa7b7b87fdabe3840fdec0402b6bbb0965a"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/checkpoints.csv": {
+        "bytes": 415,
+        "sha256": "9f29ed584b9e573c58f823de2c490f92a682c23fea796e6fffebcf62e2c2e73f"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/comparison-v2.json": {
+        "bytes": 4278,
+        "sha256": "c8a7ee90fbacc53142e93eee7a42bdf5dc35f563f5dc6492ebf95b470b3586ad"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/comparison-v2.stderr.log": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/comparison-v2.stdout.log": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/ctest-release-v2.stderr.log": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/ctest-release-v2.stdout.log": {
+        "bytes": 259,
+        "sha256": "ea6dbf275304902da67d83210f0e0f48b4341c836181b60f1217b2798f4fd9c0"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/expected-orders.csv": {
+        "bytes": 1133,
+        "sha256": "8894cde4bfb2027c95e0502cba0eacf4bc721a6861f00a8579182b8416582a1b"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/expected-summary.json": {
+        "bytes": 6542,
+        "sha256": "2a8866d928acc92f9700251a1fe4af99af3ab207a26070478d1f73bf1f0f33ce"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/input.itch": {
+        "bytes": 868,
+        "sha256": "6ff282bdd60cc26c1c314856d26a83f583d4783dae54e7fbbe407f45bb8d3fac"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/local-build-info-v2.txt": {
+        "bytes": 2321,
+        "sha256": "cb1a0a583af93d7885c69e9b40fb2284a7e82eeefda66109817939654da03742"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/local-v2-orders.csv": {
+        "bytes": 1133,
+        "sha256": "8894cde4bfb2027c95e0502cba0eacf4bc721a6861f00a8579182b8416582a1b"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/local-v2-summary.json": {
+        "bytes": 3872,
+        "sha256": "6f0b66b30d8b574df024db8545541e37dd201c9f74dac3ce15fc49729a31b296"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/local-v2.stderr.log": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/local-v2.stdout.log": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/reference-v2-orders.csv": {
+        "bytes": 1133,
+        "sha256": "8894cde4bfb2027c95e0502cba0eacf4bc721a6861f00a8579182b8416582a1b"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/reference-v2-summary.json": {
+        "bytes": 3870,
+        "sha256": "23af64d7c7e95a4f0fd6accece72d26d37cfe98e9208d3c779d717bf40281ad3"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/reference-v2.stderr.log": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/reference-v2.stdout.log": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/tests-asan-v2.stderr.log": {
+        "bytes": 129,
+        "sha256": "ddedd79fdf17211971f527d311b768de135b38c429f83fbb43158242298d6e2e"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/tests-asan-v2.stdout.log": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/tests-release-v2.stderr.log": {
+        "bytes": 129,
+        "sha256": "1326f896b25c15314900d3290ae40e2799fab29f084fd5ad5097f2f1732f4d2e"
+      },
+      "itch-feed-handler/out/l3-fixture-v1/tests-release-v2.stdout.log": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "itch-feed-handler/out/l3-helper-build-v1/reference": {
+        "bytes": 77240,
+        "sha256": "89e654ae0e91d96b0abe6cb319697c20827a9d6b22a0cb87ea33e5b37102ff3b"
+      },
+      "itch-feed-handler/out/l3-helper-build-v1/reference-asan": {
+        "bytes": 489632,
+        "sha256": "eab9e86163cd743d6de0f118fd736179ad4373dfe27dd9b1686e13e66f8d7fb6"
+      }
+    },
+    "fixture": {
+      "messages": 31,
+      "oracle_frozen_before_producer_execution": true,
+      "order_rows": 49,
+      "source_bytes": 868,
+      "states": 11
+    },
+    "passed": true,
+    "schema_version": 1,
+    "scope": "Synthetic private fixture and comparator acceptance; no canonical replay",
+    "source_commit": "acd2f29d483b688dd5ece18202dfbb9cadf6291f",
+    "tests": {
+      "asan_detect_leaks": false,
+      "ctest_number": 99,
+      "ctest_passed": 1,
+      "ctest_registered": "Validation.L3Comparison",
+      "ctest_selected": 1,
+      "unittest_asan_ubsan": 30,
+      "unittest_release": 30
+    }
+  },
+  "independent_final_review": {
+    "path": "workspace/itch-feed-handler/out/l3-canonical-v2/final-review.json",
+    "bytes": 32962,
+    "sha256": "25196bae92767ba666c478a3d3886b02cb227e8eb6b36a89ac446b48f98d9db0"
+  },
+  "independent_final_checks": {
+    "checkpoints_exactly_bound_to_frozen_source_provenance": true,
+    "every_tuple_fifo_rank_and_side_manifest_matches": true,
+    "declared_validation_scopes_checked_separately": true,
+    "source_helpers_archive_exports_and_process_records_verified": true,
+    "initial_failure_retained": true,
+    "raw_hash_records_consistent_without_reopening_raw": true,
+    "all_review_inputs_unchanged": true
+  },
+  "independent_review_driver": {
+    "path": "workspace/itch-feed-handler-tests/review_l3_retained.py",
+    "bytes": 17392,
+    "sha256": "9133fbc69f58c18e0c9268f9995852c9fba3c6a9c2a0d92362f25f2a7adcfab6"
+  },
+  "private_evidence_driver": {
+    "path": "workspace/itch-feed-handler-tests/l3_canonical_evidence.py",
+    "bytes": 13671,
+    "sha256": "64a2343ad1e644d3b6e9ba3431a68feb002401393e2c3a0360b030105fca5ff9"
+  },
+  "verification_driver": {
+    "path": "workspace/itch-feed-handler-tests/record_l3_verification.py",
+    "bytes": 6830,
+    "sha256": "763ff3bcae2fd4ae25339035a46be957b17d8ddd65f8bba8de266f80d5042415"
+  },
+  "reference_build_provenance": {
+    "source": {
+      "path": "workspace/itch-feed-handler-tests/independent_l3_reference.cpp",
+      "bytes": 21272,
+      "sha256": "61962eb24d0b206f3bcc28cdcc94e2c1555756fd36d547edec6f8eb1f9d1a0d3"
+    },
+    "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
+    "builds": [
+      {
+        "name": "reference",
+        "command": [
+          "/usr/bin/clang++",
+          "-std=c++20",
+          "-Wall",
+          "-Wextra",
+          "-Wpedantic",
+          "-O3",
+          "-DNDEBUG",
+          "-Iworkspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include",
+          "workspace/itch-feed-handler-tests/independent_l3_reference.cpp",
+          "-o",
+          "workspace/itch-feed-handler/out/l3-helper-build-v1/reference"
+        ],
+        "exit_code": 0,
+        "log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "binary": {
+          "bytes": 77240,
+          "sha256": "89e654ae0e91d96b0abe6cb319697c20827a9d6b22a0cb87ea33e5b37102ff3b"
+        }
+      },
+      {
+        "name": "reference-asan",
+        "command": [
+          "/usr/bin/clang++",
+          "-std=c++20",
+          "-Wall",
+          "-Wextra",
+          "-Wpedantic",
+          "-O1",
+          "-g",
+          "-fsanitize=address,undefined",
+          "-fno-omit-frame-pointer",
+          "-Iworkspace/itch-feed-handler/data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773/include",
+          "workspace/itch-feed-handler-tests/independent_l3_reference.cpp",
+          "-o",
+          "workspace/itch-feed-handler/out/l3-helper-build-v1/reference-asan"
+        ],
+        "exit_code": 0,
+        "log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "binary": {
+          "bytes": 489632,
+          "sha256": "eab9e86163cd743d6de0f118fd736179ad4373dfe27dd9b1686e13e66f8d7fb6"
+        }
+      }
+    ]
+  },
+  "reference_fixture_provenance": {
+    "path": "workspace/itch-feed-handler/out/l3-helper-build-v1/final-fixture-provenance.json",
+    "bytes": 4187,
+    "sha256": "0ed742a597878c1890cb57f0c286b64ee99ff36e71a7c2b90ae55be74f3ba35a"
+  },
+  "canonical_driver_logs": [
+    {
+      "path": "workspace/itch-feed-handler/out/l3-helper-build-v1/canonical-run-v2.stdout.log",
+      "bytes": 365,
+      "sha256": "7898a8a9b9f2ada54d5d6d5a076cc5fa9084d0f6886158afd702333d35ac465b"
+    },
+    {
+      "path": "workspace/itch-feed-handler/out/l3-helper-build-v1/canonical-run-v2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "commands": [
+    {
+      "cwd": "workspace/itch-feed-handler-tests",
+      "argv": [
+        "python3",
+        "test_l3_comparison.py",
+        "../itch-feed-handler/bench/compare_l3.py",
+        "build/independent_l3_local",
+        "../itch-feed-handler/out/l3-helper-build-v1/reference"
+      ]
+    },
+    {
+      "cwd": "workspace/itch-feed-handler-tests",
+      "environment": {
+        "ASAN_OPTIONS": "detect_leaks=0:halt_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1"
+      },
+      "argv": [
+        "python3",
+        "test_l3_comparison.py",
+        "../itch-feed-handler/bench/compare_l3.py",
+        "build-asan/independent_l3_local",
+        "../itch-feed-handler/out/l3-helper-build-v1/reference-asan"
+      ]
+    },
+    {
+      "cwd": "workspace/itch-feed-handler-tests",
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "build",
+        "-R",
+        "^Validation.L3Comparison$",
+        "--output-on-failure"
+      ]
+    },
+    {
+      "cwd": "workspace/itch-feed-handler-tests",
+      "argv": [
+        "python3",
+        "l3_canonical_evidence.py"
+      ]
+    },
+    {
+      "cwd": "workspace/itch-feed-handler-tests",
+      "argv": [
+        "python3",
+        "record_l3_verification.py"
+      ]
+    }
+  ],
+  "results": {
+    "canonical_states": 15,
+    "ordered_row_instances": 16886,
+    "level_instances": 5665,
+    "tuple_or_manifest_differences": 0,
+    "fixture_states": 11,
+    "fixture_order_rows": 49,
+    "release_test_methods": 30,
+    "asan_ubsan_test_methods": 30,
+    "selected_ctests_passed": 1,
+    "registered_release_ctests": 99,
+    "named_execution_transitions_inspected": 2,
+    "non_head_named_execution_transitions": 1
+  },
+  "checks": {
+    "all_33_private_acceptance_file_identities_verified": true,
+    "current_implementation_hashes_match_clean_launch": true,
+    "initial_failed_report_preserved_unchanged": true,
+    "independent_retained_output_review_passed": true,
+    "matching_engine_clean_on_main": true
+  },
+  "scope": {
+    "canonical_helpers": "Release",
+    "sanitisers": "Private fixtures and false-pass controls only",
+    "leak_detection": false,
+    "performance_measured": false,
+    "new_fill_model": false
+  },
+  "limitations": [
+    "Reconstruction FIFO agreement at fifteen selected states, not every intermediate real-day state or actual exchange priority.",
+    "Independent implementation consumes the same input; no separate exchange/vendor feed oracle.",
+    "Reference selected-symbol validation and local full-prefix validation are declared separately.",
+    "Original priority timestamps and MPID attribution are not common compared fields.",
+    "Apple runtime does not support LeakSanitizer; focused ASan/UBSan uses detect_leaks=0.",
+    "Per-order output, fixture ledgers and wrapper sources remain private or ignored."
+  ],
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 17100,
+    "original_report_sha256": "396577c3b83a27205f4fc67c272a629c07a75a9012aec044591761e9752db6bd",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}

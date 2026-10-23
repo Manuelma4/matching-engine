@@ -1,0 +1,12 @@
+build/
+build-*/
+.cache/
+.DS_Store
+compile_commands.json
+# Market data and derived per-message files are never committed.
+data/
+out/
+*.itch
+*.jnl
+*.gz
+__pycache__/

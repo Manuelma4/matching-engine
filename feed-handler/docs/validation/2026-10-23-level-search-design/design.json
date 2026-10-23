@@ -1,0 +1,581 @@
+{
+  "schema_version": 1,
+  "model": "price_level_search_design_v1",
+  "recorded_at_utc": "2026-10-23T00:30:11.484747+00:00",
+  "status": "approved_design_only",
+  "gate": 17,
+  "source_baselines": {
+    "feed": "d368267b0544497f18c101486aa579b519bf2d75",
+    "engine": "dbd280185a0d45f0839881caeff8d535bcd56779",
+    "branches": [
+      "main",
+      "main"
+    ]
+  },
+  "contract": {
+    "path": "itch-feed-handler/docs/LEVEL_SEARCH.md",
+    "bytes": 14506,
+    "sha256": "6551554e3b4c96b2802dfeed14932dfdb6d0e4f619ada61acdbbc41f25325a79"
+  },
+  "decision": {
+    "candidate": "binary",
+    "default": "reverse_linear",
+    "representation": "unchanged sorted LevelEntry vectors and global slabs",
+    "comparison_dimension": "price-directory search algorithm only",
+    "deferred": [
+      "ordered tree allocation/transaction redesign",
+      "bounded price ladder"
+    ]
+  },
+  "reviews": [
+    {
+      "reviewer": "independent-review-1",
+      "scope": "source costs, comparator, invariants and claims",
+      "approved_contract_sha256": "6551554e3b4c96b2802dfeed14932dfdb6d0e4f619ada61acdbbc41f25325a79",
+      "remaining_material_issues": []
+    },
+    {
+      "reviewer": "independent-review-2",
+      "scope": "API/FIFO, allocation, retained oracle and fingerprint scope",
+      "approved_contract_sha256": "6551554e3b4c96b2802dfeed14932dfdb6d0e4f619ada61acdbbc41f25325a79",
+      "remaining_material_issues": []
+    },
+    {
+      "reviewer": "independent-review-3",
+      "scope": "fixed measurement matrix, identity guards and timing/RSS scope",
+      "approved_contract_sha256": "6551554e3b4c96b2802dfeed14932dfdb6d0e4f619ada61acdbbc41f25325a79",
+      "remaining_material_issues": []
+    }
+  ],
+  "review_corrections": [
+    "framing/type/after-end preflight is separate from post-replay C/empty/semantic acceptance",
+    "explicit ITCH_BINARY_LEVEL_SEARCH 0/1 mapping and fixed flat reference index",
+    "prefix subprocess timeouts and exact retained consumed endpoints",
+    "RSS high-water sampling phase is immediately after replay, before final hashes/destruction"
+  ],
+  "implementation_identities_equal_git_baselines": {
+    "feed": {
+      "CMakeLists.txt": {
+        "path": "itch-feed-handler/CMakeLists.txt",
+        "bytes": 3442,
+        "sha256": "b4c947d7fe1a3b4c7e8e71b7e00cba3239d0061e9969b7d5c529c3fb41510e3b"
+      },
+      "bench/audit_handoff.py": {
+        "path": "itch-feed-handler/bench/audit_handoff.py",
+        "bytes": 48571,
+        "sha256": "a14fac8bcc7a57677ab58c9fc2a504a46b848626df9b150e571a7a3ee7d67630"
+      },
+      "bench/compare_bbo.py": {
+        "path": "itch-feed-handler/bench/compare_bbo.py",
+        "bytes": 23823,
+        "sha256": "83caa1216e4d3c2e3eec184dd87755ac08008747ab6c3a8848d765d4623868b8"
+      },
+      "bench/compare_l3.py": {
+        "path": "itch-feed-handler/bench/compare_l3.py",
+        "bytes": 20217,
+        "sha256": "abf11fca148a5d9fac5c232cd72bf9bf6ff63b2db0d72bffc411da1b17f21bfb"
+      },
+      "bench/compare_reference.py": {
+        "path": "itch-feed-handler/bench/compare_reference.py",
+        "bytes": 13512,
+        "sha256": "63643ac2e5c8397d9fe2a950437bb147fafb14bf8564a305bacc062093f512fd"
+      },
+      "bench/compare_storage.py": {
+        "path": "itch-feed-handler/bench/compare_storage.py",
+        "bytes": 28760,
+        "sha256": "91d7ada64c24ee916ab1399dae3c70c1c74260aa74d04fdc52d445e2a5acdc46"
+      },
+      "bench/identified_events.py": {
+        "path": "itch-feed-handler/bench/identified_events.py",
+        "bytes": 29644,
+        "sha256": "10bc0a310e441a4dd91653e5c66bbefa0dddd171844ef5f3d6197f3ec66cb918"
+      },
+      "bench/identified_history.py": {
+        "path": "itch-feed-handler/bench/identified_history.py",
+        "bytes": 62228,
+        "sha256": "4f3e14a8c56e75de8c274f10a62f97b9c0f38845bd422fc5fcd1c9d8b3b29fbc"
+      },
+      "bench/identified_transitions.py": {
+        "path": "itch-feed-handler/bench/identified_transitions.py",
+        "bytes": 49694,
+        "sha256": "7955aa818f77ec4a20d8223ca421e0b913ab5cbf39f134c62bf464e949563f9d"
+      },
+      "bench/journal.py": {
+        "path": "itch-feed-handler/bench/journal.py",
+        "bytes": 11587,
+        "sha256": "e4307dbf4932f0535efab512205bd8be3b86ff83da54cc6365d13a691bfe661b"
+      },
+      "bench/repacketise_history.py": {
+        "path": "itch-feed-handler/bench/repacketise_history.py",
+        "bytes": 42543,
+        "sha256": "28abf9d2efacdd4ddd133450b84142b3c9e4c76e03b76057e4c007b1a2e9675f"
+      },
+      "bench/validate.py": {
+        "path": "itch-feed-handler/bench/validate.py",
+        "bytes": 7126,
+        "sha256": "07eae050e280b196b64be49db2bd1777d8f1475085b09483261a457ae8cd7df5"
+      },
+      "bench/validate_journal.py": {
+        "path": "itch-feed-handler/bench/validate_journal.py",
+        "bytes": 13616,
+        "sha256": "df8bebe2892861708566f4ea7cb7f51967a16be69498046b0cd2b93b23671433"
+      },
+      "include/itch/book.hpp": {
+        "path": "itch-feed-handler/include/itch/book.hpp",
+        "bytes": 6396,
+        "sha256": "18aa04a2525e7acede4f5f7a5aa1671e2aaed81b1acc57c7f41b01602fa1fb3e"
+      },
+      "include/itch/encode.hpp": {
+        "path": "itch-feed-handler/include/itch/encode.hpp",
+        "bytes": 3972,
+        "sha256": "3976ae407926e57f060b18485cdaff7a2def42f65886c9c065840ae0f9979b61"
+      },
+      "include/itch/endian.hpp": {
+        "path": "itch-feed-handler/include/itch/endian.hpp",
+        "bytes": 2298,
+        "sha256": "e461783ae5a73df12ef028b66696bf466cf78cb1bbefb48b44eb07c8991bab7f"
+      },
+      "include/itch/framing.hpp": {
+        "path": "itch-feed-handler/include/itch/framing.hpp",
+        "bytes": 3392,
+        "sha256": "502138feb5250b51e92fa37ec11f1536aebe2c9a62c4f5195ca63fb50ae88417"
+      },
+      "include/itch/journal.hpp": {
+        "path": "itch-feed-handler/include/itch/journal.hpp",
+        "bytes": 2191,
+        "sha256": "1cd9e31221d1603845181f5dfe4c9fc3a56da3b5a9a874123ee1675203340975"
+      },
+      "include/itch/messages.hpp": {
+        "path": "itch-feed-handler/include/itch/messages.hpp",
+        "bytes": 11808,
+        "sha256": "48c7d0ec5bfb531201f3fa9f247ed7f3cf2f4e00b46ad463559e9e4a1afcb409"
+      },
+      "include/itch/mold.hpp": {
+        "path": "itch-feed-handler/include/itch/mold.hpp",
+        "bytes": 4855,
+        "sha256": "60c5cf5764fd01b92b6de541a5ad8a9afe90de1b6bd1ca9bd9c5d49a8e44b35c"
+      },
+      "include/itch/mold_itch.hpp": {
+        "path": "itch-feed-handler/include/itch/mold_itch.hpp",
+        "bytes": 732,
+        "sha256": "66e3719f75af0cba5e15e3acf086327d2a7a11cf140683b07f94386dff470252"
+      },
+      "include/itch/queue_sim.hpp": {
+        "path": "itch-feed-handler/include/itch/queue_sim.hpp",
+        "bytes": 3322,
+        "sha256": "5031e65b70a18749fcc9e274d9a6a84d29cd1ff3c44d653b444dfe5c7f50ee6b"
+      },
+      "include/itch/queue_window.hpp": {
+        "path": "itch-feed-handler/include/itch/queue_window.hpp",
+        "bytes": 3352,
+        "sha256": "85e96de848c5572591b17b587901d52d0dc39e6d23e144da23588756e17945eb"
+      },
+      "include/itch/replay.hpp": {
+        "path": "itch-feed-handler/include/itch/replay.hpp",
+        "bytes": 2815,
+        "sha256": "9e91ab2cc04d89d59884c6bf28d046390b89a0f09036d79e05acab8d4bd8741c"
+      },
+      "include/itch/snapshots.hpp": {
+        "path": "itch-feed-handler/include/itch/snapshots.hpp",
+        "bytes": 4950,
+        "sha256": "7a431eedd50ba1e554986ccf7a5efea1702c2c23e14391c58e051d653a8ad446"
+      },
+      "src/book.cpp": {
+        "path": "itch-feed-handler/src/book.cpp",
+        "bytes": 7720,
+        "sha256": "c08152d9bb0debe5e7842556ecb93ffd4d2de595bea3012880157e3d75e069c6"
+      },
+      "src/framing.cpp": {
+        "path": "itch-feed-handler/src/framing.cpp",
+        "bytes": 1460,
+        "sha256": "ab03285ee9dd4ff7d155f81bea74edab76f8b9065bc81084d10a27bd39b06dd3"
+      },
+      "src/journal.cpp": {
+        "path": "itch-feed-handler/src/journal.cpp",
+        "bytes": 4045,
+        "sha256": "33a41a1aa5e2003268f06da3dfd61eac6a980e06f8cb83929a0bd5c6b9644c9c"
+      },
+      "src/mold.cpp": {
+        "path": "itch-feed-handler/src/mold.cpp",
+        "bytes": 8817,
+        "sha256": "4b4b0de896d56b37147c20f2e32e74ace740cc056ce7286bfdb56736ae3bf3dc"
+      },
+      "src/queue_sim.cpp": {
+        "path": "itch-feed-handler/src/queue_sim.cpp",
+        "bytes": 14138,
+        "sha256": "2da5625b9ede5a68c84ad219e91b8c9f43a6c5885f358e9172ca132527dc437d"
+      },
+      "src/queue_window.cpp": {
+        "path": "itch-feed-handler/src/queue_window.cpp",
+        "bytes": 19686,
+        "sha256": "98cfbc84d9bd2c5ffea0ed1108fb6396e9f19e2777d5c3ff2a8da24fb9e7f772"
+      },
+      "src/replay.cpp": {
+        "path": "itch-feed-handler/src/replay.cpp",
+        "bytes": 4767,
+        "sha256": "bcecd0fe0fdad39c11c497966e1a5840541f3e0d10626e9933e4a126b3618991"
+      },
+      "tools/bench.cpp": {
+        "path": "itch-feed-handler/tools/bench.cpp",
+        "bytes": 6779,
+        "sha256": "33f24effb42d6c93835f543b8d9df0dd607a5c600ff678f5d317f6f2704f2030"
+      },
+      "tools/census.cpp": {
+        "path": "itch-feed-handler/tools/census.cpp",
+        "bytes": 4810,
+        "sha256": "466b9e9c86e1836c5b1b1c2d214e3325efa07e06728c4a2ca873495106c8cbc3"
+      },
+      "tools/cli.hpp": {
+        "path": "itch-feed-handler/tools/cli.hpp",
+        "bytes": 1085,
+        "sha256": "ff2d6e114a6844c9cc4b12ca90c3c45e93a3eb18683d99e973b5cd67387731c3"
+      },
+      "tools/journal_replay.cpp": {
+        "path": "itch-feed-handler/tools/journal_replay.cpp",
+        "bytes": 9419,
+        "sha256": "b7d146d82a0b4e477c435ae884a5674135b6d4b356fe9a0f35426abd36712ba1"
+      },
+      "tools/loopback.cpp": {
+        "path": "itch-feed-handler/tools/loopback.cpp",
+        "bytes": 12585,
+        "sha256": "a740ca708a0220c22344ba1cb40ee48919c92e7a4f7550faad85254bbfd958f8"
+      },
+      "tools/queue_sim.cpp": {
+        "path": "itch-feed-handler/tools/queue_sim.cpp",
+        "bytes": 17130,
+        "sha256": "9a5a389c4f9dd2c81f641e6d2bca119dcbf9fa98f649750930d3bf2089f0c118"
+      },
+      "tools/queue_window.cpp": {
+        "path": "itch-feed-handler/tools/queue_window.cpp",
+        "bytes": 15749,
+        "sha256": "9796ff4b1b67bbdfb310644b1fe5ab4d6eb74a1e8a2bb5d04edc741ae3feea5e"
+      },
+      "tools/replay.cpp": {
+        "path": "itch-feed-handler/tools/replay.cpp",
+        "bytes": 7776,
+        "sha256": "eb2d3cc2d77e7737d9b9f7a1132a6bb1607976e0ee4287c87dc80d4557e1950f"
+      },
+      "tools/snapshots.cpp": {
+        "path": "itch-feed-handler/tools/snapshots.cpp",
+        "bytes": 9829,
+        "sha256": "72992f0b87e8ee5716d0475db7eb60ccd43c3074899cc9c119d8350f7ca7dd54"
+      },
+      "tools/source.hpp": {
+        "path": "itch-feed-handler/tools/source.hpp",
+        "bytes": 1012,
+        "sha256": "ce7e405434d9583c49c0e9c8b751cda1a4b70fec07f17e10ef6fd7f86d0f8c6c"
+      },
+      "tools/storage_bench.cpp": {
+        "path": "itch-feed-handler/tools/storage_bench.cpp",
+        "bytes": 12562,
+        "sha256": "babd8c708d565c005f5840ed6fb7905678b56f50703004e7c7600b04c34e4538"
+      }
+    },
+    "engine": {
+      "CMakeLists.txt": {
+        "path": "matching-engine/CMakeLists.txt",
+        "bytes": 1296,
+        "sha256": "9886fbc8523f033ca2a2ce93f1cf8fb63961d9ef9e40c089ad5aa2e06a541823"
+      },
+      "bench/main.cpp": {
+        "path": "matching-engine/bench/main.cpp",
+        "bytes": 10700,
+        "sha256": "2e128198eb4489a8234c6c4035466ed405cac794f622ce77e713364a50a389d1"
+      },
+      "bench/rng.hpp": {
+        "path": "matching-engine/bench/rng.hpp",
+        "bytes": 1503,
+        "sha256": "ecce719bb32149fbe06b46f57d074b1a89481cc141c7f1fd00ae0b5bc84609ae"
+      },
+      "bench/summarize.py": {
+        "path": "matching-engine/bench/summarize.py",
+        "bytes": 2781,
+        "sha256": "6fa2e3a6ea129ec4f991c8a4608e76c46b4daab2d4fc8f5686f316fce9a85531"
+      },
+      "bench/workloads.cpp": {
+        "path": "matching-engine/bench/workloads.cpp",
+        "bytes": 8569,
+        "sha256": "c08cb0a3f4e07c4835ec6a0b071a85063694435ac4d24fa28e3d8133c9582310"
+      },
+      "bench/workloads.hpp": {
+        "path": "matching-engine/bench/workloads.hpp",
+        "bytes": 1604,
+        "sha256": "707d788d0a64caa74ae6a9a26ebda4c289ea74736d2c82a9f5da8aee459562e9"
+      },
+      "include/me/book.hpp": {
+        "path": "matching-engine/include/me/book.hpp",
+        "bytes": 7419,
+        "sha256": "3d108b220052193961042001cc6b41838052990a55c6f4524187b29aaefcd445"
+      },
+      "include/me/book_v1.hpp": {
+        "path": "matching-engine/include/me/book_v1.hpp",
+        "bytes": 3528,
+        "sha256": "e89934e838faf4dc314f9d5a1c535ad3e839e3fa1e8de9d48f466dcdd53412fb"
+      },
+      "include/me/core.hpp": {
+        "path": "matching-engine/include/me/core.hpp",
+        "bytes": 2083,
+        "sha256": "1e8b9c371c9efdfeb2db95a4a51c0c916ecb426fd36ed8908fc1f7b523709569"
+      },
+      "include/me/index.hpp": {
+        "path": "matching-engine/include/me/index.hpp",
+        "bytes": 3347,
+        "sha256": "928ce72653d1b955a3b2017dbd5b36e24b83485b5aa06ac7ac8fd64db6f50d47"
+      },
+      "include/me/levels.hpp": {
+        "path": "matching-engine/include/me/levels.hpp",
+        "bytes": 11149,
+        "sha256": "fa40d4a70053ff3a1d14cee7cf0e2a3bd527cfe48cb6e903a7e187a860d7d872"
+      },
+      "include/me/store.hpp": {
+        "path": "matching-engine/include/me/store.hpp",
+        "bytes": 5780,
+        "sha256": "c0ce83d7da8cd4bd9b2b61850d7dea4ad4cb9298e9f493c68599083a7657af42"
+      },
+      "include/me/types.hpp": {
+        "path": "matching-engine/include/me/types.hpp",
+        "bytes": 2521,
+        "sha256": "50ef826d9a2155695b1b5169af52fc878735ca563d5a1b9ef9f687da69002552"
+      },
+      "src/book.cpp": {
+        "path": "matching-engine/src/book.cpp",
+        "bytes": 412,
+        "sha256": "abc53bdce8129d52727295112e92cfae2114ea1da9e6f8eb67f21a0bff80a2ae"
+      },
+      "src/book_v1.cpp": {
+        "path": "matching-engine/src/book_v1.cpp",
+        "bytes": 7472,
+        "sha256": "ef84b5f8ad61b6249b779710ef96bbbf0666a03cdb298fde3f93ce71c2e3f716"
+      }
+    }
+  },
+  "inspected_private_harness": {
+    "CMakeLists.txt": {
+      "path": "itch-feed-handler-tests/CMakeLists.txt",
+      "bytes": 7073,
+      "sha256": "a69c6869bfe8ff6530cf4424efffbcba824306537a4e94651405edba1014d608"
+    },
+    "test_itch.cpp": {
+      "path": "itch-feed-handler-tests/test_itch.cpp",
+      "bytes": 7128,
+      "sha256": "d5ab2b425ad19fb4e96fd7cb8acf647b44a4077c8cb3515a91a4ec9856556ae1"
+    },
+    "test_io.cpp": {
+      "path": "itch-feed-handler-tests/test_io.cpp",
+      "bytes": 2890,
+      "sha256": "8c7cd104a2d22949545d103aaddb650fd319d876dc09a1306ebefa97f14a588c"
+    },
+    "test_book_failures.cpp": {
+      "path": "itch-feed-handler-tests/test_book_failures.cpp",
+      "bytes": 14581,
+      "sha256": "b51839cde4a7d2e2819f4c78a72224aae66d7813b2234977f472e6221969c4a7"
+    },
+    "test_endian.cpp": {
+      "path": "itch-feed-handler-tests/test_endian.cpp",
+      "bytes": 1490,
+      "sha256": "bf63b1565347a4d7b4334e473a898af39f55455678d31f765a4bda784375e1a7"
+    },
+    "test_replay_validation.cpp": {
+      "path": "itch-feed-handler-tests/test_replay_validation.cpp",
+      "bytes": 5815,
+      "sha256": "3729da549052581164150bc8f893454569054fe43872343df4e245048b8aba18"
+    },
+    "test_snapshots.cpp": {
+      "path": "itch-feed-handler-tests/test_snapshots.cpp",
+      "bytes": 6355,
+      "sha256": "7ab8fbdf1383397ebf81c7d1067dbe313aba536b57fba99ff0b7b5dcf95ebf40"
+    },
+    "test_journal.py": {
+      "path": "itch-feed-handler-tests/test_journal.py",
+      "bytes": 24543,
+      "sha256": "2149b12986f48a51bc79180bdaa3e73504a0b20b8325072412054847495713c8"
+    },
+    "test_storage_bench.py": {
+      "path": "itch-feed-handler-tests/test_storage_bench.py",
+      "bytes": 14773,
+      "sha256": "df87e9095682471f9bc7f879fc6b1ea7ef3b739686813712536dbb99d1f1d630"
+    },
+    "test_storage_comparison.py": {
+      "path": "itch-feed-handler-tests/test_storage_comparison.py",
+      "bytes": 13866,
+      "sha256": "96e667d47306d4f60ac06b915dbc0d2f8110f32650f8f9f385cf99b7720c5147"
+    },
+    "independent_l3_local.cpp": {
+      "path": "itch-feed-handler-tests/independent_l3_local.cpp",
+      "bytes": 17369,
+      "sha256": "905a760e56bf715465c83d2648c97db3498b5aa37889c1087688b3bf95c80e77"
+    },
+    "test_l3_comparison.py": {
+      "path": "itch-feed-handler-tests/test_l3_comparison.py",
+      "bytes": 29938,
+      "sha256": "d99a269c104aec12031933e2b931910eb56a3a51c8482c274e841a9320bbb9ec"
+    },
+    "record_level_search_design.py": {
+      "path": "itch-feed-handler-tests/record_level_search_design.py",
+      "bytes": 13319,
+      "sha256": "4693cd008d46ca80dba8937f351e0dbf4dc6e6b0091ced6e1195dfb84ffcec33"
+    }
+  },
+  "inherited_records": {
+    "docs/STORAGE.md": {
+      "path": "itch-feed-handler/docs/STORAGE.md",
+      "bytes": 10740,
+      "sha256": "1267a05e68cb1be3436121967cdc257fa6734caf5b185fc4c0232b6426473d47"
+    },
+    "docs/validation/2026-10-22-storage/comparison.json": {
+      "path": "itch-feed-handler/docs/validation/2026-10-22-storage/comparison.json",
+      "bytes": 181617,
+      "sha256": "7311ba36280789b941059ca4102aa6c7e82a5f40e50fb20b96f79c4aedd0294b"
+    },
+    "docs/validation/2026-10-22-storage/build-info.txt": {
+      "path": "itch-feed-handler/docs/validation/2026-10-22-storage/build-info.txt",
+      "bytes": 1841,
+      "sha256": "237ee4a71fc1ee0c9b0576fac50f5e7896a4fe575ee52fb6a9f9aea1e8a88ba7"
+    },
+    "docs/validation/2026-10-22-l3/canonical.json": {
+      "path": "itch-feed-handler/docs/validation/2026-10-22-l3/canonical.json",
+      "bytes": 27500,
+      "sha256": "a4ae84974f0ce09da32af8cd6dfc91c0be0cfd7ed775abf7c5816f5f3d291811"
+    },
+    "docs/validation/2026-10-22-l3/verification.json": {
+      "path": "itch-feed-handler/docs/validation/2026-10-22-l3/verification.json",
+      "bytes": 17100,
+      "sha256": "396577c3b83a27205f4fc67c272a629c07a75a9012aec044591761e9752db6bd"
+    },
+    "docs/validation/2026-10-23-l3-transitions/verification.json": {
+      "path": "itch-feed-handler/docs/validation/2026-10-23-l3-transitions/verification.json",
+      "bytes": 81814,
+      "sha256": "a0eb34d2aea23821ed1e4823fe8e84f9ee9c015fad24d9f39ce663e28111b2bc"
+    }
+  },
+  "inherited_raw_identities_metadata_only": [
+    {
+      "case": "nasdaq",
+      "fit_orders": 2097152,
+      "path": "workspace/itch-feed-handler/data/12302019.NASDAQ_ITCH50.itch",
+      "bytes": 8251407909,
+      "sha256": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f"
+    },
+    {
+      "case": "bx",
+      "fit_orders": 131072,
+      "path": "workspace/itch-feed-handler/data/20190730.BX_ITCH_50.itch",
+      "bytes": 837472908,
+      "sha256": "6741035beda0c237fc2d30e03756f30449791844f372de955a29da32a4b842e5"
+    }
+  ],
+  "planned_correctness": {
+    "small_builds": 8,
+    "policies": [
+      "reverse_linear",
+      "binary"
+    ],
+    "reference_indices": [
+      "open_addressed",
+      "std_unordered"
+    ],
+    "profiles": [
+      "Release",
+      "ASan/UBSan"
+    ],
+    "control_families": [
+      "unsigned bid/ask insertion/lookup and vector growth",
+      "empty-level erasure/reinsertion and cross-locate reuse",
+      "non-head reduction and populated/same-price replacement FIFO",
+      "allocating preparation rollback and no-allocation singleton commit"
+    ],
+    "bad_deep_lookup_control_required": true,
+    "retained_request_sets": [
+      15,
+      20
+    ],
+    "distinct_independent_states_reused": 35,
+    "prefix_children": 4,
+    "prefix_byte_ends": [
+      273665559,
+      284563784
+    ],
+    "new_external_reference_executions": 0,
+    "checkpoint_every": 1000000,
+    "checkpoint_counts": {
+      "nasdaq": 269,
+      "bx": 29
+    },
+    "checkpoint_nonempty_counts": {
+      "nasdaq": 268,
+      "bx": 28
+    },
+    "unchanged_hash_scope": "ordered-order/state regression; not complete directory aggregates"
+  },
+  "planned_measurement": {
+    "reference_index": "open_addressed",
+    "sanitised": false,
+    "capacity_profiles": {
+      "default": {
+        "orders": 4194304,
+        "levels": 2097152
+      },
+      "nasdaq_fit": {
+        "orders": 2097152,
+        "levels": 2097152
+      },
+      "bx_fit": {
+        "orders": 131072,
+        "levels": 131072
+      }
+    },
+    "full_correctness_children": 8,
+    "separate_streaming_rss_children": 8,
+    "timing_children": 48,
+    "full_day_children_total": 64,
+    "historical_children_including_prefix_total": 68,
+    "rounds": 6,
+    "pair_order": [
+      "AB",
+      "BA",
+      "BA",
+      "AB",
+      "AB",
+      "BA"
+    ],
+    "A": "reverse_linear",
+    "B": "binary",
+    "rotate_four_groups_by_round": true,
+    "fresh_process_per_child": true,
+    "concurrent_children": 1,
+    "historical_child_timeout_seconds": 1800,
+    "statistics": [
+      "all six replay values",
+      "median",
+      "minimum",
+      "maximum",
+      "within-round B/A ratio"
+    ],
+    "rss_scope": "whole-process high-water immediately after separate streaming replay; one sample/cell",
+    "timing_scope": "construction/replay/destruction separate; mapped prefault and preflight outside replay"
+  },
+  "actual_execution_in_this_gate": {
+    "candidate_implemented": false,
+    "builds": 0,
+    "tests": 0,
+    "raw_reads": 0,
+    "reference_replays": 0,
+    "historical_replays": 0,
+    "timing_samples": 0,
+    "rss_samples": 0
+  },
+  "limitations": [
+    "Source/contract review is not executed correctness or performance evidence.",
+    "No new independent historical states; 35 retained states remain the sample.",
+    "No isolated directory memory, allocation count, hardware counters or cache attribution.",
+    "No cold-cache, tail/live latency, Linux performance, queue eligibility or fill claim."
+  ],
+  "next_gate": 18,
+  "private_publication_receipt": "out/level-search-design-v1/receipt.json",
+  "_publication": {
+    "format": "portable-evidence-copy-v1",
+    "original_report_bytes": 22032,
+    "original_report_sha256": "eb68558aee6a5cb054541ca9eb262f89f9d95e17f1416248c9fb8ff8a0349d15",
+    "note": "Machine-specific paths and internal review identifiers replaced by portable labels. Recorded artefact identities describe the original retained evidence; see docs/PUBLICATION.md."
+  }
+}
