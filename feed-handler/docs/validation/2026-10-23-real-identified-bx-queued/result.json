@@ -1,0 +1,137 @@
+{
+  "model": "real_identified_windows_evidence_v5",
+  "gate": 42,
+  "passed": true,
+  "outcome": "null: no request found a window; confirmed by an independent re-scan; not substituted",
+  "source_base_commit": "bc92bb20c4316b5212c84f6c82073da83f33d3ee",
+  "input": {
+    "name": "20190730.BX_ITCH_50.itch",
+    "bytes": 837472908,
+    "sha256_full_before_and_after": "6741035beda0c237fc2d30e03756f30449791844f372de955a29da32a4b842e5"
+  },
+  "selection_rule": {
+    "sha256": "268e1060cab81954c2b485c0a0d016a6644d45a8aa0215d6febb6e59eb5752a9",
+    "same_rule_as_sha256": "cf9e7f3467033bec11a92f87ba44a6d8295db54878d15d4341cc92137f00f234",
+    "need": "queued_same_price",
+    "min_run": 3,
+    "max_facts": 16
+  },
+  "capture": {
+    "tool_source_sha256": "747397f91936462611ac1c3f6beba08eedc2d15d3b4538fd29bc36d78b5af6f0",
+    "binary_unchanged_since_gate": 41,
+    "scanned_messages": 28734686,
+    "consumed_prefix_bytes": 837472908,
+    "book_anomalies": 0,
+    "bad_frames": 0,
+    "seconds": 9.53,
+    "note": "single run under background QoS; not a benchmark"
+  },
+  "independent_rescan": {
+    "implementation": "private Python re-scan with its own ITCH 5.0 parser and FIFO book; no shared code",
+    "readings": [
+      "tool behaviour",
+      "literal rule text"
+    ],
+    "messages": 28734686,
+    "book_anomalies": 0,
+    "windows_found": 0,
+    "positive_controls": {
+      "hand_built_need_file": "both windows equal the tool's",
+      "bx_gate_40_requests": "8 of 8 windows equal the Gate 40 capture under both readings"
+    },
+    "seconds_per_pass": 71
+  },
+  "requests": [
+    {
+      "request_id": 1,
+      "symbol": "AAPL",
+      "from_ns": 39600000000000,
+      "label": "11:00:00",
+      "captured": null,
+      "u_only_runs_min3_from_time": 1,
+      "runs_with_same_price_u": 0,
+      "runs_with_queued_same_price_u": 0
+    },
+    {
+      "request_id": 2,
+      "symbol": "SPY",
+      "from_ns": 39600000000000,
+      "label": "11:00:00",
+      "captured": null,
+      "u_only_runs_min3_from_time": 130,
+      "runs_with_same_price_u": 1,
+      "runs_with_queued_same_price_u": 0
+    },
+    {
+      "request_id": 3,
+      "symbol": "QQQ",
+      "from_ns": 39600000000000,
+      "label": "11:00:00",
+      "captured": null,
+      "u_only_runs_min3_from_time": 3,
+      "runs_with_same_price_u": 0,
+      "runs_with_queued_same_price_u": 0
+    },
+    {
+      "request_id": 4,
+      "symbol": "AMZN",
+      "from_ns": 39600000000000,
+      "label": "11:00:00",
+      "captured": null,
+      "u_only_runs_min3_from_time": 11,
+      "runs_with_same_price_u": 0,
+      "runs_with_queued_same_price_u": 0
+    },
+    {
+      "request_id": 5,
+      "symbol": "AAPL",
+      "from_ns": 48600000000000,
+      "label": "13:30:00",
+      "captured": null,
+      "u_only_runs_min3_from_time": 1,
+      "runs_with_same_price_u": 0,
+      "runs_with_queued_same_price_u": 0
+    },
+    {
+      "request_id": 6,
+      "symbol": "SPY",
+      "from_ns": 48600000000000,
+      "label": "13:30:00",
+      "captured": null,
+      "u_only_runs_min3_from_time": 122,
+      "runs_with_same_price_u": 1,
+      "runs_with_queued_same_price_u": 0
+    },
+    {
+      "request_id": 7,
+      "symbol": "QQQ",
+      "from_ns": 48600000000000,
+      "label": "13:30:00",
+      "captured": null,
+      "u_only_runs_min3_from_time": 3,
+      "runs_with_same_price_u": 0,
+      "runs_with_queued_same_price_u": 0
+    },
+    {
+      "request_id": 8,
+      "symbol": "AMZN",
+      "from_ns": 48600000000000,
+      "label": "13:30:00",
+      "captured": null,
+      "u_only_runs_min3_from_time": 11,
+      "runs_with_same_price_u": 0,
+      "runs_with_queued_same_price_u": 0
+    }
+  ],
+  "requests_null": 8,
+  "states": 0,
+  "independent_historical_states_before": 161,
+  "independent_historical_states_after": 161,
+  "harness_limit": "the private comparison stage expects at least one state; with an empty checkpoint list the exporters stop, so no empty comparison is reported",
+  "limits": [
+    "one BX trading day from 2019, not live data",
+    "the null holds for these eight requests and this rule only; not a frequency estimate",
+    "run counts cover U-only runs of at least three messages from the stated times only",
+    "no actual exchange priority, hidden liquidity, latency or fill claim"
+  ]
+}

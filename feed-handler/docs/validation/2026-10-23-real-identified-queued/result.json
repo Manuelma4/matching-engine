@@ -1,0 +1,503 @@
+{
+  "model": "real_identified_windows_evidence_v4",
+  "gate": 41,
+  "passed": true,
+  "source_base_commit": "bc92bb20c4316b5212c84f6c82073da83f33d3ee",
+  "input": {
+    "name": "12302019.NASDAQ_ITCH50.itch",
+    "bytes": 8251407909,
+    "sha256_full_before_and_after": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f"
+  },
+  "selection_rule": {
+    "bytes": 3399,
+    "sha256": "cf9e7f3467033bec11a92f87ba44a6d8295db54878d15d4341cc92137f00f234",
+    "extends": {
+      "base_rule_sha256": "7ab0187f9cfd74cf4a507f902f711156a0ee98e5d1d9752d6519445165bd301c",
+      "added_condition": "need = queued_same_price: the kept U include one that keeps its price while the old order has fifo_rank >= 2; a failing run is skipped whole up to the next non-U message of the locate"
+    }
+  },
+  "independent_reference": {
+    "implementation": "KareemJandali/itchbook 3c646f9da182136125059243b475f7b8baa53773 (MIT)",
+    "binary_sha256": "d61e41c36f40d959763ebd15f189116462d05c46fb856dc05c376a14520016c6",
+    "validation_scope": "selected_symbols_only",
+    "validation": {
+      "unknown_references": 0,
+      "duplicate_references": 0,
+      "share_underflows": 0,
+      "locate_mismatches": 0,
+      "invalid_messages": 0,
+      "capacity_failures": 0,
+      "timestamp_regressions": 0
+    }
+  },
+  "local_exporter": {
+    "validation_scope": "full_prefix_all_symbols",
+    "validation": {
+      "unknown_references": 0,
+      "duplicate_references": 0,
+      "share_underflows": 0,
+      "locate_mismatches": 0,
+      "invalid_messages": 0,
+      "capacity_failures": 0,
+      "timestamp_regressions": 0
+    }
+  },
+  "capture": {
+    "scanned_messages": 190393850,
+    "consumed_prefix_bytes": 5818640002,
+    "book_anomalies": 0,
+    "bad_frames": 0,
+    "delay_ns": 1000000
+  },
+  "requests": [
+    {
+      "request_id": 1,
+      "symbol": "MSFT",
+      "from_ns": 36900000000000,
+      "first_u_ns": 37414408920424,
+      "seed_cut_type": "D",
+      "seed_orders": 18614,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 74456,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 1,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 1,
+          "shares_after": 1
+        },
+        {
+          "side": "B",
+          "shares": 400,
+          "fifo_rank_before": 5,
+          "visible_shares_ahead_before": 400,
+          "price_move_ticks": 0,
+          "shares_after": 300
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        }
+      ]
+    },
+    {
+      "request_id": 2,
+      "symbol": "AAPL",
+      "from_ns": 36900000000000,
+      "first_u_ns": 37860208080026,
+      "seed_cut_type": "D",
+      "seed_orders": 21350,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 85400,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 2,
+          "visible_shares_ahead_before": 15,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 250,
+          "fifo_rank_before": 3,
+          "visible_shares_ahead_before": 131,
+          "price_move_ticks": 0,
+          "shares_after": 200
+        }
+      ]
+    },
+    {
+      "request_id": 3,
+      "symbol": "SPY",
+      "from_ns": 36900000000000,
+      "first_u_ns": 37414389076452,
+      "seed_cut_type": "D",
+      "seed_orders": 1803,
+      "facts": 5,
+      "states": 6,
+      "captured_rows": 10818,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 200,
+          "fifo_rank_before": 7,
+          "visible_shares_ahead_before": 2000,
+          "price_move_ticks": -5,
+          "shares_after": 200
+        },
+        {
+          "side": "S",
+          "shares": 200,
+          "fifo_rank_before": 5,
+          "visible_shares_ahead_before": 1500,
+          "price_move_ticks": -5,
+          "shares_after": 200
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 5,
+          "visible_shares_ahead_before": 900,
+          "price_move_ticks": -5,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 60,
+          "fifo_rank_before": 7,
+          "visible_shares_ahead_before": 1300,
+          "price_move_ticks": 0,
+          "shares_after": 60
+        },
+        {
+          "side": "S",
+          "shares": 200,
+          "fifo_rank_before": 5,
+          "visible_shares_ahead_before": 1500,
+          "price_move_ticks": -5,
+          "shares_after": 200
+        }
+      ]
+    },
+    {
+      "request_id": 4,
+      "symbol": "QQQ",
+      "from_ns": 36900000000000,
+      "first_u_ns": 37497564631175,
+      "seed_cut_type": "D",
+      "seed_orders": 7289,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 29156,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 150,
+          "fifo_rank_before": 3,
+          "visible_shares_ahead_before": 101,
+          "price_move_ticks": 0,
+          "shares_after": 300
+        }
+      ]
+    },
+    {
+      "request_id": 5,
+      "symbol": "MSFT",
+      "from_ns": 46800000000000,
+      "first_u_ns": 46823363097746,
+      "seed_cut_type": "D",
+      "seed_orders": 19473,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 77892,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 2000,
+          "fifo_rank_before": 11,
+          "visible_shares_ahead_before": 1701,
+          "price_move_ticks": -3,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 700,
+          "fifo_rank_before": 11,
+          "visible_shares_ahead_before": 1701,
+          "price_move_ticks": -3,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 12,
+          "visible_shares_ahead_before": 988,
+          "price_move_ticks": 0,
+          "shares_after": 800
+        }
+      ]
+    },
+    {
+      "request_id": 6,
+      "symbol": "AAPL",
+      "from_ns": 46800000000000,
+      "first_u_ns": 50238514548122,
+      "seed_cut_type": "U",
+      "seed_orders": 21902,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 87608,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 500,
+          "fifo_rank_before": 3,
+          "visible_shares_ahead_before": 110,
+          "price_move_ticks": 0,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 1200,
+          "fifo_rank_before": 4,
+          "visible_shares_ahead_before": 409,
+          "price_move_ticks": 13,
+          "shares_after": 1200
+        },
+        {
+          "side": "S",
+          "shares": 1200,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 14,
+          "shares_after": 1200
+        }
+      ]
+    },
+    {
+      "request_id": 7,
+      "symbol": "SPY",
+      "from_ns": 46800000000000,
+      "first_u_ns": 46918602414687,
+      "seed_cut_type": "A",
+      "seed_orders": 1882,
+      "facts": 5,
+      "states": 6,
+      "captured_rows": 11292,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 50,
+          "fifo_rank_before": 8,
+          "visible_shares_ahead_before": 1900,
+          "price_move_ticks": -11,
+          "shares_after": 300
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 6,
+          "visible_shares_ahead_before": 2800,
+          "price_move_ticks": 5,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 6,
+          "visible_shares_ahead_before": 1950,
+          "price_move_ticks": 5,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 300,
+          "fifo_rank_before": 5,
+          "visible_shares_ahead_before": 1800,
+          "price_move_ticks": 6,
+          "shares_after": 50
+        },
+        {
+          "side": "B",
+          "shares": 50,
+          "fifo_rank_before": 8,
+          "visible_shares_ahead_before": 3100,
+          "price_move_ticks": 0,
+          "shares_after": 250
+        }
+      ]
+    },
+    {
+      "request_id": 8,
+      "symbol": "QQQ",
+      "from_ns": 46800000000000,
+      "first_u_ns": 47187084725780,
+      "seed_cut_type": "E",
+      "seed_orders": 7513,
+      "facts": 4,
+      "states": 5,
+      "captured_rows": 37565,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 800,
+          "fifo_rank_before": 11,
+          "visible_shares_ahead_before": 5800,
+          "price_move_ticks": 0,
+          "shares_after": 800
+        },
+        {
+          "side": "B",
+          "shares": 800,
+          "fifo_rank_before": 11,
+          "visible_shares_ahead_before": 5800,
+          "price_move_ticks": 0,
+          "shares_after": 800
+        },
+        {
+          "side": "B",
+          "shares": 800,
+          "fifo_rank_before": 11,
+          "visible_shares_ahead_before": 5800,
+          "price_move_ticks": 0,
+          "shares_after": 800
+        },
+        {
+          "side": "B",
+          "shares": 800,
+          "fifo_rank_before": 11,
+          "visible_shares_ahead_before": 5800,
+          "price_move_ticks": 0,
+          "shares_after": 800
+        }
+      ]
+    }
+  ],
+  "requests_null": 0,
+  "states": 37,
+  "distinct_states": 37,
+  "facts": 29,
+  "order_rows": 414187,
+  "byte_identical_exports": {
+    "observer": "e9512e2e5da1dcc00ea9cb0110dbb65542be9fe98845781c76d59a08ce25d2b3",
+    "reference": "e9512e2e5da1dcc00ea9cb0110dbb65542be9fe98845781c76d59a08ce25d2b3",
+    "local": "e9512e2e5da1dcc00ea9cb0110dbb65542be9fe98845781c76d59a08ce25d2b3"
+  },
+  "facts_recomputed_from_reference": 29,
+  "observation_recomputed": true,
+  "need": "queued_same_price",
+  "need_rechecked_from_reference": [
+    {
+      "request_id": 1,
+      "captured": true,
+      "facts": 3,
+      "queued_same_price_facts": 1
+    },
+    {
+      "request_id": 2,
+      "captured": true,
+      "facts": 3,
+      "queued_same_price_facts": 1
+    },
+    {
+      "request_id": 3,
+      "captured": true,
+      "facts": 5,
+      "queued_same_price_facts": 1
+    },
+    {
+      "request_id": 4,
+      "captured": true,
+      "facts": 3,
+      "queued_same_price_facts": 1
+    },
+    {
+      "request_id": 5,
+      "captured": true,
+      "facts": 3,
+      "queued_same_price_facts": 1
+    },
+    {
+      "request_id": 6,
+      "captured": true,
+      "facts": 3,
+      "queued_same_price_facts": 1
+    },
+    {
+      "request_id": 7,
+      "captured": true,
+      "facts": 5,
+      "queued_same_price_facts": 1
+    },
+    {
+      "request_id": 8,
+      "captured": true,
+      "facts": 4,
+      "queued_same_price_facts": 4
+    }
+  ],
+  "disjointness": {
+    "key": "(symbol, sequence, frame_offset)",
+    "earlier_files_same_input": 2,
+    "earlier_files_other_inputs": 3,
+    "overlap": 0
+  },
+  "independent_historical_states_before": 124,
+  "independent_historical_states_after": 161,
+  "resources": {
+    "capture_seconds": 142.31,
+    "capture_max_rss_bytes": 358187008,
+    "reference_seconds": 61.16,
+    "local_exporter_seconds": 314.19,
+    "note": "single runs under background QoS; not a benchmark"
+  },
+  "source_change": {
+    "file": "feed-handler/tools/identified_capture.cpp",
+    "change": "optional sixth request column need (any | queued_same_price); five-column requests behave as before",
+    "sha256": "747397f91936462611ac1c3f6beba08eedc2d15d3b4538fd29bc36d78b5af6f0",
+    "observer_library_unchanged": true
+  },
+  "controls_before_market_data": {
+    "synthetic_logical_test": {
+      "messages": 13,
+      "checks": 8,
+      "builds": [
+        "Release",
+        "Debug ASan/UBSan -fno-sanitize-recover=all"
+      ],
+      "runs_per_build": 2,
+      "outputs_identical": true,
+      "mutants_detected": [
+        "no whole-run skip",
+        "rank 1 accepted",
+        "price change accepted"
+      ]
+    },
+    "regression": "selection-v3 on BX with the new binary reproduces the Gate 40 capture outputs byte for byte",
+    "native_fixture": "fixture v3, 48 cases, Release and ASan/UBSan, four identical outputs (ab1e27c6...), no warnings"
+  },
+  "queued_same_price_facts": 11,
+  "limits": [
+    "one Nasdaq trading day from 2019, not live data",
+    "U-only windows chosen for a queued same-price replace; the requests are not a sample of the day",
+    "the condition holds by construction for at least one fact per window; the other facts are whatever the run contained",
+    "the reference validates selected symbols only",
+    "declared input hash, re-hashed by the orchestrator, not by the module",
+    "disjointness checked against the identified-window checkpoint lists of the same input",
+    "no actual exchange priority, hidden liquidity, latency or fill claim"
+  ]
+}

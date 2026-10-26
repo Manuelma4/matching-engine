@@ -26,6 +26,17 @@ Four compiled-in synthetic events demonstrate two cancellation assumptions, sepa
 exchange/local accounts and a pending fill response. Read the
 [hand calculation and C++ API guide](docs/QUEUE_DEMO.md) alongside its source.
 
+## Follow identified replacements with delayed knowledge
+
+```sh
+cmake --build build-combined --target itch_identified_demo --parallel 2
+./build-combined/feed-handler/itch_identified_demo
+```
+
+Two fictional U messages move orders through a four-order book. The
+[C++ API guide](docs/IDENTIFIED_OBSERVER.md) explains the owned snapshots, the rank and
+shares ahead before each move, the delivery horizon and the refusal rules.
+
 ### Supplementary identified-order prototype
 
 Use Python 3 from this checkout; no build or data download is required:
@@ -356,7 +367,30 @@ L3, journal and storage evidence. The subsequent
 [later-session comparison](docs/validation/2026-10-23-later-session-l3/README.md)
 adds four independently matched MSFT/QQQ inventories at noon and 15:30: 55,105 ordered
 row instances and 11,837 level instances, bringing sampled coverage to 41 distinct
-states. Both C++ exporters repeat byte-for-byte under the original resource policies.
+states. Identified-replacement windows on
+[MSFT/QQQ](docs/validation/2026-10-23-real-identified-windows/README.md) and on
+[AAPL, SPY, AMZN and TSLA](docs/validation/2026-10-23-real-identified-wider/README.md)
+add 18 and 42 non-overlapping states, for 101, and
+[a second venue, BX on 30 July 2019](docs/validation/2026-10-23-real-identified-bx/README.md),
+adds 23 more, for 124. [Windows chosen for a same-price replacement behind other orders](docs/validation/2026-10-23-real-identified-queued/README.md)
+add 37, for 161, and [repeat byte-for-byte under ASan/UBSan](docs/validation/2026-10-23-real-identified-queued-sanitised/README.md); [the same request on BX](docs/validation/2026-10-23-real-identified-bx-queued/README.md)
+finds no window, a null confirmed by an independent re-scan.
+[NVDA, GOOGL, FB and INTC from 09:45 and 15:45](docs/validation/2026-10-23-real-identified-opening-close/README.md)
+add 98 more Nasdaq-day states, for 259, and the
+[same four symbols on BX](docs/validation/2026-10-24-real-identified-bx-partial-null/README.md)
+add 12, for 271 (FB and INTC find no window there; both nulls are independently confirmed).
+[CSCO, CMCSA, PEP and NFLX from 10:45 and 14:45](docs/validation/2026-10-24-real-identified-midsession/README.md)
+add 74 Nasdaq-day states, for 345; [the same request set on BX](docs/validation/2026-10-24-real-identified-bx-midsession/README.md)
+adds 4 NFLX states, for 349 (the other three symbols find no window; all six nulls are independently confirmed).
+[ADBE, COST, AVGO and TXN from 10:30 and 13:45](docs/validation/2026-10-25-real-identified-new-symbols/README.md)
+add 33 Nasdaq-day states, for 382. [CSCO, CMCSA, INTC and PEP from 11:30 and 14:15 under the queued same-price condition](docs/validation/2026-10-25-real-identified-queued-new-symbols/README.md)
+add 35, for 417. [AMD, MU and EBAY windows where other orders overtake a same-price replacement](docs/validation/2026-10-25-real-identified-overtaken/README.md)
+add 24, for 441 (SIRI finds no window); [the same request on BX](docs/validation/2026-10-25-real-identified-bx-overtaken/README.md)
+finds no window, a null confirmed by an independent re-scan. [ORCL, QCOM, GILD and SBUX under the same condition](docs/validation/2026-10-25-real-identified-overtaken-new-symbols/README.md)
+add 17, for 458 (QCOM at both times and SBUX from 14:35 find no window; all three nulls are independently confirmed). [AMGN, BKNG, MDLZ and ISRG under the same condition](docs/validation/2026-10-26-real-identified-overtaken-null/README.md)
+find no window at all, an independently confirmed null that leaves 458 unchanged. [CSX, ADP, VRTX and KHC under the same condition](docs/validation/2026-10-26-real-identified-overtaken-khc/README.md)
+add 17 KHC states, for 475 (CSX, ADP and VRTX find no window at either time; all six nulls are independently confirmed); [ADI, LRCX, MAR and ROST under the same condition](docs/validation/2026-10-26-real-identified-overtaken-adi/README.md)
+add 4 ADI states, for 479 (both ADI requests reach one window; LRCX, MAR and ROST find none, six independently confirmed nulls). Both C++ exporters repeat byte-for-byte under the original resource policies.
 The [first attempt](docs/validation/2026-10-23-later-session-attempt/README.md) remains
 preserved; its unavailable RSS measurement is still unexplained. The later success
 establishes neither provider reliability nor session-status or fill admission.
@@ -412,7 +446,7 @@ establishes neither provider reliability nor session-status or fill admission.
   and reverse-linear default; another policy needs a concrete measured question.
 - Extend reference-index measurements to other flows and consider price-level
   containers separately if a concrete cost justifies their allocation complexity.
-- Extend independent full-depth/order comparison beyond the 41 selected states.
+- Extend independent full-depth/order comparison beyond the 479 selected states.
 - Extend independently checked identified history beyond the current bounded profiles
   before expanding queue/fill assumptions.
   Normalisation directly from the observed-wire journal remains future work.

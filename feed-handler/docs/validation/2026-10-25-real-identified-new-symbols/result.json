@@ -1,0 +1,382 @@
+{
+  "model": "real_identified_windows_evidence_v2",
+  "gate": 48,
+  "passed": true,
+  "source_base_commit": "bc92bb20c4316b5212c84f6c82073da83f33d3ee",
+  "input": {
+    "name": "12302019.NASDAQ_ITCH50.itch",
+    "bytes": 8251407909,
+    "sha256_full_before_and_after": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f"
+  },
+  "selection_rule": {
+    "bytes": 3800,
+    "sha256": "0aea1685c9c8a44d391274022d73abcb2e660a96c5bcd081cf9de2991d39cdf4",
+    "rule_unchanged_from": "7ab0187f9cfd74cf4a507f902f711156a0ee98e5d1d9752d6519445165bd301c"
+  },
+  "independent_reference": {
+    "implementation": "KareemJandali/itchbook 3c646f9da182136125059243b475f7b8baa53773 (MIT)",
+    "binary_sha256": "d61e41c36f40d959763ebd15f189116462d05c46fb856dc05c376a14520016c6",
+    "validation_scope": "selected_symbols_only",
+    "validation": {
+      "unknown_references": 0,
+      "duplicate_references": 0,
+      "share_underflows": 0,
+      "locate_mismatches": 0,
+      "invalid_messages": 0,
+      "capacity_failures": 0,
+      "timestamp_regressions": 0
+    }
+  },
+  "local_exporter": {
+    "validation_scope": "full_prefix_all_symbols",
+    "validation": {
+      "unknown_references": 0,
+      "duplicate_references": 0,
+      "share_underflows": 0,
+      "locate_mismatches": 0,
+      "invalid_messages": 0,
+      "capacity_failures": 0,
+      "timestamp_regressions": 0
+    }
+  },
+  "capture": {
+    "scanned_messages": 185547345,
+    "consumed_prefix_bytes": 5671455385,
+    "book_anomalies": 0,
+    "bad_frames": 0,
+    "delay_ns": 1000000
+  },
+  "requests": [
+    {
+      "request_id": 1,
+      "symbol": "ADBE",
+      "from_ns": 37800000000000,
+      "first_u_ns": 37813147891615,
+      "seed_cut_type": "D",
+      "seed_orders": 2664,
+      "facts": 4,
+      "states": 5,
+      "captured_rows": 13320,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 7,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -7,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 7,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -7,
+          "shares_after": 100
+        }
+      ]
+    },
+    {
+      "request_id": 2,
+      "symbol": "COST",
+      "from_ns": 37800000000000,
+      "first_u_ns": 37805321976232,
+      "seed_cut_type": "U",
+      "seed_orders": 5498,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 21992,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -2,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 3,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        }
+      ]
+    },
+    {
+      "request_id": 3,
+      "symbol": "AVGO",
+      "from_ns": 37800000000000,
+      "first_u_ns": 37832264970036,
+      "seed_cut_type": "A",
+      "seed_orders": 3740,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 14960,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 2,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 5,
+          "shares_after": 100
+        }
+      ]
+    },
+    {
+      "request_id": 4,
+      "symbol": "TXN",
+      "from_ns": 37800000000000,
+      "first_u_ns": 37997685788612,
+      "seed_cut_type": "A",
+      "seed_orders": 1688,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 6752,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        }
+      ]
+    },
+    {
+      "request_id": 5,
+      "symbol": "ADBE",
+      "from_ns": 49500000000000,
+      "first_u_ns": 49533027559536,
+      "seed_cut_type": "D",
+      "seed_orders": 2759,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 11036,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 3,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 8,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 50,
+          "fifo_rank_before": 2,
+          "visible_shares_ahead_before": 100,
+          "price_move_ticks": 7,
+          "shares_after": 50
+        }
+      ]
+    },
+    {
+      "request_id": 6,
+      "symbol": "COST",
+      "from_ns": 49500000000000,
+      "first_u_ns": 49530883779060,
+      "seed_cut_type": "D",
+      "seed_orders": 5582,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 22328,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 3,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 5,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        }
+      ]
+    },
+    {
+      "request_id": 7,
+      "symbol": "AVGO",
+      "from_ns": 49500000000000,
+      "first_u_ns": 49542287920508,
+      "seed_cut_type": "D",
+      "seed_orders": 3875,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 15500,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 8,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -8,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 8,
+          "shares_after": 100
+        }
+      ]
+    },
+    {
+      "request_id": 8,
+      "symbol": "TXN",
+      "from_ns": 49500000000000,
+      "first_u_ns": 49603781790686,
+      "seed_cut_type": "A",
+      "seed_orders": 1751,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 7004,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 12,
+          "visible_shares_ahead_before": 807,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 3,
+          "visible_shares_ahead_before": 110,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -2,
+          "shares_after": 100
+        }
+      ]
+    }
+  ],
+  "requests_null": 0,
+  "states": 33,
+  "distinct_states": 33,
+  "facts": 25,
+  "order_rows": 112892,
+  "byte_identical_exports": {
+    "observer": "77a8076fc6545f8778ffd60d47b372e8262eb02e7cdbc07d1ba4f969e2bcaa29",
+    "reference": "77a8076fc6545f8778ffd60d47b372e8262eb02e7cdbc07d1ba4f969e2bcaa29",
+    "local": "77a8076fc6545f8778ffd60d47b372e8262eb02e7cdbc07d1ba4f969e2bcaa29"
+  },
+  "facts_recomputed_from_reference": 25,
+  "observation_recomputed": true,
+  "disjointness": {
+    "key": "(symbol, sequence, frame_offset)",
+    "earlier_files_same_input": 13,
+    "earlier_files_other_inputs": 6,
+    "overlap": 0
+  },
+  "independent_historical_states_before": 349,
+  "independent_historical_states_after": 382,
+  "resources": {
+    "capture_seconds": 154.83,
+    "capture_max_rss_bytes": 372834304,
+    "reference_seconds": 40.14,
+    "local_exporter_seconds": 253.59,
+    "note": "single runs under background QoS; not a benchmark"
+  }
+}

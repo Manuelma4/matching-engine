@@ -1,0 +1,338 @@
+{
+  "model": "real_identified_windows_evidence_v2",
+  "gate": 45,
+  "passed": true,
+  "source_base_commit": "bc92bb20c4316b5212c84f6c82073da83f33d3ee",
+  "input": {
+    "name": "20190730.BX_ITCH_50.itch",
+    "bytes": 837472908,
+    "sha256_full_before_and_after": "6741035beda0c237fc2d30e03756f30449791844f372de955a29da32a4b842e5"
+  },
+  "selection_rule": {
+    "bytes": 3199,
+    "sha256": "a9f53c2b48bc1bb1489aba8d8407c206466abfe813110bc0ee1c9ea86a6a5949",
+    "rule_unchanged_from": "7ab0187f9cfd74cf4a507f902f711156a0ee98e5d1d9752d6519445165bd301c"
+  },
+  "independent_reference": {
+    "implementation": "KareemJandali/itchbook 3c646f9da182136125059243b475f7b8baa53773 (MIT)",
+    "binary_sha256": "d61e41c36f40d959763ebd15f189116462d05c46fb856dc05c376a14520016c6",
+    "validation_scope": "selected_symbols_only",
+    "validation": {
+      "unknown_references": 0,
+      "duplicate_references": 0,
+      "share_underflows": 0,
+      "locate_mismatches": 0,
+      "invalid_messages": 0,
+      "capacity_failures": 0,
+      "timestamp_regressions": 0
+    }
+  },
+  "local_exporter": {
+    "validation_scope": "full_prefix_all_symbols",
+    "validation": {
+      "unknown_references": 0,
+      "duplicate_references": 0,
+      "share_underflows": 0,
+      "locate_mismatches": 0,
+      "invalid_messages": 0,
+      "capacity_failures": 0,
+      "timestamp_regressions": 0
+    }
+  },
+  "capture": {
+    "scanned_messages": 28734686,
+    "consumed_prefix_bytes": 837472908,
+    "book_anomalies": 0,
+    "bad_frames": 0,
+    "delay_ns": 1000000
+  },
+  "requests": [
+    {
+      "request_id": 1,
+      "symbol": "NVDA",
+      "from_ns": 36000000000000,
+      "first_u_ns": 57571095653049,
+      "seed_cut_type": "A",
+      "seed_orders": 27,
+      "facts": 6,
+      "states": 7,
+      "captured_rows": 189,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        }
+      ]
+    },
+    {
+      "request_id": 2,
+      "symbol": "GOOGL",
+      "from_ns": 36000000000000,
+      "first_u_ns": 57570035360814,
+      "seed_cut_type": "A",
+      "seed_orders": 14,
+      "facts": 4,
+      "states": 5,
+      "captured_rows": 70,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 9,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 2,
+          "shares_after": 100
+        }
+      ]
+    },
+    {
+      "request_id": 3,
+      "symbol": "FB",
+      "from_ns": 36000000000000,
+      "captured": null
+    },
+    {
+      "request_id": 4,
+      "symbol": "INTC",
+      "from_ns": 36000000000000,
+      "captured": null
+    },
+    {
+      "request_id": 5,
+      "symbol": "NVDA",
+      "from_ns": 54000000000000,
+      "first_u_ns": 57571095653049,
+      "seed_cut_type": "A",
+      "seed_orders": 27,
+      "facts": 6,
+      "states": 7,
+      "captured_rows": 189,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        }
+      ]
+    },
+    {
+      "request_id": 6,
+      "symbol": "GOOGL",
+      "from_ns": 54000000000000,
+      "first_u_ns": 57570035360814,
+      "seed_cut_type": "A",
+      "seed_orders": 14,
+      "facts": 4,
+      "states": 5,
+      "captured_rows": 70,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 9,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 2,
+          "shares_after": 100
+        }
+      ]
+    },
+    {
+      "request_id": 7,
+      "symbol": "FB",
+      "from_ns": 54000000000000,
+      "captured": null
+    },
+    {
+      "request_id": 8,
+      "symbol": "INTC",
+      "from_ns": 54000000000000,
+      "captured": null
+    }
+  ],
+  "requests_null": 4,
+  "states": 24,
+  "distinct_states": 12,
+  "facts": 20,
+  "order_rows": 518,
+  "byte_identical_exports": {
+    "observer": "f2a785491908ffbe7bd1fae4486b33280a556c9ac6253201eba9612bf001178d",
+    "reference": "f2a785491908ffbe7bd1fae4486b33280a556c9ac6253201eba9612bf001178d",
+    "local": "f2a785491908ffbe7bd1fae4486b33280a556c9ac6253201eba9612bf001178d"
+  },
+  "facts_recomputed_from_reference": 20,
+  "observation_recomputed": true,
+  "disjointness": {
+    "key": "(symbol, sequence, frame_offset)",
+    "earlier_files_same_input": 3,
+    "earlier_files_other_inputs": 1,
+    "overlap": 0
+  },
+  "independent_historical_states_before": 259,
+  "independent_historical_states_after": 271,
+  "resources": {
+    "capture_seconds": 8.97,
+    "capture_max_rss_bytes": 360431616,
+    "reference_seconds": 7.33,
+    "local_exporter_seconds": 34.57,
+    "note": "single runs under background QoS; not a benchmark"
+  },
+  "null_confirmation": {
+    "method": "independent Python re-scan (own ITCH parser and FIFO book, no shared code), under the tool's reading and the literal reading of the rule",
+    "script_sha256": "c37f492be393cbca57ce5180ce7e61a0c526bbb41b814ac6066ac4f58880d1e9",
+    "messages": 28734686,
+    "book_anomalies": 0,
+    "null_requests_confirmed": [
+      3,
+      4,
+      7,
+      8
+    ],
+    "captured_windows_reproduced_by_both_readings": true,
+    "u_only_runs_from_time_to_end_of_file": {
+      "NVDA@36000000000000": 27,
+      "GOOGL@36000000000000": 33,
+      "FB@36000000000000": 0,
+      "INTC@36000000000000": 0,
+      "NVDA@54000000000000": 27,
+      "GOOGL@54000000000000": 33,
+      "FB@54000000000000": 0,
+      "INTC@54000000000000": 0
+    }
+  },
+  "harness_change": "an all-null run (empty checkpoint list) is now recorded as 'nothing to compare' with its own check; checked on the recorded Gate 42 null run and four controls without reading market data"
+}

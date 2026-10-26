@@ -88,6 +88,19 @@ target_link_libraries(itch_window PUBLIC itch itch_queue PRIVATE itch_warnings)
 add_executable(itch_queue_window tools/queue_window.cpp)
 target_link_libraries(itch_queue_window PRIVATE itch_window itch_warnings)
 
+# Identified U-only capture and delayed delivery on top of the native L3 book. No file,
+# CLI or queue dependency: callers pass framed messages and receive owned snapshots.
+add_library(itch_identified src/identified_observer.cpp)
+target_include_directories(itch_identified PUBLIC include)
+target_link_libraries(itch_identified PUBLIC itch PRIVATE itch_warnings)
+
+add_executable(itch_identified_demo tools/identified_demo.cpp)
+target_link_libraries(itch_identified_demo PRIVATE itch_identified itch_warnings)
+
+# Real-data adapter: captures U windows from a BinaryFILE and runs the observer on them.
+add_executable(itch_identified_capture tools/identified_capture.cpp)
+target_link_libraries(itch_identified_capture PRIVATE itch_identified itch_warnings)
+
 foreach(tool census replay bench snapshots journal_replay storage_bench)
   add_executable(itch_${tool} tools/${tool}.cpp)
   target_link_libraries(itch_${tool} PRIVATE itch itch_warnings)

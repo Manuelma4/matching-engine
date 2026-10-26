@@ -1,0 +1,471 @@
+{
+  "model": "real_identified_windows_evidence_v2",
+  "gate": 54,
+  "passed": true,
+  "source_base_commit": "bc92bb20c4316b5212c84f6c82073da83f33d3ee",
+  "input": {
+    "name": "12302019.NASDAQ_ITCH50.itch",
+    "bytes": 8251407909,
+    "sha256_full_before_and_after": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f"
+  },
+  "selection_rule": {
+    "bytes": 3763,
+    "sha256": "3231c212df2221234345860bd737a99cbef0b38c65e451cf75668482a2c12488",
+    "same_rule_as_sha256": "2be90dd152a150d01bf540feb5c417fa020b5bbbb69cf8342adda1d6de19c2aa",
+    "need": "queued_same_price_overtaken",
+    "min_run": 3,
+    "max_facts": 16
+  },
+  "independent_reference": {
+    "implementation": "KareemJandali/itchbook 3c646f9da182136125059243b475f7b8baa53773 (MIT)",
+    "binary_sha256": "d61e41c36f40d959763ebd15f189116462d05c46fb856dc05c376a14520016c6",
+    "validation_scope": "selected_symbols_only",
+    "validation": {
+      "unknown_references": 0,
+      "duplicate_references": 0,
+      "share_underflows": 0,
+      "locate_mismatches": 0,
+      "invalid_messages": 0,
+      "capacity_failures": 0,
+      "timestamp_regressions": 0
+    }
+  },
+  "local_exporter": {
+    "validation_scope": "full_prefix_all_symbols",
+    "validation": {
+      "unknown_references": 0,
+      "duplicate_references": 0,
+      "share_underflows": 0,
+      "locate_mismatches": 0,
+      "invalid_messages": 0,
+      "capacity_failures": 0,
+      "timestamp_regressions": 0
+    }
+  },
+  "capture": {
+    "scanned_messages": 268744780,
+    "consumed_prefix_bytes": 8251407909,
+    "book_anomalies": 0,
+    "bad_frames": 0,
+    "delay_ns": 1000000,
+    "tool_source_sha256": "4d8ec47a33287e98666d28e6639034de6b09ea26cefbed53575e70eeb8a5d47a",
+    "release_binary_sha256": "6dfb370c48f165eb1125e936cd305a4d291d3d73c97f1dc408af6b422ac19e46",
+    "binary_unchanged_since_gate": 50
+  },
+  "requests": [
+    {
+      "request_id": 1,
+      "symbol": "CSX",
+      "from_ns": 37200000000000,
+      "captured": null
+    },
+    {
+      "request_id": 2,
+      "symbol": "ADP",
+      "from_ns": 37200000000000,
+      "captured": null
+    },
+    {
+      "request_id": 3,
+      "symbol": "VRTX",
+      "from_ns": 37200000000000,
+      "captured": null
+    },
+    {
+      "request_id": 4,
+      "symbol": "KHC",
+      "from_ns": 37200000000000,
+      "first_u_ns": 39667947315681,
+      "seed_cut_type": "D",
+      "seed_orders": 5971,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 23884,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 9,
+          "visible_shares_ahead_before": 1100,
+          "price_move_ticks": 0,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 3,
+          "visible_shares_ahead_before": 1015,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        }
+      ]
+    },
+    {
+      "request_id": 5,
+      "symbol": "CSX",
+      "from_ns": 49800000000000,
+      "captured": null
+    },
+    {
+      "request_id": 6,
+      "symbol": "ADP",
+      "from_ns": 49800000000000,
+      "captured": null
+    },
+    {
+      "request_id": 7,
+      "symbol": "VRTX",
+      "from_ns": 49800000000000,
+      "captured": null
+    },
+    {
+      "request_id": 8,
+      "symbol": "KHC",
+      "from_ns": 49800000000000,
+      "first_u_ns": 57177361939369,
+      "seed_cut_type": "A",
+      "seed_orders": 6849,
+      "facts": 12,
+      "states": 13,
+      "captured_rows": 89037,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 400,
+          "fifo_rank_before": 18,
+          "visible_shares_ahead_before": 3535,
+          "price_move_ticks": 1,
+          "shares_after": 400
+        },
+        {
+          "side": "B",
+          "shares": 600,
+          "fifo_rank_before": 18,
+          "visible_shares_ahead_before": 3535,
+          "price_move_ticks": 1,
+          "shares_after": 600
+        },
+        {
+          "side": "B",
+          "shares": 1200,
+          "fifo_rank_before": 18,
+          "visible_shares_ahead_before": 3535,
+          "price_move_ticks": 1,
+          "shares_after": 1200
+        },
+        {
+          "side": "B",
+          "shares": 400,
+          "fifo_rank_before": 18,
+          "visible_shares_ahead_before": 3535,
+          "price_move_ticks": 1,
+          "shares_after": 400
+        },
+        {
+          "side": "B",
+          "shares": 200,
+          "fifo_rank_before": 19,
+          "visible_shares_ahead_before": 3935,
+          "price_move_ticks": 1,
+          "shares_after": 200
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 20,
+          "visible_shares_ahead_before": 4035,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 20,
+          "visible_shares_ahead_before": 4035,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 21,
+          "visible_shares_ahead_before": 4135,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 21,
+          "visible_shares_ahead_before": 4135,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 21,
+          "visible_shares_ahead_before": 4135,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 400,
+          "fifo_rank_before": 21,
+          "visible_shares_ahead_before": 4135,
+          "price_move_ticks": 1,
+          "shares_after": 400
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 7,
+          "visible_shares_ahead_before": 2196,
+          "price_move_ticks": 0,
+          "shares_after": 100
+        }
+      ]
+    }
+  ],
+  "requests_null": 6,
+  "states": 17,
+  "distinct_states": 17,
+  "facts": 15,
+  "order_rows": 112921,
+  "byte_identical_exports": {
+    "observer": "d5789c94b8b38659e4f3f071d0dc7edf65619b29d1961cd3e4e993c42f8fefc8",
+    "reference": "d5789c94b8b38659e4f3f071d0dc7edf65619b29d1961cd3e4e993c42f8fefc8",
+    "local": "d5789c94b8b38659e4f3f071d0dc7edf65619b29d1961cd3e4e993c42f8fefc8"
+  },
+  "facts_recomputed_from_reference": 15,
+  "observation_recomputed": true,
+  "need": "queued_same_price_overtaken",
+  "need_rechecked_from_reference": [
+    {
+      "request_id": 1,
+      "need": "queued_same_price_overtaken",
+      "captured": false
+    },
+    {
+      "request_id": 2,
+      "need": "queued_same_price_overtaken",
+      "captured": false
+    },
+    {
+      "request_id": 3,
+      "need": "queued_same_price_overtaken",
+      "captured": false
+    },
+    {
+      "request_id": 4,
+      "need": "queued_same_price_overtaken",
+      "captured": true,
+      "facts": 3,
+      "queued_same_price_facts": 1,
+      "overtaken_facts": 1
+    },
+    {
+      "request_id": 5,
+      "need": "queued_same_price_overtaken",
+      "captured": false
+    },
+    {
+      "request_id": 6,
+      "need": "queued_same_price_overtaken",
+      "captured": false
+    },
+    {
+      "request_id": 7,
+      "need": "queued_same_price_overtaken",
+      "captured": false
+    },
+    {
+      "request_id": 8,
+      "need": "queued_same_price_overtaken",
+      "captured": true,
+      "facts": 12,
+      "queued_same_price_facts": 1,
+      "overtaken_facts": 1
+    }
+  ],
+  "disjointness": {
+    "key": "(symbol, sequence, frame_offset)",
+    "earlier_files_same_input": 18,
+    "earlier_files_other_inputs": 7,
+    "overlap": 0
+  },
+  "independent_historical_states_before": 458,
+  "independent_historical_states_after": 475,
+  "resources": {
+    "capture_seconds": 160.36,
+    "capture_max_rss_bytes": 375324672,
+    "reference_seconds": 62.47,
+    "local_exporter_seconds": 391.5,
+    "note": "single runs under background QoS; not a benchmark"
+  },
+  "independent_rescan": {
+    "method": "check_null.py: own parser and FIFO book (Python), whole file, tool and literal readings of the frozen rule",
+    "script_sha256": "65376a4db0a477c0ddb8048f8fde3f365fb10da15a977d001b0d1a038d29f2cf",
+    "messages": 268744780,
+    "bad_frames": 0,
+    "book_anomalies": 0,
+    "captured_windows_reproduced": 2,
+    "nulls_confirmed": 6,
+    "u_only_runs_after_from_ns": [
+      {
+        "request_id": 1,
+        "symbol": "CSX",
+        "runs": 369,
+        "with_queued_same_price": 0,
+        "with_orders_behind": 0
+      },
+      {
+        "request_id": 2,
+        "symbol": "ADP",
+        "runs": 315,
+        "with_queued_same_price": 0,
+        "with_orders_behind": 0
+      },
+      {
+        "request_id": 3,
+        "symbol": "VRTX",
+        "runs": 409,
+        "with_queued_same_price": 0,
+        "with_orders_behind": 0
+      },
+      {
+        "request_id": 4,
+        "symbol": "KHC",
+        "runs": 589,
+        "with_queued_same_price": 2,
+        "with_orders_behind": 2
+      },
+      {
+        "request_id": 5,
+        "symbol": "CSX",
+        "runs": 147,
+        "with_queued_same_price": 0,
+        "with_orders_behind": 0
+      },
+      {
+        "request_id": 6,
+        "symbol": "ADP",
+        "runs": 126,
+        "with_queued_same_price": 0,
+        "with_orders_behind": 0
+      },
+      {
+        "request_id": 7,
+        "symbol": "VRTX",
+        "runs": 182,
+        "with_queued_same_price": 0,
+        "with_orders_behind": 0
+      },
+      {
+        "request_id": 8,
+        "symbol": "KHC",
+        "runs": 172,
+        "with_queued_same_price": 1,
+        "with_orders_behind": 1
+      }
+    ]
+  },
+  "queued_same_price_position": {
+    "method": "from the reference export alone (check_behind.py, check_after.py): orders behind the old order in the state before, and the new order's rank and shares ahead in the state after",
+    "per_request": [
+      {
+        "request_id": 1,
+        "symbol": "CSX",
+        "queued_same_price": 0,
+        "with_orders_behind": 0,
+        "orders_behind_max": 0
+      },
+      {
+        "request_id": 2,
+        "symbol": "ADP",
+        "queued_same_price": 0,
+        "with_orders_behind": 0,
+        "orders_behind_max": 0
+      },
+      {
+        "request_id": 3,
+        "symbol": "VRTX",
+        "queued_same_price": 0,
+        "with_orders_behind": 0,
+        "orders_behind_max": 0
+      },
+      {
+        "request_id": 4,
+        "symbol": "KHC",
+        "queued_same_price": 1,
+        "with_orders_behind": 1,
+        "orders_behind_max": 1
+      },
+      {
+        "request_id": 5,
+        "symbol": "CSX",
+        "queued_same_price": 0,
+        "with_orders_behind": 0,
+        "orders_behind_max": 0
+      },
+      {
+        "request_id": 6,
+        "symbol": "ADP",
+        "queued_same_price": 0,
+        "with_orders_behind": 0,
+        "orders_behind_max": 0
+      },
+      {
+        "request_id": 7,
+        "symbol": "VRTX",
+        "queued_same_price": 0,
+        "with_orders_behind": 0,
+        "orders_behind_max": 0
+      },
+      {
+        "request_id": 8,
+        "symbol": "KHC",
+        "queued_same_price": 1,
+        "with_orders_behind": 1,
+        "orders_behind_max": 14
+      }
+    ],
+    "requests_sharing_one_window": [],
+    "distinct_queued_same_price_facts": 2,
+    "distinct_with_orders_behind": 2,
+    "rank_and_shares_ahead_after_match_before_plus_behind": true,
+    "moves": [
+      {
+        "request_id": 4,
+        "symbol": "KHC",
+        "rank_before": 9,
+        "rank_after": 10,
+        "shares_ahead_before": 1100,
+        "shares_ahead_after": 1450
+      },
+      {
+        "request_id": 8,
+        "symbol": "KHC",
+        "rank_before": 7,
+        "rank_after": 21,
+        "shares_ahead_before": 2196,
+        "shares_ahead_after": 4135
+      }
+    ]
+  },
+  "limits": [
+    "one Nasdaq trading day from 2019, not live data",
+    "windows chosen for the event, not sampled; no frequency estimate",
+    "displayed FIFO rank is not exchange priority; hidden and reserve interest is not in the feed",
+    "no cause or intent assigned; no latency, fill or performance claim"
+  ]
+}

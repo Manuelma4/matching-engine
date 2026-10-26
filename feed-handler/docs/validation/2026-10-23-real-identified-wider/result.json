@@ -1,0 +1,478 @@
+{
+  "model": "real_identified_windows_evidence_v2",
+  "gate": 39,
+  "passed": true,
+  "source_base_commit": "bc92bb20c4316b5212c84f6c82073da83f33d3ee",
+  "input": {
+    "name": "12302019.NASDAQ_ITCH50.itch",
+    "bytes": 8251407909,
+    "sha256_full_before_and_after": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f"
+  },
+  "selection_rule": {
+    "bytes": 2461,
+    "sha256": "19dcdcda0fff9b085a45a3336e76f8835d257a7b9d6f327bdf97a213ba571871",
+    "rule_unchanged_from": "7ab0187f9cfd74cf4a507f902f711156a0ee98e5d1d9752d6519445165bd301c"
+  },
+  "sources": {
+    "feed-handler/tools/identified_capture.cpp": {
+      "bytes": 15411,
+      "sha256": "86c77ba448a5db6790474f2831bab9740c9ef3da354884e8a48b602c1f9f88a8"
+    },
+    "feed-handler/include/itch/identified_observer.hpp": {
+      "bytes": 7449,
+      "sha256": "4adfe31283e065b4deefe71d3ba12b7c777b208c7aebe621f6fb41102bbd434f"
+    },
+    "feed-handler/src/identified_observer.cpp": {
+      "bytes": 12375,
+      "sha256": "ade73793fd2975ded4a371a8bd1afe74b229a3255ee66f4104e6c108136da9e6"
+    },
+    "feed-handler/CMakeLists.txt": {
+      "bytes": 5019,
+      "sha256": "7497314e7171b24e5c6deaeba892234342f99877c53a5330d3fca1d83f34d7ad"
+    }
+  },
+  "sources_unchanged_since_gate_38": true,
+  "independent_reference": {
+    "implementation": "KareemJandali/itchbook 3c646f9da182136125059243b475f7b8baa53773 (MIT)",
+    "binary_sha256": "d61e41c36f40d959763ebd15f189116462d05c46fb856dc05c376a14520016c6",
+    "validation_scope": "selected_symbols_only",
+    "validation": {
+      "unknown_references": 0,
+      "duplicate_references": 0,
+      "share_underflows": 0,
+      "locate_mismatches": 0,
+      "invalid_messages": 0,
+      "capacity_failures": 0,
+      "timestamp_regressions": 0
+    }
+  },
+  "local_exporter": {
+    "validation_scope": "full_prefix_all_symbols",
+    "validation": {
+      "unknown_references": 0,
+      "duplicate_references": 0,
+      "share_underflows": 0,
+      "locate_mismatches": 0,
+      "invalid_messages": 0,
+      "capacity_failures": 0,
+      "timestamp_regressions": 0
+    }
+  },
+  "capture": {
+    "scanned_messages": 220480030,
+    "consumed_prefix_bytes": 6732943853,
+    "book_anomalies": 0,
+    "bad_frames": 0,
+    "delay_ns": 1000000
+  },
+  "requests": [
+    {
+      "request_id": 1,
+      "symbol": "AAPL",
+      "from_ns": 39600000000000,
+      "first_u_ns": 39600485609394,
+      "seed_cut_type": "A",
+      "seed_orders": 21673,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 86692,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 2,
+          "visible_shares_ahead_before": 100,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        }
+      ]
+    },
+    {
+      "request_id": 2,
+      "symbol": "SPY",
+      "from_ns": 39600000000000,
+      "first_u_ns": 39600862672330,
+      "seed_cut_type": "A",
+      "seed_orders": 1851,
+      "facts": 7,
+      "states": 8,
+      "captured_rows": 14808,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 200,
+          "fifo_rank_before": 11,
+          "visible_shares_ahead_before": 1720,
+          "price_move_ticks": 1,
+          "shares_after": 200
+        },
+        {
+          "side": "B",
+          "shares": 800,
+          "fifo_rank_before": 11,
+          "visible_shares_ahead_before": 1720,
+          "price_move_ticks": 1,
+          "shares_after": 800
+        },
+        {
+          "side": "B",
+          "shares": 500,
+          "fifo_rank_before": 11,
+          "visible_shares_ahead_before": 1720,
+          "price_move_ticks": 1,
+          "shares_after": 500
+        },
+        {
+          "side": "B",
+          "shares": 200,
+          "fifo_rank_before": 11,
+          "visible_shares_ahead_before": 1720,
+          "price_move_ticks": 1,
+          "shares_after": 200
+        },
+        {
+          "side": "B",
+          "shares": 500,
+          "fifo_rank_before": 11,
+          "visible_shares_ahead_before": 1720,
+          "price_move_ticks": 1,
+          "shares_after": 500
+        },
+        {
+          "side": "B",
+          "shares": 500,
+          "fifo_rank_before": 14,
+          "visible_shares_ahead_before": 2820,
+          "price_move_ticks": 1,
+          "shares_after": 500
+        },
+        {
+          "side": "B",
+          "shares": 500,
+          "fifo_rank_before": 14,
+          "visible_shares_ahead_before": 2820,
+          "price_move_ticks": 1,
+          "shares_after": 500
+        }
+      ]
+    },
+    {
+      "request_id": 3,
+      "symbol": "AMZN",
+      "from_ns": 39600000000000,
+      "first_u_ns": 39622225848820,
+      "seed_cut_type": "D",
+      "seed_orders": 30763,
+      "facts": 7,
+      "states": 8,
+      "captured_rows": 246104,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 90,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 0,
+          "shares_after": 140
+        },
+        {
+          "side": "S",
+          "shares": 140,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 140
+        },
+        {
+          "side": "S",
+          "shares": 140,
+          "fifo_rank_before": 2,
+          "visible_shares_ahead_before": 2,
+          "price_move_ticks": -11,
+          "shares_after": 120
+        },
+        {
+          "side": "S",
+          "shares": 120,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 12,
+          "shares_after": 90
+        },
+        {
+          "side": "S",
+          "shares": 90,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 0,
+          "shares_after": 140
+        },
+        {
+          "side": "S",
+          "shares": 140,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 140
+        },
+        {
+          "side": "S",
+          "shares": 140,
+          "fifo_rank_before": 2,
+          "visible_shares_ahead_before": 2,
+          "price_move_ticks": -11,
+          "shares_after": 120
+        }
+      ]
+    },
+    {
+      "request_id": 4,
+      "symbol": "TSLA",
+      "from_ns": 39600000000000,
+      "first_u_ns": 39727254116187,
+      "seed_cut_type": "D",
+      "seed_orders": 14201,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 56804,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -13,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 2,
+          "visible_shares_ahead_before": 25,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 2,
+          "visible_shares_ahead_before": 25,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        }
+      ]
+    },
+    {
+      "request_id": 5,
+      "symbol": "AAPL",
+      "from_ns": 54000000000000,
+      "first_u_ns": 54009945641835,
+      "seed_cut_type": "D",
+      "seed_orders": 22124,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 88496,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 3,
+          "visible_shares_ahead_before": 105,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        }
+      ]
+    },
+    {
+      "request_id": 6,
+      "symbol": "SPY",
+      "from_ns": 54000000000000,
+      "first_u_ns": 54003301391610,
+      "seed_cut_type": "A",
+      "seed_orders": 1934,
+      "facts": 5,
+      "states": 6,
+      "captured_rows": 11604,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 156,
+          "fifo_rank_before": 15,
+          "visible_shares_ahead_before": 2709,
+          "price_move_ticks": -1,
+          "shares_after": 156
+        },
+        {
+          "side": "S",
+          "shares": 156,
+          "fifo_rank_before": 15,
+          "visible_shares_ahead_before": 2709,
+          "price_move_ticks": -1,
+          "shares_after": 156
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 15,
+          "visible_shares_ahead_before": 2709,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 200,
+          "fifo_rank_before": 15,
+          "visible_shares_ahead_before": 2709,
+          "price_move_ticks": -1,
+          "shares_after": 200
+        },
+        {
+          "side": "S",
+          "shares": 500,
+          "fifo_rank_before": 15,
+          "visible_shares_ahead_before": 2709,
+          "price_move_ticks": -1,
+          "shares_after": 500
+        }
+      ]
+    },
+    {
+      "request_id": 7,
+      "symbol": "AMZN",
+      "from_ns": 54000000000000,
+      "first_u_ns": 54057527440447,
+      "seed_cut_type": "A",
+      "seed_orders": 31279,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 125116,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -2,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 4,
+          "shares_after": 100
+        }
+      ]
+    },
+    {
+      "request_id": 8,
+      "symbol": "TSLA",
+      "from_ns": 54000000000000,
+      "first_u_ns": 54000070238659,
+      "seed_cut_type": "D",
+      "seed_orders": 14631,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 58524,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 2,
+          "visible_shares_ahead_before": 20,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        }
+      ]
+    }
+  ],
+  "requests_null": 0,
+  "states": 42,
+  "facts": 34,
+  "order_rows": 688148,
+  "byte_identical_exports": {
+    "observer": "4bb3eedc43dd4ae5925d9a95477f86a439c5e64e1940ecabae34e4985a435a4f",
+    "reference": "4bb3eedc43dd4ae5925d9a95477f86a439c5e64e1940ecabae34e4985a435a4f",
+    "local": "4bb3eedc43dd4ae5925d9a95477f86a439c5e64e1940ecabae34e4985a435a4f"
+  },
+  "facts_recomputed_from_reference": 34,
+  "observation_recomputed": true,
+  "disjointness": {
+    "key": "(symbol, sequence, frame_offset)",
+    "earlier_files_same_input": 8,
+    "overlap": 0
+  },
+  "independent_historical_states_before": 59,
+  "independent_historical_states_after": 101,
+  "resources": {
+    "capture_seconds": 135.26,
+    "capture_max_rss_bytes": 397705216,
+    "reference_seconds": 70.87,
+    "local_exporter_seconds": 351.71,
+    "note": "single runs under background QoS; not a benchmark"
+  },
+  "limits": [
+    "one trading day from 2019, not live data",
+    "U-only windows; other message types end a window",
+    "the reference validates selected symbols only",
+    "declared input hash, re-hashed by the orchestrator, not by the module",
+    "no actual exchange priority, hidden liquidity, latency or fill claim"
+  ]
+}

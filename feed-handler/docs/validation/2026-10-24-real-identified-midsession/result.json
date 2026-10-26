@@ -1,0 +1,739 @@
+{
+  "model": "real_identified_windows_evidence_v2",
+  "gate": 46,
+  "passed": true,
+  "source_base_commit": "bc92bb20c4316b5212c84f6c82073da83f33d3ee",
+  "input": {
+    "name": "12302019.NASDAQ_ITCH50.itch",
+    "bytes": 8251407909,
+    "sha256_full_before_and_after": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f"
+  },
+  "selection_rule": {
+    "bytes": 3105,
+    "sha256": "6e5dbb224e3f4cd5c928188e3eb0533d8b007337ae00acc94f4bc19ac211f50d",
+    "rule_unchanged_from": "7ab0187f9cfd74cf4a507f902f711156a0ee98e5d1d9752d6519445165bd301c"
+  },
+  "independent_reference": {
+    "implementation": "KareemJandali/itchbook 3c646f9da182136125059243b475f7b8baa53773 (MIT)",
+    "binary_sha256": "d61e41c36f40d959763ebd15f189116462d05c46fb856dc05c376a14520016c6",
+    "validation_scope": "selected_symbols_only",
+    "validation": {
+      "unknown_references": 0,
+      "duplicate_references": 0,
+      "share_underflows": 0,
+      "locate_mismatches": 0,
+      "invalid_messages": 0,
+      "capacity_failures": 0,
+      "timestamp_regressions": 0
+    }
+  },
+  "local_exporter": {
+    "validation_scope": "full_prefix_all_symbols",
+    "validation": {
+      "unknown_references": 0,
+      "duplicate_references": 0,
+      "share_underflows": 0,
+      "locate_mismatches": 0,
+      "invalid_messages": 0,
+      "capacity_failures": 0,
+      "timestamp_regressions": 0
+    }
+  },
+  "capture": {
+    "scanned_messages": 213392748,
+    "consumed_prefix_bytes": 6517582205,
+    "book_anomalies": 0,
+    "bad_frames": 0,
+    "delay_ns": 1000000
+  },
+  "requests": [
+    {
+      "request_id": 1,
+      "symbol": "CSCO",
+      "from_ns": 38700000000000,
+      "first_u_ns": 38703345935719,
+      "seed_cut_type": "A",
+      "seed_orders": 11232,
+      "facts": 16,
+      "states": 17,
+      "captured_rows": 190944,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 3022,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 300,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 3022,
+          "price_move_ticks": 1,
+          "shares_after": 300
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 3022,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 3022,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 3022,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 3022,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 3022,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 3022,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 3022,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 300,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 3022,
+          "price_move_ticks": 1,
+          "shares_after": 300
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 3022,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 600,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 3022,
+          "price_move_ticks": 1,
+          "shares_after": 600
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 3022,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 3022,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 3022,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 400,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 3022,
+          "price_move_ticks": 1,
+          "shares_after": 400
+        }
+      ]
+    },
+    {
+      "request_id": 2,
+      "symbol": "CMCSA",
+      "from_ns": 38700000000000,
+      "first_u_ns": 38701711834066,
+      "seed_cut_type": "A",
+      "seed_orders": 2856,
+      "facts": 16,
+      "states": 17,
+      "captured_rows": 48552,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 18,
+          "visible_shares_ahead_before": 2670,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 300,
+          "fifo_rank_before": 18,
+          "visible_shares_ahead_before": 2670,
+          "price_move_ticks": 1,
+          "shares_after": 300
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 18,
+          "visible_shares_ahead_before": 2670,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 400,
+          "fifo_rank_before": 18,
+          "visible_shares_ahead_before": 2670,
+          "price_move_ticks": 1,
+          "shares_after": 400
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 18,
+          "visible_shares_ahead_before": 2670,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 18,
+          "visible_shares_ahead_before": 2670,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 18,
+          "visible_shares_ahead_before": 2670,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 18,
+          "visible_shares_ahead_before": 2670,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 19,
+          "visible_shares_ahead_before": 2770,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 19,
+          "visible_shares_ahead_before": 2770,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 20,
+          "visible_shares_ahead_before": 2857,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 20,
+          "visible_shares_ahead_before": 2857,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 20,
+          "visible_shares_ahead_before": 2857,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 20,
+          "visible_shares_ahead_before": 2857,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 20,
+          "visible_shares_ahead_before": 2857,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 400,
+          "fifo_rank_before": 20,
+          "visible_shares_ahead_before": 2857,
+          "price_move_ticks": 1,
+          "shares_after": 400
+        }
+      ]
+    },
+    {
+      "request_id": 3,
+      "symbol": "PEP",
+      "from_ns": 38700000000000,
+      "first_u_ns": 38704943964479,
+      "seed_cut_type": "A",
+      "seed_orders": 2519,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 10076,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 500,
+          "fifo_rank_before": 3,
+          "visible_shares_ahead_before": 200,
+          "price_move_ticks": -1,
+          "shares_after": 700
+        },
+        {
+          "side": "S",
+          "shares": 700,
+          "fifo_rank_before": 2,
+          "visible_shares_ahead_before": 100,
+          "price_move_ticks": -2,
+          "shares_after": 200
+        },
+        {
+          "side": "S",
+          "shares": 200,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 0,
+          "shares_after": 46
+        }
+      ]
+    },
+    {
+      "request_id": 4,
+      "symbol": "NFLX",
+      "from_ns": 38700000000000,
+      "first_u_ns": 38702198641699,
+      "seed_cut_type": "D",
+      "seed_orders": 9818,
+      "facts": 4,
+      "states": 5,
+      "captured_rows": 49090,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -6,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 3,
+          "shares_after": 100
+        }
+      ]
+    },
+    {
+      "request_id": 5,
+      "symbol": "CSCO",
+      "from_ns": 53100000000000,
+      "first_u_ns": 53138976982587,
+      "seed_cut_type": "A",
+      "seed_orders": 11377,
+      "facts": 4,
+      "states": 5,
+      "captured_rows": 56885,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 23,
+          "visible_shares_ahead_before": 5512,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 23,
+          "visible_shares_ahead_before": 5512,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 800,
+          "fifo_rank_before": 23,
+          "visible_shares_ahead_before": 5512,
+          "price_move_ticks": -1,
+          "shares_after": 800
+        },
+        {
+          "side": "S",
+          "shares": 300,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 4610,
+          "price_move_ticks": 0,
+          "shares_after": 300
+        }
+      ]
+    },
+    {
+      "request_id": 6,
+      "symbol": "CMCSA",
+      "from_ns": 53100000000000,
+      "first_u_ns": 53141141882550,
+      "seed_cut_type": "A",
+      "seed_orders": 2877,
+      "facts": 16,
+      "states": 17,
+      "captured_rows": 48909,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 2500,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 2500,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 600,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 2500,
+          "price_move_ticks": -1,
+          "shares_after": 600
+        },
+        {
+          "side": "S",
+          "shares": 400,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 2500,
+          "price_move_ticks": -1,
+          "shares_after": 400
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 2500,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 2500,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 2500,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 17,
+          "visible_shares_ahead_before": 2600,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 17,
+          "visible_shares_ahead_before": 2600,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 17,
+          "visible_shares_ahead_before": 2600,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 17,
+          "visible_shares_ahead_before": 2600,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 17,
+          "visible_shares_ahead_before": 2600,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 17,
+          "visible_shares_ahead_before": 2600,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 500,
+          "fifo_rank_before": 17,
+          "visible_shares_ahead_before": 2600,
+          "price_move_ticks": -1,
+          "shares_after": 500
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 17,
+          "visible_shares_ahead_before": 2600,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 400,
+          "fifo_rank_before": 17,
+          "visible_shares_ahead_before": 2600,
+          "price_move_ticks": -1,
+          "shares_after": 400
+        }
+      ]
+    },
+    {
+      "request_id": 7,
+      "symbol": "PEP",
+      "from_ns": 53100000000000,
+      "first_u_ns": 53122597039324,
+      "seed_cut_type": "A",
+      "seed_orders": 2522,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 10088,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 56,
+          "fifo_rank_before": 3,
+          "visible_shares_ahead_before": 20,
+          "price_move_ticks": 1,
+          "shares_after": 56
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 2,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 500,
+          "fifo_rank_before": 2,
+          "visible_shares_ahead_before": 100,
+          "price_move_ticks": 4,
+          "shares_after": 500
+        }
+      ]
+    },
+    {
+      "request_id": 8,
+      "symbol": "NFLX",
+      "from_ns": 53100000000000,
+      "first_u_ns": 53110245102931,
+      "seed_cut_type": "D",
+      "seed_orders": 9962,
+      "facts": 4,
+      "states": 5,
+      "captured_rows": 49810,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -3,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 200,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -11,
+          "shares_after": 200
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -24,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -26,
+          "shares_after": 100
+        }
+      ]
+    }
+  ],
+  "requests_null": 0,
+  "states": 74,
+  "distinct_states": 74,
+  "facts": 66,
+  "order_rows": 464354,
+  "byte_identical_exports": {
+    "observer": "2ce79a9cafb7c88971c539d91786a0b00fdc237032ecc90cc6334067f2f4da02",
+    "reference": "2ce79a9cafb7c88971c539d91786a0b00fdc237032ecc90cc6334067f2f4da02",
+    "local": "2ce79a9cafb7c88971c539d91786a0b00fdc237032ecc90cc6334067f2f4da02"
+  },
+  "facts_recomputed_from_reference": 66,
+  "observation_recomputed": true,
+  "disjointness": {
+    "key": "(symbol, sequence, frame_offset)",
+    "earlier_files_same_input": 12,
+    "earlier_files_other_inputs": 5,
+    "overlap": 0
+  },
+  "independent_historical_states_before": 271,
+  "independent_historical_states_after": 345,
+  "resources": {
+    "capture_seconds": 127.35,
+    "capture_max_rss_bytes": 386531328,
+    "reference_seconds": 59.05,
+    "local_exporter_seconds": 325.14,
+    "note": "single runs under background QoS; not a benchmark"
+  },
+  "same_price_replacements": {
+    "source": "recomputed from the reference export alone (old order in the preceding state, new order in the following state)",
+    "cases": [
+      {
+        "request_id": 5,
+        "symbol": "CSCO",
+        "side": "S",
+        "shares_before": 300,
+        "shares_after": 300,
+        "level_orders_before_and_after": 25,
+        "fifo_rank_before": 16,
+        "fifo_rank_after": 25,
+        "visible_shares_ahead_before": 4610,
+        "visible_shares_ahead_after": 5612
+      },
+      {
+        "request_id": 3,
+        "symbol": "PEP",
+        "side": "S",
+        "shares_before": 200,
+        "shares_after": 46,
+        "level_orders_before_and_after": 1,
+        "fifo_rank_before": 1,
+        "fifo_rank_after": 1,
+        "visible_shares_ahead_before": 0,
+        "visible_shares_ahead_after": 0
+      }
+    ]
+  }
+}

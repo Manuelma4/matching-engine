@@ -12,8 +12,30 @@ exchange events. Start with the [pipeline walkthrough](feed-handler/docs/TECHNIC
 and [validation record](feed-handler/docs/VALIDATION.md) for independent BBO/depth
 comparisons, deterministic journalling, measured storage and bounded causal examples.
 The [later-session inventory comparison](feed-handler/docs/validation/2026-10-23-later-session-l3/README.md)
-now brings sampled independent displayed L3/FIFO coverage to 41 distinct states,
+brought sampled independent displayed L3/FIFO coverage to 41 distinct states,
 including four noon/15:30 states with 55,105 ordered row instances and zero differences.
+The [identified observer](feed-handler/docs/IDENTIFIED_OBSERVER.md) then captured
+[18 MSFT/QQQ states](feed-handler/docs/validation/2026-10-23-real-identified-windows/README.md)
+and [42 AAPL, SPY, AMZN and TSLA states](feed-handler/docs/validation/2026-10-23-real-identified-wider/README.md)
+around real replacements on the Nasdaq day, plus
+[23 states on a second venue, BX](feed-handler/docs/validation/2026-10-23-real-identified-bx/README.md),
+[37 states around same-price replacements that lose queue position](feed-handler/docs/validation/2026-10-23-real-identified-queued/README.md),
+[98 NVDA, GOOGL, FB and INTC states after the open and before the close](feed-handler/docs/validation/2026-10-23-real-identified-opening-close/README.md),
+[12 NVDA and GOOGL states on BX](feed-handler/docs/validation/2026-10-24-real-identified-bx-partial-null/README.md),
+[74 CSCO, CMCSA, PEP and NFLX states mid-morning and mid-afternoon](feed-handler/docs/validation/2026-10-24-real-identified-midsession/README.md),
+[4 NFLX states on BX](feed-handler/docs/validation/2026-10-24-real-identified-bx-midsession/README.md),
+[33 ADBE, COST, AVGO and TXN states at 10:30 and 13:45](feed-handler/docs/validation/2026-10-25-real-identified-new-symbols/README.md),
+[35 queued same-price CSCO, CMCSA, INTC and PEP states](feed-handler/docs/validation/2026-10-25-real-identified-queued-new-symbols/README.md),
+[24 AMD, MU and EBAY states around same-price replacements that other orders overtake](feed-handler/docs/validation/2026-10-25-real-identified-overtaken/README.md),
+[17 ORCL, GILD and SBUX states around the same kind of replacement](feed-handler/docs/validation/2026-10-25-real-identified-overtaken-new-symbols/README.md),
+[17 KHC states around it](feed-handler/docs/validation/2026-10-26-real-identified-overtaken-khc/README.md),
+and [4 ADI states around it](feed-handler/docs/validation/2026-10-26-real-identified-overtaken-adi/README.md),
+each byte-identical with two independent exports: 479 distinct states in total.
+The queued capture was [repeated under ASan/UBSan](feed-handler/docs/validation/2026-10-23-real-identified-queued-sanitised/README.md)
+with no sanitiser report and byte-identical outputs.
+[The same request on BX](feed-handler/docs/validation/2026-10-23-real-identified-bx-queued/README.md)
+found no window; that null is recorded, independently confirmed and not replaced, as are
+the FB and INTC nulls of the second BX request set.
 
 The matching engine, decoder, L3 reconstruction, journal/replay and native queue
 simulator are C++20. Python supports experiment orchestration, identity checks,
@@ -116,10 +138,14 @@ cmake -S . -B build-combined -DCMAKE_BUILD_TYPE=Release \
 cmake --build build-combined -j 4
 ./build-combined/feed-handler/itch_loopback --ops 10000 --seed 42
 ./build-combined/feed-handler/itch_queue_demo
+./build-combined/feed-handler/itch_identified_demo
 ```
 
 The [native C++ queue example](feed-handler/docs/QUEUE_DEMO.md) needs no input files.
 It shows two cancellation assumptions and a fill response pending at the horizon.
+The [identified-observer example](feed-handler/docs/IDENTIFIED_OBSERVER.md) also needs
+none: it records which order each replacement moved, where it stood, and when a
+strategy could have known the resulting book.
 
 The feed handler also supports a [standalone component build](feed-handler/README.md#build).
 For an integrated ASan/UBSan build enable both `ME_SANITIZE` and `ITCH_SANITIZE`.

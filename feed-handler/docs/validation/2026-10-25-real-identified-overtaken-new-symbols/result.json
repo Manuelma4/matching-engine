@@ -1,0 +1,538 @@
+{
+  "model": "real_identified_windows_evidence_v2",
+  "gate": 52,
+  "passed": true,
+  "source_base_commit": "bc92bb20c4316b5212c84f6c82073da83f33d3ee",
+  "input": {
+    "name": "12302019.NASDAQ_ITCH50.itch",
+    "bytes": 8251407909,
+    "sha256_full_before_and_after": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f"
+  },
+  "selection_rule": {
+    "bytes": 3662,
+    "sha256": "c137d4a7f2e7966c56ad6d7a2e6840d2d6babfdcaf7aab044d4edd782eaf7dc7",
+    "same_rule_as_sha256": "2be90dd152a150d01bf540feb5c417fa020b5bbbb69cf8342adda1d6de19c2aa",
+    "need": "queued_same_price_overtaken",
+    "min_run": 3,
+    "max_facts": 16
+  },
+  "independent_reference": {
+    "implementation": "KareemJandali/itchbook 3c646f9da182136125059243b475f7b8baa53773 (MIT)",
+    "binary_sha256": "d61e41c36f40d959763ebd15f189116462d05c46fb856dc05c376a14520016c6",
+    "validation_scope": "selected_symbols_only",
+    "validation": {
+      "unknown_references": 0,
+      "duplicate_references": 0,
+      "share_underflows": 0,
+      "locate_mismatches": 0,
+      "invalid_messages": 0,
+      "capacity_failures": 0,
+      "timestamp_regressions": 0
+    }
+  },
+  "local_exporter": {
+    "validation_scope": "full_prefix_all_symbols",
+    "validation": {
+      "unknown_references": 0,
+      "duplicate_references": 0,
+      "share_underflows": 0,
+      "locate_mismatches": 0,
+      "invalid_messages": 0,
+      "capacity_failures": 0,
+      "timestamp_regressions": 0
+    }
+  },
+  "capture": {
+    "scanned_messages": 268744780,
+    "consumed_prefix_bytes": 8251407909,
+    "book_anomalies": 0,
+    "bad_frames": 0,
+    "delay_ns": 1000000,
+    "tool_source_sha256": "4d8ec47a33287e98666d28e6639034de6b09ea26cefbed53575e70eeb8a5d47a",
+    "release_binary_sha256": "6dfb370c48f165eb1125e936cd305a4d291d3d73c97f1dc408af6b422ac19e46",
+    "binary_unchanged_since_gate": 50
+  },
+  "requests": [
+    {
+      "request_id": 1,
+      "symbol": "ORCL",
+      "from_ns": 40500000000000,
+      "first_u_ns": 40909917379762,
+      "seed_cut_type": "A",
+      "seed_orders": 551,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 2204,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 1600,
+          "fifo_rank_before": 3,
+          "visible_shares_ahead_before": 500,
+          "price_move_ticks": 0,
+          "shares_after": 1200
+        },
+        {
+          "side": "S",
+          "shares": 1200,
+          "fifo_rank_before": 6,
+          "visible_shares_ahead_before": 900,
+          "price_move_ticks": 0,
+          "shares_after": 900
+        },
+        {
+          "side": "S",
+          "shares": 900,
+          "fifo_rank_before": 6,
+          "visible_shares_ahead_before": 900,
+          "price_move_ticks": 0,
+          "shares_after": 400
+        }
+      ]
+    },
+    {
+      "request_id": 2,
+      "symbol": "QCOM",
+      "from_ns": 40500000000000,
+      "captured": null
+    },
+    {
+      "request_id": 3,
+      "symbol": "GILD",
+      "from_ns": 40500000000000,
+      "first_u_ns": 54925106078927,
+      "seed_cut_type": "D",
+      "seed_orders": 4945,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 19780,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 1000,
+          "fifo_rank_before": 10,
+          "visible_shares_ahead_before": 1000,
+          "price_move_ticks": 0,
+          "shares_after": 400
+        },
+        {
+          "side": "S",
+          "shares": 400,
+          "fifo_rank_before": 13,
+          "visible_shares_ahead_before": 1300,
+          "price_move_ticks": 0,
+          "shares_after": 500
+        },
+        {
+          "side": "S",
+          "shares": 500,
+          "fifo_rank_before": 13,
+          "visible_shares_ahead_before": 1300,
+          "price_move_ticks": 0,
+          "shares_after": 900
+        }
+      ]
+    },
+    {
+      "request_id": 4,
+      "symbol": "SBUX",
+      "from_ns": 40500000000000,
+      "first_u_ns": 42605133494128,
+      "seed_cut_type": "U",
+      "seed_orders": 7065,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 28260,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 300,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 300
+        },
+        {
+          "side": "B",
+          "shares": 300,
+          "fifo_rank_before": 4,
+          "visible_shares_ahead_before": 19,
+          "price_move_ticks": -1,
+          "shares_after": 300
+        },
+        {
+          "side": "B",
+          "shares": 600,
+          "fifo_rank_before": 11,
+          "visible_shares_ahead_before": 1100,
+          "price_move_ticks": 0,
+          "shares_after": 400
+        }
+      ]
+    },
+    {
+      "request_id": 5,
+      "symbol": "ORCL",
+      "from_ns": 52500000000000,
+      "first_u_ns": 53395706151882,
+      "seed_cut_type": "A",
+      "seed_orders": 591,
+      "facts": 4,
+      "states": 5,
+      "captured_rows": 2955,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 3021,
+          "price_move_ticks": 0,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 23,
+          "visible_shares_ahead_before": 4321,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 23,
+          "visible_shares_ahead_before": 4321,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 23,
+          "visible_shares_ahead_before": 4321,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        }
+      ]
+    },
+    {
+      "request_id": 6,
+      "symbol": "QCOM",
+      "from_ns": 52500000000000,
+      "captured": null
+    },
+    {
+      "request_id": 7,
+      "symbol": "GILD",
+      "from_ns": 52500000000000,
+      "first_u_ns": 54925106078927,
+      "seed_cut_type": "D",
+      "seed_orders": 4945,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 19780,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 1000,
+          "fifo_rank_before": 10,
+          "visible_shares_ahead_before": 1000,
+          "price_move_ticks": 0,
+          "shares_after": 400
+        },
+        {
+          "side": "S",
+          "shares": 400,
+          "fifo_rank_before": 13,
+          "visible_shares_ahead_before": 1300,
+          "price_move_ticks": 0,
+          "shares_after": 500
+        },
+        {
+          "side": "S",
+          "shares": 500,
+          "fifo_rank_before": 13,
+          "visible_shares_ahead_before": 1300,
+          "price_move_ticks": 0,
+          "shares_after": 900
+        }
+      ]
+    },
+    {
+      "request_id": 8,
+      "symbol": "SBUX",
+      "from_ns": 52500000000000,
+      "captured": null
+    }
+  ],
+  "requests_null": 3,
+  "states": 21,
+  "distinct_states": 17,
+  "facts": 16,
+  "order_rows": 72979,
+  "byte_identical_exports": {
+    "observer": "7e681377469441fc272189fa665877e87ad655d7daafe031d788cfacc73ddf19",
+    "reference": "7e681377469441fc272189fa665877e87ad655d7daafe031d788cfacc73ddf19",
+    "local": "7e681377469441fc272189fa665877e87ad655d7daafe031d788cfacc73ddf19"
+  },
+  "facts_recomputed_from_reference": 16,
+  "observation_recomputed": true,
+  "need": "queued_same_price_overtaken",
+  "need_rechecked_from_reference": [
+    {
+      "request_id": 1,
+      "need": "queued_same_price_overtaken",
+      "captured": true,
+      "facts": 3,
+      "queued_same_price_facts": 3,
+      "overtaken_facts": 1
+    },
+    {
+      "request_id": 2,
+      "need": "queued_same_price_overtaken",
+      "captured": false
+    },
+    {
+      "request_id": 3,
+      "need": "queued_same_price_overtaken",
+      "captured": true,
+      "facts": 3,
+      "queued_same_price_facts": 3,
+      "overtaken_facts": 1
+    },
+    {
+      "request_id": 4,
+      "need": "queued_same_price_overtaken",
+      "captured": true,
+      "facts": 3,
+      "queued_same_price_facts": 1,
+      "overtaken_facts": 1
+    },
+    {
+      "request_id": 5,
+      "need": "queued_same_price_overtaken",
+      "captured": true,
+      "facts": 4,
+      "queued_same_price_facts": 1,
+      "overtaken_facts": 1
+    },
+    {
+      "request_id": 6,
+      "need": "queued_same_price_overtaken",
+      "captured": false
+    },
+    {
+      "request_id": 7,
+      "need": "queued_same_price_overtaken",
+      "captured": true,
+      "facts": 3,
+      "queued_same_price_facts": 3,
+      "overtaken_facts": 1
+    },
+    {
+      "request_id": 8,
+      "need": "queued_same_price_overtaken",
+      "captured": false
+    }
+  ],
+  "disjointness": {
+    "key": "(symbol, sequence, frame_offset)",
+    "earlier_files_same_input": 16,
+    "earlier_files_other_inputs": 7,
+    "overlap": 0
+  },
+  "independent_historical_states_before": 441,
+  "independent_historical_states_after": 458,
+  "resources": {
+    "capture_seconds": 162.12,
+    "capture_max_rss_bytes": 375422976,
+    "reference_seconds": 56.89,
+    "local_exporter_seconds": 355.11,
+    "note": "single runs under background QoS; not a benchmark"
+  },
+  "independent_rescan": {
+    "method": "check_null.py: own parser and FIFO book (Python), whole file, tool and literal readings of the frozen rule",
+    "script_sha256": "65376a4db0a477c0ddb8048f8fde3f365fb10da15a977d001b0d1a038d29f2cf",
+    "messages": 268744780,
+    "bad_frames": 0,
+    "book_anomalies": 0,
+    "captured_windows_reproduced": 5,
+    "nulls_confirmed": 3,
+    "u_only_runs_after_from_ns": [
+      {
+        "request_id": 1,
+        "symbol": "ORCL",
+        "runs": 678,
+        "with_queued_same_price": 122,
+        "with_orders_behind": 24
+      },
+      {
+        "request_id": 2,
+        "symbol": "QCOM",
+        "runs": 802,
+        "with_queued_same_price": 1,
+        "with_orders_behind": 0
+      },
+      {
+        "request_id": 3,
+        "symbol": "GILD",
+        "runs": 442,
+        "with_queued_same_price": 19,
+        "with_orders_behind": 1
+      },
+      {
+        "request_id": 4,
+        "symbol": "SBUX",
+        "runs": 693,
+        "with_queued_same_price": 4,
+        "with_orders_behind": 3
+      },
+      {
+        "request_id": 5,
+        "symbol": "ORCL",
+        "runs": 210,
+        "with_queued_same_price": 15,
+        "with_orders_behind": 6
+      },
+      {
+        "request_id": 6,
+        "symbol": "QCOM",
+        "runs": 404,
+        "with_queued_same_price": 0,
+        "with_orders_behind": 0
+      },
+      {
+        "request_id": 7,
+        "symbol": "GILD",
+        "runs": 198,
+        "with_queued_same_price": 7,
+        "with_orders_behind": 1
+      },
+      {
+        "request_id": 8,
+        "symbol": "SBUX",
+        "runs": 218,
+        "with_queued_same_price": 0,
+        "with_orders_behind": 0
+      }
+    ]
+  },
+  "queued_same_price_position": {
+    "method": "from the reference export alone (check_behind.py, check_after.py): orders behind the old order in the state before, and the new order's rank and shares ahead in the state after",
+    "per_request": [
+      {
+        "request_id": 1,
+        "symbol": "ORCL",
+        "queued_same_price": 3,
+        "with_orders_behind": 1,
+        "orders_behind_max": 3
+      },
+      {
+        "request_id": 2,
+        "symbol": "QCOM",
+        "queued_same_price": 0,
+        "with_orders_behind": 0,
+        "orders_behind_max": 0
+      },
+      {
+        "request_id": 3,
+        "symbol": "GILD",
+        "queued_same_price": 3,
+        "with_orders_behind": 1,
+        "orders_behind_max": 3
+      },
+      {
+        "request_id": 4,
+        "symbol": "SBUX",
+        "queued_same_price": 1,
+        "with_orders_behind": 1,
+        "orders_behind_max": 2
+      },
+      {
+        "request_id": 5,
+        "symbol": "ORCL",
+        "queued_same_price": 1,
+        "with_orders_behind": 1,
+        "orders_behind_max": 10
+      },
+      {
+        "request_id": 6,
+        "symbol": "QCOM",
+        "queued_same_price": 0,
+        "with_orders_behind": 0,
+        "orders_behind_max": 0
+      },
+      {
+        "request_id": 7,
+        "symbol": "GILD",
+        "queued_same_price": 3,
+        "with_orders_behind": 1,
+        "orders_behind_max": 3
+      },
+      {
+        "request_id": 8,
+        "symbol": "SBUX",
+        "queued_same_price": 0,
+        "with_orders_behind": 0,
+        "orders_behind_max": 0
+      }
+    ],
+    "requests_sharing_one_window": [
+      [
+        3,
+        7
+      ]
+    ],
+    "distinct_queued_same_price_facts": 8,
+    "distinct_with_orders_behind": 4,
+    "rank_and_shares_ahead_after_match_before_plus_behind": true,
+    "moves": [
+      {
+        "request_id": 1,
+        "symbol": "ORCL",
+        "rank_before": 3,
+        "rank_after": 6,
+        "shares_ahead_before": 500,
+        "shares_ahead_after": 900
+      },
+      {
+        "request_id": 3,
+        "symbol": "GILD",
+        "rank_before": 10,
+        "rank_after": 13,
+        "shares_ahead_before": 1000,
+        "shares_ahead_after": 1300
+      },
+      {
+        "request_id": 4,
+        "symbol": "SBUX",
+        "rank_before": 11,
+        "rank_after": 13,
+        "shares_ahead_before": 1100,
+        "shares_ahead_after": 1300
+      },
+      {
+        "request_id": 5,
+        "symbol": "ORCL",
+        "rank_before": 16,
+        "rank_after": 26,
+        "shares_ahead_before": 3021,
+        "shares_ahead_after": 4621
+      },
+      {
+        "request_id": 7,
+        "symbol": "GILD",
+        "rank_before": 10,
+        "rank_after": 13,
+        "shares_ahead_before": 1000,
+        "shares_ahead_after": 1300
+      }
+    ]
+  },
+  "limits": [
+    "one Nasdaq trading day from 2019, not live data",
+    "windows chosen for the event, not sampled; no frequency estimate",
+    "displayed FIFO rank is not exchange priority; hidden and reserve interest is not in the feed",
+    "no cause or intent assigned; no latency, fill or performance claim"
+  ]
+}

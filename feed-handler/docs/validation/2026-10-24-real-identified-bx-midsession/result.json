@@ -1,0 +1,214 @@
+{
+  "model": "real_identified_windows_evidence_v2",
+  "gate": 47,
+  "passed": true,
+  "source_base_commit": "bc92bb20c4316b5212c84f6c82073da83f33d3ee",
+  "input": {
+    "name": "20190730.BX_ITCH_50.itch",
+    "bytes": 837472908,
+    "sha256_full_before_and_after": "6741035beda0c237fc2d30e03756f30449791844f372de955a29da32a4b842e5"
+  },
+  "selection_rule": {
+    "bytes": 3588,
+    "sha256": "3332a97e0db378b5b6dc5de85a74d18699ee1498508a75bdef42dd5683624c48",
+    "rule_unchanged_from": "7ab0187f9cfd74cf4a507f902f711156a0ee98e5d1d9752d6519445165bd301c"
+  },
+  "independent_reference": {
+    "implementation": "KareemJandali/itchbook 3c646f9da182136125059243b475f7b8baa53773 (MIT)",
+    "binary_sha256": "d61e41c36f40d959763ebd15f189116462d05c46fb856dc05c376a14520016c6",
+    "validation_scope": "selected_symbols_only",
+    "validation": {
+      "unknown_references": 0,
+      "duplicate_references": 0,
+      "share_underflows": 0,
+      "locate_mismatches": 0,
+      "invalid_messages": 0,
+      "capacity_failures": 0,
+      "timestamp_regressions": 0
+    }
+  },
+  "local_exporter": {
+    "validation_scope": "full_prefix_all_symbols",
+    "validation": {
+      "unknown_references": 0,
+      "duplicate_references": 0,
+      "share_underflows": 0,
+      "locate_mismatches": 0,
+      "invalid_messages": 0,
+      "capacity_failures": 0,
+      "timestamp_regressions": 0
+    }
+  },
+  "capture": {
+    "scanned_messages": 28734686,
+    "consumed_prefix_bytes": 837472908,
+    "book_anomalies": 0,
+    "bad_frames": 0,
+    "delay_ns": 1000000
+  },
+  "requests": [
+    {
+      "request_id": 1,
+      "symbol": "CSCO",
+      "from_ns": 38700000000000,
+      "captured": null
+    },
+    {
+      "request_id": 2,
+      "symbol": "CMCSA",
+      "from_ns": 38700000000000,
+      "captured": null
+    },
+    {
+      "request_id": 3,
+      "symbol": "PEP",
+      "from_ns": 38700000000000,
+      "captured": null
+    },
+    {
+      "request_id": 4,
+      "symbol": "NFLX",
+      "from_ns": 38700000000000,
+      "first_u_ns": 57570465733554,
+      "seed_cut_type": "D",
+      "seed_orders": 29,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 116,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        }
+      ]
+    },
+    {
+      "request_id": 5,
+      "symbol": "CSCO",
+      "from_ns": 53100000000000,
+      "captured": null
+    },
+    {
+      "request_id": 6,
+      "symbol": "CMCSA",
+      "from_ns": 53100000000000,
+      "captured": null
+    },
+    {
+      "request_id": 7,
+      "symbol": "PEP",
+      "from_ns": 53100000000000,
+      "captured": null
+    },
+    {
+      "request_id": 8,
+      "symbol": "NFLX",
+      "from_ns": 53100000000000,
+      "first_u_ns": 57570465733554,
+      "seed_cut_type": "D",
+      "seed_orders": 29,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 116,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        }
+      ]
+    }
+  ],
+  "requests_null": 6,
+  "states": 8,
+  "distinct_states": 4,
+  "facts": 6,
+  "order_rows": 232,
+  "byte_identical_exports": {
+    "observer": "eff742de1c6609dbce94681992dc54d802eb2b511b379faa155edb1f569839fb",
+    "reference": "eff742de1c6609dbce94681992dc54d802eb2b511b379faa155edb1f569839fb",
+    "local": "eff742de1c6609dbce94681992dc54d802eb2b511b379faa155edb1f569839fb"
+  },
+  "facts_recomputed_from_reference": 6,
+  "observation_recomputed": true,
+  "disjointness": {
+    "key": "(symbol, sequence, frame_offset)",
+    "earlier_files_same_input": 5,
+    "earlier_files_other_inputs": 2,
+    "overlap": 0
+  },
+  "independent_historical_states_before": 345,
+  "independent_historical_states_after": 349,
+  "resources": {
+    "capture_seconds": 9.69,
+    "capture_max_rss_bytes": 360398848,
+    "reference_seconds": 7.3,
+    "local_exporter_seconds": 35.36,
+    "note": "single runs under background QoS; not a benchmark"
+  },
+  "null_confirmation": {
+    "method": "independent Python re-scan (own ITCH parser and FIFO book, no shared code), under the tool's reading and the literal reading of the rule",
+    "script_sha256": "c37f492be393cbca57ce5180ce7e61a0c526bbb41b814ac6066ac4f58880d1e9",
+    "messages": 28734686,
+    "book_anomalies": 0,
+    "null_requests_confirmed": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7
+    ],
+    "captured_windows_reproduced_by_both_readings": true,
+    "u_only_runs_from_time_to_end_of_file": {
+      "CSCO@38700000000000": 0,
+      "CMCSA@38700000000000": 0,
+      "PEP@38700000000000": 0,
+      "NFLX@38700000000000": 44,
+      "CSCO@53100000000000": 0,
+      "CMCSA@53100000000000": 0,
+      "PEP@53100000000000": 0,
+      "NFLX@53100000000000": 44
+    }
+  },
+  "harness_change": "check_disjoint.py treats every checkpoint list whose path contains 'fixture' as another input, even when a --same tag matches it; checked with five controls on recorded checkpoint lists, without reading market data"
+}

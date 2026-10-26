@@ -1,0 +1,597 @@
+{
+  "model": "real_identified_windows_evidence_v2",
+  "gate": 50,
+  "passed": true,
+  "source_base_commit": "bc92bb20c4316b5212c84f6c82073da83f33d3ee",
+  "input": {
+    "name": "12302019.NASDAQ_ITCH50.itch",
+    "bytes": 8251407909,
+    "sha256_full_before_and_after": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f"
+  },
+  "selection_rule": {
+    "bytes": 4327,
+    "sha256": "2be90dd152a150d01bf540feb5c417fa020b5bbbb69cf8342adda1d6de19c2aa",
+    "rule_change": "selection-v12 rule with need = queued_same_price_overtaken: the same-price replacement must also have at least one displayed order behind the old order"
+  },
+  "independent_reference": {
+    "implementation": "KareemJandali/itchbook 3c646f9da182136125059243b475f7b8baa53773 (MIT)",
+    "binary_sha256": "d61e41c36f40d959763ebd15f189116462d05c46fb856dc05c376a14520016c6",
+    "validation_scope": "selected_symbols_only",
+    "validation": {
+      "unknown_references": 0,
+      "duplicate_references": 0,
+      "share_underflows": 0,
+      "locate_mismatches": 0,
+      "invalid_messages": 0,
+      "capacity_failures": 0,
+      "timestamp_regressions": 0
+    }
+  },
+  "local_exporter": {
+    "validation_scope": "full_prefix_all_symbols",
+    "validation": {
+      "unknown_references": 0,
+      "duplicate_references": 0,
+      "share_underflows": 0,
+      "locate_mismatches": 0,
+      "invalid_messages": 0,
+      "capacity_failures": 0,
+      "timestamp_regressions": 0
+    }
+  },
+  "capture": {
+    "scanned_messages": 268744780,
+    "consumed_prefix_bytes": 8251407909,
+    "book_anomalies": 0,
+    "bad_frames": 0,
+    "delay_ns": 1000000
+  },
+  "requests": [
+    {
+      "request_id": 1,
+      "symbol": "AMD",
+      "from_ns": 43200000000000,
+      "first_u_ns": 55995356316109,
+      "seed_cut_type": "A",
+      "seed_orders": 10156,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 40624,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 600,
+          "fifo_rank_before": 10,
+          "visible_shares_ahead_before": 1255,
+          "price_move_ticks": 1,
+          "shares_after": 500
+        },
+        {
+          "side": "S",
+          "shares": 400,
+          "fifo_rank_before": 9,
+          "visible_shares_ahead_before": 1930,
+          "price_move_ticks": -1,
+          "shares_after": 500
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 8,
+          "visible_shares_ahead_before": 855,
+          "price_move_ticks": 0,
+          "shares_after": 300
+        }
+      ]
+    },
+    {
+      "request_id": 2,
+      "symbol": "MU",
+      "from_ns": 43200000000000,
+      "first_u_ns": 43527863961227,
+      "seed_cut_type": "D",
+      "seed_orders": 8624,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 34496,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 2100,
+          "fifo_rank_before": 11,
+          "visible_shares_ahead_before": 3100,
+          "price_move_ticks": 0,
+          "shares_after": 2000
+        },
+        {
+          "side": "S",
+          "shares": 2000,
+          "fifo_rank_before": 13,
+          "visible_shares_ahead_before": 3300,
+          "price_move_ticks": 0,
+          "shares_after": 1400
+        },
+        {
+          "side": "S",
+          "shares": 1400,
+          "fifo_rank_before": 13,
+          "visible_shares_ahead_before": 3300,
+          "price_move_ticks": 0,
+          "shares_after": 2100
+        }
+      ]
+    },
+    {
+      "request_id": 3,
+      "symbol": "SIRI",
+      "from_ns": 43200000000000,
+      "captured": null
+    },
+    {
+      "request_id": 4,
+      "symbol": "EBAY",
+      "from_ns": 43200000000000,
+      "first_u_ns": 44843310268943,
+      "seed_cut_type": "A",
+      "seed_orders": 1603,
+      "facts": 5,
+      "states": 6,
+      "captured_rows": 9618,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 200,
+          "fifo_rank_before": 13,
+          "visible_shares_ahead_before": 3247,
+          "price_move_ticks": 0,
+          "shares_after": 200
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 21,
+          "visible_shares_ahead_before": 4847,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 21,
+          "visible_shares_ahead_before": 4847,
+          "price_move_ticks": -1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 600,
+          "fifo_rank_before": 21,
+          "visible_shares_ahead_before": 4847,
+          "price_move_ticks": -1,
+          "shares_after": 600
+        }
+      ]
+    },
+    {
+      "request_id": 5,
+      "symbol": "AMD",
+      "from_ns": 54900000000000,
+      "first_u_ns": 55995356316109,
+      "seed_cut_type": "A",
+      "seed_orders": 10156,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 40624,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 600,
+          "fifo_rank_before": 10,
+          "visible_shares_ahead_before": 1255,
+          "price_move_ticks": 1,
+          "shares_after": 500
+        },
+        {
+          "side": "S",
+          "shares": 400,
+          "fifo_rank_before": 9,
+          "visible_shares_ahead_before": 1930,
+          "price_move_ticks": -1,
+          "shares_after": 500
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 8,
+          "visible_shares_ahead_before": 855,
+          "price_move_ticks": 0,
+          "shares_after": 300
+        }
+      ]
+    },
+    {
+      "request_id": 6,
+      "symbol": "MU",
+      "from_ns": 54900000000000,
+      "first_u_ns": 55026978124039,
+      "seed_cut_type": "D",
+      "seed_orders": 8709,
+      "facts": 3,
+      "states": 4,
+      "captured_rows": 34836,
+      "facts_detail": [
+        {
+          "side": "S",
+          "shares": 1300,
+          "fifo_rank_before": 11,
+          "visible_shares_ahead_before": 993,
+          "price_move_ticks": 1,
+          "shares_after": 1000
+        },
+        {
+          "side": "B",
+          "shares": 300,
+          "fifo_rank_before": 14,
+          "visible_shares_ahead_before": 2587,
+          "price_move_ticks": 0,
+          "shares_after": 200
+        },
+        {
+          "side": "S",
+          "shares": 1000,
+          "fifo_rank_before": 9,
+          "visible_shares_ahead_before": 900,
+          "price_move_ticks": -1,
+          "shares_after": 400
+        }
+      ]
+    },
+    {
+      "request_id": 7,
+      "symbol": "SIRI",
+      "from_ns": 54900000000000,
+      "captured": null
+    },
+    {
+      "request_id": 8,
+      "symbol": "EBAY",
+      "from_ns": 54900000000000,
+      "first_u_ns": 56677050566545,
+      "seed_cut_type": "D",
+      "seed_orders": 1705,
+      "facts": 5,
+      "states": 6,
+      "captured_rows": 10230,
+      "facts_detail": [
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 1,
+          "visible_shares_ahead_before": 0,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "B",
+          "shares": 100,
+          "fifo_rank_before": 14,
+          "visible_shares_ahead_before": 4300,
+          "price_move_ticks": 0,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 400,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 2500,
+          "price_move_ticks": 1,
+          "shares_after": 400
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 2500,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        },
+        {
+          "side": "S",
+          "shares": 100,
+          "fifo_rank_before": 16,
+          "visible_shares_ahead_before": 2500,
+          "price_move_ticks": 1,
+          "shares_after": 100
+        }
+      ]
+    }
+  ],
+  "requests_null": 2,
+  "states": 28,
+  "distinct_states": 24,
+  "facts": 22,
+  "order_rows": 170428,
+  "byte_identical_exports": {
+    "observer": "85d43d053845591af0730cd0c042c70069278ee08e089a3e2356b971835740d0",
+    "reference": "85d43d053845591af0730cd0c042c70069278ee08e089a3e2356b971835740d0",
+    "local": "85d43d053845591af0730cd0c042c70069278ee08e089a3e2356b971835740d0"
+  },
+  "facts_recomputed_from_reference": 22,
+  "observation_recomputed": true,
+  "need": "queued_same_price_overtaken",
+  "need_rechecked_from_reference": [
+    {
+      "request_id": 1,
+      "need": "queued_same_price_overtaken",
+      "captured": true,
+      "facts": 3,
+      "queued_same_price_facts": 1,
+      "overtaken_facts": 1
+    },
+    {
+      "request_id": 2,
+      "need": "queued_same_price_overtaken",
+      "captured": true,
+      "facts": 3,
+      "queued_same_price_facts": 3,
+      "overtaken_facts": 1
+    },
+    {
+      "request_id": 3,
+      "need": "queued_same_price_overtaken",
+      "captured": false
+    },
+    {
+      "request_id": 4,
+      "need": "queued_same_price_overtaken",
+      "captured": true,
+      "facts": 5,
+      "queued_same_price_facts": 1,
+      "overtaken_facts": 1
+    },
+    {
+      "request_id": 5,
+      "need": "queued_same_price_overtaken",
+      "captured": true,
+      "facts": 3,
+      "queued_same_price_facts": 1,
+      "overtaken_facts": 1
+    },
+    {
+      "request_id": 6,
+      "need": "queued_same_price_overtaken",
+      "captured": true,
+      "facts": 3,
+      "queued_same_price_facts": 1,
+      "overtaken_facts": 1
+    },
+    {
+      "request_id": 7,
+      "need": "queued_same_price_overtaken",
+      "captured": false
+    },
+    {
+      "request_id": 8,
+      "need": "queued_same_price_overtaken",
+      "captured": true,
+      "facts": 5,
+      "queued_same_price_facts": 1,
+      "overtaken_facts": 1
+    }
+  ],
+  "disjointness": {
+    "key": "(symbol, sequence, frame_offset)",
+    "earlier_files_same_input": 15,
+    "earlier_files_other_inputs": 6,
+    "overlap": 0
+  },
+  "independent_historical_states_before": 417,
+  "independent_historical_states_after": 441,
+  "resources": {
+    "capture_seconds": 162.11,
+    "capture_max_rss_bytes": 378699776,
+    "reference_seconds": 65.48,
+    "local_exporter_seconds": 383.19,
+    "note": "single runs under background QoS; not a benchmark"
+  },
+  "capture_tool": {
+    "source": "feed-handler/tools/identified_capture.cpp",
+    "source_sha256": "4d8ec47a33287e98666d28e6639034de6b09ea26cefbed53575e70eeb8a5d47a",
+    "release_binary_sha256": "6dfb370c48f165eb1125e936cd305a4d291d3d73c97f1dc408af6b422ac19e46",
+    "controls": "hand-built 17-message file, 9 checks, Release and ASan/UBSan twice each, 3 identical output hashes; 4 mutants each fail 3-4 checks; the Gate 41 file reproduces its outputs byte for byte"
+  },
+  "queued_same_price_position": {
+    "method": "from the reference export alone (check_behind.py, check_after.py): orders behind the old order in the state before, and the new order's rank and shares ahead in the state after",
+    "per_request": [
+      {
+        "request_id": 1,
+        "symbol": "AMD",
+        "queued_same_price": 1,
+        "with_orders_behind": 1,
+        "orders_behind_max": 4
+      },
+      {
+        "request_id": 2,
+        "symbol": "MU",
+        "queued_same_price": 3,
+        "with_orders_behind": 1,
+        "orders_behind_max": 2
+      },
+      {
+        "request_id": 3,
+        "symbol": "SIRI",
+        "queued_same_price": 0,
+        "with_orders_behind": 0,
+        "orders_behind_max": 0
+      },
+      {
+        "request_id": 4,
+        "symbol": "EBAY",
+        "queued_same_price": 1,
+        "with_orders_behind": 1,
+        "orders_behind_max": 11
+      },
+      {
+        "request_id": 5,
+        "symbol": "AMD",
+        "queued_same_price": 1,
+        "with_orders_behind": 1,
+        "orders_behind_max": 4
+      },
+      {
+        "request_id": 6,
+        "symbol": "MU",
+        "queued_same_price": 1,
+        "with_orders_behind": 1,
+        "orders_behind_max": 2
+      },
+      {
+        "request_id": 7,
+        "symbol": "SIRI",
+        "queued_same_price": 0,
+        "with_orders_behind": 0,
+        "orders_behind_max": 0
+      },
+      {
+        "request_id": 8,
+        "symbol": "EBAY",
+        "queued_same_price": 1,
+        "with_orders_behind": 1,
+        "orders_behind_max": 20
+      }
+    ],
+    "requests_sharing_one_window": [
+      [
+        1,
+        5
+      ]
+    ],
+    "distinct_queued_same_price_facts": 7,
+    "distinct_with_orders_behind": 5,
+    "rank_and_shares_ahead_after_match_before_plus_behind": true,
+    "moves": [
+      {
+        "request_id": 1,
+        "symbol": "AMD",
+        "rank_before": 8,
+        "rank_after": 12,
+        "shares_ahead_before": 855,
+        "shares_ahead_after": 1655
+      },
+      {
+        "request_id": 2,
+        "symbol": "MU",
+        "rank_before": 11,
+        "rank_after": 13,
+        "shares_ahead_before": 3100,
+        "shares_ahead_after": 3300
+      },
+      {
+        "request_id": 4,
+        "symbol": "EBAY",
+        "rank_before": 13,
+        "rank_after": 24,
+        "shares_ahead_before": 3247,
+        "shares_ahead_after": 5647
+      },
+      {
+        "request_id": 5,
+        "symbol": "AMD",
+        "rank_before": 8,
+        "rank_after": 12,
+        "shares_ahead_before": 855,
+        "shares_ahead_after": 1655
+      },
+      {
+        "request_id": 6,
+        "symbol": "MU",
+        "rank_before": 14,
+        "rank_after": 16,
+        "shares_ahead_before": 2587,
+        "shares_ahead_after": 2987
+      },
+      {
+        "request_id": 8,
+        "symbol": "EBAY",
+        "rank_before": 14,
+        "rank_after": 34,
+        "shares_ahead_before": 4300,
+        "shares_ahead_after": 8683
+      }
+    ]
+  },
+  "independent_rescan": {
+    "method": "check_null.py: own parser and FIFO book (Python), whole file, tool and literal readings of the frozen rule",
+    "messages": 268744780,
+    "bad_frames": 0,
+    "book_anomalies": 0,
+    "captured_windows_reproduced": 6,
+    "nulls_confirmed": 2,
+    "u_only_runs_after_from_ns": [
+      {
+        "request_id": 1,
+        "symbol": "AMD",
+        "runs": 1403,
+        "with_queued_same_price": 14,
+        "with_orders_behind": 1
+      },
+      {
+        "request_id": 2,
+        "symbol": "MU",
+        "runs": 1899,
+        "with_queued_same_price": 165,
+        "with_orders_behind": 56
+      },
+      {
+        "request_id": 3,
+        "symbol": "SIRI",
+        "runs": 14,
+        "with_queued_same_price": 0,
+        "with_orders_behind": 0
+      },
+      {
+        "request_id": 4,
+        "symbol": "EBAY",
+        "runs": 321,
+        "with_queued_same_price": 4,
+        "with_orders_behind": 4
+      },
+      {
+        "request_id": 5,
+        "symbol": "AMD",
+        "runs": 335,
+        "with_queued_same_price": 1,
+        "with_orders_behind": 1
+      },
+      {
+        "request_id": 6,
+        "symbol": "MU",
+        "runs": 525,
+        "with_queued_same_price": 35,
+        "with_orders_behind": 9
+      },
+      {
+        "request_id": 7,
+        "symbol": "SIRI",
+        "runs": 7,
+        "with_queued_same_price": 0,
+        "with_orders_behind": 0
+      },
+      {
+        "request_id": 8,
+        "symbol": "EBAY",
+        "runs": 88,
+        "with_queued_same_price": 1,
+        "with_orders_behind": 1
+      }
+    ]
+  }
+}

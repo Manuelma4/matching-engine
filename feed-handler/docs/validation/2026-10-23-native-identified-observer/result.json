@@ -1,0 +1,142 @@
+{
+  "model": "native_identified_observer_evidence_v1",
+  "passed": true,
+  "source_base_commit": "bc92bb20c4316b5212c84f6c82073da83f33d3ee",
+  "sources": {
+    "feed-handler/include/itch/identified_observer.hpp": {
+      "bytes": 7220,
+      "sha256": "3a240c2f80e13722b3878650daadb7f10e4eb3af8dc747d2bbc2d6d2430056e8"
+    },
+    "feed-handler/src/identified_observer.cpp": {
+      "bytes": 12375,
+      "sha256": "ade73793fd2975ded4a371a8bd1afe74b229a3255ee66f4104e6c108136da9e6"
+    },
+    "feed-handler/tools/identified_demo.cpp": {
+      "bytes": 3823,
+      "sha256": "7f78b47b4f25f7c788265c5881c0b17e1d3fd739b398737fb6fc45313467407f"
+    },
+    "feed-handler/CMakeLists.txt": {
+      "bytes": 4775,
+      "sha256": "8f61a03d7e245f3ec5b3a55f797710d86ac579ec0b5b29eeb737b90736992c3c"
+    }
+  },
+  "frozen_hand_fixture": {
+    "bytes": 133285,
+    "sha256": "fd9a165816d2e7d8063131334c1b722bf37583c9a8a71f6f372c299083100e4f",
+    "supersedes_reviewed_unexecuted_v1": {
+      "bytes": 61365,
+      "sha256": "2bfdc80f92f745f1ee6e4c1d1b942832d6fcf51941c95c953500cc20bf033d29"
+    }
+  },
+  "compiler_version": "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+  "builds": {
+    "release": {
+      "driver": {
+        "bytes": 161824,
+        "sha256": "34c75e726778a12f95409778919f24e2a6819c89e05b8adf6a86de7f25993758"
+      },
+      "demo": {
+        "bytes": 59816,
+        "sha256": "8724abbb369a525e4bf550c7d2859f1cd259653d053e922ea3766f56620891fc"
+      },
+      "sanitised": false
+    },
+    "sanitised": {
+      "driver": {
+        "bytes": 1798848,
+        "sha256": "cbe09527aeb7673792e5da8f5dc86100a75bf4cd0f89c2ce27857001e36de9d1"
+      },
+      "demo": {
+        "bytes": 1315048,
+        "sha256": "a4670a1a2454c9e85d0b4eb3cb385c18eaac08e0a11e186a4cd3a71979f6c56b"
+      },
+      "sanitised": true,
+      "flags": "-fsanitize=address,undefined -fno-sanitize-recover=all",
+      "leak_detection_enabled": false
+    }
+  },
+  "cases": {
+    "positive_histories": 4,
+    "observation_profiles": 9,
+    "refusals": 43,
+    "supplementary_move_check": 1,
+    "driver_rows_per_run": 48
+  },
+  "refusals_by_category": {
+    "clock": 7,
+    "frame": 5,
+    "limits": 8,
+    "seed": 6,
+    "source": 8,
+    "transition": 9
+  },
+  "refusal_reasons_reviewed": true,
+  "runs": {
+    "per_build": 2,
+    "identical_outputs": 4,
+    "output": {
+      "bytes": 100437,
+      "sha256": "ca58a7e6c8a7c066bad6b5b84fbcddf648ffded8820ff9877e0222e6bc25ce6f"
+    },
+    "warnings": 0,
+    "stderr_bytes": 0
+  },
+  "checker_controls_rejected": [
+    "wrong_rank",
+    "future_leak",
+    "pending_flushed"
+  ],
+  "kernel_mutants_detected": {
+    "seen_set_replaced_by_live_lookup": [
+      "R09",
+      "R41"
+    ],
+    "strict_probe_comparison": "observation cases",
+    "off_by_one_shares_ahead": "positive histories"
+  },
+  "demo": {
+    "stdout": {
+      "bytes": 603,
+      "sha256": "137e2bb1c5178a989cebb2b7efe7f225803ad273709f53154d4dd71f1ecdb05d"
+    },
+    "equals_hand_expectation": true,
+    "release_equals_sanitised": true
+  },
+  "raw_data_accessed": false,
+  "new_historical_states": 0,
+  "independent_historical_states": 41,
+  "limits": [
+    "synthetic inputs only",
+    "no raw adapter, CLI, journal, network or concurrency",
+    "no historical queue or fill admission",
+    "no benchmark",
+    "leak detection disabled on macOS"
+  ],
+  "rerun_after_bound_change": {
+    "reason": "hard bounds raised for real books (orders 2^20, facts 256, rows 2^24, probes 2^16)",
+    "fixture": {
+      "bytes": 133440,
+      "sha256": "4574d7e1edd0f30b8b0decd6648d7085273bc6f681acbec8a02ff0b7568ceee7"
+    },
+    "changed_cases": [
+      "R31"
+    ],
+    "sources": {
+      "feed-handler/include/itch/identified_observer.hpp": {
+        "bytes": 7449,
+        "sha256": "4adfe31283e065b4deefe71d3ba12b7c777b208c7aebe621f6fb41102bbd434f"
+      },
+      "feed-handler/src/identified_observer.cpp": {
+        "bytes": 12375,
+        "sha256": "ade73793fd2975ded4a371a8bd1afe74b229a3255ee66f4104e6c108136da9e6"
+      }
+    },
+    "release_and_sanitised_runs": 4,
+    "identical_outputs": true,
+    "output": {
+      "bytes": 100442,
+      "sha256": "ab1e27c60449f44a52c7acfa3620edc79dc4596c1cfc7aabc59fb0e481a8a45b"
+    },
+    "all_checks_passed": true
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "model": "real_identified_windows_sanitised_rerun_v1",
+  "gate": 43,
+  "passed": true,
+  "outcome": "sanitised capture of the Gate 41 requests on the Nasdaq day: exit 0, no AddressSanitizer or UndefinedBehaviorSanitizer report, outputs byte-identical with the Release capture",
+  "source_base_commit": "bc92bb20c4316b5212c84f6c82073da83f33d3ee",
+  "plan_sha256_frozen_before_run": "0885789475eba57e06a022b303124acd42674057a3ebad4e07a90113da74c2b1",
+  "input": {
+    "name": "12302019.NASDAQ_ITCH50.itch",
+    "bytes": 8251407909,
+    "sha256_full_before_and_after": "5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f"
+  },
+  "selection_rule": {
+    "sha256": "cf9e7f3467033bec11a92f87ba44a6d8295db54878d15d4341cc92137f00f234",
+    "need": "queued_same_price",
+    "requests": 8
+  },
+  "capture": {
+    "tool_source_sha256": "747397f91936462611ac1c3f6beba08eedc2d15d3b4538fd29bc36d78b5af6f0",
+    "build": "Debug, -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer",
+    "exit_status": 0,
+    "sanitizer_reports": 0,
+    "scanned_messages": 190393850,
+    "book_anomalies": 0,
+    "bad_frames": 0,
+    "seconds": 2388.4,
+    "max_rss_bytes": 682442752,
+    "note": "single run under background QoS with sanitiser instrumentation; not a benchmark"
+  },
+  "comparison_with_release_capture_gate_41": {
+    "checkpoints_csv_sha256": "bca699a1ddf98d80f6c1ea04e1f7db01d9c442fcf8eadc2b8a8a3684e1597c97",
+    "snapshots_csv_sha256": "e9512e2e5da1dcc00ea9cb0110dbb65542be9fe98845781c76d59a08ce25d2b3",
+    "summary_json_sha256": "9fbe8c1f25582b95a25cd607dc424d59bffa4d2ac59fa016c2f7b0592c7ec9c4",
+    "byte_identical": true,
+    "states": 37,
+    "snapshot_rows": 414187
+  },
+  "coverage": {
+    "distinct_independently_matched_states": 161,
+    "added_by_this_gate": 0,
+    "reason": "same states as Gate 41; a re-run is not new coverage"
+  }
+}
