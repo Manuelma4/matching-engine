@@ -11,6 +11,7 @@
 // Always build in Release.
 #include <algorithm>
 #include <array>
+#include <charconv>
 #include <chrono>
 #include <cstdint>
 #include <cstdio>
@@ -19,6 +20,7 @@
 #include <memory>
 #include <string>
 #include <string_view>
+#include <system_error>
 #include <vector>
 
 #if defined(__APPLE__)
@@ -209,6 +211,17 @@ struct Options {
     std::exit(2);
 }
 
+template <typename UInt>
+UInt parse_unsigned(std::string_view text) {
+    UInt number{};
+    const char* end = text.data() + text.size();
+    const auto result = std::from_chars(text.data(), end, number);
+    if (result.ec != std::errc{} || result.ptr != end) {
+        usage();
+    }
+    return number;
+}
+
 Options parse(int argc, char** argv) {
     Options o;
     for (int i = 1; i < argc; ++i) {
@@ -224,17 +237,14 @@ Options parse(int argc, char** argv) {
         } else if (arg == "--regime") {
             o.regime = value();
         } else if (arg == "--seed") {
-            o.seed = std::strtoull(value(), nullptr, 10);
+            o.seed = parse_unsigned<std::uint64_t>(value());
         } else if (arg == "--ops") {
-            o.ops = std::strtoull(value(), nullptr, 10);
+            o.ops = parse_unsigned<std::size_t>(value());
         } else if (arg == "--max-orders") {
-            const char* text = value();
-            char* end = nullptr;
-            const unsigned long long n = std::strtoull(text, &end, 10);
-            if (end == text || *end != '\0' || n == 0 || n > 0xFFFF'FFFEull) {
+            o.max_orders = parse_unsigned<std::uint32_t>(value());
+            if (o.max_orders == 0 || o.max_orders == 0xFFFF'FFFFu) {
                 usage();
             }
-            o.max_orders = static_cast<std::uint32_t>(n);
         } else if (arg == "--csv") {
             o.csv = true;
         } else {
