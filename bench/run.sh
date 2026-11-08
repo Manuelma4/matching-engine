@@ -44,5 +44,5 @@ for ((run = 1; run <= RUNS; run++)); do
     echo "run $run/$RUNS done" >&2
 done
 
-python3 bench/summarize.py "$OUT/raw.csv" >"$OUT/summary.md"
+python3 bench/summarize.py "$OUT/raw.csv" --launches "$RUNS" >"$OUT/summary.md"
 cat "$OUT/summary.md"
