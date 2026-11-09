@@ -107,11 +107,20 @@ Each step, with hypothesis and numbers, is in [docs/journal.md](docs/journal.md)
 
 Every variant must reproduce the event stream of `BookV1` exactly: the hashes in
 [BENCHMARKS.md](docs/BENCHMARKS.md) cover every report, trade and cancel result of 1,000,000
-operations per regime. The test suite is maintained outside this repository and is
+operations per regime. The broader test suite is maintained outside this repository and is
 available on request: typed unit tests for all variants, allocation-failure injection, and
 a differential fuzzer against a naive reference book that checks every report, trade and
 queue position after each operation, run under AddressSanitizer and
 UndefinedBehaviorSanitizer.
+
+The level-volume regression covers overflow, partial fills, modifications and level reuse
+across all five book variants. Run it with:
+
+```bash
+mkdir -p build
+c++ -std=c++20 -Iinclude tests/level_volume.cpp src/book_v1.cpp src/book.cpp -o build/check-level-volume
+./build/check-level-volume
+```
 
 ## Build and reproduce
 

@@ -12,7 +12,7 @@
 
 namespace me {
 
-// The first version, kept unchanged as the behavioural reference: std::map price levels,
+// The first version, kept as the behavioural reference: std::map price levels,
 // std::list FIFO queues and std::unordered_map lookup. Every optimised variant must
 // produce exactly the same event stream (see docs/BENCHMARKS.md, output hashes).
 class BookV1 {
@@ -38,6 +38,7 @@ public:
 
     [[nodiscard]] std::optional<Price> best_bid() const;
     [[nodiscard]] std::optional<Price> best_ask() const;
+    // Returns the total resting quantity, saturated at the maximum Quantity.
     [[nodiscard]] Quantity volume_at(Side side, Price price) const;
     [[nodiscard]] std::size_t level_count(Side side) const;
     [[nodiscard]] std::size_t order_count() const { return index_.size(); }

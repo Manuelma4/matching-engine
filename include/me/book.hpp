@@ -31,6 +31,7 @@ public:
 
     [[nodiscard]] std::optional<Price> best_bid() const { return store_.best_price(Side::Buy); }
     [[nodiscard]] std::optional<Price> best_ask() const { return store_.best_price(Side::Sell); }
+    // Returns the total resting quantity, saturated at the maximum Quantity.
     [[nodiscard]] Quantity volume_at(Side side, Price price) const {
         return store_.volume_at(side, price);
     }

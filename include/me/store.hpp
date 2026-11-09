@@ -50,7 +50,7 @@ public:
 
     [[nodiscard]] Quantity volume_at(Side side, Price price) const {
         const Slot l = find_level(side, price);
-        return l == kNil ? 0 : levels_.level(side, l).total;
+        return l == kNil ? 0 : levels_.level(side, l).volume();
     }
 
     // Visits the orders resting at one price in priority order: f(OrderId, Quantity).
@@ -103,7 +103,7 @@ public:
             orders_[level.tail].next = s;
         }
         level.tail = s;
-        level.total += o.qty;
+        level.add_volume(o.qty);
         ++level.count;
     }
 
@@ -122,7 +122,7 @@ public:
         } else {
             orders_[o.next].prev = o.prev;
         }
-        level.total -= o.qty;
+        level.remove_volume(o.qty);
         if (--level.count == 0) {
             levels_.release(o.side, o.level);
         }
@@ -142,7 +142,8 @@ public:
     void set_qty(Slot s, Quantity qty) {
         Order& o = orders_[s];
         Level& level = levels_.level(o.side, o.level);
-        level.total = level.total - o.qty + qty;
+        level.remove_volume(o.qty);
+        level.add_volume(qty);
         o.qty = qty;
     }
 

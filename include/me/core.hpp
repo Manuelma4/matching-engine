@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <limits>
 #include <vector>
 
 #include "me/types.hpp"
@@ -31,6 +32,24 @@ struct Level {
     Slot head;
     Slot tail;
     std::uint32_t count;
+    // The low word can wrap. A 32-bit high word is enough because a level
+    // has at most max_orders (a 32-bit count) quantities of at most 64 bits.
+    std::uint32_t total_high = 0;
+
+    void add_volume(Quantity qty) {
+        const Quantity previous = total;
+        total += qty;
+        total_high += total < previous;
+    }
+
+    void remove_volume(Quantity qty) {
+        total_high -= total < qty;
+        total -= qty;
+    }
+
+    [[nodiscard]] Quantity volume() const {
+        return total_high == 0 ? total : std::numeric_limits<Quantity>::max();
+    }
 };
 static_assert(sizeof(Level) == 32);
 

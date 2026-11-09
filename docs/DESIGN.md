@@ -31,7 +31,7 @@ of the first version.
 | Piece | Implementation | Notes |
 |---|---|---|
 | Order | 32 bytes: id, qty, level slot, prev/next slots, side | Four per 128-byte cache line on Apple Silicon. The price lives in the level |
-| Level | 32 bytes: price, total qty, FIFO head/tail, order count | `volume_at` is O(1) |
+| Level | 32 bytes: price, 96-bit total qty, FIFO head/tail, order count | `volume_at` is O(1) |
 | Order pool | One `std::vector<Order>` sized to `max_orders`, free list threaded through `next` | Freed slots are reused LIFO, so the most recently freed, cache-hot slot comes back first. Construction writes every element, which pre-faults the pages |
 | FIFO per level | Intrusive doubly linked list of order slots | Append, unlink and move-to-back are O(1) with no separate nodes |
 | Order index | `OpenAddrIndex`: 16-byte entries, power-of-two table of at least `2 * max_orders` | Load factor never exceeds 0.5 and the table never rehashes. fmix64 hash, linear probing, backward-shift deletion (no tombstones) |
@@ -40,6 +40,11 @@ of the first version.
 
 Slots are 32-bit indices into preallocated arrays rather than pointers: half the size, and
 never invalidated, because nothing is reallocated after construction.
+
+`volume_at` saturates at the maximum `Quantity` when the resting total exceeds 64 bits.
+The pooled levels keep the exact total in a low word and a carry word so fills, cancels and
+size reductions restore the precise reported volume as soon as it fits. Individual orders
+retain their full quantities and price-time priority.
 
 ### Variants
 

@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <iterator>
+#include <limits>
 
 namespace me {
 
@@ -23,6 +24,9 @@ Quantity level_volume(const Levels& levels, Price price) {
     }
     Quantity total = 0;
     for (const auto& order : it->second) {
+        if (order.remaining > std::numeric_limits<Quantity>::max() - total) {
+            return std::numeric_limits<Quantity>::max();
+        }
         total += order.remaining;
     }
     return total;
