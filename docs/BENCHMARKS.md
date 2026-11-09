@@ -121,8 +121,15 @@ All five variants produce these hashes (seed 42, 1,000,000 operations):
 | flash-crash | `8ddf7eaec1fbc873` |
 | cancel-heavy | `f5e3d6e69b38ab2b` |
 
-Verified with Apple clang and libc++. The workload generator and the hash use no standard
-library randomness or hashing, so other toolchains should reproduce them.
+The table was recorded with Apple Clang and libc++. The generator uses its own RNG and
+explicitly sequences draws for each operation. The input fingerprint check covers the first
+105,000 operations of each regime at seed 42, including the first flash crash and recovery.
+
+```bash
+mkdir -p build
+c++ -std=c++20 -O2 -Iinclude -Ibench tests/workload_fingerprint.cpp bench/workloads.cpp -o build/check-workload
+./build/check-workload
+```
 
 ## Reproduce
 

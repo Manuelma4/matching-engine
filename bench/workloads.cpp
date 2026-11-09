@@ -90,7 +90,9 @@ void mixed_step(Flow& flow, Price mid) {
     const std::uint64_t k = rng.below(100);
     const Side side = random_side(rng);
     if (k < 55 || !flow.has_limits()) {
-        flow.limit(side, overlapping_quote(rng, side, mid, 50), random_qty(rng, 1, 100));
+        // Draw the price first to preserve the recorded workload across compilers.
+        const Price price = overlapping_quote(rng, side, mid, 50);
+        flow.limit(side, price, random_qty(rng, 1, 100));
     } else if (k < 65) {
         flow.market(side, random_qty(rng, 1, 100));
     } else if (k < 75) {
@@ -149,7 +151,8 @@ void deep_book(Flow& flow, std::size_t n) {
         const std::uint64_t k = rng.below(100);
         const Side side = random_side(rng);
         if (k < 43 || !flow.has_limits()) {
-            flow.limit(side, passive(side), random_qty(rng, 1, 100));
+            const Price price = passive(side);
+            flow.limit(side, price, random_qty(rng, 1, 100));
         } else if (k < 45) {
             flow.market(side, random_qty(rng, 100, 1'000));
         } else if (k < 60) {
@@ -200,13 +203,14 @@ void cancel_heavy(Flow& flow, std::size_t n) {
         const std::uint64_t k = rng.below(100);
         const Side side = random_side(rng);
         if (k < 30 || !flow.has_limits()) {
-            flow.limit(side, quote(side), random_qty(rng, 1, 100));
+            const Price price = quote(side);
+            flow.limit(side, price, random_qty(rng, 1, 100));
         } else if (k < 35) {
             flow.market(side, random_qty(rng, 1, 200));
         } else if (k < 40) {
             auto& target = flow.pick(2'000);
-            flow.modify(target, rng.percent(80) ? target.price : quote(target.side),
-                        random_qty(rng, 1, 100));
+            const Price price = rng.percent(80) ? target.price : quote(target.side);
+            flow.modify(target, price, random_qty(rng, 1, 100));
         } else {
             flow.cancel(flow.pick(2'000));
         }
