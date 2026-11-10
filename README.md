@@ -2,8 +2,8 @@
 
 A limit order book and matching engine in C++20: price-time priority, limit and market
 orders, Nasdaq-style modify, O(1) cancel, and five book variants that each replace one
-container of the previous one, benchmarked across five market regimes with identical
-output proven by event-stream hashes.
+container of the previous one. The five variants produced matching output fingerprints
+across the recorded market regimes.
 
 The same repository also contains the [ITCH feed handler](feed-handler/README.md):
 an offline Nasdaq decoder and multi-instrument L3 replica that reuses the engine's
@@ -56,7 +56,7 @@ Single thread, Apple M4 Pro, macOS 26.6, Apple clang 21 `-O3`, no core pinning. 
 | cancel-heavy | 33.0 M ops/s | **56.2 M ops/s** | 125 ns |
 
 Median latency is one tick of the 24 MHz system timer or less (≤ 42 ns) in every regime.
-All five variants produce byte-identical event streams on every regime.
+The five variants produced the same event-stream fingerprint on each recorded regime.
 
 ## What this is, and is not
 
@@ -105,10 +105,11 @@ Each step, with hypothesis and numbers, is in [docs/journal.md](docs/journal.md)
 
 ## Correctness
 
-Every variant must reproduce the event stream of `BookV1` exactly: the hashes in
-[BENCHMARKS.md](docs/BENCHMARKS.md) cover every report, trade and cancel result of 1,000,000
-operations per regime. The broader test suite is maintained outside this repository and is
-available on request: typed unit tests for all variants, allocation-failure injection, and
+Every variant must reproduce the event stream of `BookV1`. The hashes in
+[BENCHMARKS.md](docs/BENCHMARKS.md) are regression fingerprints for the reports, trades and
+cancel results of 1,000,000 operations per recorded regime. Resting book and queue state
+are covered by the separate test suite, which is maintained outside this repository and
+is available on request: typed unit tests for all variants, allocation-failure injection, and
 a differential fuzzer against a naive reference book that checks every report, trade and
 queue position after each operation, run under AddressSanitizer and
 UndefinedBehaviorSanitizer.

@@ -148,5 +148,6 @@ The test suite is kept outside this repository and is available on request. It c
   operation, and shrinks any divergence to a minimal reproduction. It runs with and
   without a small capacity, and under AddressSanitizer and UndefinedBehaviorSanitizer.
 
-The public evidence is the event-stream hash in [BENCHMARKS.md](BENCHMARKS.md): on every
-regime, all variants produce byte-identical output.
+The public benchmark evidence is the event-stream fingerprint in [BENCHMARKS.md](BENCHMARKS.md).
+All five variants produced the same fingerprint on each recorded regime. The benchmark hashes
+reports and trades, while the differential check described above also compares queue state.

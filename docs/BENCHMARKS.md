@@ -7,7 +7,7 @@
 | Throughput (M ops/s) | One timer around a replay of 1,000,000 operations on a fresh book, closed loop, single thread | Book construction, workload generation |
 | Per-operation latency | Two `steady_clock` reads around each operation, percentiles per operation type | Queueing (closed loop, so there is no coordinated omission to correct) |
 | Clock resolution | Apple Silicon `steady_clock` runs on the 24 MHz system timer: every latency is a multiple of 41.67 ns, and "≤ 42" means one tick or less | Sub-tick costs, which need batch timing or hardware counters |
-| Output hash | FNV-1a over every report field, every trade field and every cancel result, in order | Nothing: two variants with the same hash produced byte-identical event streams |
+| Output hash | A 64-bit FNV-1a fingerprint of report fields, trade fields and cancel results, in order | Intermediate book and queue state, and exact stream comparison. Equal fingerprints can collide. |
 
 ## Environment and protocol
 
