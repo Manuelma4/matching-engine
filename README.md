@@ -87,9 +87,9 @@ add_limit / add_market / modify / cancel
 
 Orders and levels are 32-byte records addressed by 32-bit slots in preallocated arrays;
 the default configuration allocates and touches about 68 MiB once, at construction.
-Modify follows Nasdaq Rule 4756: a size reduction keeps priority, any other change takes a
-new timestamp, and a re-priced order re-enters through matching. Full semantics,
-invariants and memory layout: [docs/DESIGN.md](docs/DESIGN.md).
+At the same price, reducing the quantity or leaving it unchanged preserves queue position.
+Increasing the quantity moves the order to the back, and changing the price re-enters through
+matching. See [docs/DESIGN.md](docs/DESIGN.md) for semantics, invariants and memory layout.
 
 ## What the measurements showed
 
@@ -114,8 +114,8 @@ a differential fuzzer against a naive reference book that checks every report, t
 queue position after each operation, run under AddressSanitizer and
 UndefinedBehaviorSanitizer.
 
-The level-volume regression covers overflow, partial fills, modifications and level reuse
-across all five book variants. Run it with:
+The standalone regression covers level-volume saturation and checks the exact fill order
+after same-price modifications across all five book variants. Run it with:
 
 ```bash
 mkdir -p build

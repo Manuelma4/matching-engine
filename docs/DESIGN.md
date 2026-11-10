@@ -83,9 +83,10 @@ exceed live orders.
   rests at the back of its level.
 - **Market orders** never rest: the unfilled remainder is cancelled (IOC).
 - **Modify** follows Nasdaq Rule 4756 (SEC Release 34-68762): a size reduction at the same
-  price keeps priority; any other change gets a new timestamp. Concretely, an increase
-  moves the order to the back of its level, and a new price takes it out of the queue and
-  re-enters it through matching, so it may trade. `new_qty` is the new open quantity.
+  price keeps priority. Leaving both price and quantity unchanged also keeps the order in place.
+  At the same price, a size increase moves the order to the back of its level. A new price
+  takes it out of the queue and re-enters it through matching, so it may trade.
+  `new_qty` is the new open quantity.
   The order keeps its slot and index entry throughout, so a price-change modify neither
   frees nor allocates.
 - **Validation** happens before anything is changed, so a rejected request leaves the book
