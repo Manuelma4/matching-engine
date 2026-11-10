@@ -33,13 +33,12 @@ read -r -a order <<<"$books"
 
 echo "book,regime,seed,ops,hash,peak_orders,mops,op,count,p50,p90,p99,p999,max,max_orders" >"$OUT/raw.csv"
 for ((run = 1; run <= RUNS; run++)); do
-    if ((run % 2 == 0)); then
-        sequence=$(printf '%s\n' "${order[@]}" | tail -r)
-    else
-        sequence=$(printf '%s\n' "${order[@]}")
-    fi
-    for book in $sequence; do
-        "$BIN" --book "$book" --regime all --ops "$OPS" --seed "$SEED" --csv >>"$OUT/raw.csv"
+    for ((position = 0; position < ${#order[@]}; position++)); do
+        index=$position
+        if ((run % 2 == 0)); then
+            index=$((${#order[@]} - 1 - position))
+        fi
+        "$BIN" --book "${order[$index]}" --regime all --ops "$OPS" --seed "$SEED" --csv >>"$OUT/raw.csv"
     done
     echo "run $run/$RUNS done" >&2
 done
