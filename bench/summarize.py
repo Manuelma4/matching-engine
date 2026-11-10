@@ -8,10 +8,12 @@ hash on a given regime, which is the evidence that the variants behave identical
 The complete five-book, five-regime matrix must use one seed, operation count and
 capacity, with an equal number of launches for every operation row. Pass
 --launches to verify the count declared by the producer.
+Zero-operation runs report zero throughput. Invalid throughput values are rejected.
 """
 
 import argparse
 import csv
+import math
 import statistics
 import sys
 from collections import Counter, defaultdict
@@ -43,17 +45,23 @@ def validate_matrix(rows, expected_launches):
 
 
 def main(path: str, expected_launches=None) -> int:
+    mops = defaultdict(list)
     try:
         with open(path, newline="") as f:
             rows = list(csv.DictReader(f))
         validate_matrix(rows, expected_launches)
-    except (OSError, KeyError, ValueError) as error:
+        for row in rows:
+            if row["op"] == "all":
+                rate = float(row["mops"])
+                if not math.isfinite(rate) or rate < 0:
+                    raise ValueError("throughput must be finite and nonnegative")
+                mops[(row["regime"], row["book"])].append(rate)
+    except (OSError, KeyError, TypeError, ValueError) as error:
         print(f"Invalid benchmark CSV: {error}", file=sys.stderr)
         return 2
 
     regimes = list(dict.fromkeys(r["regime"] for r in rows))
     books = list(dict.fromkeys(r["book"] for r in rows))
-    mops = defaultdict(list)
     lat = defaultdict(list)
     hashes = defaultdict(set)
     peak = {}
@@ -61,8 +69,6 @@ def main(path: str, expected_launches=None) -> int:
         key = (r["regime"], r["book"])
         hashes[r["regime"]].add(r["hash"])
         peak[r["regime"]] = r["peak_orders"]
-        if r["op"] == "all":
-            mops[key].append(float(r["mops"]))
         for q in ("p50", "p90", "p99", "p999"):
             lat[key + (r["op"], q)].append(int(r[q]))
 
@@ -86,9 +92,9 @@ def main(path: str, expected_launches=None) -> int:
             key = (regime, book)
             m = mops[key]
             centre = statistics.median(m)
-            spread = (max(m) - min(m)) / centre
-            flag = " NOISY" if spread > NOISE_LIMIT else ""
-            cells = [f"{centre:.1f} ({min(m):.1f}-{max(m):.1f}){flag}",
+            low, high = min(m), max(m)
+            flag = " NOISY" if high - low > NOISE_LIMIT * centre else ""
+            cells = [f"{centre:.1f} ({low:.1f}-{high:.1f}){flag}",
                      str(med(key + ("all", "p50"))), str(med(key + ("all", "p99"))),
                      str(med(key + ("all", "p999")))]
             cells += [str(med(key + (op, "p99"))) for op in OPS]

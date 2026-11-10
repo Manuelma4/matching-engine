@@ -84,6 +84,35 @@ class SummaryEvidenceTests(unittest.TestCase):
         self.assertNotEqual(result, 0)
         self.assertIn("no benchmark rows", output)
 
+    def test_zero_operations_can_be_summarized(self):
+        rows = fixture()
+        for row in rows:
+            row.update(ops="0", mops="0.000", peak_orders="0",
+                       p50="0", p90="0", p99="0", p999="0")
+        result, output = self.run_summary(rows)
+        self.assertEqual(result, 0)
+        self.assertIn("0.0 (0.0-0.0)", output)
+        self.assertNotIn("NOISY", output)
+
+    def test_nonzero_range_with_zero_median_is_noisy(self):
+        rows = fixture() + fixture() + fixture()
+        for row in rows:
+            row["mops"] = "0.000"
+        rows[0]["mops"] = "1.000"
+        result, output = self.run_summary(rows, launches=3)
+        self.assertEqual(result, 0)
+        self.assertIn("0.0 (0.0-1.0) NOISY", output)
+
+    def test_invalid_throughput_is_rejected_before_reporting(self):
+        for value in ("nan", "inf", "-1", "", "unavailable"):
+            with self.subTest(value=value):
+                rows = fixture()
+                rows[0]["mops"] = value
+                result, output = self.run_summary(rows)
+                self.assertEqual(result, 2)
+                self.assertIn("Invalid benchmark CSV", output)
+                self.assertNotIn("Output hashes", output)
+
 
 if __name__ == "__main__":
     unittest.main()

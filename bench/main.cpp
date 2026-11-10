@@ -129,7 +129,7 @@ Result measure(const std::vector<Op>& ops, const me::BookConfig& cfg) {
         result.final_orders = book->order_count();
     }
 
-    {
+    if (!ops.empty()) {
         auto book = std::make_unique<Book>(cfg);
         const auto start = Clock::now();
         for (const Op& op : ops) {
