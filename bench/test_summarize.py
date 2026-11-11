@@ -72,6 +72,24 @@ class SummaryEvidenceTests(unittest.TestCase):
         self.assertNotEqual(result, 0)
         self.assertIn("MISMATCH", output)
 
+    def test_equal_invalid_event_hashes_are_rejected_before_reporting(self):
+        for value in ("", "a", "z" * 16, "a" * 17):
+            with self.subTest(value=value):
+                rows = fixture()
+                for row in rows:
+                    row["hash"] = value
+                result, output = self.run_summary(rows)
+                self.assertEqual(result, 2)
+                self.assertIn("Invalid benchmark CSV", output)
+                self.assertNotIn("Output hashes", output)
+
+    def test_event_hash_comparison_ignores_hexadecimal_case(self):
+        rows = fixture()
+        rows[0]["hash"] = rows[0]["hash"].upper()
+        result, output = self.run_summary(rows)
+        self.assertEqual(result, 0)
+        self.assertIn("identical across all variants", output)
+
     def test_declared_launch_count_is_enforced(self):
         result, output = self.run_summary(fixture(), launches=2)
         self.assertNotEqual(result, 0)

@@ -3,8 +3,8 @@
 
 For every (regime, book) it reports the median over launches of throughput and of each
 latency percentile, the min-max range of throughput, and flags NOISY rows whose range
-exceeds 10% of the median. It also checks that every variant produced the same event
-hash on a given regime, which is the evidence that the variants behave identically.
+exceeds 10% of the median. It checks that each recorded event fingerprint is a
+16-digit hexadecimal value and compares the fingerprints within each regime.
 The complete five-book, five-regime matrix must use one seed, operation count and
 capacity, with an equal number of launches for every operation row. Pass
 --launches to verify the count declared by the producer.
@@ -15,6 +15,7 @@ Latency percentiles must be nonnegative integers in percentile order.
 import argparse
 import csv
 import math
+import re
 import statistics
 import sys
 from collections import Counter, defaultdict
@@ -67,7 +68,10 @@ def main(path: str, expected_launches=None) -> int:
                 raise ValueError("latency percentiles must be nonnegative and nondecreasing")
             for percentile, value in zip(percentiles, values):
                 lat[(regime, book, operation, percentile)].append(value)
-            hashes[regime].add(row["hash"])
+            fingerprint = row["hash"]
+            if not isinstance(fingerprint, str) or re.fullmatch(r"[0-9a-fA-F]{16}", fingerprint) is None:
+                raise ValueError("event fingerprint must contain 16 hexadecimal digits")
+            hashes[regime].add(fingerprint.lower())
             peak[regime] = row["peak_orders"]
     except (OSError, KeyError, TypeError, ValueError) as error:
         print(f"Invalid benchmark CSV: {error}", file=sys.stderr)
