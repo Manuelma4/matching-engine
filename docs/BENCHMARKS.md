@@ -144,6 +144,20 @@ The run records the full checkout commit in `env.txt`. A `-dirty` suffix marks
 staged or unstaged changes to tracked files. This identifies the source checkout
 at launch. Rebuild `me_bench` from that checkout before recording results.
 
+### Verify the archived results
+
+Run the summary against the recorded CSV from the repository root. This check
+uses Python 3 and the archived samples.
+
+```sh
+python3 bench/summarize.py docs/bench/2026-10-22/raw.csv --launches 10
+```
+
+Expect ten launches per variant and one matching event fingerprint per regime.
+The summary checks the full regime, variant and operation matrix, the event
+fingerprint format and the latency percentiles before printing the tables.
+The throughput and latency figures come from the archived run.
+
 ## Not measured yet
 
 - Sub-tick latency: needs batch timing or hardware counters (Instruments Processor Trace on
