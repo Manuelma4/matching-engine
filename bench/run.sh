@@ -19,9 +19,14 @@ mkdir -p "$OUT"
 books=$("$BIN" --help 2>&1 | sed -n 's/^  books: //p' || true)
 read -r -a order <<<"$books"
 
+commit=$(git rev-parse HEAD)
+if ! git diff --quiet || ! git diff --cached --quiet; then
+    commit+="-dirty"
+fi
+
 {
     echo "date:     $(date -u +%FT%TZ)"
-    echo "commit:   $(git rev-parse --short HEAD)$(git diff --quiet || echo '-dirty')"
+    echo "commit:   $commit"
     echo "machine:  $(sysctl -n machdep.cpu.brand_string 2>/dev/null || uname -m)"
     echo "cores:    $(sysctl -n hw.perflevel0.physicalcpu 2>/dev/null || echo ?)P + $(sysctl -n hw.perflevel1.physicalcpu 2>/dev/null || echo ?)E"
     echo "os:       $(sw_vers -productName 2>/dev/null) $(sw_vers -productVersion 2>/dev/null)"

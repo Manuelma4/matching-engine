@@ -140,6 +140,10 @@ bench/run.sh                                      # full protocol into docs/benc
 ./build/me_bench --book ladder --max-orders 262144 --regime cancel-heavy
 ```
 
+The run records the full checkout commit in `env.txt`. A `-dirty` suffix marks
+staged or unstaged changes to tracked files. This identifies the source checkout
+at launch. Rebuild `me_bench` from that checkout before recording results.
+
 ## Not measured yet
 
 - Sub-tick latency: needs batch timing or hardware counters (Instruments Processor Trace on
