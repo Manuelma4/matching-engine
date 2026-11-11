@@ -8,7 +8,8 @@ hash on a given regime, which is the evidence that the variants behave identical
 The complete five-book, five-regime matrix must use one seed, operation count and
 capacity, with an equal number of launches for every operation row. Pass
 --launches to verify the count declared by the producer.
-Zero-operation runs report zero throughput. Invalid throughput values are rejected.
+Zero-operation runs report zero throughput. Throughput must be finite and nonnegative.
+Latency percentiles must be nonnegative integers in percentile order.
 """
 
 import argparse
@@ -46,32 +47,34 @@ def validate_matrix(rows, expected_launches):
 
 def main(path: str, expected_launches=None) -> int:
     mops = defaultdict(list)
+    lat = defaultdict(list)
+    hashes = defaultdict(set)
+    peak = {}
+    percentiles = ("p50", "p90", "p99", "p999")
     try:
         with open(path, newline="") as f:
             rows = list(csv.DictReader(f))
         validate_matrix(rows, expected_launches)
         for row in rows:
-            if row["op"] == "all":
+            regime, book, operation = row["regime"], row["book"], row["op"]
+            if operation == "all":
                 rate = float(row["mops"])
                 if not math.isfinite(rate) or rate < 0:
                     raise ValueError("throughput must be finite and nonnegative")
-                mops[(row["regime"], row["book"])].append(rate)
+                mops[(regime, book)].append(rate)
+            values = [int(row[percentile]) for percentile in percentiles]
+            if values[0] < 0 or values != sorted(values):
+                raise ValueError("latency percentiles must be nonnegative and nondecreasing")
+            for percentile, value in zip(percentiles, values):
+                lat[(regime, book, operation, percentile)].append(value)
+            hashes[regime].add(row["hash"])
+            peak[regime] = row["peak_orders"]
     except (OSError, KeyError, TypeError, ValueError) as error:
         print(f"Invalid benchmark CSV: {error}", file=sys.stderr)
         return 2
 
     regimes = list(dict.fromkeys(r["regime"] for r in rows))
     books = list(dict.fromkeys(r["book"] for r in rows))
-    lat = defaultdict(list)
-    hashes = defaultdict(set)
-    peak = {}
-    for r in rows:
-        key = (r["regime"], r["book"])
-        hashes[r["regime"]].add(r["hash"])
-        peak[r["regime"]] = r["peak_orders"]
-        for q in ("p50", "p90", "p99", "p999"):
-            lat[key + (r["op"], q)].append(int(r[q]))
-
     launches = len(mops[(regimes[0], books[0])])
     mismatched = [g for g in regimes if len(hashes[g]) != 1]
     print(f"Launches per variant: {launches}. Latency in ns, median over launches; "

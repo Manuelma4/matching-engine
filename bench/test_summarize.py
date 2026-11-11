@@ -113,6 +113,16 @@ class SummaryEvidenceTests(unittest.TestCase):
                 self.assertIn("Invalid benchmark CSV", output)
                 self.assertNotIn("Output hashes", output)
 
+    def test_invalid_latency_percentiles_are_rejected_before_reporting(self):
+        for field, value in (("p50", "bad"), ("p90", ""), ("p50", "-1"), ("p99", "84")):
+            with self.subTest(field=field, value=value):
+                rows = fixture()
+                rows[0][field] = value
+                result, output = self.run_summary(rows)
+                self.assertEqual(result, 2)
+                self.assertIn("Invalid benchmark CSV", output)
+                self.assertNotIn("Output hashes", output)
+
 
 if __name__ == "__main__":
     unittest.main()
