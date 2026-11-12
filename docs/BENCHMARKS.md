@@ -142,7 +142,8 @@ bench/run.sh                                      # full protocol into docs/benc
 
 The run records the full checkout commit in `env.txt`. A `-dirty` suffix marks
 staged or unstaged changes to tracked files. This identifies the source checkout
-at launch. Rebuild `me_bench` from that checkout before recording results.
+at launch. Rebuild `me_bench` from that checkout before recording results. The
+runner requires a variant list from `me_bench --help` before writing results.
 
 ### Verify the archived results
 

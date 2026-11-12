@@ -15,9 +15,13 @@ SEED=${SEED:-42}
 BIN=${BIN:-build/me_bench}
 OUT=${OUT:-docs/bench/$(date +%F)}
 
-mkdir -p "$OUT"
 books=$("$BIN" --help 2>&1 | sed -n 's/^  books: //p' || true)
 read -r -a order <<<"$books"
+if [[ -z "${order[0]:-}" ]]; then
+    printf 'No book variants found in %s --help\n' "$BIN" >&2
+    exit 2
+fi
+mkdir -p "$OUT"
 
 commit=$(git rev-parse HEAD)
 if ! git diff --quiet || ! git diff --cached --quiet; then
