@@ -9,7 +9,8 @@ The complete five-book, five-regime matrix must use one seed, operation count an
 capacity, with an equal number of launches for every operation row. Pass
 --launches to verify the count declared by the producer.
 Zero-operation runs report zero throughput. Throughput must be finite and nonnegative.
-Latency percentiles must be nonnegative integers in percentile order.
+Latency percentiles must be nonnegative integers in percentile order. The peak
+resting order count must be nonnegative and agree across each regime.
 """
 
 import argparse
@@ -72,7 +73,11 @@ def main(path: str, expected_launches=None) -> int:
             if not isinstance(fingerprint, str) or re.fullmatch(r"[0-9a-fA-F]{16}", fingerprint) is None:
                 raise ValueError("event fingerprint must contain 16 hexadecimal digits")
             hashes[regime].add(fingerprint.lower())
-            peak[regime] = row["peak_orders"]
+            orders = int(row["peak_orders"])
+            if orders < 0:
+                raise ValueError("peak resting orders must be nonnegative")
+            if peak.setdefault(regime, orders) != orders:
+                raise ValueError(f"peak resting orders disagree for regime {regime}")
     except (OSError, KeyError, TypeError, ValueError) as error:
         print(f"Invalid benchmark CSV: {error}", file=sys.stderr)
         return 2

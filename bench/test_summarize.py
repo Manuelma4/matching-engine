@@ -90,6 +90,25 @@ class SummaryEvidenceTests(unittest.TestCase):
         self.assertEqual(result, 0)
         self.assertIn("identical across all variants", output)
 
+    def test_invalid_peak_orders_are_rejected_before_reporting(self):
+        for value in ("", "-1", "1.5"):
+            with self.subTest(value=value):
+                rows = fixture()
+                rows[0]["peak_orders"] = value
+                result, output = self.run_summary(rows)
+                self.assertEqual(result, 2)
+                self.assertIn("Invalid benchmark CSV", output)
+                self.assertNotIn("Output hashes", output)
+
+    def test_inconsistent_peak_orders_are_rejected_in_either_row_order(self):
+        rows = fixture()
+        rows[0]["peak_orders"] = "11"
+        for ordered in (rows, list(reversed(rows))):
+            result, output = self.run_summary(ordered)
+            self.assertEqual(result, 2)
+            self.assertIn("peak resting orders disagree", output)
+            self.assertNotIn("Output hashes", output)
+
     def test_declared_launch_count_is_enforced(self):
         result, output = self.run_summary(fixture(), launches=2)
         self.assertNotEqual(result, 0)
