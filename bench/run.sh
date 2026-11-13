@@ -29,6 +29,13 @@ if [[ -z "${order[0]:-}" ]]; then
     exit 2
 fi
 mkdir -p "$OUT"
+for report in env.txt raw.csv summary.md; do
+    path="$OUT/$report"
+    if [[ -L "$path" || ( -e "$path" && ! -f "$path" ) ]]; then
+        printf 'Invalid report destination: %s\n' "$path" >&2
+        exit 2
+    fi
+done
 stage=$(mktemp -d "$OUT/.run.XXXXXXXX")
 cleanup() {
     for report in env.txt raw.csv summary.md; do

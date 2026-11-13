@@ -57,3 +57,34 @@ class RunnerEvidenceTests(unittest.TestCase):
                     self.assertEqual(len(contents["raw.csv"].splitlines()), 251)
                 if mode == "mismatch":
                     self.assertIn("MISMATCH", result.stderr)
+
+    def test_invalid_report_destination_preserves_existing_files(self):
+        for kind in ("directory", "symlink"):
+            with self.subTest(kind=kind), tempfile.TemporaryDirectory() as directory:
+                scratch = Path(directory)
+                binary = scratch / "me_bench"
+                binary.write_text(FAKE)
+                binary.chmod(0o700)
+                for name in ("env.txt", "raw.csv"):
+                    (scratch / name).write_text("previous " + name)
+                invalid = scratch / "summary.md"
+                target = scratch / "target"
+                target.mkdir()
+                if kind == "directory":
+                    invalid.mkdir()
+                else:
+                    invalid.symlink_to(target, target_is_directory=True)
+
+                result = subprocess.run(
+                    ["bash", "bench/run.sh"], cwd=ROOT, capture_output=True, text=True, check=False,
+                    env=os.environ | {
+                        "BIN": str(binary), "OUT": str(scratch), "RUNS": "1", "OPS": "1", "SEED": "42", "MODE": "ok",
+                    },
+                )
+                self.assertEqual(result.returncode, 2)
+                self.assertIn("Invalid report destination", result.stderr)
+                self.assertEqual((scratch / "env.txt").read_text(), "previous env.txt")
+                self.assertEqual((scratch / "raw.csv").read_text(), "previous raw.csv")
+                self.assertEqual(list(target.iterdir()), [])
+                if kind == "directory":
+                    self.assertEqual(list(invalid.iterdir()), [])

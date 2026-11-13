@@ -147,6 +147,7 @@ runner requires a variant list from `me_bench --help` before writing results.
 It stages the environment, raw CSV and summary inside the output directory and
 replaces the reports after all launches and summary validation succeed. If a
 launch fails or the summary rejects the CSV, the previous reports stay in place.
+Existing report destinations must be regular files and cannot be symbolic links.
 Use a separate `OUT` directory for each concurrent benchmark session.
 
 ### Verify the archived results
