@@ -144,6 +144,10 @@ The run records the full checkout commit in `env.txt`. A `-dirty` suffix marks
 staged or unstaged changes to tracked files. This identifies the source checkout
 at launch. Rebuild `me_bench` from that checkout before recording results. The
 runner requires a variant list from `me_bench --help` before writing results.
+It stages the environment, raw CSV and summary inside the output directory and
+replaces the reports after all launches and summary validation succeed. If a
+launch fails or the summary rejects the CSV, the previous reports stay in place.
+Use a separate `OUT` directory for each concurrent benchmark session.
 
 ### Verify the archived results
 
