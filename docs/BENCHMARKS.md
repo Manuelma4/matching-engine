@@ -161,7 +161,9 @@ python3 bench/summarize.py docs/bench/2026-10-22/raw.csv --launches 10
 
 Expect ten launches per variant and one matching event fingerprint per regime.
 The summary checks the full regime, variant and operation matrix, the event
-fingerprint format and the latency percentiles before printing the tables.
+fingerprint format, sample counts and latency percentiles before printing the
+tables. Each regime replays one workload across variants and launches, so its
+sample count for each operation must agree across rows.
 The throughput and latency figures come from the archived run.
 
 ## Not measured yet

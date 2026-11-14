@@ -141,6 +141,38 @@ class SummaryEvidenceTests(unittest.TestCase):
         self.assertIn("0.0 (0.0-0.0)", output)
         self.assertNotIn("NOISY", output)
 
+    def test_zero_samples_cannot_supply_positive_percentiles(self):
+        rows = fixture()
+        rows[0].update(ops="0", count="0")
+        for row in rows[1:]:
+            row.update(ops="0", count="0")
+        result, output = self.run_summary(rows)
+        self.assertEqual(result, 2)
+        self.assertIn("zero latency samples", output)
+
+    def test_operation_counts_must_cover_workload(self):
+        rows = fixture()
+        for row in rows:
+            if row["op"] == "limit":
+                row["count"] = "24"
+        result, output = self.run_summary(rows)
+        self.assertEqual(result, 2)
+        self.assertIn("do not sum", output)
+
+    def test_launches_cannot_hide_compensating_sample_counts(self):
+        first, second = fixture(), fixture()
+        next(row for row in first if row["op"] == "limit")["count"] = "24"
+        next(row for row in second if row["op"] == "limit")["count"] = "26"
+        result, output = self.run_summary(first + second, launches=2)
+        self.assertEqual(result, 2)
+        self.assertIn("sample counts disagree", output)
+
+    def test_reordered_rows_can_be_summarized(self):
+        rows = fixture()
+        result, output = self.run_summary(sorted(rows, key=lambda row: row["op"]), launches=1)
+        self.assertEqual(result, 0)
+        self.assertIn("identical across all variants", output)
+
     def test_nonzero_range_with_zero_median_is_noisy(self):
         rows = fixture() + fixture() + fixture()
         for row in rows:

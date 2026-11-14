@@ -9,9 +9,10 @@ The complete five-book, five-regime matrix must use one seed, operation count an
 capacity, with an equal number of launches for every operation row. Pass
 --launches to verify the count declared by the producer.
 Zero-operation runs report zero throughput. Throughput must be finite and nonnegative.
-Aggregate latency samples must match the workload size. Each operation row
-must report between zero and the workload size. Latency percentiles must be
-nonnegative integers in percentile order. The peak
+Aggregate latency samples must match the workload size. Sample counts agree
+for each regime and operation across deterministic launches, and the per-type
+counts sum to the workload size. Latency percentiles must be nonnegative
+integers in percentile order, and zero for empty sample sets. The peak
 resting order count must be nonnegative and agree across each regime.
 """
 
@@ -52,6 +53,7 @@ def validate_matrix(rows, expected_launches):
 def main(path: str, expected_launches=None) -> int:
     mops = defaultdict(list)
     lat = defaultdict(list)
+    sample_counts = defaultdict(dict)
     hashes = defaultdict(set)
     peak = {}
     percentiles = ("p50", "p90", "p99", "p999")
@@ -65,6 +67,8 @@ def main(path: str, expected_launches=None) -> int:
             samples = int(row["count"])
             if not 0 <= samples <= operations or (operation == "all" and samples != operations):
                 raise ValueError(f"invalid latency sample count for {regime}/{book}/{operation}")
+            if sample_counts[regime].setdefault(operation, samples) != samples:
+                raise ValueError(f"latency sample counts disagree for {regime}/{operation}")
             if operation == "all":
                 rate = float(row["mops"])
                 if not math.isfinite(rate) or rate < 0:
@@ -73,6 +77,8 @@ def main(path: str, expected_launches=None) -> int:
             values = [int(row[percentile]) for percentile in percentiles]
             if values[0] < 0 or values != sorted(values):
                 raise ValueError("latency percentiles must be nonnegative and nondecreasing")
+            if samples == 0 and any(values):
+                raise ValueError(f"nonzero percentiles for zero latency samples in {regime}/{book}/{operation}")
             for percentile, value in zip(percentiles, values):
                 lat[(regime, book, operation, percentile)].append(value)
             fingerprint = row["hash"]
@@ -84,6 +90,9 @@ def main(path: str, expected_launches=None) -> int:
                 raise ValueError("peak resting orders must be nonnegative")
             if peak.setdefault(regime, orders) != orders:
                 raise ValueError(f"peak resting orders disagree for regime {regime}")
+        for regime, counts in sample_counts.items():
+            if sum(counts[op] for op in OPS) != operations:
+                raise ValueError(f"operation sample counts do not sum to the workload size for {regime}")
     except (OSError, KeyError, TypeError, ValueError) as error:
         print(f"Invalid benchmark CSV: {error}", file=sys.stderr)
         return 2
