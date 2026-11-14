@@ -9,7 +9,9 @@ The complete five-book, five-regime matrix must use one seed, operation count an
 capacity, with an equal number of launches for every operation row. Pass
 --launches to verify the count declared by the producer.
 Zero-operation runs report zero throughput. Throughput must be finite and nonnegative.
-Latency percentiles must be nonnegative integers in percentile order. The peak
+Aggregate latency samples must match the workload size. Each operation row
+must report between zero and the workload size. Latency percentiles must be
+nonnegative integers in percentile order. The peak
 resting order count must be nonnegative and agree across each regime.
 """
 
@@ -57,8 +59,12 @@ def main(path: str, expected_launches=None) -> int:
         with open(path, newline="") as f:
             rows = list(csv.DictReader(f))
         validate_matrix(rows, expected_launches)
+        operations = int(rows[0]["ops"])
         for row in rows:
             regime, book, operation = row["regime"], row["book"], row["op"]
+            samples = int(row["count"])
+            if not 0 <= samples <= operations or (operation == "all" and samples != operations):
+                raise ValueError(f"invalid latency sample count for {regime}/{book}/{operation}")
             if operation == "all":
                 rate = float(row["mops"])
                 if not math.isfinite(rate) or rate < 0:

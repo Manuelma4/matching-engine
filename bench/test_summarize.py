@@ -16,6 +16,7 @@ OPS = ("all", "limit", "market", "modify", "cancel")
 def fixture():
     return [{"book": book, "regime": regime, "seed": "42", "ops": "100", "hash": "a" * 16,
              "peak_orders": "10", "max_orders": "1000", "mops": "1", "op": op,
+             "count": "100" if op == "all" else "25",
              "p50": "42", "p90": "42", "p99": "42", "p999": "42"}
             for book in BOOKS for regime in REGIMES for op in OPS]
 
@@ -121,10 +122,19 @@ class SummaryEvidenceTests(unittest.TestCase):
         self.assertNotEqual(result, 0)
         self.assertIn("no benchmark rows", output)
 
+    def test_invalid_sample_count_is_rejected_before_reporting(self):
+        for operation, count in (("all", "0"), ("all", ""), ("limit", "-1"), ("limit", "101")):
+            with self.subTest(operation=operation, count=count):
+                rows = fixture()
+                next(row for row in rows if row["op"] == operation)["count"] = count
+                result, output = self.run_summary(rows)
+                self.assertEqual(result, 2)
+                self.assertNotIn("Output hashes", output)
+
     def test_zero_operations_can_be_summarized(self):
         rows = fixture()
         for row in rows:
-            row.update(ops="0", mops="0.000", peak_orders="0",
+            row.update(ops="0", count="0", mops="0.000", peak_orders="0",
                        p50="0", p90="0", p99="0", p999="0")
         result, output = self.run_summary(rows)
         self.assertEqual(result, 0)

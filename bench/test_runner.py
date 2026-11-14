@@ -18,7 +18,9 @@ for regime in fixed-mid random-walk deep-book flash-crash cancel-heavy; do
     for op in all limit market modify cancel; do
         hash=0123456789abcdef
         if [[ "$MODE" == mismatch && "$2" == map ]]; then hash=1123456789abcdef; fi
-        printf '%s,%s,42,1,%s,0,0,%s,0,0,0,0,0,0,1024\n' "$2" "$regime" "$hash" "$op"
+        count=0
+        if [[ "$op" == limit || ( "$op" == all && "$MODE" != sample-mismatch ) ]]; then count=1; fi
+        printf '%s,%s,42,1,%s,0,0,%s,%s,0,0,0,0,0,1024\n' "$2" "$regime" "$hash" "$op" "$count"
     done
 done
 """
@@ -28,7 +30,8 @@ REPORTS = ("env.txt", "raw.csv", "summary.md")
 class RunnerEvidenceTests(unittest.TestCase):
     def test_replaces_previous_reports_only_after_valid_summary(self):
         for mode, code in (
-            ("help-failure", 42), ("abort", 7), ("mismatch", 1), ("help-success", 0), ("ok", 0),
+            ("help-failure", 42), ("abort", 7), ("mismatch", 1), ("sample-mismatch", 2),
+            ("help-success", 0), ("ok", 0),
         ):
             with self.subTest(mode=mode), tempfile.TemporaryDirectory() as directory:
                 scratch = Path(directory)
