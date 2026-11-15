@@ -12,7 +12,8 @@ Zero-operation runs report zero throughput. Throughput must be finite and nonneg
 Aggregate latency samples must match the workload size. Sample counts agree
 for each regime and operation across deterministic launches, and the per-type
 counts sum to the workload size. Latency percentiles must be nonnegative
-integers in percentile order, and zero for empty sample sets. The peak
+integers in percentile order and at most the recorded maximum. The latency
+statistics must be zero for empty sample sets. The peak
 resting order count must be nonnegative and agree across each regime.
 """
 
@@ -77,8 +78,11 @@ def main(path: str, expected_launches=None) -> int:
             values = [int(row[percentile]) for percentile in percentiles]
             if values[0] < 0 or values != sorted(values):
                 raise ValueError("latency percentiles must be nonnegative and nondecreasing")
-            if samples == 0 and any(values):
-                raise ValueError(f"nonzero percentiles for zero latency samples in {regime}/{book}/{operation}")
+            maximum = int(row["max"])
+            if maximum < values[-1]:
+                raise ValueError(f"latency maximum is below p99.9 for {regime}/{book}/{operation}")
+            if samples == 0 and (maximum or any(values)):
+                raise ValueError(f"nonzero latency statistics for zero latency samples in {regime}/{book}/{operation}")
             for percentile, value in zip(percentiles, values):
                 lat[(regime, book, operation, percentile)].append(value)
             fingerprint = row["hash"]

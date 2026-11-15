@@ -17,7 +17,7 @@ def fixture():
     return [{"book": book, "regime": regime, "seed": "42", "ops": "100", "hash": "a" * 16,
              "peak_orders": "10", "max_orders": "1000", "mops": "1", "op": op,
              "count": "100" if op == "all" else "25",
-             "p50": "42", "p90": "42", "p99": "42", "p999": "42"}
+             "p50": "42", "p90": "42", "p99": "42", "p999": "42", "max": "84"}
             for book in BOOKS for regime in REGIMES for op in OPS]
 
 
@@ -135,7 +135,7 @@ class SummaryEvidenceTests(unittest.TestCase):
         rows = fixture()
         for row in rows:
             row.update(ops="0", count="0", mops="0.000", peak_orders="0",
-                       p50="0", p90="0", p99="0", p999="0")
+                       p50="0", p90="0", p99="0", p999="0", max="0")
         result, output = self.run_summary(rows)
         self.assertEqual(result, 0)
         self.assertIn("0.0 (0.0-0.0)", output)
@@ -201,6 +201,25 @@ class SummaryEvidenceTests(unittest.TestCase):
                 self.assertEqual(result, 2)
                 self.assertIn("Invalid benchmark CSV", output)
                 self.assertNotIn("Output hashes", output)
+
+    def test_invalid_latency_maximum_is_rejected_before_reporting(self):
+        for value in ("", "-1", "41"):
+            with self.subTest(value=value):
+                rows = fixture()
+                rows[0]["max"] = value
+                result, output = self.run_summary(rows)
+                self.assertEqual(result, 2)
+                self.assertNotIn("Output hashes", output)
+
+    def test_empty_samples_cannot_supply_a_positive_maximum(self):
+        rows = fixture()
+        for row in rows:
+            row.update(ops="0", count="0", mops="0", peak_orders="0",
+                       p50="0", p90="0", p99="0", p999="0", max="0")
+        rows[0]["max"] = "1"
+        result, output = self.run_summary(rows)
+        self.assertEqual(result, 2)
+        self.assertIn("zero latency samples", output)
 
 
 if __name__ == "__main__":
