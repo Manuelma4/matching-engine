@@ -60,7 +60,13 @@ def main(path: str, expected_launches=None) -> int:
     percentiles = ("p50", "p90", "p99", "p999")
     try:
         with open(path, newline="") as f:
-            rows = list(csv.DictReader(f))
+            reader = csv.DictReader(f, strict=True)
+            fields = reader.fieldnames or []
+            if len(fields) != len(set(fields)):
+                raise ValueError("duplicate benchmark column names")
+            rows = list(reader)
+            if any(None in row or None in row.values() for row in rows):
+                raise ValueError("benchmark row width does not match the header")
         validate_matrix(rows, expected_launches)
         operations = int(rows[0]["ops"])
         for row in rows:
@@ -97,7 +103,7 @@ def main(path: str, expected_launches=None) -> int:
         for regime, counts in sample_counts.items():
             if sum(counts[op] for op in OPS) != operations:
                 raise ValueError(f"operation sample counts do not sum to the workload size for {regime}")
-    except (OSError, KeyError, TypeError, ValueError) as error:
+    except (OSError, KeyError, TypeError, ValueError, csv.Error) as error:
         print(f"Invalid benchmark CSV: {error}", file=sys.stderr)
         return 2
 

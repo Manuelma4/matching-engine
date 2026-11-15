@@ -160,7 +160,8 @@ python3 bench/summarize.py docs/bench/2026-10-22/raw.csv --launches 10
 ```
 
 Expect ten launches per variant and one matching event fingerprint per regime.
-The summary checks the full regime, variant and operation matrix, the event
+The summary checks CSV quoting, unique column names and consistent row width.
+It also checks the full regime, variant and operation matrix, the event
 fingerprint format, sample counts and latency percentiles before printing the
 tables. Each regime replays one workload across variants and launches, so its
 sample count for each operation must agree across rows.

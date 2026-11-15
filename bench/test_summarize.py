@@ -23,12 +23,16 @@ def fixture():
 
 class SummaryEvidenceTests(unittest.TestCase):
     def run_summary(self, rows, launches=None):
+        stream = io.StringIO(newline="")
+        writer = csv.DictWriter(stream, fieldnames=fixture()[0].keys())
+        writer.writeheader()
+        writer.writerows(rows)
+        return self.run_raw_summary(stream.getvalue(), launches)
+
+    def run_raw_summary(self, body, launches=None):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "raw.csv"
-            with path.open("w", newline="") as stream:
-                writer = csv.DictWriter(stream, fieldnames=fixture()[0].keys())
-                writer.writeheader()
-                writer.writerows(rows)
+            path.write_text(body, newline="")
             output = io.StringIO()
             with contextlib.redirect_stdout(output), contextlib.redirect_stderr(output):
                 result = main(str(path), launches)
@@ -38,6 +42,38 @@ class SummaryEvidenceTests(unittest.TestCase):
         result, output = self.run_summary(fixture())
         self.assertEqual(result, 0)
         self.assertIn("identical across all variants", output)
+
+    def test_ambiguous_csv_structure_is_rejected(self):
+        fields = list(fixture()[0])
+        original = [[row[field] for field in fields] for row in fixture()]
+        for case in ("extra-cell", "duplicate-header", "missing-cell", "malformed-quote"):
+            with self.subTest(case=case):
+                header = fields.copy()
+                rows = [row.copy() for row in original]
+                if case == "extra-cell":
+                    rows[0].append("ignored")
+                elif case == "duplicate-header":
+                    header.append("ops")
+                    for row in rows:
+                        row.append(row[fields.index("ops")])
+                elif case == "missing-cell":
+                    header.append("note")
+                    for row in rows[1:]:
+                        row.append("")
+                stream = io.StringIO(newline="")
+                writer = csv.writer(stream)
+                writer.writerow(header)
+                if case == "malformed-quote":
+                    # A trailing character after a closed quoted field is invalid.
+                    first, *rest = rows[0]
+                    stream.write(f'"{first[:-1]}"{first[-1]},{",".join(rest)}\r\n')
+                    writer.writerows(rows[1:])
+                else:
+                    writer.writerows(rows)
+                result, output = self.run_raw_summary(stream.getvalue())
+                self.assertEqual(result, 2, output)
+                self.assertIn("Invalid benchmark CSV", output)
+                self.assertNotIn("Output hashes", output)
 
     def test_missing_variant_is_rejected(self):
         result, output = self.run_summary([r for r in fixture() if r["book"] != "ladder"])
