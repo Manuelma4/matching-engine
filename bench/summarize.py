@@ -80,6 +80,8 @@ def main(path: str, expected_launches=None) -> int:
                 rate = float(row["mops"])
                 if not math.isfinite(rate) or rate < 0:
                     raise ValueError("throughput must be finite and nonnegative")
+                if operations == 0 and rate != 0:
+                    raise ValueError(f"nonzero throughput for zero operations in {regime}/{book}")
                 mops[(regime, book)].append(rate)
             values = [int(row[percentile]) for percentile in percentiles]
             if values[0] < 0 or values != sorted(values):
