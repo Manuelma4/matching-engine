@@ -257,6 +257,27 @@ class SummaryEvidenceTests(unittest.TestCase):
                 self.assertEqual(result, 2)
                 self.assertNotIn("Output hashes", output)
 
+    def test_aggregate_maximum_must_equal_largest_operation_maximum(self):
+        for operation in ("all", "limit"):
+            with self.subTest(operation=operation):
+                rows = fixture() + fixture()
+                row = next(item for item in rows if item["op"] == operation)
+                row["max"] = "85"
+                result, output = self.run_summary(rows, launches=2)
+                self.assertEqual(result, 2)
+                self.assertIn("latency maxima disagree", output)
+                self.assertNotIn("Output hashes", output)
+
+    def test_matching_maxima_do_not_require_launch_order(self):
+        rows = fixture() + fixture()
+        for row in rows[:len(rows) // 2]:
+            if row["book"] == "v1" and row["regime"] == "fixed-mid" and row["op"] in ("all", "market"):
+                row["max"] = "85"
+        shuffled = sorted(rows, key=lambda row: (row["op"], row["max"], row["book"]))
+        result, output = self.run_summary(shuffled, launches=2)
+        self.assertEqual(result, 0)
+        self.assertIn("identical across all variants", output)
+
     def test_empty_samples_cannot_supply_a_positive_maximum(self):
         rows = fixture()
         for row in rows:

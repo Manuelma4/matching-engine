@@ -55,6 +55,7 @@ def main(path: str, expected_launches=None) -> int:
     mops = defaultdict(list)
     lat = defaultdict(list)
     sample_counts = defaultdict(dict)
+    maxima = defaultdict(lambda: {"all": 0, "by_operation": 0})
     hashes = defaultdict(set)
     peak = {}
     percentiles = ("p50", "p90", "p99", "p999")
@@ -91,6 +92,9 @@ def main(path: str, expected_launches=None) -> int:
                 raise ValueError(f"latency maximum is below p99.9 for {regime}/{book}/{operation}")
             if samples == 0 and (maximum or any(values)):
                 raise ValueError(f"nonzero latency statistics for zero latency samples in {regime}/{book}/{operation}")
+            group_maxima = maxima[regime, book]
+            scope = "all" if operation == "all" else "by_operation"
+            group_maxima[scope] = max(group_maxima[scope], maximum)
             for percentile, value in zip(percentiles, values):
                 lat[(regime, book, operation, percentile)].append(value)
             fingerprint = row["hash"]
@@ -105,6 +109,9 @@ def main(path: str, expected_launches=None) -> int:
         for regime, counts in sample_counts.items():
             if sum(counts[op] for op in OPS) != operations:
                 raise ValueError(f"operation sample counts do not sum to the workload size for {regime}")
+        for (regime, book), group_maxima in maxima.items():
+            if group_maxima["all"] != group_maxima["by_operation"]:
+                raise ValueError(f"aggregate and per-operation latency maxima disagree for {regime}/{book}")
     except (OSError, KeyError, TypeError, ValueError, csv.Error) as error:
         print(f"Invalid benchmark CSV: {error}", file=sys.stderr)
         return 2

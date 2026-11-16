@@ -166,7 +166,11 @@ fingerprint format, sample counts and latency percentiles before printing the
 tables. Each regime replays one workload across variants and launches, so its
 sample count for each operation must agree across rows. The aggregate
 throughput must be zero for an empty workload. A nonempty workload can still
-report zero when its measured rate rounds to zero in the CSV.
+report zero when its measured rate rounds to zero in the CSV. For each regime
+and variant, the largest aggregate latency across launches must match the
+largest per-operation latency across launches. This check works with reordered
+rows because it compares the maxima across the group. The CSV has no launch
+identifier for a per-launch comparison.
 The throughput and latency figures come from the archived run.
 
 ## Not measured yet
