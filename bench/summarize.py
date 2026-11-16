@@ -92,6 +92,8 @@ def main(path: str, expected_launches=None) -> int:
                 raise ValueError(f"latency maximum is below p99.9 for {regime}/{book}/{operation}")
             if samples == 0 and (maximum or any(values)):
                 raise ValueError(f"nonzero latency statistics for zero latency samples in {regime}/{book}/{operation}")
+            if samples == 1 and values[0] != maximum:
+                raise ValueError(f"percentiles and maximum must match for one latency sample in {regime}/{book}/{operation}")
             group_maxima = maxima[regime, book]
             scope = "all" if operation == "all" else "by_operation"
             group_maxima[scope] = max(group_maxima[scope], maximum)

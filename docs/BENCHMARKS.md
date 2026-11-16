@@ -170,7 +170,8 @@ report zero when its measured rate rounds to zero in the CSV. For each regime
 and variant, the largest aggregate latency across launches must match the
 largest per-operation latency across launches. This check works with reordered
 rows because it compares the maxima across the group. The CSV has no launch
-identifier for a per-launch comparison.
+identifier for a per-launch comparison. In a row with one latency sample,
+every percentile and the maximum must equal that sample.
 The throughput and latency figures come from the archived run.
 
 ## Not measured yet

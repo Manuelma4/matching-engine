@@ -278,6 +278,22 @@ class SummaryEvidenceTests(unittest.TestCase):
         self.assertEqual(result, 0)
         self.assertIn("identical across all variants", output)
 
+    def test_one_latency_sample_requires_equal_percentiles_and_maximum(self):
+        rows = fixture()
+        for row in rows:
+            if row["op"] == "limit":
+                row["count"] = "49"
+            elif row["op"] == "market":
+                row.update(count="1", p50="84", p90="84", p99="84", p999="84", max="84")
+        result, output = self.run_summary(rows)
+        self.assertEqual(result, 0, output)
+
+        next(row for row in rows if row["op"] == "market")["p50"] = "42"
+        result, output = self.run_summary(rows)
+        self.assertEqual(result, 2)
+        self.assertIn("one latency sample", output)
+        self.assertNotIn("Output hashes", output)
+
     def test_empty_samples_cannot_supply_a_positive_maximum(self):
         rows = fixture()
         for row in rows:
