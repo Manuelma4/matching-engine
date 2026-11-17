@@ -14,13 +14,29 @@ if [[ "$1" == --help ]]; then
     exit 2
 fi
 if [[ "$MODE" == abort && "$2" == map ]]; then exit 7; fi
+balance=
+if [[ "$MODE" == balanced-captures && "$2" == v1 ]]; then
+    if [[ -f "$OUT/../first-v1" ]]; then
+        balance=duplicate
+    else
+        balance=omit
+        : > "$OUT/../first-v1"
+    fi
+fi
 for regime in fixed-mid random-walk deep-book flash-crash cancel-heavy; do
     for op in all limit market modify cancel; do
         hash=0123456789abcdef
         if [[ "$MODE" == mismatch && "$2" == map ]]; then hash=1123456789abcdef; fi
         count=0
         if [[ "$op" == limit || ( "$op" == all && "$MODE" != sample-mismatch ) ]]; then count=1; fi
-        printf '%s,%s,42,1,%s,0,0,%s,%s,0,0,0,0,0,1024\n' "$2" "$regime" "$hash" "$op" "$count"
+        copies=1
+        if [[ "$regime" == fixed-mid && "$op" == market ]]; then
+            if [[ "$balance" == omit ]]; then copies=0; fi
+            if [[ "$balance" == duplicate ]]; then copies=2; fi
+        fi
+        for ((copy = 0; copy < copies; copy++)); do
+            printf '%s,%s,42,1,%s,0,0,%s,%s,0,0,0,0,0,1024\n' "$2" "$regime" "$hash" "$op" "$count"
+        done
     done
 done
 """
@@ -31,7 +47,7 @@ class RunnerEvidenceTests(unittest.TestCase):
     def test_replaces_previous_reports_only_after_valid_summary(self):
         for mode, code in (
             ("help-failure", 42), ("abort", 7), ("mismatch", 1), ("sample-mismatch", 2),
-            ("help-success", 0), ("ok", 0),
+            ("help-success", 0), ("ok", 0), ("balanced-captures", 2),
         ):
             with self.subTest(mode=mode), tempfile.TemporaryDirectory() as directory:
                 scratch = Path(directory)
@@ -57,9 +73,16 @@ class RunnerEvidenceTests(unittest.TestCase):
                     self.assertEqual(contents, previous)
                 else:
                     self.assertIn(b"Launches per variant: 2", contents["summary.md"])
-                    self.assertEqual(len(contents["raw.csv"].splitlines()), 251)
+                    rows = contents["raw.csv"].splitlines()
+                    self.assertEqual(len(rows), 251)
+                    forward = [b"v1", b"map", b"map-oa", b"vec", b"ladder"]
+                    self.assertEqual(
+                        [row.split(b",", 1)[0] for row in rows[1::25]], forward + forward[::-1],
+                    )
                 if mode == "mismatch":
                     self.assertIn("MISMATCH", result.stderr)
+                if mode == "balanced-captures":
+                    self.assertIn("Invalid capture 1-0.csv for v1", result.stderr)
 
     def test_invalid_report_destination_preserves_existing_files(self):
         for kind in ("directory", "symlink"):

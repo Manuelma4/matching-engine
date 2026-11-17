@@ -20,12 +20,14 @@ resting order count must be nonnegative and agree across each regime.
 
 import argparse
 import csv
+import io
 import math
 import re
 import statistics
 import sys
 from collections import Counter, defaultdict
 from itertools import product
+from pathlib import Path
 
 NOISE_LIMIT = 0.10
 OPS = ["limit", "market", "modify", "cancel"]
@@ -33,7 +35,7 @@ BOOKS = ("v1", "map", "map-oa", "vec", "ladder")
 REGIMES = ("fixed-mid", "random-walk", "deep-book", "flash-crash", "cancel-heavy")
 
 
-def validate_matrix(rows, expected_launches):
+def validate_matrix(rows, expected_launches, books=BOOKS):
     if not rows:
         raise ValueError("no benchmark rows")
     if expected_launches is not None and expected_launches < 1:
@@ -42,7 +44,7 @@ def validate_matrix(rows, expected_launches):
     if len(settings) != 1:
         raise ValueError("mixed seed, operation-count or capacity settings")
     counts = Counter((r["regime"], r["book"], r["op"]) for r in rows)
-    expected = set(product(REGIMES, BOOKS, ["all", *OPS]))
+    expected = set(product(REGIMES, books, ["all", *OPS]))
     if set(counts) != expected:
         raise ValueError("incomplete or unexpected regime/book/operation matrix")
     launches = set(counts.values())
@@ -52,7 +54,39 @@ def validate_matrix(rows, expected_launches):
         raise ValueError(f"expected {expected_launches} launches per matrix entry, got {min(launches)}")
 
 
-def main(path: str, expected_launches=None) -> int:
+def read_rows(reader):
+    fields = reader.fieldnames or []
+    if len(fields) != len(set(fields)):
+        raise ValueError("duplicate benchmark column names")
+    rows = list(reader)
+    if any(None in row or None in row.values() for row in rows):
+        raise ValueError("benchmark row width does not match the header")
+    return rows
+
+
+def append_captures(path, capture_index):
+    with open(capture_index, encoding="utf-8") as index, open(path, "a+", newline="") as raw:
+        raw.seek(0)
+        header = raw.readline()
+        if not header.endswith("\n") or raw.read(1):
+            raise ValueError("staged benchmark CSV must contain only its header")
+        fields = next(csv.reader([header], strict=True))
+        for line in index:
+            filename, book = line.rstrip("\n").split("\t")
+            try:
+                capture = Path(capture_index).parent / filename
+                with capture.open(newline="") as sample:
+                    body = sample.read()
+                reader = csv.DictReader(io.StringIO(body, newline=""), fieldnames=fields, strict=True)
+                validate_matrix(read_rows(reader), expected_launches=1, books=(book,))
+                if not body.endswith("\n"):
+                    raise ValueError("capture must end with a newline")
+            except (OSError, KeyError, ValueError, csv.Error) as error:
+                raise ValueError(f"Invalid capture {filename} for {book}: {error}") from error
+            raw.write(body)
+
+
+def main(path: str, expected_launches=None, capture_index=None) -> int:
     mops = defaultdict(list)
     lat = defaultdict(list)
     sample_counts = defaultdict(dict)
@@ -61,14 +95,10 @@ def main(path: str, expected_launches=None) -> int:
     peak = {}
     percentiles = ("p50", "p90", "p99", "p999")
     try:
+        if capture_index is not None:
+            append_captures(path, capture_index)
         with open(path, newline="") as f:
-            reader = csv.DictReader(f, strict=True)
-            fields = reader.fieldnames or []
-            if len(fields) != len(set(fields)):
-                raise ValueError("duplicate benchmark column names")
-            rows = list(reader)
-            if any(None in row or None in row.values() for row in rows):
-                raise ValueError("benchmark row width does not match the header")
+            rows = read_rows(csv.DictReader(f, strict=True))
         validate_matrix(rows, expected_launches)
         operations = int(rows[0]["ops"])
         for row in rows:
@@ -163,5 +193,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("path")
     parser.add_argument("--launches", type=int, help="expected launches from bench/run.sh")
+    parser.add_argument("--capture-index", help="runner index of individual captures to append to the staged CSV")
     args = parser.parse_args()
-    sys.exit(main(args.path, args.launches))
+    sys.exit(main(args.path, args.launches, args.capture_index))

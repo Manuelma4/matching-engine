@@ -38,12 +38,17 @@ for report in env.txt raw.csv summary.md; do
 done
 stage=$(mktemp -d "$OUT/.run.XXXXXXXX")
 cleanup() {
+    if [[ -d "$stage/captures" ]]; then
+        rm -f "$stage"/captures/*
+        rmdir "$stage/captures"
+    fi
     for report in env.txt raw.csv summary.md; do
         if [[ -f "$stage/$report" ]]; then unlink "$stage/$report"; fi
     done
     rmdir "$stage"
 }
 trap cleanup EXIT
+mkdir "$stage/captures"
 
 commit=$(git rev-parse HEAD)
 if ! git diff --quiet || ! git diff --cached --quiet; then
@@ -69,12 +74,15 @@ for ((run = 1; run <= RUNS; run++)); do
         if ((run % 2 == 0)); then
             index=$((${#order[@]} - 1 - position))
         fi
-        "$BIN" --book "${order[$index]}" --regime all --ops "$OPS" --seed "$SEED" --csv >>"$stage/raw.csv"
+        capture="$run-$position.csv"
+        printf '%s\t%s\n' "$capture" "${order[$index]}" >>"$stage/captures/index.tsv"
+        "$BIN" --book "${order[$index]}" --regime all --ops "$OPS" --seed "$SEED" --csv >"$stage/captures/$capture"
     done
     echo "run $run/$RUNS done" >&2
 done
 
-python3 bench/summarize.py "$stage/raw.csv" --launches "$RUNS" >"$stage/summary.md" || {
+python3 bench/summarize.py "$stage/raw.csv" --launches "$RUNS" \
+    --capture-index "$stage/captures/index.tsv" >"$stage/summary.md" || {
     status=$?
     cat "$stage/summary.md" >&2
     exit "$status"

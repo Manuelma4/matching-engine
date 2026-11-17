@@ -145,8 +145,10 @@ staged or unstaged changes to tracked files. This identifies the source checkout
 at launch. Rebuild `me_bench` from that checkout before recording results. The
 runner requires a variant list from `me_bench --help` before writing results.
 It stages the environment, raw CSV and summary inside the output directory and
-replaces the reports after all launches and summary validation succeed. If a
-launch fails or the summary rejects the CSV, the previous reports stay in place.
+replaces the reports after all launches and summary validation succeed. After
+the timed runs, each executable invocation must contribute exactly one row per
+regime and operation for the requested variant. If a launch, capture check or
+summary fails, the previous reports stay in place.
 Existing report destinations must be regular files and cannot be symbolic links.
 Use a separate `OUT` directory for each concurrent benchmark session.
 
