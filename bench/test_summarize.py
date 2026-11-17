@@ -257,6 +257,26 @@ class SummaryEvidenceTests(unittest.TestCase):
                 self.assertEqual(result, 2)
                 self.assertNotIn("Output hashes", output)
 
+    def test_operation_maxima_must_fit_available_aggregate_maxima(self):
+        first, second = fixture(), fixture()
+        first_market, second_all, second_market = (
+            next(row for row in launch if (row["regime"], row["book"], row["op"]) == ("fixed-mid", "v1", op))
+            for launch, op in ((first, "market"), (second, "all"), (second, "market"))
+        )
+        second_all["max"] = second_market["max"] = "126"
+        # The compatible rows remain valid when interleaved or reversed.
+        rows = [row for pair in zip(first, second) for row in pair]
+        for ordered in (rows, list(reversed(rows))):
+            result, output = self.run_summary(ordered, launches=2)
+            self.assertEqual(result, 0, output)
+
+        # Two market maxima of 126 cannot fit into aggregate maxima of 84 and 126.
+        first_market["max"] = "126"
+        result, output = self.run_summary(list(reversed(rows)), launches=2)
+        self.assertEqual(result, 2, output)
+        self.assertIn("operation latency maxima exceed available aggregate maxima", output)
+        self.assertNotIn("Output hashes", output)
+
     def test_aggregate_maximum_must_equal_largest_operation_maximum(self):
         for operation in ("all", "limit"):
             with self.subTest(operation=operation):

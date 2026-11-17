@@ -13,7 +13,8 @@ Aggregate latency samples must match the workload size. Sample counts agree
 for each regime and operation across deterministic launches, and the per-type
 counts sum to the workload size. Latency percentiles must be nonnegative
 integers in percentile order and at most the recorded maximum. The latency
-statistics must be zero for empty sample sets. The peak
+statistics must be zero for empty sample sets. Each operation's maxima must fit
+within the available aggregate maxima across launches in any row order. The peak
 resting order count must be nonnegative and agree across each regime.
 """
 
@@ -55,7 +56,7 @@ def main(path: str, expected_launches=None) -> int:
     mops = defaultdict(list)
     lat = defaultdict(list)
     sample_counts = defaultdict(dict)
-    maxima = defaultdict(lambda: {"all": 0, "by_operation": 0})
+    maxima = defaultdict(lambda: defaultdict(list))
     hashes = defaultdict(set)
     peak = {}
     percentiles = ("p50", "p90", "p99", "p999")
@@ -94,9 +95,7 @@ def main(path: str, expected_launches=None) -> int:
                 raise ValueError(f"nonzero latency statistics for zero latency samples in {regime}/{book}/{operation}")
             if samples == 1 and values[0] != maximum:
                 raise ValueError(f"percentiles and maximum must match for one latency sample in {regime}/{book}/{operation}")
-            group_maxima = maxima[regime, book]
-            scope = "all" if operation == "all" else "by_operation"
-            group_maxima[scope] = max(group_maxima[scope], maximum)
+            maxima[regime, book][operation].append(maximum)
             for percentile, value in zip(percentiles, values):
                 lat[(regime, book, operation, percentile)].append(value)
             fingerprint = row["hash"]
@@ -112,8 +111,17 @@ def main(path: str, expected_launches=None) -> int:
             if sum(counts[op] for op in OPS) != operations:
                 raise ValueError(f"operation sample counts do not sum to the workload size for {regime}")
         for (regime, book), group_maxima in maxima.items():
-            if group_maxima["all"] != group_maxima["by_operation"]:
+            aggregate = sorted(group_maxima["all"])
+            if aggregate[-1] != max(max(group_maxima[op]) for op in OPS):
                 raise ValueError(f"aggregate and per-operation latency maxima disagree for {regime}/{book}")
+            for op in OPS:
+                # Archived CSVs lack launch IDs. The sorted maxima must fit
+                # even under the most favorable pairing for each operation.
+                operation_maxima = sorted(group_maxima[op])
+                if any(value > limit for value, limit in zip(operation_maxima, aggregate)):
+                    raise ValueError(
+                        f"operation latency maxima exceed available aggregate maxima for {regime}/{book}/{op}"
+                    )
     except (OSError, KeyError, TypeError, ValueError, csv.Error) as error:
         print(f"Invalid benchmark CSV: {error}", file=sys.stderr)
         return 2
