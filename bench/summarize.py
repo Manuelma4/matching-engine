@@ -85,7 +85,12 @@ def append_captures(path, capture_index):
                 with capture.open(newline="") as sample:
                     body = sample.read()
                 reader = csv.DictReader(io.StringIO(body, newline=""), fieldnames=fields, strict=True)
-                validate_matrix(read_rows(reader), expected_launches=1, books=(book,))
+                rows = read_rows(reader)
+                validate_matrix(rows, expected_launches=1, books=(book,))
+                for regime in REGIMES:
+                    maxima = {row["op"]: int(row["max"]) for row in rows if row["regime"] == regime}
+                    if maxima["all"] != max(maxima[op] for op in OPS):
+                        raise ValueError(f"capture latency maxima disagree for {regime}")
                 if not body.endswith("\n"):
                     raise ValueError("capture must end with a newline")
             except (OSError, KeyError, ValueError, csv.Error) as error:
