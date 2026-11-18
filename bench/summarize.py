@@ -15,7 +15,8 @@ counts sum to the workload size. Latency percentiles must be nonnegative
 integers in percentile order and at most the recorded maximum. The latency
 statistics must be zero for empty sample sets. Each operation's maxima must fit
 within the available aggregate maxima across launches in any row order. The peak
-resting order count must be nonnegative and agree across each regime.
+resting order count must be nonnegative, fit the configured capacity and workload
+size, and agree across each regime.
 """
 
 import argparse
@@ -150,6 +151,8 @@ def main(path: str, expected_launches=None, capture_index=None, expected_ops=Non
             orders = int(row["peak_orders"])
             if orders < 0:
                 raise ValueError("peak resting orders must be nonnegative")
+            if orders > min(int(row["max_orders"]), operations):
+                raise ValueError("peak resting orders exceed capacity or workload size")
             if peak.setdefault(regime, orders) != orders:
                 raise ValueError(f"peak resting orders disagree for regime {regime}")
         for regime, counts in sample_counts.items():

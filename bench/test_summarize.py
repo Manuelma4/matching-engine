@@ -169,6 +169,27 @@ class SummaryEvidenceTests(unittest.TestCase):
             self.assertIn("peak resting orders disagree", output)
             self.assertNotIn("Output hashes", output)
 
+    def test_peak_orders_cannot_exceed_capacity_or_workload(self):
+        for peak, capacity in ((11, 10), (101, 1000)):
+            with self.subTest(peak=peak, capacity=capacity):
+                rows = fixture()
+                for row in rows:
+                    row.update(peak_orders=str(peak), max_orders=str(capacity))
+                result, output = self.run_summary(rows)
+                self.assertEqual(result, 2)
+                self.assertIn("peak resting orders exceed", output)
+                self.assertNotIn("Output hashes", output)
+
+    def test_peak_orders_can_equal_capacity_or_workload(self):
+        for peak, capacity in ((10, 10), (100, 1000), (100, 100)):
+            with self.subTest(peak=peak, capacity=capacity):
+                rows = fixture()
+                for row in rows:
+                    row.update(peak_orders=str(peak), max_orders=str(capacity))
+                result, output = self.run_summary(rows)
+                self.assertEqual(result, 0)
+                self.assertIn("Output hashes", output)
+
     def test_declared_launch_count_is_enforced(self):
         result, output = self.run_summary(fixture(), launches=2)
         self.assertNotEqual(result, 0)
