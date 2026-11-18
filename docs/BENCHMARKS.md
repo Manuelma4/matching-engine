@@ -164,6 +164,8 @@ python3 bench/summarize.py docs/bench/2026-10-22/raw.csv --launches 10
 
 Expect ten launches per variant and one matching event fingerprint per regime.
 The summary checks CSV quoting, unique column names and consistent row width.
+Seed and operation count must fit unsigned 64-bit integers. Capacity must be
+between 1 and 4,294,967,294, matching the executable's supported pool range.
 It also checks the full regime, variant and operation matrix, the event
 fingerprint format, sample counts and latency percentiles before printing the
 tables. Each regime replays one workload across variants and launches, so its

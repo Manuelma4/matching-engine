@@ -43,6 +43,13 @@ def validate_matrix(rows, expected_launches, books=BOOKS):
     settings = {(r["seed"], r["ops"], r["max_orders"]) for r in rows}
     if len(settings) != 1:
         raise ValueError("mixed seed, operation-count or capacity settings")
+    for field, minimum, maximum in (
+        ("seed", 0, (1 << 64) - 1), ("ops", 0, (1 << 64) - 1),
+        ("max_orders", 1, (1 << 32) - 2),
+    ):
+        value = rows[0][field]
+        if re.fullmatch(r"[0-9]+", value) is None or not minimum <= int(value) <= maximum:
+            raise ValueError(f"invalid benchmark setting {field}")
     counts = Counter((r["regime"], r["book"], r["op"]) for r in rows)
     expected = set(product(REGIMES, books, ["all", *OPS]))
     if set(counts) != expected:

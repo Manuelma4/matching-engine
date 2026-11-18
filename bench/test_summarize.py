@@ -75,6 +75,29 @@ class SummaryEvidenceTests(unittest.TestCase):
                 self.assertIn("Invalid benchmark CSV", output)
                 self.assertNotIn("Output hashes", output)
 
+    def test_impossible_numeric_settings_are_rejected(self):
+        for field, value in (
+            ("seed", "-1"), ("seed", "invalid"), ("seed", str(1 << 64)),
+            ("ops", "1.0"), ("ops", str(1 << 64)),
+            ("max_orders", "0"), ("max_orders", "-1"), ("max_orders", str((1 << 32) - 1)),
+        ):
+            with self.subTest(field=field, value=value):
+                rows = fixture()
+                for row in rows:
+                    row[field] = value
+                result, output = self.run_summary(rows)
+                self.assertEqual(result, 2, output)
+                self.assertIn("invalid benchmark setting", output)
+                self.assertNotIn("Output hashes", output)
+
+    def test_supported_numeric_setting_boundaries_are_accepted(self):
+        for seed, capacity in (("0", "1"), (str((1 << 64) - 1), str((1 << 32) - 2))):
+            rows = fixture()
+            for row in rows:
+                row.update(seed=seed, max_orders=capacity, peak_orders="0")
+            result, output = self.run_summary(rows)
+            self.assertEqual(result, 0, output)
+
     def test_missing_variant_is_rejected(self):
         result, output = self.run_summary([r for r in fixture() if r["book"] != "ladder"])
         self.assertNotEqual(result, 0)
