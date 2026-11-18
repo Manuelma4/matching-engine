@@ -86,7 +86,7 @@ def append_captures(path, capture_index):
             raw.write(body)
 
 
-def main(path: str, expected_launches=None, capture_index=None) -> int:
+def main(path: str, expected_launches=None, capture_index=None, expected_ops=None, expected_seed=None) -> int:
     mops = defaultdict(list)
     lat = defaultdict(list)
     sample_counts = defaultdict(dict)
@@ -100,6 +100,9 @@ def main(path: str, expected_launches=None, capture_index=None) -> int:
         with open(path, newline="") as f:
             rows = read_rows(csv.DictReader(f, strict=True))
         validate_matrix(rows, expected_launches)
+        for field, requested in (("ops", expected_ops), ("seed", expected_seed)):
+            if requested is not None and int(rows[0][field]) != requested:
+                raise ValueError(f"CSV {field} does not match requested {requested}")
         operations = int(rows[0]["ops"])
         for row in rows:
             regime, book, operation = row["regime"], row["book"], row["op"]
@@ -194,5 +197,7 @@ if __name__ == "__main__":
     parser.add_argument("path")
     parser.add_argument("--launches", type=int, help="expected launches from bench/run.sh")
     parser.add_argument("--capture-index", help="runner index of individual captures to append to the staged CSV")
+    parser.add_argument("--expected-ops", type=int, help="operation count requested from the executable")
+    parser.add_argument("--expected-seed", type=int, help="seed requested from the executable")
     args = parser.parse_args()
-    sys.exit(main(args.path, args.launches, args.capture_index))
+    sys.exit(main(args.path, args.launches, args.capture_index, args.expected_ops, args.expected_seed))

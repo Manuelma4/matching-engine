@@ -82,7 +82,7 @@ for ((run = 1; run <= RUNS; run++)); do
 done
 
 python3 bench/summarize.py "$stage/raw.csv" --launches "$RUNS" \
-    --capture-index "$stage/captures/index.tsv" >"$stage/summary.md" || {
+    --capture-index "$stage/captures/index.tsv" --expected-ops "$OPS" --expected-seed "$SEED" >"$stage/summary.md" || {
     status=$?
     cat "$stage/summary.md" >&2
     exit "$status"

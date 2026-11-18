@@ -48,6 +48,7 @@ class RunnerEvidenceTests(unittest.TestCase):
         for mode, code in (
             ("help-failure", 42), ("abort", 7), ("mismatch", 1), ("sample-mismatch", 2),
             ("help-success", 0), ("ok", 0), ("balanced-captures", 2),
+            ("wrong-ops", 2), ("wrong-seed", 2),
         ):
             with self.subTest(mode=mode), tempfile.TemporaryDirectory() as directory:
                 scratch = Path(directory)
@@ -60,8 +61,10 @@ class RunnerEvidenceTests(unittest.TestCase):
                 for name, content in previous.items():
                     (output / name).write_bytes(content)
 
+                requested_ops = "2" if mode == "wrong-ops" else "1"
+                requested_seed = "43" if mode == "wrong-seed" else "42"
                 env = os.environ | {
-                    "BIN": str(binary), "OUT": str(output), "RUNS": "2", "OPS": "1", "SEED": "42", "MODE": mode,
+                    "BIN": str(binary), "OUT": str(output), "RUNS": "2", "OPS": requested_ops, "SEED": requested_seed, "MODE": mode,
                 }
                 result = subprocess.run(
                     ["bash", "bench/run.sh"], cwd=ROOT, env=env, capture_output=True, text=True, check=False,
@@ -79,6 +82,8 @@ class RunnerEvidenceTests(unittest.TestCase):
                     self.assertEqual(
                         [row.split(b",", 1)[0] for row in rows[1::25]], forward + forward[::-1],
                     )
+                if mode.startswith("wrong-"):
+                    self.assertIn("does not match requested", result.stderr)
                 if mode == "mismatch":
                     self.assertIn("MISMATCH", result.stderr)
                 if mode == "balanced-captures":
