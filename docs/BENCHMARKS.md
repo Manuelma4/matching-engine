@@ -19,6 +19,12 @@
 | Protocol | `bench/run.sh`: 10 launches, every variant on every regime per launch, variant order alternating between launches. Medians over launches with the min–max range |
 | Raw data | [`bench/2026-10-22/`](bench/2026-10-22/): `raw.csv`, `summary.md`, `env.txt` (commit `3980a79`), `capacity.csv` |
 
+The runner stages and validates all captures before replacing `env.txt`, `raw.csv`
+and `summary.md`. An ordinary promotion error restores previously replaced reports
+or their previous absence. If restoration itself fails, the runner retains recovery
+files under the printed staging path. This rollback does not make the three-file
+publication atomic for concurrent readers or protect it from abrupt process death.
+
 ## Regimes
 
 Seed 42, 1,000,000 operations each, generated from a private xoshiro256\*\* stream so they do

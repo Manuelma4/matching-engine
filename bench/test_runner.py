@@ -1,5 +1,6 @@
 """Exercise the benchmark runner with a fake executable and small synthetic reports."""
 import os
+import shutil
 import subprocess
 import tempfile
 import unittest
@@ -56,6 +57,50 @@ REPORTS = ("env.txt", "raw.csv", "summary.md")
 
 
 class RunnerEvidenceTests(unittest.TestCase):
+    def test_promotion_failure_restores_previous_reports_or_absence(self):
+        for failed_report in REPORTS:
+            cases = [(True, False), (False, False)]
+            if failed_report != "env.txt":
+                cases.append((True, True))
+            for existing, rollback_failure in cases:
+                with self.subTest(failed_report=failed_report, existing=existing, rollback_failure=rollback_failure), tempfile.TemporaryDirectory() as directory:
+                    scratch = Path(directory)
+                    binary = scratch / "me_bench"
+                    binary.write_text(FAKE)
+                    binary.chmod(0o700)
+                    output = scratch / "reports"
+                    output.mkdir()
+                    previous = {name: f"previous {name}\n".encode() for name in REPORTS} if existing else {}
+                    for name, content in previous.items():
+                        (output / name).write_bytes(content)
+                    wrappers = scratch / "wrappers"
+                    wrappers.mkdir()
+                    move = wrappers / "mv"
+                    move.write_text('''#!/usr/bin/env bash
+if [[ "$2" == "$OUT"/.run.*/"$FAILED_REPORT" && ! -e "$FAIL_MARKER" ]]; then
+    : > "$FAIL_MARKER"
+    exit 23
+fi
+if [[ "$ROLLBACK_FAILURE" == 1 && "$2" == "$OUT"/.run.*/previous/env.txt ]]; then exit 24; fi
+exec "$REAL_MV" "$@"
+''')
+                    move.chmod(0o700)
+                    result = subprocess.run(["bash", "bench/run.sh"], cwd=ROOT, capture_output=True, text=True, check=False,
+                        env=os.environ | {"BIN": str(binary), "OUT": str(output), "RUNS": "1", "OPS": "1",
+                            "SEED": "42", "MODE": "ok", "PATH": str(wrappers) + os.pathsep + os.environ["PATH"],
+                            "REAL_MV": shutil.which("mv"), "FAILED_REPORT": failed_report,
+                            "FAIL_MARKER": str(scratch / "failed"), "ROLLBACK_FAILURE": str(int(rollback_failure))})
+                    self.assertEqual(result.returncode, 23, result.stderr)
+                    if rollback_failure:
+                        stages = list(output.glob(".run.*"))
+                        self.assertEqual(len(stages), 1, result.stderr)
+                        backup = stages[0] / "previous" / "env.txt"
+                        self.assertEqual(backup.read_bytes(), previous["env.txt"])
+                        self.assertIn(str(stages[0] / "previous"), result.stderr)
+                        self.assertIn("Report rollback failed", result.stderr)
+                    else:
+                        self.assertEqual({p.name: p.read_bytes() for p in output.iterdir()}, previous)
+
     def test_replaces_previous_reports_only_after_valid_summary(self):
         for mode, code in (
             ("help-failure", 42), ("abort", 7), ("mismatch", 1), ("sample-mismatch", 2),

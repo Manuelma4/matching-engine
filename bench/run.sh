@@ -37,7 +37,9 @@ for report in env.txt raw.csv summary.md; do
     fi
 done
 stage=$(mktemp -d "$OUT/.run.XXXXXXXX")
+keep_stage=0
 cleanup() {
+    if ((keep_stage)); then return; fi
     if [[ -d "$stage/captures" ]]; then
         rm -f "$stage"/captures/*
         rmdir "$stage/captures"
@@ -45,6 +47,12 @@ cleanup() {
     for report in env.txt raw.csv summary.md; do
         if [[ -f "$stage/$report" ]]; then unlink "$stage/$report"; fi
     done
+    if [[ -d "$stage/previous" ]]; then
+        for report in env.txt raw.csv summary.md; do
+            if [[ -f "$stage/previous/$report" ]]; then unlink "$stage/previous/$report"; fi
+        done
+        rmdir "$stage/previous"
+    fi
     rmdir "$stage"
 }
 trap cleanup EXIT
@@ -87,7 +95,33 @@ python3 bench/summarize.py "$stage/raw.csv" --launches "$RUNS" \
     cat "$stage/summary.md" >&2
     exit "$status"
 }
+mkdir "$stage/previous"
 for report in env.txt raw.csv summary.md; do
-    mv -f "$stage/$report" "$OUT/$report"
+    if [[ -f "$OUT/$report" ]]; then cp -p "$OUT/$report" "$stage/previous/$report"; fi
 done
+promoted_count=0
+keep_stage=1
+for report in env.txt raw.csv summary.md; do
+    if mv -f "$stage/$report" "$OUT/$report"; then
+        promoted_count=$((promoted_count + 1))
+    else
+        promotion_status=$?
+        restore_failed=0
+        for previous in env.txt raw.csv summary.md; do
+            if ((promoted_count == 0)); then break; fi
+            promoted_count=$((promoted_count - 1))
+            if [[ -f "$stage/previous/$previous" ]]; then
+                if ! mv -f "$stage/previous/$previous" "$OUT/$previous"; then restore_failed=1; fi
+            else
+                if ! unlink "$OUT/$previous"; then restore_failed=1; fi
+            fi
+        done
+        keep_stage=$restore_failed
+        if ((restore_failed)); then
+            printf 'Report rollback failed; recovery files retained at %s\n' "$stage/previous" >&2
+        fi
+        exit "$promotion_status"
+    fi
+done
+keep_stage=0
 cat "$OUT/summary.md"
