@@ -3,3 +3,5 @@ build-*/
 .cache/
 .DS_Store
 compile_commands.json
+# Bytecode created by the benchmark verification utilities.
+bench/__pycache__/
