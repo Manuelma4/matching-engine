@@ -5,9 +5,18 @@
 | Number | Covers | Excludes |
 |---|---|---|
 | Throughput (M ops/s) | One timer around a replay of 1,000,000 operations on a fresh book, closed loop, single thread | Book construction, workload generation |
-| Per-operation latency | Two `steady_clock` reads around each operation, percentiles per operation type | Queueing (closed loop, so there is no coordinated omission to correct) |
-| Clock resolution | Apple Silicon `steady_clock` runs on the 24 MHz system timer: every latency is a multiple of 41.67 ns, and "≤ 42" means one tick or less | Sub-tick costs, which need batch timing or hardware counters |
+| Per-operation latency | Two `steady_clock` reads around each operation and percentiles per operation type | Waiting time from an external arrival schedule, network and queueing |
+| Clock resolution | In the archived Apple M4 Pro run, the 24 MHz timebase corresponds to about 41.67 ns per tick. Values are recorded in integer nanoseconds. | Sub-tick costs, which need batch timing or hardware counters |
 | Output hash | A 64-bit FNV-1a fingerprint of report fields, trade fields and cancel results, in order | Intermediate book and queue state, and exact stream comparison. Equal fingerprints can collide. |
+
+[The benchmark](../bench/main.cpp) measures elapsed time with C++
+`steady_clock` and prints a back-to-back clock-read floor in its human-readable
+mode. The CSV captures omit that floor. The 41.67 ns note in
+[the CSV summary](../bench/summarize.py) describes the archived Apple timer and is printed regardless of the CSV host.
+For comparisons on another machine, record its clock-read floor with its
+environment and use that machine's timing resolution. The replay measures
+service time under its sequential workload. It does not establish tail latency
+under externally scheduled arrivals.
 
 ## Environment and protocol
 
