@@ -129,10 +129,13 @@ Requires CMake 3.21+ and a C++20 compiler; no third-party dependencies.
 
 ```bash
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
-cmake --build build -j
+cmake --build build --parallel 2
 ./build/me_bench --book all --regime all   # every variant on every regime
-bench/run.sh                               # full protocol, results in docs/bench/<date>/
 ```
+
+For the full repeated-run protocol, set `OUT` to a fresh directory to keep its
+reports separate from the archive. The [benchmark guide](docs/BENCHMARKS.md#reproduce)
+shows the command and how to regenerate the summary from the recorded CSV.
 
 The library is consumable with CMake `FetchContent` (`me` for the books, `me_workloads`
 for the order-flow regimes); the benchmark only builds when this is the top-level project.

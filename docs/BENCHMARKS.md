@@ -178,11 +178,24 @@ c++ -std=c++20 -O2 -Iinclude -Ibench tests/workload_fingerprint.cpp bench/worklo
 ## Reproduce
 
 ```bash
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build --parallel 2
 ./build/me_bench --book all --regime all          # one launch, human-readable
-bench/run.sh                                      # full protocol into docs/bench/<date>/
 ./build/me_bench --book ladder --max-orders 262144 --regime cancel-heavy
 ```
+
+Run the full protocol with a fresh output directory.
+
+```bash
+benchmark_out="$(mktemp -d "${TMPDIR:-/tmp}/matching-bench.XXXXXX")"
+OUT="$benchmark_out" bench/run.sh
+printf 'Reports: %s\n' "$benchmark_out"
+```
+
+The runner defaults to `docs/bench/<date>/` when `OUT` is unset. A successful
+run replaces `env.txt`, `raw.csv` and `summary.md` if they already exist there.
+Use `BIN` to select a benchmark built in another directory. Relative `BIN`
+and `OUT` paths are resolved from the repository root.
 
 The run records the full checkout commit in `env.txt`. A `-dirty` suffix marks
 staged or unstaged changes to tracked files. This identifies the source checkout
