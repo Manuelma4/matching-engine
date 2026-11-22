@@ -39,11 +39,12 @@ shares ahead before each move, the delivery horizon and the refusal rules.
 
 ### Supplementary identified-order prototype
 
-Use Python 3 from this checkout; no build or data download is required:
+Run the Python example from the parent matching-engine repository root. It uses
+only the standard library and generates its records in memory.
 
 ```bash
-python3 bench/identified_queue_demo.py
-python3 bench/identified_queue_demo.py --scenario delayed-seed
+python3 feed-handler/bench/identified_queue_demo.py
+python3 feed-handler/bench/identified_queue_demo.py --scenario delayed-seed
 ```
 
 The example generates fictional `DEMO` orders in memory and reuses the public ledger
@@ -61,20 +62,24 @@ For report identities, portable paths and private artefact boundaries, see
 
 Requires CMake 3.21+, a C++20 Clang/GCC compiler, and POSIX file mapping. There are no
 runtime third-party dependencies. From the repository root, enable
-`ME_BUILD_FEED_HANDLER` to reuse the parent targets. For a standalone build from this
-component directory, supply the parent checkout explicitly (or omit the override to
-fetch the historical pinned engine):
+`ME_BUILD_FEED_HANDLER` to reuse the parent targets. For a standalone build, run this
+block from the parent matching-engine repository root. The explicit source override
+uses the local engine checkout. Without it, CMake fetches the historical pinned engine.
 
 ```bash
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \
-  -DFETCHCONTENT_SOURCE_DIR_MATCHING_ENGINE="$(cd .. && pwd)"
-cmake --build build -j 4
+cmake -S feed-handler -B feed-handler/build -DCMAKE_BUILD_TYPE=Release \
+  -DFETCHCONTENT_SOURCE_DIR_MATCHING_ENGINE="$PWD"
+cmake --build feed-handler/build --parallel 2
 ```
 
 See [integration and historical provenance](docs/INTEGRATION.md) before running older
 measurement or source-authentication protocols from the consolidated layout.
 
 ## Use
+
+Run the commands in this section from `feed-handler/`. They use the standalone
+`build/` directory. With a combined build, the executables instead live under
+`build-combined/feed-handler/` relative to the parent repository root.
 
 ```bash
 ./build/itch_census day.itch
