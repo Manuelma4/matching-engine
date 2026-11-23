@@ -123,9 +123,12 @@ python3 bench/validate.py data/20190730.BX_ITCH_50.gz \
   --source-url 'https://emi.nasdaq.com/ITCH/Nasdaq%20BX%20ITCH/20190730.BX_ITCH_50.gz'
 ```
 
-The output directory must be new. A failed check produces a failing exit code and a
-JSON report. Market data remains local and ignored by Git. Recorded results and the
-limits of each check are in [docs/VALIDATION.md](docs/VALIDATION.md).
+Pass an existing local archive and a directory containing both built tools.
+`--source-url` records provenance without fetching the archive. Supply a new
+output directory to retain previous evidence. Once the validator completes, it
+writes `validation.json` and the census and replay logs. Use the exit status and
+the report together, since an early argument or I/O error can leave no JSON.
+Market data remains local and ignored by Git. [Validation scope](docs/VALIDATION.md)
 
 For the canonical Nasdaq day, compare the full-day report with the pinned census from
 a separate implementation:

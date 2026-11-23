@@ -153,9 +153,15 @@ python3 bench/validate.py data/20190730.BX_ITCH_50.gz \
   --source-url 'https://emi.nasdaq.com/ITCH/Nasdaq%20BX%20ITCH/20190730.BX_ITCH_50.gz'
 ```
 
-The output directory must be new. A corrupted archive, incomplete record, tool failure
-or failed lifecycle criterion produces a non-zero exit code and failed JSON evidence.
-The runner's elapsed times include Python, gzip, hashing and pipes; use the C++ benchmark
+The Python runner checks that the archive and both tools exist and that the
+output directory is new. It then streams the archive through `itch_census` and
+`itch_replay` separately. When it reaches report generation, exit 0 means all
+checks passed and exit 1 means `validation.json` records a failed check.
+Missing inputs or a reused directory produce a usage error before those reports.
+An execution or write error can leave only partial output. A recorded source URL
+is provenance metadata. The validator reads the local archive.
+
+The runner includes Python, gzip, hashing and pipe I/O. Use the C++ benchmark
 for per-layer costs.
 
 The same decompressed bytes were replayed through mmap. Message count, all lifecycle
