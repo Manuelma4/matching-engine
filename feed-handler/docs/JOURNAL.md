@@ -147,26 +147,44 @@ write/close failures are fatal. A partial checkpoint file is not success evidenc
 
 ## Reproduction
 
-Run from the repository root with fresh output paths. Creation/verification JSON is
-aggregate; journal payloads and detailed checkpoints stay in ignored local storage.
+Run the setup from the parent `matching-engine/` checkout. It builds the replay
+tool with the bundled engine and switches to the directory containing the journal
+scripts. Place the decompressed BinaryFILE under `feed-handler/data/` first. The
+canonical example needs room for two journals of about 8.25 GB each, plus the raw
+input and reports.
 
 ```bash
-mkdir -p out
-python3 bench/journal.py create data/12302019.NASDAQ_ITCH50.itch \
-  out/canonical-v1-a.jnl > out/canonical-v1-a.create.json
-python3 bench/journal.py verify out/canonical-v1-a.jnl \
-  > out/canonical-v1-a.verify.json
-python3 bench/journal.py create data/12302019.NASDAQ_ITCH50.itch \
-  out/canonical-v1-b.jnl > out/canonical-v1-b.create.json
-cmp out/canonical-v1-a.jnl out/canonical-v1-b.jnl
-cmake --build build --target itch_journal_replay -j2
-./build/itch_journal_replay --raw --checkpoint-every 10000000 \
-  --checkpoints out/canonical.raw.checkpoints.csv \
-  data/12302019.NASDAQ_ITCH50.itch > out/canonical.raw.replay.json
-./build/itch_journal_replay --checkpoint-every 10000000 \
-  --checkpoints out/canonical.journal.checkpoints.csv \
-  out/canonical-v1-a.jnl > out/canonical.journal.replay.json
-cmp out/canonical.raw.checkpoints.csv out/canonical.journal.checkpoints.csv
+cmake -S . -B build-combined -DCMAKE_BUILD_TYPE=Release -DME_BUILD_FEED_HANDLER=ON
+cmake --build build-combined --target itch_journal_replay --parallel 2
+cd feed-handler
+source_file="data/12302019.NASDAQ_ITCH50.itch"
+replay_tool="../build-combined/feed-handler/itch_journal_replay"
+test -f "$source_file" && test -x "$replay_tool"
+```
+
+Run either reproduction below in the same shell once the preflight succeeds.
+Each creates a fresh directory under the ignored `out/` directory.
+
+### Manual comparison
+
+```bash
+(
+  set -eu
+  mkdir -p out
+  journal_out="$(mktemp -d out/journal-manual.XXXXXX)"
+  python3 bench/journal.py create "$source_file" "$journal_out/a.jnl" > "$journal_out/a.create.json"
+  python3 bench/journal.py verify "$journal_out/a.jnl" > "$journal_out/a.verify.json"
+  python3 bench/journal.py create "$source_file" "$journal_out/b.jnl" > "$journal_out/b.create.json"
+  cmp "$journal_out/a.jnl" "$journal_out/b.jnl"
+  "$replay_tool" --raw --checkpoint-every 10000000 \
+    --checkpoints "$journal_out/raw.checkpoints.csv" \
+    "$source_file" > "$journal_out/raw.replay.json"
+  "$replay_tool" --checkpoint-every 10000000 \
+    --checkpoints "$journal_out/journal.checkpoints.csv" \
+    "$journal_out/a.jnl" > "$journal_out/journal.replay.json"
+  cmp "$journal_out/raw.checkpoints.csv" "$journal_out/journal.checkpoints.csv"
+  printf 'Reports: %s\n' "$journal_out"
+)
 ```
 
 Require successful exits and `passed: true` in all reports. The raw and journal replay
@@ -175,19 +193,27 @@ stored `source_sha256`), while message/byte counts, lifecycle counters, checkpoi
 counts and semantic fingerprints should agree. Verify the stored source digest
 separately with Python; C++ success never upgrades its identity-verification flag.
 
-The aggregate evidence harness performs both creations, all three replays, exact
-checkpoint-file identity and non-empty intermediate coverage checks:
+### Aggregate evidence harness
+
+The harness performs both creations, all three replays, exact checkpoint-file
+identity and non-empty intermediate coverage checks. The expected digest below
+applies to the decompressed canonical Nasdaq input.
 
 ```bash
-python3 bench/validate_journal.py data/12302019.NASDAQ_ITCH50.itch \
-  --replay-tool build/itch_journal_replay --output out/journal-reproduction \
-  --report docs/validation/journal-reproduction.json \
-  --expected-sha256 5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f
+(
+  set -eu
+  mkdir -p out
+  journal_out="$(mktemp -d out/journal-harness.XXXXXX)"
+  python3 bench/validate_journal.py "$source_file" \
+    --replay-tool "$replay_tool" --output "$journal_out/run" \
+    --expected-sha256 5d81c2e14a0f748b29c674b6a342796932702034b4dd341e39e9a9ec5bac610f
+)
 ```
 
-This measures integrity and equivalence, including hashing, I/O and state walks;
-it is not a performance benchmark. Chapter 12 of the workspace's `LEARNING.md`
-provides a bounded, reproducible exercise exposing equal-timestamp FIFO order.
+The harness writes its aggregate report to `run/evidence.json` under the fresh
+output directory. Its elapsed time includes hashing, I/O and state walks.
+Chapter 12 of the workspace's `LEARNING.md` provides a bounded exercise
+exposing equal-timestamp FIFO order.
 
 ## Canonical Nasdaq evidence, 2026-10-22
 
