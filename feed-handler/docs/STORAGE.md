@@ -22,15 +22,17 @@ layout to every consumer of the `itch` target. This matters because the index is
 member of the public `L3Book` class. Do not mix a library and headers compiled with
 different settings in one process.
 
+Configure both builds from the parent `matching-engine/` checkout against the
+same local engine source. Run the remaining examples from `feed-handler/`.
+
 ```bash
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \
-  -DFETCHCONTENT_SOURCE_DIR_MATCHING_ENGINE=../matching-engine \
-  -DITCH_REFERENCE_INDEX=open_addressed
-cmake --build build -j4
-cmake -S . -B build-std-index -DCMAKE_BUILD_TYPE=Release \
-  -DFETCHCONTENT_SOURCE_DIR_MATCHING_ENGINE=../matching-engine \
-  -DITCH_REFERENCE_INDEX=std_unordered
-cmake --build build-std-index -j4
+cmake -S feed-handler -B feed-handler/build-storage-open -DCMAKE_BUILD_TYPE=Release \
+  -DFETCHCONTENT_SOURCE_DIR_MATCHING_ENGINE="$PWD" -DITCH_REFERENCE_INDEX=open_addressed
+cmake --build feed-handler/build-storage-open --target itch_journal_replay itch_storage_bench --parallel 2
+cmake -S feed-handler -B feed-handler/build-storage-std -DCMAKE_BUILD_TYPE=Release \
+  -DFETCHCONTENT_SOURCE_DIR_MATCHING_ENGINE="$PWD" -DITCH_REFERENCE_INDEX=std_unordered
+cmake --build feed-handler/build-storage-std --target itch_journal_replay itch_storage_bench --parallel 2
+cd feed-handler
 ```
 
 An allocating index changes the failure cases. Adding an order stages the reference
@@ -70,9 +72,9 @@ The mapped timing process's peak also includes input pages, which can dominate a
 high-water marks nor an assumption about node size measures the index footprint.
 
 ```bash
-./build/itch_storage_bench --max-orders 2097152 --max-levels 2097152 \
+./build-storage-open/itch_storage_bench --max-orders 2097152 --max-levels 2097152 \
   data/12302019.NASDAQ_ITCH50.itch
-./build/itch_storage_bench --memory --max-orders 2097152 --max-levels 2097152 \
+./build-storage-open/itch_storage_bench --memory --max-orders 2097152 --max-levels 2097152 \
   data/12302019.NASDAQ_ITCH50.itch
 ```
 
@@ -103,15 +105,23 @@ and launch order; report median and min–max range. Do not run other developmen
 or heavy validation simultaneously. Prefaulting does not prevent later OS eviction,
 and this desktop protocol does not provide CPU pinning or thermal control.
 
-The runner command is:
+With both decompressed inputs already under `feed-handler/data/`, run:
 
 ```bash
-python3 bench/compare_storage.py --open-dir build --std-dir build-std-index \
-  --case nasdaq data/12302019.NASDAQ_ITCH50.itch 2097152 \
-  --case bx data/20190730.BX_ITCH_50.itch 131072 \
-  --runs 6 --checkpoint-every 1000000 --output out/storage-comparison \
-  --report docs/validation/storage-comparison.json
+(
+  set -eu
+  mkdir -p out
+  storage_out="$(mktemp -d out/storage-comparison.XXXXXX)"
+  python3 bench/compare_storage.py --open-dir build-storage-open --std-dir build-storage-std \
+    --case nasdaq data/12302019.NASDAQ_ITCH50.itch 2097152 \
+    --case bx data/20190730.BX_ITCH_50.itch 131072 \
+    --runs 6 --checkpoint-every 1000000 --output "$storage_out/run"
+  printf 'Report: %s\n' "$storage_out/run/evidence.json"
+)
 ```
+
+The runner creates the new `run` directory and writes its aggregate
+`evidence.json` there. Keep the recorded results below as historical evidence.
 
 ## Recorded results, 2026-10-22
 
