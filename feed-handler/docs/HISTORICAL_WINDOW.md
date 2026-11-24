@@ -104,20 +104,30 @@ retrospective data validation, not information available to a strategy at execut
 
 ## CLI and retained provenance
 
-Build from the repository root:
+From the parent `matching-engine/` checkout, build the combined target.
+Prepare the full decompressed Nasdaq BinaryFILE under `feed-handler/data/`.
+The adapter checks the whole source even when the requested window is short.
 
 ```bash
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \
-  -DFETCHCONTENT_SOURCE_DIR_MATCHING_ENGINE=../matching-engine
-cmake --build build --target itch_queue_window -j 4
-mkdir -p out
-mkdir out/window-example-1
-./build/itch_queue_window --symbol MSFT --side buy --price4 1589000 \
-  --start-ns 34214907518545 --end-ns 34214938994341 \
-  --out out/window-example-1/MSFT.csv \
-  --provenance out/window-example-1/MSFT.provenance.csv \
-  data/12302019.NASDAQ_ITCH50.itch > out/window-example-1/MSFT.json
+(
+  set -eu
+  source_file="feed-handler/data/12302019.NASDAQ_ITCH50.itch"
+  test -f "$source_file"
+  cmake -S . -B build-combined -DCMAKE_BUILD_TYPE=Release -DME_BUILD_FEED_HANDLER=ON
+  cmake --build build-combined --target itch_queue_window --parallel 2
+  mkdir -p feed-handler/out
+  window_out="$(mktemp -d feed-handler/out/window-example.XXXXXX)"
+  ./build-combined/feed-handler/itch_queue_window --symbol MSFT --side buy --price4 1589000 \
+    --start-ns 34214907518545 --end-ns 34214938994341 \
+    --out "$window_out/MSFT.csv" --provenance "$window_out/MSFT.provenance.csv" \
+    "$source_file" > "$window_out/MSFT.json"
+  printf 'Projection and evidence: %s\n' "$window_out"
+)
 ```
+
+The summary redirect can create an empty file on failure. Require a successful
+exit and inspect the JSON and both CSV files before using the projection.
+Each run uses a fresh directory under the ignored `feed-handler/out/` path.
 
 `--max-orders N` optionally reduces order capacity; level capacity becomes the smaller
 of the default level count and that order count. Unsigned values reject signs,
