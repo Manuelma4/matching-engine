@@ -97,10 +97,20 @@ fixture and detailed control discrepancies stay under `out/`.
 
 ## Reproduce the pinned build and comparison
 
-Run from the repository root. Use fresh output paths on each run. The source
-archive avoids creating an external Git checkout or branch. Inspect its CMake and
-replay source before building. Only `book_replay` is needed; its prerequisites are
-CMake 3.20+, C++20, zlib and Threads.
+Build the local exporter from the parent `matching-engine/` checkout. It uses
+the matching engine from that checkout.
+
+```bash
+cmake -S . -B build-combined -DCMAKE_BUILD_TYPE=Release -DME_BUILD_FEED_HANDLER=ON
+cmake --build build-combined --target itch_snapshots --parallel 2
+cd feed-handler
+```
+
+Run the remaining commands from `feed-handler/`. The pinned source archive
+avoids creating an additional Git checkout or branch. Skip download and
+extraction if the verified source is already present. Inspect the reference
+CMake definition and replay source before building. Only `book_replay` is
+needed, with CMake 3.20+, C++20, zlib and Threads.
 
 ```bash
 mkdir -p data/reference
@@ -110,27 +120,32 @@ curl --fail --location \
 tar -xzf data/reference/itchbook-3c646f9.tar.gz -C data/reference
 cmake -S data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773 \
   -B data/reference/build-3c646f9 -DCMAKE_BUILD_TYPE=Release
-cmake --build data/reference/build-3c646f9 --target book_replay -j2
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \
-  -DFETCHCONTENT_SOURCE_DIR_MATCHING_ENGINE=../matching-engine
-cmake --build build --target itch_snapshots -j2
+cmake --build data/reference/build-3c646f9 --target book_replay --parallel 2
 ```
 
-Skip download/extraction when the verified pinned source is already present. With
-the previously identified archive and raw BinaryFILE available, the full comparison is:
+With the identified gzip archive and raw BinaryFILE under `data/`, put each
+run's private work directory and aggregate report at separate paths:
 
 ```bash
-python3 bench/compare_bbo.py \
-  --local-tool build/itch_snapshots \
-  --reference-tool data/reference/build-3c646f9/book_replay \
-  --reference-source data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773 \
-  --archive data/12302019.NASDAQ_ITCH50.gz \
-  --raw-input data/12302019.NASDAQ_ITCH50.itch \
-  --symbol MSFT --symbol QQQ --symbol ALLE --symbol AQB --symbol MKD \
-  --interval-ms 1000 \
-  --output out/bbo-reproduction-1s \
-  --report docs/validation/bbo-reproduction-1s.json
+(
+  set -eu
+  mkdir -p out
+  run_dir="$(mktemp -d out/bbo-reproduction-1s.XXXXXX)"
+  python3 bench/compare_bbo.py \
+    --local-tool ../build-combined/feed-handler/itch_snapshots \
+    --reference-tool data/reference/build-3c646f9/book_replay \
+    --reference-source data/reference/itchbook-3c646f9da182136125059243b475f7b8baa53773 \
+    --archive data/12302019.NASDAQ_ITCH50.gz \
+    --raw-input data/12302019.NASDAQ_ITCH50.itch \
+    --symbol MSFT --symbol QQQ --symbol ALLE --symbol AQB --symbol MKD \
+    --interval-ms 1000 \
+    --output "$run_dir/private" \
+    --report "$run_dir/report.json"
+)
 ```
+
+Both paths are under ignored `out/`. The runner requires fresh paths and an
+aggregate report outside the private work directory.
 
 The reference receives the gzip archive; the local exporter receives raw bytes.
 The runner decompresses the archive itself, checking gzip integrity, and requires
