@@ -213,8 +213,27 @@ Gate 11 subsequently completes that selected-locate connection in
 keys and separately scoped equal-time/identical-body controls. The figures above remain
 the original wholly synthetic Gate 10 baseline. Neither increment adds network recovery.
 
-From the workspace root, the existing private harness and frozen ignored fixture can
-repeat the check on the current clean `main` without switching branches:
+## Build the public library
+
+From the Matching Engine repository root:
+
+```sh
+cmake -S . -B build-mold -DME_BUILD_FEED_HANDLER=ON -DME_BUILD_BENCH=OFF
+cmake --build build-mold --target itch_mold --parallel 2
+```
+
+This builds the transport library and uses the headers under
+[`feed-handler/include/itch/`](../include/itch/). The root build reuses the
+combined checkout's engine targets and the `itch_mold` target itself has no
+order-book dependency. The build requires CMake 3.21 or later and a C++20
+compiler. It needs no market data and performs no replay.
+
+## Private verification rerun
+
+The recorded verification used the original workspace layout, with separate
+`itch-feed-handler` and `itch-feed-handler-tests` checkouts. From that workspace
+root, its private harness and frozen ignored fixture can repeat the check on the
+source checkout's clean `main`:
 
 ```bash
 mold_source_commit=$(git -C itch-feed-handler rev-parse HEAD)
