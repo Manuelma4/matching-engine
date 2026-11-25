@@ -165,16 +165,19 @@ nor an executable liquidation value. The model has no exit-order or liquidation 
 
 ## Reproduce a hand-worked cancellation example
 
-Run from the repository root with a fresh output directory. These deliberately small
-synthetic times make the schedule easy to inspect; they are not calibrated latencies.
+Run from the Matching Engine repository root. The root build uses this checkout's
+engine targets. The synthetic trace and reports go to a fresh ignored directory
+under `feed-handler/out/`. The model clocks use small, deliberately chosen values.
 
 ```bash
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \
-  -DFETCHCONTENT_SOURCE_DIR_MATCHING_ENGINE=../matching-engine
-cmake --build build --target itch_queue_sim -j2
-mkdir -p out
-mkdir out/queue-tutorial-1
-cat > out/queue-tutorial-1/trace.csv <<'CSV'
+(
+set -eu
+cmake -S . -B build-queue-tutorial -DCMAKE_BUILD_TYPE=Release \
+  -DME_BUILD_FEED_HANDLER=ON -DME_BUILD_BENCH=OFF
+cmake --build build-queue-tutorial --target itch_queue_sim --parallel 2
+mkdir -p feed-handler/out
+run=$(mktemp -d feed-handler/out/queue-tutorial.XXXXXX)
+cat > "$run/trace.csv" <<'CSV'
 timestamp_ns,kind,quantity,opposite_price4
 0,seed,100,10010
 15,add,20,0
@@ -187,13 +190,15 @@ timestamp_ns,kind,quantity,opposite_price4
 CSV
 for model in optimistic conservative
 do
-  ./build/itch_queue_sim --side buy --price4 10000 --quantity 10 \
+  ./build-queue-tutorial/feed-handler/itch_queue_sim --side buy --price4 10000 --quantity 10 \
     --decision-ns 10 --cancel-ns 65 --horizon-ns 80 \
     --feed-delay-ns 10 --order-delay-ns 10 --response-delay-ns 5 \
     --cancel-model "$model" --fee4 1 \
-    --audit "out/queue-tutorial-1/$model.audit.csv" \
-    out/queue-tutorial-1/trace.csv > "out/queue-tutorial-1/$model.json"
+    --audit "$run/$model.audit.csv" \
+    "$run/trace.csv" > "$run/$model.json"
 done
+printf 'Reports: %s\n' "$run"
+)
 ```
 
 The 156-byte, eight-row trace gives the following causal path:
