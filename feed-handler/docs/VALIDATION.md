@@ -171,6 +171,36 @@ counters, the final hash and the ranked volume rows matched the streaming report
 
 ## Engine loopback
 
+### Small local correctness check
+
+From the Matching Engine repository root, build the two targets and write the
+generated BinaryFILE and reports to a fresh ignored directory.
+
+```bash
+(
+  set -euo pipefail
+  cmake -S . -B build-loopback-smoke -DME_BUILD_FEED_HANDLER=ON -DME_BUILD_BENCH=OFF
+  cmake --build build-loopback-smoke --target itch_loopback itch_replay --parallel 2
+  mkdir -p feed-handler/out
+  run=$(mktemp -d feed-handler/out/loopback-smoke.XXXXXX)
+  tools=build-loopback-smoke/feed-handler
+  "$tools/itch_loopback" --ops 200 --seed 42 --out "$run/synthetic.itch" > "$run/loopback.txt"
+  "$tools/itch_replay" --allow-partial "$run/synthetic.itch" > "$run/replay.txt"
+  generated_hash=$(awk '$1=="book" && $2=="hash" {print $3}' "$run/loopback.txt")
+  replayed_hash=$(awk '$1=="book" && $2=="hash" {print $3}' "$run/replay.txt")
+  test -n "$generated_hash" && test "$generated_hash" = "$replayed_hash"
+  printf 'Matching book hash %s in %s\n' "$generated_hash" "$run"
+)
+```
+
+This uses 200 operations per synthetic instrument. Loopback checks the replica
+against the matching book. The separate replay reopens the generated file and
+checks the same final hash. Because the synthetic stream can retain resting
+orders at session end, the replay uses the partial-session policy. The check
+requires no market archive and makes no throughput claim.
+
+### Recorded large run
+
 Five synthetic instruments, one per matching-engine regime, seed 42, 1,000,000
 operations per instrument:
 
