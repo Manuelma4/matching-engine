@@ -24,8 +24,11 @@ harnesses and build/check receipts remain outside the public source tree.
 The copied aggregate reports document experiments run before consolidation. Their
 source commits, executable hashes, original input/output hashes and portable path
 labels retain their original meanings. They are not hashes of newly built binaries
-or evidence that consolidation repeated the experiment. No new independently checked
-historical state is added: the retained displayed-depth/FIFO scope is 37 distinct states.
+or evidence that consolidation repeated the experiment. The
+[consolidation checks](validation/2026-10-23-consolidation/README.md) added no new
+historical state. The earlier same-price comparison reached 37 distinct states.
+The subsequent [verified later-session comparison](validation/2026-10-23-later-session-l3/README.md)
+added four, bringing the recorded coverage to 41 distinct displayed-depth/FIFO states.
 
 Some historical measurement and authenticated-source producers deliberately pin old
 Git commits, private artefacts and sibling-checkout paths, including the level-search
@@ -35,10 +38,11 @@ using `../matching-engine` describe that sibling layout. For a new standalone bu
 here, the engine is the parent directory instead. Keep the original checkout and
 private evidence when auditing those historical records.
 
-The [later-session contract](LATER_SESSION_L3.md) is prospective: noon and 15:30 for
-MSFT/QQQ are planned source cuts, not four validated new states. Private synthetic
-selection checks cannot replace canonical source authentication and complete book
-comparison. No queue, session-status or fill admission follows from this migration.
+The [later-session contract](LATER_SESSION_L3.md) records the fixed noon and 15:30
+targets for MSFT and QQQ. The separate comparison report records their actual source
+boundaries and complete displayed-order results. Those four checks cover sampled
+historical reconstructions. Actual exchange priority, session status and fills require
+separate evidence.
 
 ## Verified migration checks
 
