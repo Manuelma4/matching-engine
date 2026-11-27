@@ -140,6 +140,9 @@ shows the command and how to regenerate the summary from the recorded CSV.
 The library is consumable with CMake `FetchContent` (`me` for the books, `me_workloads`
 for the order-flow regimes); the benchmark only builds when this is the top-level project.
 
+The [synthetic FIFO check](docs/FIFO_CHECK.md) builds the engine library and
+verifies one replace, partial fill and cancel trace across all five book variants.
+
 ## Build the feed handler in this repository
 
 The engine-only build remains the default. To build both components without fetching
