@@ -39,8 +39,9 @@ if(ME_BUILD_BENCH)
   target_link_libraries(me_bench PRIVATE me_workloads me_warnings)
 endif()
 
+# Refresh CTest registration when an existing build turns the checks off.
+enable_testing()
 if(ME_BUILD_TESTS)
-  enable_testing()
   add_executable(me_check_level_volume tests/level_volume.cpp)
   target_link_libraries(me_check_level_volume PRIVATE me me_warnings)
   add_test(NAME me_level_volume COMMAND me_check_level_volume)
