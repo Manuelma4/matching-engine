@@ -115,13 +115,17 @@ queue position after each operation, run under AddressSanitizer and
 UndefinedBehaviorSanitizer.
 
 The standalone regression covers level-volume saturation and checks the exact fill order
-after same-price modifications across all five book variants. Run it with:
+after same-price modifications across all five book variants. Enable it with
+the public workload-fingerprint check in a separate build directory:
 
 ```bash
-mkdir -p build
-c++ -std=c++20 -Iinclude tests/level_volume.cpp src/book_v1.cpp src/book.cpp -o build/check-level-volume
-./build/check-level-volume
+cmake -S . -B build-checks -DME_BUILD_TESTS=ON -DME_BUILD_BENCH=OFF
+cmake --build build-checks --parallel 2
+ctest --test-dir build-checks --output-on-failure
 ```
+
+These two checks cover level volume and order priority, and the first 105,000
+generated inputs per regime at seed 42. They do not run the benchmark.
 
 ## Build and reproduce
 

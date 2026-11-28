@@ -14,6 +14,7 @@ endif()
 
 option(ME_SANITIZE "Build with AddressSanitizer + UndefinedBehaviorSanitizer" OFF)
 option(ME_BUILD_BENCH "Build the benchmark" ${PROJECT_IS_TOP_LEVEL})
+option(ME_BUILD_TESTS "Build the public engine regression checks" OFF)
 option(ME_BUILD_FEED_HANDLER "Build the offline feed-handler component" OFF)
 
 add_library(me_warnings INTERFACE)
@@ -36,6 +37,17 @@ target_link_libraries(me_workloads PUBLIC me PRIVATE me_warnings)
 if(ME_BUILD_BENCH)
   add_executable(me_bench bench/main.cpp)
   target_link_libraries(me_bench PRIVATE me_workloads me_warnings)
+endif()
+
+if(ME_BUILD_TESTS)
+  enable_testing()
+  add_executable(me_check_level_volume tests/level_volume.cpp)
+  target_link_libraries(me_check_level_volume PRIVATE me me_warnings)
+  add_test(NAME me_level_volume COMMAND me_check_level_volume)
+
+  add_executable(me_check_workload tests/workload_fingerprint.cpp)
+  target_link_libraries(me_check_workload PRIVATE me_workloads me_warnings)
+  add_test(NAME me_workload_fingerprint COMMAND me_check_workload)
 endif()
 
 # Reuse this checkout's shared primitives and workloads in the feed replica.
